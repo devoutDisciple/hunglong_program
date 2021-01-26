@@ -1,0 +1,27 @@
+/* pages/home/home.wxss */
+.login_btn{
+    /* background: url("asserts/tabBar/home.png"); */
+    position: relative;
+}
+.btn{
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 100%;
+    opacity: 0;
+    border: none;
+    z-index: 10;
+}
+.btn::after {
+    border: none;
+}
+.txt{
+    position: absolute;
+    left: 100px;
+    top: 20px;
+    z-index: 1;
+}
+.login_bg{
+    width: 100%;
+    height: 100px;
+}

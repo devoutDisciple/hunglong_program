@@ -1,0 +1,11 @@
+<view class='topbar' bindtap="mytap">
+  <view class='status' style="height:{{statusHeight}}px"></view>
+  <view class='navbar' style="height:{{navHeight}}px">
+    <view class='navbar_back' bindtap='backClick'>
+      <!-- <image src='../images/black_back.png'></image> -->
+    </view>
+    <view class='navbar_title' style="height:{{navHeight}}px">
+      <view >{{hello}}</view>
+    </view>
+  </view>
+</view>

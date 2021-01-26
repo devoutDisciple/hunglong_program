@@ -1,0 +1,8 @@
+<!--pages/home/home.wxml-->
+<van-button bindtap="getUserInfo" type="primary">主要按钮</van-button>
+
+<view class="login_btn">
+    <button class="btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo" plain="{{true}}">获取用户信息</button>
+    <image class="login_bg" src="/asserts/tabBar/login_btn.png" />
+    <text class="txt">登录</text>
+</view>
