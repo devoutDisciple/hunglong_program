@@ -5,7 +5,7 @@
       <!-- <image src='../images/black_back.png'></image> -->
     </view>
     <view class='navbar_title' style="height:{{navHeight}}px">
-      <view >{{hello}}</view>
+        <view >{{hello}}</view>
     </view>
   </view>
 </view>

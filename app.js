@@ -1,8 +1,6 @@
 App({
-  onLaunch() {
-
-  },
-  globalData: {
-    userInfo: null,
-  },
+	onLaunch() {},
+	globalData: {
+		userInfo: null,
+	},
 });

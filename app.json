@@ -13,7 +13,9 @@
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {
-    "van-button": "@vant/weapp/button/index"
+    "van-button": "@vant/weapp/button/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-popup": "@vant/weapp/popup/index"
   },
   "sitemapLocation": "sitemap.json",
   "permission": {
