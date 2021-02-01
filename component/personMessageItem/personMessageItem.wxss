@@ -1,1 +1,29 @@
-/* component/personMessageItem/personMessageItem.wxss */
+.msg_item{
+    height: 100rpx;
+    line-height: 100rpx;
+    display: flex;
+    flex-direction: row;
+    padding: 0 20rpx;
+    border-bottom: 1rpx solid #f8f8f8;
+}
+.msg_label {
+    width: 200rpx;
+    color: #3f3f3f;
+}
+.msg_value {
+    flex: 1;
+    text-align: right;
+    color: #acacac;
+}
+.msg_value image {
+    height: 60rpx;
+    margin-top: 20rpx;
+}
+.msg_icon {
+    width: 50rpx;
+    text-align: right;
+    color: #acacac;
+}
+.msg_icon  image{
+    height: 22rpx;
+}

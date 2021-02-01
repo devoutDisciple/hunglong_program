@@ -17,7 +17,8 @@
   "usingComponents": {
     "van-button": "@vant/weapp/button/index",
     "van-notice-bar": "@vant/weapp/notice-bar/index",
-    "van-popup": "@vant/weapp/popup/index"
+    "van-popup": "@vant/weapp/popup/index",
+    "van-icon": "@vant/weapp/icon/index"
   },
   "sitemapLocation": "sitemap.json",
   "permission": {

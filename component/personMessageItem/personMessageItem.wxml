@@ -1,5 +1,14 @@
-<view class="message_item">
-    <text>昵称</text>
-    <text>张振</text>
-    <text>></text>
+<view class="msg_item">
+    <view class="msg_label">
+        <text>{{label}}</text>
+    </view>
+    <view wx:if="{{type==='txt'}}" class="msg_value" bindtap="click" data-key="{{key}}">
+        <text>{{value}}</text>
+    </view>
+     <view wx:if="{{type==='photo'}}" class="msg_value" bindtap="click" data-key="{{key}}">
+        <image src="/asserts/public/photo.png" mode="heightFix"/>
+    </view>
+    <view class="msg_icon">
+        <image src="/asserts/public/arrow.png" mode="heightFix"/>
+    </view>
 </view>

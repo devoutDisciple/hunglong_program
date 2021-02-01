@@ -1,4 +1,11 @@
 <view class="container">
-    <message-item label="昵称" value="张振">
-    </message-item>
+    <message-item label="头像" value="张振" key="photo" bindclick="itemClick" type="photo"/>
+    <message-item label="昵称" value="张振" key="name" bindclick="itemClick" type="txt"/>
+    <message-item label="性别" value="男" key="sex" bindclick="itemClick" type="txt"/>
+    <message-item label="出生年月" value="2020-01-11" key="age" bindclick="itemClick" type="txt"/>
+    <message-item label="地区" value="杭州市" key="area" bindclick="itemClick" type="txt"/>
+    <message-item label="选择年级" value="高一" key="class" bindclick="itemClick" type="txt"/>
+    <message-item label="选择学校" value="杭州高中" key="school" bindclick="itemClick" type="txt"/>
+    <message-item label="选择主页背景" value="" key="background" bindclick="itemClick" type="photo"/>
+    <message-item label="个性签名" value="hello wolrd" key="sign" bindclick="itemClick" type="txt"/>
 </view>
