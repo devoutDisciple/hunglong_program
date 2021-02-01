@@ -1,4 +1,4 @@
-<view class="container">
+<scroll-view scroll-y class="container">
     <message-item label="头像" value="张振" key="photo" bindclick="itemClick" type="photo"/>
     <message-item label="昵称" value="张振" key="name" bindclick="itemClick" type="txt"/>
     <message-item label="性别" value="男" key="sex" bindclick="itemClick" type="txt"/>
@@ -8,4 +8,4 @@
     <message-item label="选择学校" value="杭州高中" key="school" bindclick="itemClick" type="txt"/>
     <message-item label="选择主页背景" value="" key="background" bindclick="itemClick" type="photo"/>
     <message-item label="个性签名" value="hello wolrd" key="sign" bindclick="itemClick" type="txt"/>
-</view>
+</scroll-view>
