@@ -1,0 +1,4 @@
+<view class="container">
+    <message-item label="昵称" value="张振">
+    </message-item>
+</view>

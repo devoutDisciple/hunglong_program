@@ -1,3 +1,23 @@
-<view>
-    <van-button type="primary" bindtap="click">点击</van-button>
+<view class="container">
+    <view class="content">
+        <view class="logo">
+            <image mode="heightFix" src="/asserts/public/logo.png"/>
+        </view>
+        <view class="welcome">
+            <text>欢迎登录</text>
+        </view>
+        <view class="req">
+            <text>申请获取你的微信绑定账号</text>
+        </view>
+        <view class="btn">
+            <image src="/asserts/public/login_btn.png"  />
+            <view class="btn_txt">
+                <text>微信授权快捷登录</text>
+            </view>
+            <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="btn_wei"></button>
+        </view>
+    </view>
+    <view class="privacy">
+        登录注册表示同意用户<text class="privacy_txt">协议、隐私条款</text>
+    </view>
 </view>

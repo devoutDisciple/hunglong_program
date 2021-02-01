@@ -1,0 +1,5 @@
+<view class="message_item">
+    <text>昵称</text>
+    <text>张振</text>
+    <text>></text>
+</view>

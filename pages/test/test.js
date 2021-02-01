@@ -1,21 +1,53 @@
-// pages/login/login.js
+// pages/home/home.js
 Page({
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-		userInfo: {},
+		show: false,
+	},
+
+	getUserInfo: function () {
+		wx.navigateTo({
+			url: '../login/login',
+		});
+	},
+
+	hello: function () {
+		const { animationClass } = this.data;
+		const flag = animationClass === 'circle_small' || !animationClass;
+		this.setData({
+			animationClass: flag ? 'circle_big' : 'circle_small',
+			animationMask: flag ? 'mask_big' : 'mask_small',
+		});
+	},
+
+	showPopup: function () {
+		console.log(111);
+		this.setData({
+			show: true,
+		});
+	},
+
+	onClose: function () {
+		console.log(2222);
+		this.setData({
+			show: false,
+		});
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function () {},
-
-	getUserInfo: function (e) {
-		if (e && e.detail && e.detail.errMsg === 'getUserInfo:ok') {
-			this.setData({ userInfo: e.detail.userInfo });
-		}
+	onLoad: function (options) {
+		console.log(options);
+		wx.showTabBarRedDot({
+			index: 1,
+		});
+		wx.setTabBarBadge({
+			index: 1,
+			text: '10',
+		});
 	},
 
 	/**

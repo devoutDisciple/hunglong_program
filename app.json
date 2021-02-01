@@ -4,7 +4,9 @@
     "pages/my/my",
     "pages/circle/circle",
     "pages/message/message",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/test/test",
+    "pages/personMessage/personMessage"
   ],
   "window": {
     "backgroundTextStyle": "light",
