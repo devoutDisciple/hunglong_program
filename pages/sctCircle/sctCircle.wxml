@@ -1,2 +1,3 @@
-<!--pages/sctCircle/sctCircle.wxml-->
-<text>pages/sctCircle/sctCircle.wxml</text>
+<scroll-view class="container">
+    <circle-item></circle-item>
+</scroll-view>

@@ -1,2 +1,10 @@
-<!--component/setCircle/setCircle.wxml-->
-<text>component/setCircle/setCircle.wxml</text>
+<view class="circle">
+    <view class="title">
+        <view class="title_name">我关注的圈子</view>
+        <view class="title_manager">
+            <text>找不到感兴趣的圈子?</text>
+             <text>我要反馈</text>
+             <text>111</text>
+        </view>
+    </view>
+</view>
