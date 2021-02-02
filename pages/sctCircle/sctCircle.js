@@ -3,7 +3,33 @@ Page({
 	/**
 	 * 页面的初始数据
 	 */
-	data: {},
+	data: {
+		cricleList: [
+			{
+				plateId: 1,
+				title: '文化圈子',
+				cricleList: [
+					{ id: 1, name: '语文' },
+					{ id: 5, name: '数学' },
+					{ id: 2, name: '数学啊' },
+					{ id: 3, name: '语文语文' },
+					{ id: 4, name: '语文语文语文' },
+				],
+			},
+			{
+				plateId: 6,
+				title: '科学圈子',
+				cricleList: [
+					{ id: 1, name: '物理' },
+					{ id: 5, name: '化学' },
+					{ id: 2, name: '数理化' },
+					{ id: 3, name: '物理物理' },
+					{ id: 4, name: '物理物理物' },
+					{ id: 5, name: '物理物理物物' },
+				],
+			},
+		],
+	},
 
 	/**
 	 * 生命周期函数--监听页面加载

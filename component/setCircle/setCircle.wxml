@@ -1,10 +1,18 @@
 <view class="circle">
     <view class="title">
-        <view class="title_name">我关注的圈子</view>
-        <view class="title_manager">
-            <text>找不到感兴趣的圈子?</text>
-             <text>我要反馈</text>
-             <text>111</text>
+        <view class="title_name">
+            <text class="title_name_desc">{{title}}</text>
+            <text class="title_name_add">点击添加</text>
         </view>
+        <view class="title_manager">
+            <text class="title_mg_desc">找不到感兴趣的圈子?</text>
+            <text class="title_mg_back">我要反馈</text>
+            <image src="/asserts/public/arrow.png"  mode="heightFix"/>
+        </view>
+    </view>
+    <view class="content">
+        <block wx:for="{{data}}">
+            <view class="con_item">{{item.name}}</view>
+        </block>
     </view>
 </view>

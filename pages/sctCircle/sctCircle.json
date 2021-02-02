@@ -1,5 +1,6 @@
 {
   "usingComponents": {
       "circle-item": "/component/setCircle/setCircle"
-  }
+  },
+  "navigationBarTitleText": "选择圈子"
 }

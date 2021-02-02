@@ -1,3 +1,5 @@
 <scroll-view class="container">
-    <circle-item></circle-item>
+    <block wx:for="{{cricleList}}">
+        <circle-item key="{{index}}" title="{{item.title}}" data="{{item.cricleList}}"></circle-item>
+    </block>
 </scroll-view>

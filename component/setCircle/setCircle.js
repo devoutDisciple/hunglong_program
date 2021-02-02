@@ -3,7 +3,16 @@ Component({
 	/**
 	 * 组件的属性列表
 	 */
-	properties: {},
+	properties: {
+		title: {
+			type: String,
+			value: '',
+		},
+		data: {
+			type: Object,
+			value: [],
+		},
+	},
 
 	/**
 	 * 组件的初始数据

@@ -5,16 +5,45 @@
 .title {
     display: flex;
     height: 100rpx;
-    background: red;   
     line-height: 100rpx;
 }
 .title_name {
     flex: 1;
 }
+.title_name .title_name_desc{
+    font-size: 34rpx;
+    color: #3e3e3e;
+}
+.title_name .title_name_add{
+    font-size: 26rpx;
+    color: #bababa;
+    margin-left: 4rpx;
+}
 .title_manager {
     width: 400rpx;
-    background: blue;
-    display: flex;
     font-size: 24rpx;
+    padding-left: 20rpx;
     text-align: right;
+}
+.title_manager  .title_mg_desc{
+    color: #b9b9b9;
+}
+.title_manager .title_mg_back {
+    color: #fa507a;  
+}
+.title_manager image {
+    height: 20rpx;
+    margin-top: 40rpx;
+}
+.content{
+    min-height: 100rpx;
+    display: flex;
+    flex-wrap: wrap;
+}
+.con_item{
+    padding: 15rpx 30rpx;
+    border: 1rpx dashed #e5e5e5;
+    border-radius: 70rpx;
+    margin-bottom: 25rpx;
+    margin-right: 15rpx;
 }
