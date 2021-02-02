@@ -1,6 +1,6 @@
 {
     "usingComponents": {
-        "message-item": "/component/personMessageItem/personMessageItem"
+        "message-item": "/component/personMsgItem/personMsgItem"
     },
     "navigationBarTitleText": "个人信息"
   }

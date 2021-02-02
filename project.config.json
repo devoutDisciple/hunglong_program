@@ -68,26 +68,26 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/test/test",
+          "name": "测试页面",
           "pathName": "pages/test/test",
           "query": "",
           "scene": null
         },
         {
-          "name": "pages/login/login",
+          "name": "登录页面",
           "pathName": "pages/login/login",
           "query": "",
           "scene": null
         },
         {
-          "name": "pages/personMsg/personMsg",
+          "name": "个人信息",
           "pathName": "pages/personMsg/personMsg",
           "query": "",
           "scene": null
         },
         {
-          "name": "pages/test/test",
-          "pathName": "pages/test/test",
+          "name": "选择圈子",
+          "pathName": "pages/sctCircle/sctCircle",
           "query": "",
           "scene": null
         }

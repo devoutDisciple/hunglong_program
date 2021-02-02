@@ -6,7 +6,8 @@
     "pages/message/message",
     "pages/login/login",
     "pages/test/test",
-    "pages/personMsg/personMsg"
+    "pages/personMsg/personMsg",
+    "pages/sctCircle/sctCircle"
   ],
   "window": {
     "backgroundTextStyle": "light",
