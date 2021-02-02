@@ -22,6 +22,13 @@ Page({
 		});
 	},
 
+	btnClick: function () {
+		wx.showToast({
+			title: '选择失败',
+			icon: 'error',
+		});
+	},
+
 	showPopup: function () {
 		console.log(111);
 		this.setData({

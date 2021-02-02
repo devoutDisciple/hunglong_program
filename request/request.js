@@ -10,10 +10,10 @@ module.exports = {
 				method: 'GET',
 				url: baseUrl + params.url,
 				data: {
-                    openid: app.globalData.openid,
+					openid: app.globalData.openid,
 					position: position,
-                    ...params.data,
-                },
+					...params.data,
+				},
 				success: function (res) {
 					if (res.data && res.data.code === 200) {
 						resolve(res.data || {});
@@ -45,10 +45,10 @@ module.exports = {
 				method: 'POST',
 				url: baseUrl + params.url,
 				data: {
-                    openid: app.globalData.openid,
+					openid: app.globalData.openid,
 					position: position,
-                    ...params.data,
-                },
+					...params.data,
+				},
 				success: function (res) {
 					if (res.data && res.data.code === 200) resolve(res.data || {});
 					else {

@@ -3,10 +3,14 @@
         <text>{{label}}</text>
     </view>
     <view wx:if="{{type==='txt'}}" class="msg_value" bindtap="click" data-key="{{key}}">
-        <text>{{value}}</text>
+        <text wx:if="{{value}}">{{value}}</text>
+        <slot></slot>
     </view>
      <view wx:if="{{type==='photo'}}" class="msg_value" bindtap="click" data-key="{{key}}">
-        <image src="/asserts/public/photo.png" mode="heightFix"/>
+        <image src="{{photoTmpUrl}}" mode="heightFix"/>
+    </view>
+    <view wx:if="{{type==='background'}}" class="msg_value" bindtap="click" data-key="{{key}}">
+        <image src="{{backgroundTmpUrl}}" mode="heightFix"/>
     </view>
     <view class="msg_icon">
         <image src="/asserts/public/arrow.png" mode="heightFix"/>

@@ -20,6 +20,18 @@ Component({
 			type: String,
 			value: '',
 		},
+		photoTmpUrl: {
+			type: String,
+			value: '',
+		},
+		backgroundTmpUrl: {
+			type: String,
+			value: '',
+		},
+		heightAuto: {
+			type: Boolean,
+			value: false,
+		},
 	},
 
 	lifetimes: {

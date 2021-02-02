@@ -4,6 +4,7 @@
     <button class="btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo" plain="{{true}}">获取用户信息</button>
     <image class="login_bg" src="/asserts/tabBar/login_btn.png" />
     <text class="txt">登录</text>
+    <button bindtap="btnClick">测试</button>
     <my-test>
         <text>
             自定义组件
