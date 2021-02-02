@@ -80,14 +80,15 @@
           "scene": null
         },
         {
-          "name": "pages/personMessage/personMessage",
-          "pathName": "pages/personMessage/personMessage",
+          "name": "pages/personMsg/personMsg",
+          "pathName": "pages/personMsg/personMsg",
           "query": "",
           "scene": null
         },
         {
           "name": "pages/test/test",
           "pathName": "pages/test/test",
+          "query": "",
           "scene": null
         }
       ]

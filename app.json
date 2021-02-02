@@ -6,7 +6,7 @@
     "pages/message/message",
     "pages/login/login",
     "pages/test/test",
-    "pages/personMessage/personMessage"
+    "pages/personMsg/personMsg"
   ],
   "window": {
     "backgroundTextStyle": "light",
