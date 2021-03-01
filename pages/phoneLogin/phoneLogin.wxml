@@ -1,0 +1,43 @@
+<view class="wrap">
+    <view class="content">
+        <scroll-view class="content_scroll" scroll-y="{{true}}">
+            <view class="title">手机号码绑定</view>
+            <view class="ipt">
+                 <van-field
+                    value="{{ value }}"
+                    placeholder="请输入手机号"
+                    border="{{ false }}"
+                    bind:change="onChange"
+                />
+            </view>
+            <view class="ipt">
+                 <van-field
+                    value="{{ value }}"
+                    type="password"
+                    placeholder="请输入密码（字母，数字）"
+                    border="{{ false }}"
+                    bind:change="onChange"
+                />
+            </view>
+            <view class="ipt">
+                 <van-field
+                    value="{{ value }}"
+                    placeholder="请输入验证码"
+                    border="{{ false }}"
+                    bind:change="onChange"
+                >
+                    <van-button custom-class="ipt_btn" slot="button" size="small" type="default">
+                        发送验证码
+                    </van-button>
+                </van-field>
+            </view>
+            <view class="bottom">
+                <van-button type="default" round>绑定</van-button>
+            </view>
+            <view class="bottom bottom2">
+                <van-button type="default">跳过</van-button>
+            </view>
+        </scroll-view>
+    </view>
+    <view class="footer">登录注册标示统一用户<text class="privacry">协议、隐私条款</text></view>
+</view>

@@ -1,0 +1,23 @@
+.item {
+    width: calc(100vw - 40rpx);
+    flex-direction: row;
+    height: 90rpx;
+    display: flex;
+    padding: 0 20rpx;
+    overflow: hidden;
+    background: #fff;
+    border-bottom: 1rpx solid #f6f6f6;
+
+}
+.item_left {
+    flex: 1;
+    line-height: 90rpx;
+}
+.item_right {
+    width: 100rpx;
+    line-height: 90rpx;
+    text-align: right;
+}
+.item_right image{
+    height: 22rpx;
+}

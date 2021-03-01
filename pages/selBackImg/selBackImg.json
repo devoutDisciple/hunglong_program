@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "btm-empty": "/component/btmEmpty/btmEmpty"
+  },
+  "navigationBarTitleText": "选择背景图"
+}

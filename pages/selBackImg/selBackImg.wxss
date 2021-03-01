@@ -1,0 +1,34 @@
+.wrap {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.content {
+    flex: 1;
+    overflow: hidden;
+}
+.content_scroll{
+    height: 100%;
+}
+.content_scroll image {
+    width: calc((100vw - 60rpx) / 3);
+    height: calc((100vw - 60rpx) / 3);
+    margin-left: 15rpx;
+    margin-top: 15rpx;
+}
+
+.footer {
+    margin-top: 14rpx;
+    height: 100rpx;
+}
+.footer button {
+    width: 80vw;
+    margin-left: 10vw;
+    border: 1rpx solid #fa5a81;
+}
+
+.footer_btn .van-button__text {
+    color: #fa5a81;
+}

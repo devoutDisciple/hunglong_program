@@ -1,0 +1,34 @@
+<view class="wrap">
+    <view class="content">
+        <scroll-view scroll-y class="content_scroll" enable-flex="{{true}}">
+            <image bindtap="onPrivewImg" src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <image src="/asserts/temp/1.jpg"/>
+            <btm-empty></btm-empty>
+        </scroll-view>
+    </view>
+    <view class="footer">
+        <van-button custom-class="footer_btn" round type="default">确认</van-button>
+    </view>
+</view>

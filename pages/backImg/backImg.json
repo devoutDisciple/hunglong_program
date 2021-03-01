@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+      "item-icon": "/component/itemIcon/itemIcon"
+  },
+  "navigationBarTitleText": "选择主页背景"
+}

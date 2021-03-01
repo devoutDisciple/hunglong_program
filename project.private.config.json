@@ -1,0 +1,60 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "测试页面",
+          "pathName": "pages/test/test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "微信登录页面",
+          "pathName": "pages/wxLogin/wxLogin",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "个人信息",
+          "pathName": "pages/personMsg/personMsg",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "选择圈子",
+          "pathName": "pages/sctCircle/sctCircle",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "选择背景",
+          "pathName": "pages/backImg/backImg",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "选择背景图",
+          "pathName": "pages/selBackImg/selBackImg",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "手机号登录",
+          "pathName": "pages/phoneLogin/phoneLogin",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

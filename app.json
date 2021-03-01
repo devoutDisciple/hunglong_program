@@ -4,10 +4,13 @@
     "pages/my/my",
     "pages/circle/circle",
     "pages/message/message",
-    "pages/login/login",
+    "pages/wxLogin/wxLogin",
     "pages/test/test",
     "pages/personMsg/personMsg",
-    "pages/sctCircle/sctCircle"
+    "pages/sctCircle/sctCircle",
+    "pages/backImg/backImg",
+    "pages/selBackImg/selBackImg",
+    "pages/phoneLogin/phoneLogin"
   ],
   "window": {
     "backgroundTextStyle": "light",

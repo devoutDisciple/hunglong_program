@@ -1,0 +1,13 @@
+.content {
+    height: 100vh;
+    background: #eee;
+    padding: 10rpx 0;
+}
+.btn{
+    margin-top: 100rpx;
+    width: 100vw;
+    border: none;
+}
+.btn .van-button__text {
+    color: red;
+}

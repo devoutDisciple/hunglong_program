@@ -1,0 +1,5 @@
+<view class="content">
+    <item-icon label="选择背景图" itemkey="1"></item-icon>
+    <item-icon label="从手机中选择" itemkey="2"></item-icon>
+    <van-button custom-class="btn" type="default">将背景应用到我的背景页</van-button>
+</view>

@@ -1,0 +1,55 @@
+.wrap {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+.content {
+    flex: 1;
+    padding-top: 50rpx;
+}
+.content_scroll {
+    height: 100%;
+    width: calc(100% - 80rpx);
+    margin-left: 40rpx;
+}
+.title {
+    font-size: 50rpx;   
+    padding-left: 30rpx;
+}
+.ipt {
+    margin-top: 50rpx;
+    border-bottom: 1px solid #f6f6f6;
+}
+.ipt_btn {
+    border: none!important;
+}
+.ipt_btn .van-button__text {
+    color: red;
+}
+.bottom {
+    margin-top: 100rpx;
+}
+.bottom button {
+    width: 100%;
+    background: #cccccc;
+    color: #fff;
+}
+.bottom2 {
+    margin-top: 30rpx;
+}
+.bottom2 button {
+    background: #fff;
+    border: none;
+    color: #cccccc;
+}
+.footer {
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 26rpx;
+    color: #a6a6a6;
+}
+.privacry {
+    color: #46afff;
+}
