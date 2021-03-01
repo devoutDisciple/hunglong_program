@@ -1,5 +1,13 @@
-<scroll-view class="container">
-    <block wx:for="{{cricleList}}">
-        <circle-item key="{{index}}" title="{{item.title}}" data="{{item.cricleList}}"></circle-item>
-    </block>
-</scroll-view>
+<view class="container">
+    <view class="circle" >
+        <scroll-view class="circle_scroll" scroll-y>
+            <block wx:for="{{cricleList}}" wx:key="index">
+                <circle-item title="{{item.title}}" data="{{item.cricleList}}" item="{{item}}"></circle-item>
+            </block>
+            <btm-empty></btm-empty>
+        </scroll-view>
+    </view>
+    <view class="circle_btm">
+        <van-button custom-class="circle_btm_btn" type="default">下一步</van-button>
+    </view>
+</view>

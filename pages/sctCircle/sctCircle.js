@@ -28,6 +28,30 @@ Page({
 					{ id: 5, name: '物理物理物物' },
 				],
 			},
+			{
+				plateId: 7,
+				title: '娱乐圈子',
+				cricleList: [
+					{ id: 1, name: '王思聪' },
+					{ id: 5, name: '刘亦菲' },
+					{ id: 2, name: '古力娜扎' },
+					{ id: 3, name: '迪丽热巴' },
+					{ id: 4, name: '马尔扎哈' },
+					{ id: 5, name: '周杰伦' },
+				],
+			},
+			{
+				plateId: 8,
+				title: '其他圈子',
+				cricleList: [
+					{ id: 1, name: '王思聪' },
+					{ id: 5, name: '刘亦菲' },
+					{ id: 2, name: '古力娜扎' },
+					{ id: 3, name: '迪丽热巴' },
+					{ id: 4, name: '马尔扎哈' },
+					{ id: 5, name: '周杰伦' },
+				],
+			},
 		],
 	},
 

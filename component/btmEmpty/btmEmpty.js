@@ -1,18 +1,9 @@
-// component/setCircle/setCircle.js
+// component/btmEmpty/btnEmpty.js
 Component({
 	/**
 	 * 组件的属性列表
 	 */
-	properties: {
-		title: {
-			type: String,
-			value: '',
-		},
-		data: {
-			type: Object,
-			value: [],
-		},
-	},
+	properties: {},
 
 	/**
 	 * 组件的初始数据

@@ -30,7 +30,7 @@ Component({
 		},
 		mytap() {
 			console.log(22222);
-			this.triggerEvent('onChange', { zhouna: 'zhangzhen' });
+			this.triggerEvent('onChange', { zz: 'zhangzhen' });
 		},
 	},
 	attached() {

@@ -31,7 +31,7 @@
 .title_manager .title_mg_back {
     color: #fa507a;  
 }
-.title_manager image {
+.title_manager .title_mg_img {
     height: 20rpx;
     margin-top: 40rpx;
 }

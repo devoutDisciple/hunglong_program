@@ -6,13 +6,14 @@
         </view>
         <view class="title_manager">
             <text class="title_mg_desc">找不到感兴趣的圈子?</text>
-            <text class="title_mg_back">我要反馈</text>
-            <image src="/asserts/public/arrow.png"  mode="heightFix"/>
+            <text class="title_mg_back" bindtap="onFeedback" data-item="{{item}}">我要反馈</text>
+            <image class="title_mg_img" src="/asserts/public/arrow.png"  mode="heightFix"/>
         </view>
     </view>
     <view class="content">
-        <block wx:for="{{data}}">
+        <block wx:for="{{data}}" wx:key="index">
             <view class="con_item">{{item.name}}</view>
         </block>
     </view>
+    <ipt-dialog wx:if="{{iptDialogVisible}}" bindonCancle="onCancleDialog" onOk="hello"></ipt-dialog>
 </view>

@@ -1,4 +1,26 @@
 .container {
     height: 100vh;
     width: 100vw;
+    display: flex;
+    flex-direction: column;
+}
+.circle {
+    flex: 1;
+    overflow: hidden;
+}
+
+.circle_scroll{
+    height: 100%;
+    padding-bottom: 40rpx;
+}
+
+.next_btm {
+    height: 100rpx;
+}
+
+.circle_btm_btn {
+    width: 100vw;
+}
+.circle_btm_btn .van-button__text {
+    color: red;
 }
