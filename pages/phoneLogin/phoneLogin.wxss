@@ -53,3 +53,7 @@
 .privacry {
     color: #46afff;
 }
+.active_btn{
+    margin-top: 100rpx;
+    height: 90rpx;
+}

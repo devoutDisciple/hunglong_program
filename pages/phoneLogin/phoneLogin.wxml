@@ -31,9 +31,15 @@
                     </van-button>
                 </van-field>
             </view>
-            <view class="bottom">
-                <van-button type="default" round>绑定</van-button>
-            </view>
+            <block>
+                <view wx:if="{{success}}" class="active_btn"> 
+                    <login-btn bindOnClick="onLogin" label="绑定"></login-btn>
+                </view>
+                <view wx:else class="bottom">
+                    <van-button bindtap="onLogin" type="default" round>绑定</van-button>
+                </view>
+            </block>
+            
             <view class="bottom bottom2">
                 <van-button type="default">跳过</van-button>
             </view>

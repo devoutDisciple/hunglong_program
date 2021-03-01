@@ -10,7 +10,8 @@
     "pages/sctCircle/sctCircle",
     "pages/backImg/backImg",
     "pages/selBackImg/selBackImg",
-    "pages/phoneLogin/phoneLogin"
+    "pages/phoneLogin/phoneLogin",
+    "pages/pwdLogin/pwdLogin"
   ],
   "window": {
     "backgroundTextStyle": "light",

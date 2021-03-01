@@ -1,0 +1,6 @@
+<view class="btn" bindtap = "onClick">
+    <image src="/asserts/public/login_btn.png"  />
+    <view class="btn_txt">
+        <text>{{label}}</text>
+    </view>
+</view>

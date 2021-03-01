@@ -14,7 +14,7 @@
             <view class="btn_txt">
                 <text>微信授权快捷登录</text>
             </view>
-            <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="btn_wei"></button>
+            <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="btn_vx"></button>
         </view>
     </view>
     <view class="privacy">

@@ -62,7 +62,7 @@
     text-align: center;
     color: #fff;
 }
-.btn_wei{
+.btn_vx{
     position: absolute;
     height: 14vw;
     width: 80vw;

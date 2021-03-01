@@ -53,6 +53,12 @@
           "pathName": "pages/phoneLogin/phoneLogin",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "密码登录",
+          "pathName": "pages/pwdLogin/pwdLogin",
+          "query": "",
+          "scene": null
         }
       ]
     }
