@@ -63,6 +63,12 @@
         {
           "name": "重置密码",
           "pathName": "pages/resetPwd/resetPwd",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "首页",
+          "pathName": "pages/home/home",
           "scene": null
         }
       ]
