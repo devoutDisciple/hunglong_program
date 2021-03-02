@@ -11,7 +11,8 @@
     "pages/backImg/backImg",
     "pages/selBackImg/selBackImg",
     "pages/phoneLogin/phoneLogin",
-    "pages/pwdLogin/pwdLogin"
+    "pages/pwdLogin/pwdLogin",
+    "pages/resetPwd/resetPwd"
   ],
   "window": {
     "backgroundTextStyle": "light",

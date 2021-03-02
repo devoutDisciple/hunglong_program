@@ -59,6 +59,11 @@
           "pathName": "pages/pwdLogin/pwdLogin",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "重置密码",
+          "pathName": "pages/resetPwd/resetPwd",
+          "scene": null
         }
       ]
     }

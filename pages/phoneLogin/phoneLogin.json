@@ -2,5 +2,5 @@
   "usingComponents": {
     "login-btn": "/component/loginBtn/loginBtn"
   },
-  "navigationBarTitleText": "登录"
+  "navigationBarTitleText": "手机登录"
 }
