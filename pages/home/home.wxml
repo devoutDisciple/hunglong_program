@@ -1,3 +1,15 @@
-<view>
-    <header></header>
+<view class="wrap">
+    <header />
+    <scroll-view scroll-y="{{true}}" class="content">
+        <view class="icon_list">
+            <view class="icon_chunk" wx:for="{{iconList}}" key="key">
+                <view class="icon_chunk_img">
+                    <image src="{{item.iconUrl}}" />
+                </view>
+                <view class="icon_chunk_txt">
+                    {{item.title}}
+                </view>
+            </view>
+        </view>
+    </scroll-view>
 </view>

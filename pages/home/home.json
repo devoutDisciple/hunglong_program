@@ -1,6 +1,7 @@
 {
 	"navigationStyle": "custom",
 	"usingComponents": {
-        "header": "/component/navBar/navBar"
+        "header": "/component/navBar/navBar",
+        "home-icon": "/component/homeIcon/homeIcon"
     }
 }

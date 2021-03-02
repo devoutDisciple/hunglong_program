@@ -1,0 +1,30 @@
+.wrap {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.content{
+    flex: 1;
+    overflow: hidden;
+}
+.icon_list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 0 20rpx;
+    justify-content: space-around;
+}
+.icon_chunk {
+    width: 170rpx;
+    height: 100rpx;
+    margin-top: 50rpx;
+    text-align: center;
+}
+.icon_chunk_img image {
+    width: 50rpx;
+    height: 50rpx;
+}
+.icon_chunk_txt{
+    margin-top: 5rpx;
+    font-size: 24rpx;
+}
