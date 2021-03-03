@@ -1,0 +1,80 @@
+.content {
+    display: flex;
+    flex-direction: row;
+    height: 100rpx;
+}
+.img {
+    width: 80rpx;
+    padding-top: 10rpx;
+}
+.img image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 80rpx;
+}
+.desc {
+    flex: 1;
+    padding: 0 10rpx;
+    padding-right: 0;
+}
+.desc_top{
+    display: flex;
+    flex-direction: row;
+    height: 50rpx;
+    line-height: 50rpx;
+}
+.desc_top_name{
+    font-size: 26rpx;
+    max-width: 250rpx;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+.desc_top_school {
+    font-size: 22rpx;
+    margin-left: 5rpx;
+    max-width: 220rpx;
+    margin-top: 2rpx;
+    color: #999999;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+.desc_top_level {
+    width: 50rpx;
+}
+.desc_top_level image {
+    width: 35rpx;
+    height: 35rpx;
+    margin-top: 4rpx;
+    margin-left: 5rpx;
+}
+.desc_btm{
+    height: 50rpx;
+    line-height: 50rpx;
+    display: flex;
+    font-size: 22rpx;
+    color: #999999;
+}
+.desc_btm_src {
+    margin-left: 10rpx;
+}
+.concern{
+    width: 100rpx;
+    display: flex;
+    align-items: center;
+}
+.concern_btn{
+    width: 98rpx;
+    height: 50rpx;
+    text-align: center;
+    line-height: 50rpx;
+    border: 1rpx solid #999999;
+    border-radius: 50rpx;
+}

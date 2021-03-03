@@ -2,7 +2,7 @@
     <header />
     <scroll-view scroll-y="{{true}}" class="content">
         <view class="icon_list">
-            <view class="icon_chunk" wx:for="{{iconList}}" key="key">
+            <view class="icon_chunk" wx:for="{{iconList}}" wx:key="key">
                 <view class="icon_chunk_img">
                     <image src="{{item.iconUrl}}" />
                 </view>
@@ -42,5 +42,6 @@
                 <image wx:else src="/asserts/public/arrow_btm.png" />
            </view>
         </view>
+        <home-post />
     </scroll-view>
 </view>

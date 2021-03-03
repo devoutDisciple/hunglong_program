@@ -2,6 +2,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    font-size: 26rpx;
 }
 .content{
     flex: 1;
@@ -67,10 +68,10 @@
 }
 
 .topic_close {
-    animation: an_close .5s ease forwards;
+    animation: an_close .1s ease forwards;
 }
 .topic_open {
-    animation: an_open .5s ease forwards;
+    animation: an_open .1s ease forwards;
 }
 
 .topic_con {
