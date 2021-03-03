@@ -11,5 +11,36 @@
                 </view>
             </view>
         </view>
+        <view class="tab">
+            <view class="tab_con">
+                <van-tabs active="{{ activeTab }}" ellipsis="{{false}}">
+                    <van-tab title="关注" />
+                    <van-tab title="广场" />
+                    <van-tab title="推荐" />
+                    <van-tab title="杭州一中1111" />
+                    <van-tab title="杭州二中" />
+                    <van-tab title="杭州三中" />
+                </van-tabs>
+            </view>
+            
+            <view class="tab_add">
+                <image src="/asserts/public/tabAdd.png" />
+            </view>
+        </view>
+        <view class="topic {{topicClass}}">
+           <view class="topic_con">
+                <view class="topic_item">话题1</view>
+                <view class="topic_item">话题1</view>
+                <view class="topic_item">话题1</view>
+                <view class="topic_item">话题1</view>
+                <view class="topic_item">话题1</view>
+                <view class="topic_item">话题1</view>
+                <view class="topic_item">话题1</view>
+           </view>
+           <view class="topic_icon" bindtap="cntOpen">
+                <image wx:if="{{topicClass !== 'topic_open'}}" src="/asserts/public/arrow_top.png" />
+                <image wx:else src="/asserts/public/arrow_btm.png" />
+           </view>
+        </view>
     </scroll-view>
 </view>

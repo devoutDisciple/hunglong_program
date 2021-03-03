@@ -46,6 +46,9 @@ Page({
 				iconUrl: '/asserts/public/waiting.png',
 			},
 		],
+		activeTab: 1, // 选中的tab
+		activeNames: ['1'],
+		topicClass: 'topic_origin',
 	},
 
 	/**
@@ -64,27 +67,16 @@ Page({
 	onShow: function () {},
 
 	/**
-	 * 生命周期函数--监听页面隐藏
+	 * 改变话题
 	 */
-	onHide: function () {},
+	onChange(event) {
+		this.setData({
+			activeNames: event.detail,
+		});
+	},
 
-	/**
-	 * 生命周期函数--监听页面卸载
-	 */
-	onUnload: function () {},
-
-	/**
-	 * 页面相关事件处理函数--监听用户下拉动作
-	 */
-	onPullDownRefresh: function () {},
-
-	/**
-	 * 页面上拉触底事件的处理函数
-	 */
-	onReachBottom: function () {},
-
-	/**
-	 * 用户点击右上角分享
-	 */
-	onShareAppMessage: function () {},
+	cntOpen: function () {
+		const { topicClass } = this.data;
+		this.setData({ topicClass: topicClass !== 'topic_open' ? 'topic_open' : 'topic_close' });
+	},
 });
