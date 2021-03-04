@@ -2,3 +2,17 @@
     background: #fff;
     padding: 20rpx;
 }
+.txt{
+    margin-top: 15rpx;
+    font-size: 28rpx;
+    color: #151515;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 5;
+}
+.topic {
+    color: #0091FF;
+}

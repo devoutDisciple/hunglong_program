@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "post-header": "/component/postHeader/postHeader"
+    "post-header": "/component/postHeader/postHeader",
+    "post-img": "/component/postImg/postImg"
   }
 }

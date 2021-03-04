@@ -1,0 +1,20 @@
+<block>
+    <view wx:if="{{imgListLen === 1}}" class="wrap wrap1">
+        <view class="img" wx:for="{{imgList}}" wx:key="index">
+            <image wx:if="{{item.width > item.height}}" class="fix_width" src="{{item.url}}" mode="widthFix"/>
+            <image wx:else class="fix_height" src="{{item.url}}" mode="heightFix"/>
+        </view>
+    </view>
+     <view wx:elif="{{imgListLen === 2}}" class="wrap wrap2">
+        <view class="img" wx:for="{{imgList}}" wx:key="index">
+            <image wx:if="{{item.width > item.height}}" class="fix_height" src="{{item.url}}" mode="heightFix"/>
+            <image wx:else class="fix_width" src="{{item.url}}" mode="widthFix"/>
+        </view>
+    </view>
+    <view wx:elif="{{imgListLen > 2}}" class="wrap wrap3">
+        <view class="img" wx:for="{{imgList}}" wx:key="index">
+            <image wx:if="{{item.width > item.height}}" class="fix_height" src="{{item.url}}" mode="heightFix"/>
+            <image wx:else class="fix_width" src="{{item.url}}" mode="widthFix"/>
+        </view>
+    </view>
+</block>
