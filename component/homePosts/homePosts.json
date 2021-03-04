@@ -2,6 +2,9 @@
   "component": true,
   "usingComponents": {
     "post-header": "/component/postHeader/postHeader",
-    "post-img": "/component/postImg/postImg"
+    "post-img": "/component/postImg/postImg",
+    "topic-btn": "/component/topicBtn/topicBtn",
+    "hot-reply": "/component/hotReply/hotReply",
+    "action-opt": "/component/actionOpt/actionOpt"
   }
 }

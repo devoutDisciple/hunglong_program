@@ -1,4 +1,4 @@
-// component/homeIcon/homeIcon.js
+// component/goodBtm/goodBtm.js
 Component({
 	/**
 	 * 组件的属性列表

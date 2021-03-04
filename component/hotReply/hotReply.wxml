@@ -1,0 +1,15 @@
+<view class="reply">
+    <view class="reply_top">
+        <view class="reply_top_img">
+            <image src="/asserts/public/hedPhoto.png" />
+        </view>
+        <view class="reply_top_name">古力娜扎马尔扎哈</view>
+        <view class="reply_top_good">
+            <view class="reply_top_good_txt">3220</view>
+            <image src="/asserts/public/good.png" />
+        </view>
+    </view>
+    <view class="reply_btm">
+        这是热门回复这是热门回复这是热门回复这是热门回复这是热门回复这是热门回复这是热门回复这是热门回复这是热门回复
+    </view>
+</view>

@@ -38,7 +38,6 @@ Component({
 					return this.setData({ imgList: newImgList, imgListLen: imgList.length });
 				}
 			}
-			console.log(imgList, imgList.length, 111);
 			this.setData({ imgListLen: imgList.length });
 		},
 		detached: function () {

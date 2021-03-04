@@ -1,0 +1,11 @@
+<view class="wrap">
+    <view class="chunk">
+        <image src="/asserts/public/share.png" />123
+    </view>
+    <view class="chunk">
+        <image src="/asserts/public/message.png" />123
+    </view>
+    <view class="chunk">
+        <image src="/asserts/public/good.png" />123
+    </view>
+</view>

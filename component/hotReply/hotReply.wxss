@@ -1,0 +1,55 @@
+.reply {
+    height: 120rpx;
+    background: #f8f8f8;
+    padding: 20rpx;
+}
+.reply_top {
+    height: 50rpx;
+    display: flex;
+}
+.reply_top_img {
+    height: 50rpx;
+    width: 50rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.reply_top_img image{
+    width: 40rpx;
+    height: 40rpx;
+}
+.reply_top_name {
+    flex: 1;
+    line-height: 50rpx;
+    color: #666666;
+    font-size: 22rpx;
+}
+.reply_top_good {
+    width: 150rpx;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.reply_top_good_txt {
+    margin-right: 15rpx;
+    color: #999999;
+    font-size: 22rpx;
+}
+.reply_top_good image{
+    height: 30rpx;
+    width: 30rpx;
+}
+.reply_btm {
+    height: 50rpx;
+    margin-top: 20rpx;
+    padding: 0 5rpx;
+    color: #333333;
+    font-size: 26rpx;
+    line-height: 50rpx;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
