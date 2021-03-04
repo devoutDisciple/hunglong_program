@@ -9,6 +9,11 @@
     overflow: hidden;
     background: #eeeeee;
 }
+.content ::-webkit-scrollbar{
+ width: 0;
+ height: 0;
+ color: transparent
+}
 .icon_list {
     display: flex;
     flex-direction: row;
