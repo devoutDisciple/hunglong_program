@@ -1,12 +1,12 @@
 <view class="good">
     <view class="good_left">
-        <image src="/asserts/public/hedPhoto.png" />
+        <image src="{{type === 'good' ? '/asserts/public/good_color.png' : '/asserts/public/comment_color.png'}}" />
     </view>
     <view class="good_txt">
-        点赞
+        {{type === 'good' ? '点赞' : '评论'}}
     </view>
     <view class="good_right">
-        <view class="good_right_num">100</view>
+        <view class="good_right_num">{{num > 99 ? '99+' : num}}</view>
         <image src="/asserts/public/arrow_right.png" />
     </view>
 </view>

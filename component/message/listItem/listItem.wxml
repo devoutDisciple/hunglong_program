@@ -1,5 +1,15 @@
 <view class="list">
     <view class="photo">
-        <image src="/asserts/public/hedPhoto.png" />
+        <image src="{{url}}" />
+    </view>
+     <view class="txt">
+        <view class="txt_name">{{username}}</view>
+        <view class="txt_content">{{txt}}</view>
+    </view>
+     <view class="tip">
+        <view class="tip_time">{{time}}</view>
+        <view class="tip_cir">
+            <view class="tip_num">{{num}}</view>
+        </view>
     </view>
 </view>
