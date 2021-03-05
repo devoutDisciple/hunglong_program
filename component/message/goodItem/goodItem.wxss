@@ -1,0 +1,33 @@
+.good {
+    display: flex;
+    padding: 10rpx 20rpx;
+    height: 80rpx;
+    background: red;
+}
+.good_left {
+    width: 100rpx;
+    background: blue;
+}
+.good_left image{
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50rpx;
+}
+.good_txt {
+    flex: 1;
+    background: yellow;
+    line-height: 80rpx;
+    color: #333333;
+    font-size: 30rpx;
+}
+.good_right {
+    width: 150rpx;
+    background: orange;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.good_right image {
+    width: 40rpx;
+    height: 40rpx;
+}

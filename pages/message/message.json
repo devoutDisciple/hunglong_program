@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "good-item": "/component/message/goodItem/goodItem"
+  },
+  "navigationBarTitleText": "消息"
 }

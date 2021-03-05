@@ -69,6 +69,12 @@
         {
           "name": "首页",
           "pathName": "pages/home/home",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "消息",
+          "pathName": "pages/message/message",
           "scene": null
         }
       ]

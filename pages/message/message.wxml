@@ -1,2 +1,3 @@
-<!--pages/message/message.wxml-->
-<text>pages/message/message.wxml</text>
+<scroll-view scroll-y="{{true}}">
+    <good-item title="点赞" />
+</scroll-view>

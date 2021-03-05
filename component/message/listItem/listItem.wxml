@@ -1,0 +1,5 @@
+<view class="list">
+    <view class="photo">
+        <image src="/asserts/public/hedPhoto.png" />
+    </view>
+</view>

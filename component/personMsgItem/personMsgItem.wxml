@@ -13,6 +13,6 @@
         <image src="{{backgroundTmpUrl}}" mode="heightFix"/>
     </view>
     <view class="msg_icon">
-        <image src="/asserts/public/arrow.png" mode="heightFix"/>
+        <image src="/asserts/public/arrow_right.png" mode="heightFix"/>
     </view>
 </view>

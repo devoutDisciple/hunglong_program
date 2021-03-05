@@ -1,0 +1,12 @@
+<view class="good">
+    <view class="good_left">
+        <image src="/asserts/public/hedPhoto.png" />
+    </view>
+    <view class="good_txt">
+        点赞
+    </view>
+    <view class="good_right">
+        <view class="good_right_num">100</view>
+        <image src="/asserts/public/arrow_right.png" />
+    </view>
+</view>
