@@ -18,7 +18,17 @@ Component({
 	/**
 	 * 组件的方法列表
 	 */
-	methods: {},
+	methods: {
+		showImg: function (e) {
+			const { index } = e.currentTarget.dataset;
+			const { imgList } = this.data;
+			const urls = [];
+			imgList.forEach((item) => {
+				urls.push(item.url);
+			});
+			wx.previewImage({ urls, current: index });
+		},
+	},
 
 	/**
 	 * 生命周期

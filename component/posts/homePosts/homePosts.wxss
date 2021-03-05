@@ -1,6 +1,7 @@
 .content {
     background: #fff;
     padding: 20rpx;
+    margin-bottom: 20rpx;
 }
 .txt{
     margin-top: 15rpx;

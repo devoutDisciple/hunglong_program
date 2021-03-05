@@ -31,6 +31,8 @@ module.exports = {
 		'react/prop-types': 0,
 		'object-shorthand': 0,
 		'func-names': 0,
+		radix: 0,
+		'no-plusplus': 0,
 	},
 	globals: {
 		App: true,
