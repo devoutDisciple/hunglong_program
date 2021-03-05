@@ -2,6 +2,6 @@
 	"navigationStyle": "custom",
 	"usingComponents": {
         "header": "/component/navBar/navBar",
-        "home-post": "/component/homePosts/homePosts"
+        "home-post": "/component/posts/homePosts/homePosts"
     }
 }

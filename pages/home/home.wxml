@@ -1,7 +1,7 @@
 <view class="wrap">
     <header />
     <scroll-view scroll-y="{{true}}" class="content" enhanced="{{true}}" show-scrollbar="{{false}}">
-        <view class="icon_list">
+        <!-- <view class="icon_list">
             <view class="icon_chunk" wx:for="{{iconList}}" wx:key="key">
                 <view class="icon_chunk_img">
                     <image src="{{item.iconUrl}}" />
@@ -10,7 +10,7 @@
                     {{item.title}}
                 </view>
             </view>
-        </view>
+        </view> -->
         <view class="tab">
             <view class="tab_con">
                 <van-tabs active="{{ activeTab }}" ellipsis="{{false}}">

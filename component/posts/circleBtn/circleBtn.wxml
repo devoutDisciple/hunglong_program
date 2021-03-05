@@ -1,0 +1,4 @@
+<view class="circle">
+    <image class="img" src="/asserts/public/fire.png" />
+    <view class="txt">{{title}}</view>
+</view>

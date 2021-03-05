@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    "post-header": "/component/posts/postHeader/postHeader",
+    "post-img": "/component/posts/postImg/postImg",
+    "topic-btn": "/component/posts/topicBtn/topicBtn",
+    "hot-reply": "/component/posts/hotReply/hotReply",
+    "action-opt": "/component/posts/actionOpt/actionOpt",
+    "circle-btn": "/component/posts/circleBtn/circleBtn"
+  }
+}

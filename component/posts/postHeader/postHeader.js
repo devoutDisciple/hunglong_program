@@ -1,4 +1,4 @@
-// component/topicBtn/topicBtn.js
+// component/postHeader/postHeader.js
 Component({
 	/**
 	 * 组件的属性列表
