@@ -9,7 +9,7 @@
      <view class="tip">
         <view class="tip_time">{{time}}</view>
         <view class="tip_cir">
-            <view class="tip_num">{{num}}</view>
+            <view class="tip_num">{{num > 99 ? "99+" : num}}</view>
         </view>
     </view>
 </view>

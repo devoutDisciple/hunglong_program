@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "good-item": "/component/message/goodItem/goodItem",
-    "list-item": "/component/message/listItem/listItem"
+    "list-item": "/component/message/listItem/listItem",
+    "btm-empty": "/component/btmEmpty/btmEmpty"
   },
   "navigationBarTitleText": "消息"
 }
