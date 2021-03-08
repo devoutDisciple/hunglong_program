@@ -42,5 +42,10 @@ Page({
 				url: '/pages/accountMsg/accountMsg',
 			});
 		}
+		if (detail === 'password') {
+			wx.navigateTo({
+				url: '/pages/updatePass/updatePass',
+			});
+		}
 	},
 });

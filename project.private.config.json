@@ -93,6 +93,18 @@
         {
           "name": "修改密码",
           "pathName": "pages/updatePass/updatePass",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "验证码更新密码",
+          "pathName": "pages/updatePassBySecurity/updatePassBySecurity",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "反馈信息",
+          "pathName": "pages/feedbackMsg/feedbackMsg",
           "scene": null
         }
       ]

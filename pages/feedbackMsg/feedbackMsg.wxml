@@ -1,0 +1,6 @@
+<view class="content">
+    <textarea class="textarea" placeholder="请输入反馈信息" maxlength="100" auto-auto-height="{{true}}"/>
+    <view class="btn">
+        <login-btn label="提交" />
+    </view>
+</view>

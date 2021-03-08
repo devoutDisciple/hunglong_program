@@ -30,6 +30,6 @@
         <login-btn label="确定"/>
     </view>
     <view class="link">
-        <view class="link_txt">忘记密码？</view>
+        <view bindtap = "goUpdatePassBySecurity" class="link_txt">忘记密码？</view>
     </view>
 </view>

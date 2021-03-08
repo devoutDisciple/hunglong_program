@@ -14,7 +14,9 @@
     "pages/pwdLogin/pwdLogin",
     "pages/resetPwd/resetPwd",
     "pages/accountMsg/accountMsg",
-    "pages/updatePass/updatePass"
+    "pages/updatePass/updatePass",
+    "pages/updatePassBySecurity/updatePassBySecurity",
+    "pages/feedbackMsg/feedbackMsg"
   ],
   "window": {
     "backgroundTextStyle": "light",

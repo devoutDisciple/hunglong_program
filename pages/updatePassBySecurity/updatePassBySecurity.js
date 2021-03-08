@@ -1,9 +1,11 @@
-// pages/updatePass/updatePass.js
+// pages/updatePassBySecurity/updatePassBySecurity.js
 Page({
 	/**
 	 * 页面的初始数据
 	 */
-	data: {},
+	data: {
+		success: true,
+	},
 
 	/**
 	 * 生命周期函数--监听页面加载
@@ -21,13 +23,9 @@ Page({
 	onShow: function () {},
 
 	/**
-	 * 手机验证码更新密码
+	 * 生命周期函数--监听页面隐藏
 	 */
-	goUpdatePassBySecurity: function () {
-		wx.navigateTo({
-			url: '/pages/updatePassBySecurity/updatePassBySecurity',
-		});
-	},
+	onHide: function () {},
 
 	/**
 	 * 生命周期函数--监听页面卸载

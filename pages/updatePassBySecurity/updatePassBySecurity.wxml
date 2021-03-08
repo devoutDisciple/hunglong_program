@@ -1,0 +1,46 @@
+<view class="content">
+    <scroll-view class="content_scroll" scroll-y="{{true}}">
+        <view class="ipt">
+                <van-field
+                value="{{ value }}"
+                placeholder="请输入手机号"
+                border="{{ false }}"
+                bind:change="onChange"
+            />
+        </view>
+        
+        <view class="ipt">
+                <van-field
+                value="{{ value }}"
+                placeholder="请输入验证码"
+                border="{{ false }}"
+                bind:change="onChange"
+            >
+                <van-button custom-class="ipt_btn" slot="button" size="small" type="default">
+                    发送验证码
+                </van-button>
+            </van-field>
+        </view>
+        <view class="ipt">
+                <van-field
+                value="{{ value }}"
+                type="password"
+                placeholder="请输入密码（字母，数字）"
+                border="{{ false }}"
+                bind:change="onChange"
+            />
+        </view>
+        <view class="ipt">
+                <van-field
+                value="{{ value }}"
+                type="password"
+                placeholder="请再次输入密码"
+                border="{{ false }}"
+                bind:change="onChange"
+            />
+        </view>
+        <view class="active_btn"> 
+            <login-btn bindOnClick="onLogin" label="确定"></login-btn>
+        </view>
+    </scroll-view>
+</view>
