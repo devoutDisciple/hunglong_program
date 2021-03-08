@@ -1,14 +1,14 @@
 <scroll-view class="message" scroll-y="{{true}}">
     <good-item type="good" num="111" />
     <good-item type="comment" num="22" />
-    <list-item url="/asserts/public/hedPhoto.png" username="阿里巴巴hello" txt="防守打法是" time="12-23" num="12"/>
-    <list-item url="/asserts/public/hedPhoto.png" username="开发绝对是" txt="过分的话股份" time="12-23" num="32"/>
-    <list-item url="/asserts/public/hedPhoto.png" username="啊啊啊" txt="刚发的给我的" time="12-23" num="121"/>
-    <list-item url="/asserts/public/hedPhoto.png" username="发数控刀具" txt="个梵蒂冈懂法守法" time="12-23" num="333"/>
-    <list-item url="/asserts/public/hedPhoto.png" username="股份的故事" txt="个梵蒂冈梵蒂冈房东赶得" time="12-23" num="333"/>
-    <list-item url="/asserts/public/hedPhoto.png" username="辅导费" txt="河钢股份和规范化" time="12-23" num="33"/>
-    <list-item url="/asserts/public/hedPhoto.png" username="三生三世" txt="大萨达所" time="12-23" num="33"/>
-    <list-item url="/asserts/public/hedPhoto.png" username="单独的" txt="发第三方第三方是" time="12-23" num="11"/>
-    <list-item url="/asserts/public/hedPhoto.png" username="反反复复" txt="个梵蒂冈梵蒂冈" time="12-23" num="99"/>
+    <list-item url="/asserts/public/logo.png" username="阿里巴巴hello" txt="防守打法是" time="12-23" num="12"/>
+    <list-item url="/asserts/public/logo.png" username="开发绝对是" txt="过分的话股份" time="12-23" num="32"/>
+    <list-item url="/asserts/public/logo.png" username="啊啊啊" txt="刚发的给我的" time="12-23" num="121"/>
+    <list-item url="/asserts/public/logo.png" username="发数控刀具" txt="个梵蒂冈懂法守法" time="12-23" num="333"/>
+    <list-item url="/asserts/public/logo.png" username="股份的故事" txt="个梵蒂冈梵蒂冈房东赶得" time="12-23" num="333"/>
+    <list-item url="/asserts/public/logo.png" username="辅导费" txt="河钢股份和规范化" time="12-23" num="33"/>
+    <list-item url="/asserts/public/logo.png" username="三生三世" txt="大萨达所" time="12-23" num="33"/>
+    <list-item url="/asserts/public/logo.png" username="单独的" txt="发第三方第三方是" time="12-23" num="11"/>
+    <list-item url="/asserts/public/logo.png" username="反反复复" txt="个梵蒂冈梵蒂冈" time="12-23" num="99"/>
     <btm-empty />
 </scroll-view>

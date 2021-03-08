@@ -5,7 +5,7 @@
             <view class="person">
                 <view class="person_desc">
                     <view class="person_img">
-                        <image src="/asserts/public/hedPhoto.png" />
+                        <image src="/asserts/public/logo.png" />
                     </view>
                     <view class="person_msg">
                         <view class="person_msg_name">
@@ -55,47 +55,47 @@
                     <view class="viewer_left">
                         <scroll-view scroll-x="{{true}}" class="viewer_scroll" enable-flex="{{true}}">
                             <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <image class="viewer_header" src="/asserts/public/logo.png" />
                                 <view class="viewer_name">刘亦菲</view>
                             </view>
                             <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <image class="viewer_header" src="/asserts/public/logo.png" />
                                 <view class="viewer_name">刘亦菲</view>
                             </view>
                             <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <image class="viewer_header" src="/asserts/public/logo.png" />
                                 <view class="viewer_name">刘亦菲</view>
                             </view>
                             <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <image class="viewer_header" src="/asserts/public/logo.png" />
                                 <view class="viewer_name">刘亦菲</view>
                             </view>
                             <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <image class="viewer_header" src="/asserts/public/logo.png" />
                                 <view class="viewer_name">刘亦菲</view>
                             </view>
                             <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <image class="viewer_header" src="/asserts/public/logo.png" />
                                 <view class="viewer_name">刘亦菲</view>
                             </view>
                             <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <image class="viewer_header" src="/asserts/public/logo.png" />
                                 <view class="viewer_name">刘亦菲</view>
                             </view>
                             <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <image class="viewer_header" src="/asserts/public/logo.png" />
                                 <view class="viewer_name">刘亦菲</view>
                             </view>
                             <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <image class="viewer_header" src="/asserts/public/logo.png" />
                                 <view class="viewer_name">刘亦菲</view>
                             </view>
                             <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <image class="viewer_header" src="/asserts/public/logo.png" />
                                 <view class="viewer_name">刘亦菲</view>
                             </view>
                             <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <image class="viewer_header" src="/asserts/public/logo.png" />
                                 <view class="viewer_name">刘亦菲</view>
                             </view>
                         </scroll-view>

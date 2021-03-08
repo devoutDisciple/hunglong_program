@@ -11,7 +11,7 @@
                 />
             </view>
             <view class="ipt">
-                 <van-field
+                <van-field
                     value="{{ value }}"
                     type="password"
                     placeholder="请输入密码（字母，数字）"

@@ -1,6 +1,6 @@
 <view class="content">
     <view class="img">
-        <image src="/asserts/public/hedPhoto.png" />
+        <image src="/asserts/public/logo.png" />
     </view>
     <view class="desc">
         <view class="desc_top">

@@ -1,0 +1,35 @@
+<view class="content">
+    <view class="ipt">
+         <van-field
+            value="{{ value }}"
+            type="password"
+            placeholder="请输入旧密码（字母，数字）"
+            border="{{ false }}"
+            bind:change="onChange"
+        />
+    </view>
+    <view class="ipt">
+         <van-field
+            value="{{ value }}"
+            type="password"
+            placeholder="请输入新密码（字母，数字）"
+            border="{{ false }}"
+            bind:change="onChange"
+        />
+    </view>
+    <view class="ipt">
+         <van-field
+            value="{{ value }}"
+            type="password"
+            placeholder="请再次输入新密码"
+            border="{{ false }}"
+            bind:change="onChange"
+        />
+    </view>
+    <view class="btn">
+        <login-btn label="确定"/>
+    </view>
+    <view class="link">
+        <view class="link_txt">忘记密码？</view>
+    </view>
+</view>

@@ -1,8 +1,8 @@
-<view class="msg_item">
+<view class="msg_item" bindtap="click" data-key="{{key}}">
     <view class="msg_label">
         <text>{{label}}</text>
     </view>
-    <view wx:if="{{type==='txt'}}" class="msg_value" bindtap="click" data-key="{{key}}">
+    <view wx:if="{{type==='txt'}}" class="msg_value">
         <text wx:if="{{value}}">{{value}}</text>
         <slot></slot>
     </view>

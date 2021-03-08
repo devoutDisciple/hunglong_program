@@ -13,7 +13,8 @@
     "pages/phoneLogin/phoneLogin",
     "pages/pwdLogin/pwdLogin",
     "pages/resetPwd/resetPwd",
-    "pages/accountMsg/accountMsg"
+    "pages/accountMsg/accountMsg",
+    "pages/updatePass/updatePass"
   ],
   "window": {
     "backgroundTextStyle": "light",

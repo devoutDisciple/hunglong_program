@@ -87,6 +87,12 @@
         {
           "name": "账号信息",
           "pathName": "pages/accountMsg/accountMsg",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "修改密码",
+          "pathName": "pages/updatePass/updatePass",
           "scene": null
         }
       ]
