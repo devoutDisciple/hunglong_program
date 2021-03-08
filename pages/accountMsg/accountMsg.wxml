@@ -1,0 +1,25 @@
+<scroll-view scroll-y class="container">
+    <view class="empty" />
+    <message-item label="头像" value="张振" key="photo" bindclick="itemClick" type="photo" photoTmpUrl="{{photoTmpUrl}}"/>
+    <message-item label="昵称" value="张振" key="name" bindclick="itemClick" type="txt"/>
+    <message-item label="性别" value="男" key="sex" bindclick="itemClick" type="txt"/>
+    <message-item label="出生年月" key="age" type="txt">
+         <picker mode="date" value="{{date}}" start="{{dateStart}}" end="{{dateEnd}}" bindchange="bindDateChange">
+            {{activeDate}}
+        </picker>
+    </message-item>
+    <message-item label="地区" key="area" type="txt">
+         <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{areaList}}">
+            浙江省杭州市
+        </picker>
+    </message-item>
+    <message-item label="学校" value="杭州高中" key="school" bindclick="itemClick" type="txt"/>
+    <message-item label="个性签名" key="sign" bindclick="itemClick" type="txt" heightAuto>
+        <view class="sign">
+            <view class="sign_content">
+                <text>hello wolrd</text>
+            </view>
+        </view>
+    </message-item>
+    <van-button custom-class="next_btn" type="primary" block color="#fff">切换账号</van-button>
+</scroll-view>

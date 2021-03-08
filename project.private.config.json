@@ -81,6 +81,12 @@
         {
           "name": "我的",
           "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "账号信息",
+          "pathName": "pages/accountMsg/accountMsg",
           "scene": null
         }
       ]

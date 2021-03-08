@@ -1,0 +1,6 @@
+{
+    "usingComponents": {
+        "message-item": "/component/personMsgItem/personMsgItem"
+    },
+    "navigationBarTitleText": "账户信息"
+  }

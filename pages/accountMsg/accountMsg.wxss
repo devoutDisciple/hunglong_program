@@ -1,0 +1,26 @@
+.container {
+    height: 100vh;
+    width: 100vw;
+    background: #eeeeee;
+}
+.empty {
+    height: 30rpx;
+    background: #fff;
+}
+.next_btn{
+    color: red!important;
+    margin-top: 50rpx;
+}
+.sign{
+    width: 100%;
+    overflow: hidden;
+    text-align: right;
+}
+.sign_content {
+    width: 400rpx;
+    display: inline-block;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
