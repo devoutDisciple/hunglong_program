@@ -9,4 +9,4 @@
         <view class="good_right_num">{{num > 99 ? '99+' : num}}</view>
         <image src="/asserts/public/arrow_right.png" />
     </view>
-</view>
+</view> 

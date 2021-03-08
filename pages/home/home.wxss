@@ -4,16 +4,19 @@
     flex-direction: column;
     font-size: 26rpx;
 }
-.content{
+
+.content {
     flex: 1;
     overflow: hidden;
     background: #eeeeee;
 }
-.content ::-webkit-scrollbar{
- width: 0;
- height: 0;
- color: transparent
+
+.content ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent
 }
+
 .icon_list {
     display: flex;
     flex-direction: row;
@@ -23,17 +26,20 @@
     background: #fff;
     justify-content: space-around;
 }
+
 .icon_chunk {
     width: 170rpx;
     height: 130rpx;
     /* margin-top: 20rpx; */
     text-align: center;
 }
+
 .icon_chunk_img image {
     width: 50rpx;
     height: 50rpx;
 }
-.icon_chunk_txt{
+
+.icon_chunk_txt {
     margin-top: 5rpx;
     font-size: 24rpx;
 }
@@ -56,7 +62,7 @@
     width: 90rpx;
 }
 
-.tab_add image{
+.tab_add image {
     height: 90rpx;
     width: 90rpx;
 }
@@ -75,6 +81,7 @@
 .topic_close {
     animation: an_close .1s ease forwards;
 }
+
 .topic_open {
     animation: an_open .1s ease forwards;
 }
@@ -85,7 +92,8 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
-.topic_item{
+
+.topic_item {
     padding: 0 20rpx;
     height: 60rpx;
     line-height: 60rpx;
@@ -95,6 +103,7 @@
     font-size: 26rpx;
     margin: 14rpx 10rpx;
 }
+
 .topic_icon {
     margin-top: 14rpx;
     width: 60rpx;
@@ -105,6 +114,7 @@
     align-items: center;
     border-radius: 50rpx;
 }
+
 .topic_icon image {
     width: 34rpx;
     height: 34rpx;
@@ -114,6 +124,7 @@
     0% {
         height: 88rpx;
     }
+
     100% {
         height: auto;
     }
@@ -123,9 +134,9 @@
     0% {
         height: auto;
     }
+
     100% {
         height: 88rpx;
         overflow: hidden;
     }
 }
-

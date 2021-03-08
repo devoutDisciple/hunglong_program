@@ -1,2 +1,117 @@
-<!--pages/my/my.wxml-->
-<text>pages/my/my.wxml</text>
+<view class="my">
+    <view class="title">
+        <image class="title_bg" src="/asserts/public/my_bg.png" />
+        <view class="title_con" style="padding-top: {{headerHight}}px">
+            <view class="person">
+                <view class="person_desc">
+                    <view class="person_img">
+                        <image src="/asserts/public/hedPhoto.png" />
+                    </view>
+                    <view class="person_msg">
+                        <view class="person_msg_name">
+                            <view class="person_msg_name_user">疾风剑豪-压缩</view>
+                            <view class="person_msg_name_address">杭州市第一高级中学</view>
+                            <view class="person_msg_name_level">
+                                <image class="person_msg_name_level_img" src="/asserts/public/vip1.png"/>
+                                <text class="person_msg_name_level_txt">1级</text>
+                            </view>
+                        </view>
+                        <view class="person_msg_sign">
+                            <view class="person_msg_sign_txt">
+                                这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名
+                            </view>
+                        </view>
+                    </view>
+                    <view class="person_arrow">
+                        <image src="/asserts/public/arrow_right.png" />
+                    </view>
+                </view>
+                <view class="person_data">
+                    <view class="person_data_chunk">
+                        <view class="person_data_chunk_label">发布</view>
+                        <view class="person_data_chunk_num">1232</view>
+                    </view>
+                    <view class="person_data_chunk">
+                        <view class="person_data_chunk_label">粉丝</view>
+                        <view class="person_data_chunk_num">1232</view>
+                    </view>
+                    <view class="person_data_chunk">
+                        <view class="person_data_chunk_label">我的赞</view>
+                        <view class="person_data_chunk_num">1232</view>
+                    </view>
+                    <view class="person_data_chunk">
+                        <view class="person_data_chunk_label">关注</view>
+                        <view class="person_data_chunk_num">1232</view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <scroll-view class="content" scroll-y="{{true}}">
+        <view class="container">
+            <view class="viewer">
+                <view class="viewer_titile">谁看过我</view>
+                <view class="viewer_content">
+                    <view class="viewer_left">
+                        <scroll-view scroll-x="{{true}}" class="viewer_scroll" enable-flex="{{true}}">
+                            <view class="viewer_chunk">
+                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <view class="viewer_name">刘亦菲</view>
+                            </view>
+                            <view class="viewer_chunk">
+                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <view class="viewer_name">刘亦菲</view>
+                            </view>
+                            <view class="viewer_chunk">
+                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <view class="viewer_name">刘亦菲</view>
+                            </view>
+                            <view class="viewer_chunk">
+                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <view class="viewer_name">刘亦菲</view>
+                            </view>
+                            <view class="viewer_chunk">
+                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <view class="viewer_name">刘亦菲</view>
+                            </view>
+                            <view class="viewer_chunk">
+                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <view class="viewer_name">刘亦菲</view>
+                            </view>
+                            <view class="viewer_chunk">
+                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <view class="viewer_name">刘亦菲</view>
+                            </view>
+                            <view class="viewer_chunk">
+                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <view class="viewer_name">刘亦菲</view>
+                            </view>
+                            <view class="viewer_chunk">
+                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <view class="viewer_name">刘亦菲</view>
+                            </view>
+                            <view class="viewer_chunk">
+                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <view class="viewer_name">刘亦菲</view>
+                            </view>
+                            <view class="viewer_chunk">
+                                <image class="viewer_header" src="/asserts/public/hedPhoto.png" />
+                                <view class="viewer_name">刘亦菲</view>
+                            </view>
+                        </scroll-view>
+                    </view>
+                    <view class="viewer_right">
+                        <image src="/asserts/public/arrow_right.png" />
+                    </view>
+                </view>
+            </view>
+            <view class="setting">
+                <message-item label="账户资料" value="" key="account" bindclick="itemClick" type="txt"/>
+                <message-item label="修改密码" value="" key="password" bindclick="itemClick" type="txt"/>
+                <message-item label="反馈信息" value="" key="msg" bindclick="itemClick" type="txt"/>
+                <message-item label="关于我们" value="" key="about" bindclick="itemClick" type="txt"/>
+            </view>
+        </view>
+        
+    </scroll-view>
+</view>
