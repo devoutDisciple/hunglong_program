@@ -5,7 +5,6 @@
     "pages/message/message",
     "pages/my/my",
     "pages/test/test",
-    "pages/personMsg/personMsg",
     "pages/sctCircle/sctCircle",
     "pages/backImg/backImg",
     "pages/selBackImg/selBackImg",
@@ -15,11 +14,12 @@
     "pages/login/resetPwd/resetPwd",
     "pages/login/updatePass/updatePass",
     "pages/login/updatePassBySecurity/updatePassBySecurity",
-    "pages/accountMsg/accountMsg",
-    "pages/feedbackMsg/feedbackMsg",
-    "pages/viewMe/viewMe",
-    "pages/myFellow/myFellow",
-    "pages/myFans/myFans"
+    "pages/my/personMsg/personMsg",
+    "pages/my/accountMsg/accountMsg",
+    "pages/my/feedbackMsg/feedbackMsg",
+    "pages/my/viewMe/viewMe",
+    "pages/my/myFellow/myFellow",
+    "pages/my/myFans/myFans"
   ],
   "window": {
     "backgroundTextStyle": "light",

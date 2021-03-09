@@ -1,4 +1,4 @@
-import moment from '../../utils/moment';
+import moment from '../../../utils/moment';
 
 Page({
 	/**

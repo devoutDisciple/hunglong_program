@@ -26,7 +26,7 @@
         },
         {
           "name": "个人信息",
-          "pathName": "pages/personMsg/personMsg",
+          "pathName": "pages/my/personMsg/personMsg",
           "query": "",
           "scene": null
         },
@@ -86,7 +86,7 @@
         },
         {
           "name": "账号信息",
-          "pathName": "pages/accountMsg/accountMsg",
+          "pathName": "pages/my/accountMsg/accountMsg",
           "query": "",
           "scene": null
         },
@@ -104,25 +104,25 @@
         },
         {
           "name": "反馈信息",
-          "pathName": "pages/feedbackMsg/feedbackMsg",
+          "pathName": "pages/my/feedbackMsg/feedbackMsg",
           "query": "",
           "scene": null
         },
         {
           "name": "谁看过我",
-          "pathName": "pages/viewMe/viewMe",
+          "pathName": "pages/my/viewMe/viewMe",
           "query": "",
           "scene": null
         },
         {
           "name": "我关注的",
-          "pathName": "pages/myFellow/myFellow",
+          "pathName": "pages/my/myFellow/myFellow",
           "query": "",
           "scene": null
         },
         {
           "name": "我的粉丝",
-          "pathName": "pages/myFans/myFans",
+          "pathName": "pages/my/myFans/myFans",
           "query": "",
           "scene": null
         }
