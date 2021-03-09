@@ -119,6 +119,12 @@
           "pathName": "pages/myFellow/myFellow",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "我的粉丝",
+          "pathName": "pages/myFans/myFans",
+          "query": "",
+          "scene": null
         }
       ]
     }

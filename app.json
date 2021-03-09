@@ -18,7 +18,8 @@
     "pages/accountMsg/accountMsg",
     "pages/feedbackMsg/feedbackMsg",
     "pages/viewMe/viewMe",
-    "pages/myFellow/myFellow"
+    "pages/myFellow/myFellow",
+    "pages/myFans/myFans"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+      "user-item": "/component/userItem/userItem",
+      "btm-empty": "/component/btmEmpty/btmEmpty"
+    },
+    "navigationBarTitleText": "我的粉丝"
+  }
