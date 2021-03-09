@@ -13,7 +13,7 @@
                 </view>
             </view>
             <view class="comment_con">
-                <comment />
+                <comment bindSearchReback="searchReback"/>
                 <comment />
                 <comment />
                 <comment />
@@ -44,4 +44,11 @@
             赞
         </view>
     </view>
+    <van-action-sheet
+        title="4条回复"
+        show="{{ searchRebackVisible }}"
+        bind:close="onCloseSearchReback">
+        <view class="neirong">内容</view>
+    </van-action-sheet>
+    
 </view>

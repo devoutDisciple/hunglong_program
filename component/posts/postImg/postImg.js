@@ -28,7 +28,7 @@ Component({
 			const { imgList } = this.data;
 			const urls = [];
 			imgList.forEach((item) => {
-				urls.push(item.url);
+				if (item.url) urls.push(item.url);
 			});
 			wx.previewImage({ urls, current: index });
 		},
