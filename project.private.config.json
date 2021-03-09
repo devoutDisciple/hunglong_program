@@ -20,7 +20,7 @@
         },
         {
           "name": "微信登录页面",
-          "pathName": "pages/wxLogin/wxLogin",
+          "pathName": "pages/login/wxLogin/wxLogin",
           "query": "",
           "scene": null
         },
@@ -49,20 +49,20 @@
           "scene": null
         },
         {
-          "name": "手机号登录",
-          "pathName": "pages/phoneLogin/phoneLogin",
+          "name": "手机号码登录",
+          "pathName": "pages/login/phoneLogin/phoneLogin",
           "query": "",
           "scene": null
         },
         {
           "name": "密码登录",
-          "pathName": "pages/pwdLogin/pwdLogin",
+          "pathName": "pages/login/pwdLogin/pwdLogin",
           "query": "",
           "scene": null
         },
         {
           "name": "重置密码",
-          "pathName": "pages/resetPwd/resetPwd",
+          "pathName": "pages/login/resetPwd/resetPwd",
           "query": "",
           "scene": null
         },
@@ -92,19 +92,20 @@
         },
         {
           "name": "修改密码",
-          "pathName": "pages/updatePass/updatePass",
+          "pathName": "pages/login/updatePass/updatePass",
           "query": "",
           "scene": null
         },
         {
           "name": "验证码更新密码",
-          "pathName": "pages/updatePassBySecurity/updatePassBySecurity",
+          "pathName": "pages/login/updatePassBySecurity/updatePassBySecurity",
           "query": "",
           "scene": null
         },
         {
           "name": "反馈信息",
           "pathName": "pages/feedbackMsg/feedbackMsg",
+          "query": "",
           "scene": null
         }
       ]

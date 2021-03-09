@@ -1,1 +1,5 @@
-/* pages/circle/circle.wxss */
+.content {
+    font-size: 26rpx;
+    width: 100vw;
+    height: 100vh;
+}

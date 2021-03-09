@@ -2,6 +2,7 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
+    font-size: 26rpx;
 }
 .content{
     flex: 1;
@@ -25,6 +26,8 @@
 }
 .logo image {
     height: 100rpx;
+    height: 100rpx;
+    border-radius: 100%;
 }
 .welcome{
     height: 50rpx;

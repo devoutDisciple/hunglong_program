@@ -47,5 +47,10 @@ Page({
 				url: '/pages/updatePass/updatePass',
 			});
 		}
+		if (detail === 'msg') {
+			wx.navigateTo({
+				url: '/pages/feedbackMsg/feedbackMsg',
+			});
+		}
 	},
 });

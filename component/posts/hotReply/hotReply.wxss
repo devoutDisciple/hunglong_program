@@ -17,6 +17,7 @@
 .reply_top_img image{
     width: 40rpx;
     height: 40rpx;
+    border-radius: 100%;
 }
 .reply_top_name {
     flex: 1;
