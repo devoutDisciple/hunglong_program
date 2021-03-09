@@ -8,6 +8,10 @@ Component({
 			type: Array,
 			value: [],
 		},
+		showAll: {
+			type: Boolean,
+			value: false,
+		},
 	},
 
 	/**

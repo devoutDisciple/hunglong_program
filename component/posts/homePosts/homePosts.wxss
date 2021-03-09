@@ -3,20 +3,6 @@
     padding: 20rpx;
     margin-bottom: 20rpx;
 }
-.txt{
-    margin-top: 15rpx;
-    font-size: 28rpx;
-    color: #151515;
-    display: -webkit-box;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    word-break: break-all;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 5;
-}
-.link {
-    color: #0091FF;
-}
 .reply {
     margin: 10rpx 0;
 }

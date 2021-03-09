@@ -19,7 +19,8 @@
     "pages/my/feedbackMsg/feedbackMsg",
     "pages/my/viewMe/viewMe",
     "pages/my/myFellow/myFellow",
-    "pages/my/myFans/myFans"
+    "pages/my/myFans/myFans",
+    "pages/postsDetail/postsDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -31,9 +31,11 @@
 .wrap3 {
     display: flex;
     flex-wrap: wrap;
-    max-height: calc((100vw - 60rpx) / 3 * 2 + 20rpx);
     overflow: hidden;
     justify-content: space-between;
+}
+.wrap3_ellipsis {
+    max-height: calc((100vw - 60rpx) / 3 * 2 + 20rpx);
 }
 .wrap3 .img{
    width: calc((100vw - 60rpx)/ 3);
