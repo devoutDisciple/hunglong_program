@@ -15,6 +15,7 @@
         <view class="user_sign">这是签名内容这是签名内容这是签名内容这是签名内容这是签名内容这是签名内容这是签名内容这是签名内容</view>
     </view>
     <view class="user_attention">
-        <view class="attention_btn">关注</view>
+        <view wx:if="{{hasAttention}}" class="attention_btn">已关注</view>
+        <view wx:else class="attention_not_btn">关注</view>
     </view>
 </view>

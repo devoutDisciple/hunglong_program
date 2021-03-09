@@ -113,6 +113,12 @@
           "pathName": "pages/viewMe/viewMe",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "我关注的",
+          "pathName": "pages/myFellow/myFellow",
+          "query": "",
+          "scene": null
         }
       ]
     }

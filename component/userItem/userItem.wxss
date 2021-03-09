@@ -73,6 +73,12 @@
     justify-content: center;
 }
 .attention_btn {
+    padding: 7rpx 20rpx;
+    border-radius: 30rpx;
+    color: #989898;
+    background: #ededed;
+}
+.attention_not_btn {
     padding: 5rpx 20rpx;
     border-radius: 30rpx;
     border: 1rpx solid #a8a8a8;
