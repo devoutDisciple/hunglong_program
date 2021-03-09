@@ -107,6 +107,12 @@
           "pathName": "pages/feedbackMsg/feedbackMsg",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "谁看过我",
+          "pathName": "pages/viewMe/viewMe",
+          "query": "",
+          "scene": null
         }
       ]
     }

@@ -1,0 +1,80 @@
+.user {
+    height: 100rpx;
+    padding: 20rpx 0;
+    display: flex;
+    border-bottom: 1rpx solid #f0f0f0;
+}
+.user_photo {
+    width: 90rpx;
+}
+.user_photo image {
+    width: 90rpx;
+    height: 90rpx;
+    margin-top: 5rpx;
+    border-radius: 100%;
+}
+.user_desc {
+    flex: 1;
+    margin-left: 15rpx;
+}
+.user_msg {
+    height: 50rpx;
+    display: flex;
+}
+.user_msg_name {
+    font-size: 28rpx;
+    line-height: 50rpx;
+    max-width: 300rpx;
+    margin-right: 10rpx;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+.user_msg_order {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user_msg_order image{
+    width: 30rpx;
+    height: 30rpx;
+}
+.user_msg_level{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user_msg_level_txt {
+    background: #fef9e9;
+    color: #f1a62e;
+    font-size: 20rpx;
+    padding: 0 5rpx;
+}
+.user_sign {
+    height: 50rpx;
+    line-height: 60rpx;
+    font-size: 22rpx;
+    color: #999999;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+.user_attention {
+    width: 120rpx;
+    margin-left: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.attention_btn {
+    padding: 5rpx 20rpx;
+    border-radius: 30rpx;
+    border: 1rpx solid #a8a8a8;
+    color: #393939;
+}

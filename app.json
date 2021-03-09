@@ -16,7 +16,8 @@
     "pages/login/updatePass/updatePass",
     "pages/login/updatePassBySecurity/updatePassBySecurity",
     "pages/accountMsg/accountMsg",
-    "pages/feedbackMsg/feedbackMsg"
+    "pages/feedbackMsg/feedbackMsg",
+    "pages/viewMe/viewMe"
   ],
   "window": {
     "backgroundTextStyle": "light",

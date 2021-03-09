@@ -1,0 +1,17 @@
+.content {
+  font-size: 26rpx;
+  width: 100vw;
+  height: 100vh;
+  background: #eeeeee;
+}
+.title {
+    height: 40rpx;
+    line-height: 40rpx;
+    font-size: 24rpx;
+    margin-left: 20rpx;
+}
+.chunk {
+    background: #fff;
+    padding: 0 20rpx;
+    width: calc(100vw - 40rpx);
+}
