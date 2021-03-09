@@ -12,6 +12,19 @@
                     3320<image src="/asserts/public/good_select.png"/>
                 </view>
             </view>
+            <view class="comment_con">
+                <comment />
+                <comment />
+                <comment />
+                <comment />
+                <comment />
+                <comment />
+                <comment />
+                <comment />
+                <comment />
+                <comment />
+                <comment />
+            </view>
         </view>
         <btm-empty />
     </scroll-view>
