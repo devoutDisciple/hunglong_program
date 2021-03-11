@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-      "comment": "/component/comment/comment",
-      "btm-empty": "/component/btmEmpty/btmEmpty"
-  }
-}

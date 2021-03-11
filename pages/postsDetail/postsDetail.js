@@ -26,7 +26,6 @@ Page({
 			// 	height: 700,
 			// },
 		],
-		searchReplyVisible: false, // 评论回复详情弹框
 		focus: false,
 		iptVisible: false, // 评论输入框
 		iptFocus: false, // 评论输入框聚焦
@@ -49,15 +48,9 @@ Page({
 
 	// 查询评论回复内容
 	searchReply: function () {
-		this.setData({ searchReplyVisible: true });
-		setTimeout(() => {
-			this.setData({ focus: true });
-		}, 1000);
-	},
-
-	// 查询评论回复内容关闭
-	onCloseSearchReply: function () {
-		this.setData({ searchReplyVisible: false });
+		wx.navigateTo({
+			url: '/pages/reply/reply',
+		});
 	},
 
 	// 打开评论输入框
@@ -65,7 +58,7 @@ Page({
 		this.setData({ iptVisible: true });
 		setTimeout(() => {
 			this.setData({ iptFocus: true });
-		}, 1000);
+		}, 200);
 	},
 
 	// 评论输入框关闭

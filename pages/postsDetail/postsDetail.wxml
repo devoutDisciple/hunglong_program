@@ -13,17 +13,17 @@
                 </view>
             </view>
             <view class="comment_con">
-                <comment bindSearchReply="searchReply"/>
-                <comment />
-                <comment />
-                <comment />
-                <comment />
-                <comment />
-                <comment />
-                <comment />
-                <comment />
-                <comment />
-                <comment />
+                <comment bindSearchReply="searchReply" type="post"/>
+                <comment type="post"/>
+                <comment type="post"/>
+                <comment type="post"/>
+                <comment type="post"/>
+                <comment type="post"/>
+                <comment type="post"/>
+                <comment type="post"/>
+                <comment type="post"/>
+                <comment type="post"/>
+                <comment type="post"/>
             </view>
         </view>
         <btm-empty />
@@ -44,11 +44,5 @@
             赞
         </view>
     </view>
-    <van-action-sheet
-        title="4条回复"
-        show="{{ searchReplyVisible }}"
-        bind:close="onCloseSearchReply">
-        <comment-reply focus="{{focus}}"/>
-    </van-action-sheet>
     <reply-ipt visible="{{iptVisible}}" focus="{{iptFocus}}" bindOnClose="onCloseIptDialog"/>
 </view>

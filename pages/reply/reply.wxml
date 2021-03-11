@@ -1,2 +1,22 @@
-<!--pages/reply/reply.wxml-->
-<text>pages/reply/reply.wxml</text>
+<view class="wrap">
+    <scroll-view class="con" scroll-y="{{true}}">
+        <view class="con_my">
+            <comment type="reply"/>
+        </view>
+        <view class="con_other">
+            <comment type="reply" />
+            <comment type="reply" />
+            <comment type="reply" />
+            <comment type="reply" />
+            <comment type="reply" />
+            <comment type="reply" />
+            <comment type="reply" />
+            <comment type="reply" />
+        </view>
+        <btm-empty />
+    </scroll-view>
+    <view class="bottom" bindtap = "openReply">
+        <input focus="false" class="ipt" cursor-spacing="180" class="ipt" placeholder="说点什么吧。。。" maxlength="200" confirm-type="send"/>
+    </view>
+    <reply-ipt visible="{{visible}}" focus="{{focus}}" bindOnClose="onCloseIptDialog"/>
+</view>
