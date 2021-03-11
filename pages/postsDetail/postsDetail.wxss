@@ -58,6 +58,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    border-top: 1rpx solid #f2f2f2;
 }
 .footer image {
     width: 26rpx;
@@ -77,7 +78,4 @@
     align-items: center;
     font-size: 26rpx;
     color: #9f9f9f;
-}
-.neirong {
-    height: 80vh;
 }

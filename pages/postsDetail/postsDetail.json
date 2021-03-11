@@ -4,7 +4,9 @@
     "post-txt": "/component/posts/postTxt/postTxt",
     "post-img": "/component/posts/postImg/postImg",
     "btm-empty": "/component/btmEmpty/btmEmpty",
-    "comment": "/component/comment/comment"
+    "comment": "/component/comment/comment",
+    "comment-reply": "/component/commentReply/commentReply",
+    "reply-ipt": "/component/replyIpt/replyIpt"
   },
   "navigationBarTitleText": "周六来hi呀"
 }

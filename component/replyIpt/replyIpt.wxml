@@ -1,0 +1,15 @@
+<van-action-sheet
+    title=""
+    show="{{ visible }}"
+    bind:close="onClose">
+    <view class="content">
+        <view class="desc">
+            <input focus="{{focus}}" cursor-spacing="180" class="ipt" placeholder="好话一句句，让人心情变美丽" maxlength="200" confirm-type="send"/>
+            <view class="send">发送</view>
+        </view>
+        <view class="icon">
+            <image class="icon_img" src="/asserts/public/img.png" />
+            <image class="icon_img" src="/asserts/public/emoji.png" />
+        </view>
+    </view>
+</van-action-sheet>

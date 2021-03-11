@@ -1,0 +1,21 @@
+.wrap {
+    height: 80vh; 
+    background: red;
+    display: flex;
+    flex-direction: column;
+}
+.con {
+    flex: 1;
+    width: calc(100vw - 40rpx);
+    padding: 0 20rpx;
+    overflow: hidden;
+    background: blue;
+}
+.con ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+.bottom {
+    height: 100rpx;
+}

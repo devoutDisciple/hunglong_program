@@ -1,0 +1,31 @@
+.content {
+    padding: 30rpx 20rpx;
+    font-size: 26rpx;
+}
+.desc {
+    display: flex;
+    height: 70rpx;
+}
+.ipt {
+    background: #f8f8f8;
+    flex: 1;
+    height: 70rpx;
+    padding: 0 10rpx;
+    border-radius: 10rpx;
+}
+.send {
+    width: 80rpx;
+    text-align: right;
+    line-height: 70rpx;
+    color: red;
+}
+.icon {
+    margin: 10rpx;
+    height: 50rpx;
+    padding-top: 10rpx;
+}
+.icon_img {
+    height: 40rpx;
+    width: 40rpx;
+    margin-right: 20rpx;
+}

@@ -27,6 +27,17 @@
     line-height: 40rpx;
     margin: 5rpx 0;
 }
+.con_comment_num {
+    color: #279DFF;
+    height: 50rpx;
+    display: flex;
+    align-items: center;
+    font-size: 24rpx;
+}
+.con_comment_num image{
+    height: 22rpx;
+    width: 22rpx;
+}
 .con_data {
     display: flex;
     font-size: 24rpx;

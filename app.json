@@ -20,7 +20,8 @@
     "pages/my/viewMe/viewMe",
     "pages/my/myFellow/myFellow",
     "pages/my/myFans/myFans",
-    "pages/postsDetail/postsDetail"
+    "pages/postsDetail/postsDetail",
+    "pages/reply/reply"
   ],
   "window": {
     "backgroundTextStyle": "light",

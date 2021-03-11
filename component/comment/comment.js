@@ -14,8 +14,8 @@ Component({
 	 * 组件的方法列表
 	 */
 	methods: {
-		searchReback: function () {
-			this.triggerEvent('SearchReback');
+		searchReply: function () {
+			this.triggerEvent('SearchReply');
 		},
 	},
 });

@@ -13,7 +13,7 @@
                 </view>
             </view>
             <view class="comment_con">
-                <comment bindSearchReback="searchReback"/>
+                <comment bindSearchReply="searchReply"/>
                 <comment />
                 <comment />
                 <comment />
@@ -34,7 +34,7 @@
             转发
         </view>
         <view class="footer_split" />
-        <view class="footer_chunk">
+        <view class="footer_chunk" bindtap = "onShowIptDialog">
             <image src="/asserts/public/message.png"/>
             评论
         </view>
@@ -46,9 +46,9 @@
     </view>
     <van-action-sheet
         title="4条回复"
-        show="{{ searchRebackVisible }}"
-        bind:close="onCloseSearchReback">
-        <view class="neirong">内容</view>
+        show="{{ searchReplyVisible }}"
+        bind:close="onCloseSearchReply">
+        <comment-reply focus="{{focus}}"/>
     </van-action-sheet>
-    
+    <reply-ipt visible="{{iptVisible}}" focus="{{iptFocus}}" bindOnClose="onCloseIptDialog"/>
 </view>
