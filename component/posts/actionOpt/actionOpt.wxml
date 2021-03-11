@@ -1,11 +1,11 @@
 <view class="wrap">
-    <view class="chunk">
+    <view class="chunk" bindtap = "onTapShare">
         <image src="/asserts/public/share.png" />123
     </view>
-    <view class="chunk">
+    <view class="chunk" bindtap = "onTapMsg">
         <image src="/asserts/public/message.png" />123
     </view>
-    <view class="chunk">
+    <view class="chunk" bindtap = "onTapGood">
         <image src="/asserts/public/good.png" />123
     </view>
 </view>

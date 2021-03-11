@@ -34,22 +34,20 @@ Page({
 	 * 生命周期函数--监听页面显示
 	 */
 	itemClick: function (e) {
-		console.log(e, 111);
 		const { detail } = e;
-		console.log(detail);
 		if (detail === 'account') {
 			wx.navigateTo({
-				url: '/pages/accountMsg/accountMsg',
+				url: '/pages/my/accountMsg/accountMsg',
 			});
 		}
 		if (detail === 'password') {
 			wx.navigateTo({
-				url: '/pages/updatePass/updatePass',
+				url: '/pages/login/updatePass/updatePass',
 			});
 		}
 		if (detail === 'msg') {
 			wx.navigateTo({
-				url: '/pages/feedbackMsg/feedbackMsg',
+				url: '/pages/my/feedbackMsg/feedbackMsg',
 			});
 		}
 	},

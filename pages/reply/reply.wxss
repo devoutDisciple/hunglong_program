@@ -32,7 +32,9 @@
 .ipt {
     width: 90%;
     height: 70rpx;
+    line-height: 70rpx;
     background: #f8f8f8;
     padding: 0 20rpx;
     border-radius: 70rpx;
+    color: #b1b1b1;
 }

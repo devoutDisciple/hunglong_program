@@ -41,7 +41,20 @@ Component({
 	/**
 	 * 组件的方法列表
 	 */
-	methods: {},
+	methods: {
+		// 点击内容区
+		onTapCon: function () {
+			this.triggerEvent('OnTapCon');
+		},
+		// 点赞
+		onTapGood: function () {
+			console.log('点赞');
+		},
+		// 点击分享
+		onTapShare: function () {
+			console.log('点击分享');
+		},
+	},
 
 	// 组件生命周期函数-在组件实例进入页面节点树时执行)
 	attached: function () {

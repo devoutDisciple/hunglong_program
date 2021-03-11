@@ -80,6 +80,7 @@
 
 .topic_close {
     animation: an_close .1s ease forwards;
+    overflow: hidden;
 }
 
 .topic_open {

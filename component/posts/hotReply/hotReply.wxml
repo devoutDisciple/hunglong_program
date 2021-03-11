@@ -4,12 +4,12 @@
             <image src="/asserts/public/logo.png" />
         </view>
         <view class="reply_top_name">古力娜扎马尔扎哈</view>
-        <view class="reply_top_good">
+        <view bindtap = "onTapGood" class="reply_top_good">
             <view class="reply_top_good_txt">3220</view>
             <image src="/asserts/public/good.png" />
         </view>
     </view>
-    <view class="reply_btm">
+    <view bindtap = "onTapContent" class="reply_btm">
         这是热门回复这是热门回复这是热门回复这是热门回复这是热门回复这是热门回复这是热门回复这是热门回复这是热门回复
     </view>
 </view>

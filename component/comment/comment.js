@@ -8,12 +8,20 @@ Component({
 			type: String,
 			value: 'post', // post-帖子回复 reply-评论回复
 		},
+		imgList: {
+			type: Array,
+			value: [], // 评论区的图片
+		},
 	},
 
 	/**
 	 * 组件的初始数据
 	 */
 	data: {},
+
+	lifetimes: {
+		attached: function () {},
+	},
 
 	/**
 	 * 组件的方法列表

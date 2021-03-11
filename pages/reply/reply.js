@@ -25,10 +25,10 @@ Page({
 
 	//   输入框聚焦
 	openReply: function () {
-		this.setData({ visible: true, focus: true });
-		// setTimeout(() => {
-		// 	this.setData({ focus: true });
-		// }, 200);
+		this.setData({ visible: true });
+		setTimeout(() => {
+			this.setData({ focus: true });
+		}, 100);
 	},
 
 	onCloseIptDialog: function () {

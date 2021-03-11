@@ -1,6 +1,6 @@
 <view class="content">
     <post-header />
-    <post-txt />
+    <post-txt bindOnTap="onTapCon"/>
     <post-img imgList="{{imgList}}"/>
     <view class="topic">
         <view class="topic_left">
@@ -16,7 +16,7 @@
         </view>
     </view>
     <view class="reply">
-        <hot-reply />
+        <hot-reply bindOnTapGood="onTapGood" bindOnTapCon="onTapCon"/>
     </view>
-    <action-opt />
+    <action-opt bindOnTapShare="onTapShare" bindOnTapMsg="onTapCon" bindOnTapGood="onTapGood"/>
 </view>

@@ -54,7 +54,7 @@ Page({
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function (options) {},
+	onLoad: function () {},
 
 	/**
 	 * 生命周期函数--监听页面初次渲染完成
@@ -75,8 +75,23 @@ Page({
 		});
 	},
 
+	/**
+	 * 点击展开话题
+	 */
 	cntOpen: function () {
 		const { topicClass } = this.data;
 		this.setData({ topicClass: topicClass !== 'topic_open' ? 'topic_open' : 'topic_close' });
+	},
+
+	// 点击帖子内容区
+	onTapCon: function () {
+		wx.navigateTo({
+			url: '/pages/postsDetail/postsDetail',
+		});
+	},
+
+	// 给帖子点赞
+	onTapGood: function () {
+		console.log('点赞');
 	},
 });

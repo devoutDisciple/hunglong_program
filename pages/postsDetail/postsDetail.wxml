@@ -13,17 +13,16 @@
                 </view>
             </view>
             <view class="comment_con">
-                <comment bindSearchReply="searchReply" type="post"/>
-                <comment type="post"/>
-                <comment type="post"/>
-                <comment type="post"/>
-                <comment type="post"/>
-                <comment type="post"/>
-                <comment type="post"/>
-                <comment type="post"/>
-                <comment type="post"/>
-                <comment type="post"/>
-                <comment type="post"/>
+                <comment bindSearchReply="searchReply" type="post" imgList="{{replyImgList}}"/>
+                <comment bindSearchReply="searchReply" type="post" imgList="{{replyImgList}}"/>
+                <comment bindSearchReply="searchReply" type="post" imgList="{{replyImgList}}"/>
+                <comment bindSearchReply="searchReply" type="post" imgList="{{replyImgList}}"/>
+                <comment bindSearchReply="searchReply" type="post" imgList="{{replyImgList}}"/>
+                <comment bindSearchReply="searchReply" type="post" imgList="{{replyImgList}}"/>
+                <comment bindSearchReply="searchReply" type="post" imgList="{{replyImgList}}"/>
+                <comment bindSearchReply="searchReply" type="post" imgList="{{replyImgList}}"/>
+                <comment bindSearchReply="searchReply" type="post" imgList="{{replyImgList}}"/>
+                <comment bindSearchReply="searchReply" type="post" imgList="{{replyImgList}}"/>
             </view>
         </view>
         <btm-empty />

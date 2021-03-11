@@ -42,7 +42,12 @@
                 <image wx:else src="/asserts/public/arrow_btm.png" />
            </view>
         </view>
-        <home-post />
+        <home-post 
+            bindOnTapCon="onTapCon" 
+            bindOnTapGood="onTapGood" 
+            bindOnTapReplyCon="onTapCon" 
+            bindOnTapShare="OnTapShare" 
+            bindOnTapMsg="onTapCon"/>
         <home-post />
         <home-post />
         <home-post />

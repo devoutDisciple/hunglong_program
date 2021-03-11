@@ -25,7 +25,7 @@ Page({
 	 */
 	goUpdatePassBySecurity: function () {
 		wx.navigateTo({
-			url: '/pages/updatePassBySecurity/updatePassBySecurity',
+			url: '/pages/login/updatePassBySecurity/updatePassBySecurity',
 		});
 	},
 

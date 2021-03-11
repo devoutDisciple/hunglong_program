@@ -16,7 +16,7 @@
         <btm-empty />
     </scroll-view>
     <view class="bottom" bindtap = "openReply">
-        <input focus="false" class="ipt" cursor-spacing="180" class="ipt" placeholder="说点什么吧。。。" maxlength="200" confirm-type="send"/>
+        <view class="ipt">好话一句句，让人心情变美丽</view>
     </view>
     <reply-ipt visible="{{visible}}" focus="{{focus}}" bindOnClose="onCloseIptDialog"/>
 </view>

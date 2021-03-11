@@ -12,34 +12,21 @@ Component({
 
 	lifetimes: {
 		// 生命周期函数，可以为函数，或一个在methods段中定义的方法名
-		attached: function () {
-			console.log(111);
-		},
-		moved: function () {
-			console.log(222);
-		},
-		detached: function () {
-			console.log(333);
-		},
-		created: function () {
-			console.log(444);
-		},
-		ready: function () {
-			console.log(5555);
-		},
+		attached: function () {},
+		moved: function () {},
+		detached: function () {},
+		created: function () {},
+		ready: function () {},
 	},
 	pageLifetimes: {
 		show: function () {
 			// 页面被展示
-			console.log('page1111');
 		},
 		hide: function () {
 			// 页面被隐藏
-			console.log('page2222');
 		},
-		resize: function (size) {
+		resize: function () {
 			// 页面尺寸变化
-			console.log('page3333');
 		},
 	},
 

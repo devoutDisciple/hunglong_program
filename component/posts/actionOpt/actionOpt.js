@@ -13,5 +13,18 @@ Component({
 	/**
 	 * 组件的方法列表
 	 */
-	methods: {},
+	methods: {
+		// 点击转发
+		onTapShare: function () {
+			this.triggerEvent('OnTapShare');
+		},
+		// 点击消息
+		onTapMsg: function () {
+			this.triggerEvent('OnTapMsg');
+		},
+		// 点击赞
+		onTapGood: function () {
+			this.triggerEvent('OnTapGood');
+		},
+	},
 });
