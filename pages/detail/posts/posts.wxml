@@ -1,0 +1,5 @@
+<view class="wrap">
+    <posts-detail>
+        <post-img imgList="{{imgList}}" showAll="{{true}}"/>
+    </posts-detail>
+</view>

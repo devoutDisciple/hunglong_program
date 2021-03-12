@@ -1,0 +1,8 @@
+{
+	"usingComponents": {
+		"posts-detail": "/component/postsDetail/postsDetail",
+		"post-txt": "/component/posts/postTxt/postTxt",
+		"post-img": "/component/posts/postImg/postImg"
+	},
+    "navigationBarTitleText": "周六来hi呀"
+}

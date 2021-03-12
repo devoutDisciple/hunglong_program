@@ -135,6 +135,19 @@
         {
           "name": "评论详情",
           "pathName": "pages/reply/reply",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "投票详情",
+          "pathName": "pages/detail/vote/vote",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "博客详情",
+          "pathName": "pages/detail/posts/posts",
+          "query": "",
           "scene": null
         }
       ]

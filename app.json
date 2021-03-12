@@ -21,7 +21,9 @@
     "pages/my/myFellow/myFellow",
     "pages/my/myFans/myFans",
     "pages/postsDetail/postsDetail",
-    "pages/reply/reply"
+    "pages/reply/reply",
+    "pages/detail/posts/posts",
+    "pages/detail/vote/vote"
   ],
   "window": {
     "backgroundTextStyle": "light",
