@@ -6,6 +6,28 @@ Page({
 	data: {
 		visible: false,
 		focus: false,
+		replyImgList: [
+			{
+				url: '/asserts/temp/1.jpg',
+				width: 600,
+				height: 500,
+			},
+			{
+				url: '/asserts/temp/2.jpg',
+				width: 600,
+				height: 500,
+			},
+			{
+				url: '/asserts/temp/1.jpg',
+				width: 600,
+				height: 500,
+			},
+			{
+				url: '/asserts/temp/2.jpg',
+				width: 600,
+				height: 500,
+			},
+		],
 	},
 
 	/**

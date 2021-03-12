@@ -6,7 +6,7 @@
         <view class="con_other">
             <comment type="reply" />
             <comment type="reply" />
-            <comment type="reply" />
+            <comment type="reply" imgList="{{replyImgList}}"/>
             <comment type="reply" />
             <comment type="reply" />
             <comment type="reply" />

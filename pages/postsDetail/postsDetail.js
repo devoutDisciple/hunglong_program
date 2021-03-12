@@ -71,6 +71,7 @@ Page({
 		focus: false,
 		iptVisible: false, // 评论输入框
 		iptFocus: false, // 评论输入框聚焦
+		type: 'post', // post-帖子 blogs-博客
 	},
 
 	/**

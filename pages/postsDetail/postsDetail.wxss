@@ -15,6 +15,13 @@
     height: 0;
     color: transparent;
 }
+.title {
+    background: #fff;
+    padding: 30rpx 20rpx;
+    padding-bottom: 0;
+    font-size: 36rpx;
+    color: #333333;
+}
 .detail {
     padding: 20rpx;
     width: calc(100vw - 40rpx);
