@@ -23,7 +23,8 @@
     "pages/postsDetail/postsDetail",
     "pages/reply/reply",
     "pages/detail/posts/posts",
-    "pages/detail/vote/vote"
+    "pages/detail/vote/vote",
+    "pages/detail/battle/battle"
   ],
   "window": {
     "backgroundTextStyle": "light",

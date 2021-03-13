@@ -9,7 +9,7 @@ Component({
 	properties: {
 		type: {
 			type: String,
-			value: '', // posts-帖子 blogs-博客 vote-投票
+			value: '', // posts-帖子 blogs-博客 vote-投票 battle-pk
 		},
 	},
 

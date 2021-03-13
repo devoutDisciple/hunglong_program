@@ -143,6 +143,12 @@
           "pathName": "pages/detail/posts/posts",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pk对决",
+          "pathName": "pages/detail/battle/battle",
+          "query": "",
+          "scene": null
         }
       ]
     }

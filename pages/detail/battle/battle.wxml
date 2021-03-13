@@ -1,0 +1,7 @@
+<view class="wrap">
+    <posts-detail type="battle">
+        <view class="battle">
+            123
+        </view>
+    </posts-detail>
+</view>
