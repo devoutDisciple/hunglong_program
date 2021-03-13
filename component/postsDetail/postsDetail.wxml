@@ -1,10 +1,11 @@
 <view class="wrap">
     <scroll-view class="content" scroll-y="{{true}}">
-        <view class="title" wx:if="{{type === 'post'}}">这是标题</view>
+        <view class="title" wx:if="{{type === 'posts'}}">这是标题</view>
         <view class="detail">
             <post-header />
             <post-txt showTopic="false" showAll="{{true}}"/>
             <slot></slot>
+            <post-topic />
         </view>
         <view class="comment">
             <view class="comment_title">

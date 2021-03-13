@@ -2,19 +2,7 @@
     <post-header />
     <post-txt bindOnTap="onTapCon"/>
     <post-img imgList="{{imgList}}"/>
-    <view class="topic">
-        <view class="topic_left">
-            <view class="topic_item">
-                <topic-btn title="这是话题1"/>
-            </view>
-            <view class="topic_item">
-                <topic-btn title="这是话题2"/>
-            </view>
-        </view>
-        <view class="topic_right">
-           <circle-btn title="圈子圈子圈子"/>
-        </view>
-    </view>
+    <post-topic />
     <view class="reply">
         <hot-reply bindOnTapGood="onTapGood" bindOnTapCon="onTapCon"/>
     </view>

@@ -127,12 +127,6 @@
           "scene": null
         },
         {
-          "name": "帖子详情",
-          "pathName": "pages/postsDetail/postsDetail",
-          "query": "",
-          "scene": null
-        },
-        {
           "name": "评论详情",
           "pathName": "pages/reply/reply",
           "query": "",
@@ -145,7 +139,7 @@
           "scene": null
         },
         {
-          "name": "博客详情",
+          "name": "帖子详情",
           "pathName": "pages/detail/posts/posts",
           "query": "",
           "scene": null

@@ -1,0 +1,15 @@
+.topic {
+    display: flex;
+    padding: 10rpx 0;
+}
+.topic_left {
+    flex: 1;
+    display: flex;
+}
+.topic_left .topic_item {
+    margin-right: 10rpx;
+}
+.topic_right {
+    width: 200rpx;
+    background: #def1ff;
+}

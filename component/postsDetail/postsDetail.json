@@ -5,6 +5,7 @@
     "post-img": "/component/posts/postImg/postImg",
     "btm-empty": "/component/btmEmpty/btmEmpty",
     "comment": "/component/comment/comment",
-    "reply-ipt": "/component/replyIpt/replyIpt"
+    "reply-ipt": "/component/replyIpt/replyIpt",
+    "post-topic": "/component/posts/postTopic/postTopic"
   }
 }

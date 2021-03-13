@@ -1,5 +1,8 @@
-<view class="wrap">
-    <posts-detail>
-        <view>1233213123</view>
-    </posts-detail>
-</view>
+<posts-detail type="vote">
+    <view class="vote_item">
+        <vote-item isSelect="{{true}}"/>
+    </view>
+    <view class="vote_item">
+        <vote-item />
+    </view>
+</posts-detail>

@@ -1,0 +1,11 @@
+<view class="vote {{isSelect ? 'vote_select' : ''}}">
+    <view class="vote_con">
+        <view class="vote_con_txt">这是投票内容这是投票内容这是投票内容这是投票内容这是投票内容这是投票内容这是投票内容这是投票内容</view>
+        <view class="vote_con_select" wx:if="{{isSelect}}">（已选）</view>
+        <view class="vote_con_img" wx:if="{{isSelect}}">
+            <image src="/asserts/public/select-radio.png" />
+        </view>
+    </view>
+    <view class="vote_num">1000</view>
+    <view class="vote_modal" style="width: {{voteWidth}}"/>
+</view>

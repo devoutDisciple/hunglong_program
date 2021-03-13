@@ -1,0 +1,13 @@
+<view class="topic">
+    <view class="topic_left">
+        <view class="topic_item">
+            <topic-btn title="这是话题1"/>
+        </view>
+        <view class="topic_item">
+            <topic-btn title="这是话题2"/>
+        </view>
+    </view>
+    <view class="topic_right">
+        <circle-btn title="圈子圈子圈子"/>
+    </view>
+</view>
