@@ -1,7 +1,30 @@
 <view class="wrap">
     <posts-detail type="battle">
         <view class="battle">
-            123
+            <view class="battle_chunk">
+                <image src="/asserts/public/logo.png"/>
+            </view>
+            <view class="battle_icon">
+                <image src="/asserts/public/pk.png"/>
+            </view>
+            <view class="battle_chunk">
+                <image src="/asserts/public/logo.png"/>
+            </view>
+        </view>
+        <view class="progress">
+            <view class="progress_left" style="width: {{redTeam}}"/>
+            <view class="progress_icon" style="left: calc({{redTeam}} - 25rpx)">
+                <image src="/asserts/public/pk.png"/>
+            </view> 
+            <view class="progress_right" />
+        </view>
+        <view class="btn">
+            <view class="btn_left">
+                <view class="btn_select">已选中</view>
+            </view>
+            <view class="btn_right">
+                <view class="btn_noSe">选择</view>
+            </view>
         </view>
     </posts-detail>
 </view>
