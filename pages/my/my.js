@@ -15,11 +15,8 @@ Page({
 	 */
 	onLoad() {
 		const { userInfo } = app.globalData;
-		if (!userInfo.photo) {
-			this.setData({ username: '暂无昵称', photo: `${config.baseUrl}/img/photo.png` });
-		}
 		if (userInfo) {
-			// this.setData({ userInfo });
+			this.setData({ userInfo });
 		}
 	},
 
