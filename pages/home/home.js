@@ -86,7 +86,7 @@ Page({
 	// 点击帖子内容区
 	onTapCon: function () {
 		wx.navigateTo({
-			url: '/pages/postsDetail/postsDetail',
+			url: '/pages/detail/posts/posts',
 		});
 	},
 

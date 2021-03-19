@@ -5,7 +5,7 @@
                 <image src="/asserts/public/logo.png"/>
             </view>
             <view class="battle_icon">
-                <image src="/asserts/public/pk.png"/>
+                <image src="/asserts/public/vs.png"/>
             </view>
             <view class="battle_chunk">
                 <image src="/asserts/public/logo.png"/>

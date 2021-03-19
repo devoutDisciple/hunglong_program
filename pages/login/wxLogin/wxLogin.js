@@ -1,3 +1,7 @@
+import { post } from '../../../utils/request';
+
+const app = getApp();
+
 Page({
 	/**
 	 * 页面的初始数据
@@ -9,11 +13,28 @@ Page({
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function () {},
+	onLoad: function () {
+		console.log(app, 888);
+	},
 
+	// 获取用户基本信息
 	getUserInfo: function (e) {
 		if (e && e.detail && e.detail.errMsg === 'getUserInfo:ok') {
-			this.setData({ userInfo: e.detail.userInfo });
+			const { userInfo } = e.detail;
+			// 微信登录
+			wx.login({
+				// 成功失败与否
+				complete: (res) => {
+					if (res && res.errMsg === 'login:ok') {
+						const { code } = res;
+						post({ url: '/login/loginByWxOpenid', data: { code, ...userInfo } }).then((data) => {
+							console.log(app, 322);
+							app.globalData.userInfo = data;
+						});
+					}
+				},
+			});
+			this.setData({ userInfo: userInfo });
 		}
 	},
 

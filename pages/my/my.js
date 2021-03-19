@@ -1,16 +1,27 @@
-// pages/my/my.js
+import config from '../../config/config';
+
+const app = getApp();
 Page({
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
 		headerHight: 60,
+		userInfo: { photo: `${config.baseUrl}/img/photo.png` },
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad() {},
+	onLoad() {
+		const { userInfo } = app.globalData;
+		if (!userInfo.photo) {
+			this.setData({ username: '暂无昵称', photo: `${config.baseUrl}/img/photo.png` });
+		}
+		if (userInfo) {
+			// this.setData({ userInfo });
+		}
+	},
 
 	/**
 	 * 生命周期函数--监听页面初次渲染完成

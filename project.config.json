@@ -1,109 +1,107 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": false,
-		"es6": true,
-		"enhance": false,
-		"postcss": true,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": false,
-		"coverView": true,
-		"nodeModules": true,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"uglifyFileName": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"compileHotReLoad": false,
-		"useMultiFrameRuntime": true,
-		"useApiHook": true,
-		"useApiHostProcess": false,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"enableEngineNative": false,
-		"bundle": true,
-		"useIsolateContext": true,
-		"useCompilerModule": true,
-		"userConfirmedUseCompilerModuleSwitch": false,
-		"userConfirmedBundleSwitch": true,
-		"packNpmManually": true,
-		"packNpmRelationList": [
-			{
-				"packageJsonPath": "./package.json",
-				"miniprogramNpmDistDir": "./"
-			}
-		],
-		"minifyWXSS": true,
-		"remoteDebugLogEnable": false,
-		"prefetch": false
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.14.1",
-	"projectname": "%E5%91%A8%E5%85%AD%E6%9D%A5hi%E5%91%80",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"scripts": {
-		"beforeCompile": "",
-		"beforePreview": "",
-		"beforeUpload": ""
-	},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"appid": "wx96fa166cdd9cfb3e",
-	"qqappid": "1111361952",
-	"condition": {
-		"plugin": {
-			"list": []
-		},
-		"game": {
-			"list": []
-		},
-		"gamePlugin": {
-			"list": []
-		},
-		"miniprogram": {
-			"list": [
-				{
-					"name": "测试页面",
-					"pathName": "pages/test/test",
-					"query": "",
-					"scene": null
-				},
-				{
-					"name": "登录页面",
-					"pathName": "pages/wxLogin/wxLogin",
-					"query": "",
-					"scene": null
-				},
-				{
-					"name": "个人信息",
-					"pathName": "pages/personMsg/personMsg",
-					"query": "",
-					"scene": null
-				},
-				{
-					"name": "选择圈子",
-					"pathName": "pages/sctCircle/sctCircle",
-					"query": "",
-					"scene": null
-				},
-				{
-					"name": "选择背景",
-					"pathName": "pages/backImg/backImg",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": false,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": true,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": true,
+    "packNpmManually": true,
+    "packNpmRelationList": [
+      {
+        "packageJsonPath": "./package.json",
+        "miniprogramNpmDistDir": "./"
+      }
+    ],
+    "minifyWXSS": true
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.14.1",
+  "projectname": "%E5%91%A8%E5%85%AD%E6%9D%A5hi%E5%91%80",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "scripts": {
+    "beforeCompile": "",
+    "beforePreview": "",
+    "beforeUpload": ""
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "appid": "wx96fa166cdd9cfb3e",
+  "qqappid": "1111361952",
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "测试页面",
+          "pathName": "pages/test/test",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "登录页面",
+          "pathName": "pages/wxLogin/wxLogin",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "个人信息",
+          "pathName": "pages/personMsg/personMsg",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "选择圈子",
+          "pathName": "pages/sctCircle/sctCircle",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "选择背景",
+          "pathName": "pages/backImg/backImg",
+          "scene": null
+        }
+      ]
+    }
+  }
 }

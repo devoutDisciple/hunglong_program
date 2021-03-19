@@ -5,11 +5,11 @@
             <view class="person">
                 <view class="person_desc">
                     <view class="person_img">
-                        <image src="/asserts/public/logo.png" />
+                        <image src="{{userInfo.photo}}" />
                     </view>
                     <view class="person_msg">
                         <view class="person_msg_name">
-                            <view class="person_msg_name_user">疾风剑豪-压缩</view>
+                            <view class="person_msg_name_user">{{userInfo.username || "暂无昵称"}}</view>
                             <view class="person_msg_name_address">杭州市第一高级中学</view>
                             <view class="person_msg_name_level">
                                 <image class="person_msg_name_level_img" src="/asserts/public/vip1.png"/>
