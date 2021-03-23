@@ -10,7 +10,7 @@
                     <view class="person_msg">
                         <view class="person_msg_name">
                             <view class="person_msg_name_user">{{userInfo.username || "暂无昵称"}}</view>
-                            <view class="person_msg_name_address">杭州市第一高级中学</view>
+                            <view class="person_msg_name_address">{{userDetail.address || "去完善学校信息"}}</view>
                             <view class="person_msg_name_level">
                                 <image class="person_msg_name_level_img" src="/asserts/public/vip1.png"/>
                                 <text class="person_msg_name_level_txt">1级</text>
@@ -18,7 +18,7 @@
                         </view>
                         <view class="person_msg_sign">
                             <view class="person_msg_sign_txt">
-                                这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名这是个性签名
+                                {{userDetail.sign || "暂无个性签名"}}
                             </view>
                         </view>
                     </view>
@@ -29,19 +29,19 @@
                 <view class="person_data">
                     <view class="person_data_chunk">
                         <view class="person_data_chunk_label">发布</view>
-                        <view class="person_data_chunk_num">1232</view>
+                        <view class="person_data_chunk_num">{{userDetail.publish}}</view>
                     </view>
                     <view class="person_data_chunk">
                         <view class="person_data_chunk_label">粉丝</view>
-                        <view class="person_data_chunk_num">1232</view>
+                        <view class="person_data_chunk_num">{{userDetail.fans}}</view>
                     </view>
                     <view class="person_data_chunk">
                         <view class="person_data_chunk_label">我的赞</view>
-                        <view class="person_data_chunk_num">1232</view>
+                        <view class="person_data_chunk_num">{{userDetail.goods}}</view>
                     </view>
                     <view class="person_data_chunk">
                         <view class="person_data_chunk_label">关注</view>
-                        <view class="person_data_chunk_num">1232</view>
+                        <view class="person_data_chunk_num">{{userDetail.fellow}}</view>
                     </view>
                 </view>
             </view>

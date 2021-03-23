@@ -6,13 +6,23 @@ const { baseUrl } = config;
 module.exports = {
 	get: (params = {}) => {
 		return new Promise((resolve, reject) => {
+			const url = baseUrl + params.url;
+			console.log(`请求url: 传入的url: ${params.url}  拼接之后的url： ${url}`);
 			wx.request({
 				method: 'GET',
-				url: baseUrl + params.url,
+				url,
 				data: params.data,
 				success: function (res) {
+					console.log(res, 111);
 					if (res.data && res.data.code === 200) {
 						resolve(res.data.data || {});
+					} else if (res.data && res.data.code === 500) {
+						wx.showToast({
+							title: res.data.message,
+							icon: 'error',
+							duration: 2000,
+						});
+						reject(res.data || {});
 					} else {
 						wx.showToast({
 							title: '网络异常',
@@ -45,6 +55,13 @@ module.exports = {
 				success: function (res) {
 					if (res.data && res.data.code === 200) {
 						resolve(res.data.data || {});
+					} else if (res.data && res.data.code === 500) {
+						wx.showToast({
+							title: res.data.message,
+							icon: 'error',
+							duration: 2000,
+						});
+						reject(res.data || {});
 					} else {
 						wx.showToast({
 							title: '网络异常',

@@ -1,49 +1,18 @@
-// pages/home/home.js
+import login from '../../utils/login';
+import { get } from '../../utils/request';
+import { baseUrl } from '../../config/config';
+
 Page({
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-		iconList: [
+		baseUrl,
+		plateList: [
 			{
 				key: 'school',
 				title: '学校',
 				iconUrl: '/asserts/public/school.png',
-			},
-			{
-				key: 'game',
-				title: '游戏',
-				iconUrl: '/asserts/public/game.png',
-			},
-			{
-				key: 'star',
-				title: '追星',
-				iconUrl: '/asserts/public/star.png',
-			},
-			{
-				key: 'joke',
-				title: '搞笑',
-				iconUrl: '/asserts/public/joke.png',
-			},
-			{
-				key: 'exchange',
-				title: '学科交流',
-				iconUrl: '/asserts/public/exchange.png',
-			},
-			{
-				key: 'question',
-				title: '有问必答',
-				iconUrl: '/asserts/public/question.png',
-			},
-			{
-				key: 'cloud',
-				title: '云盘资料',
-				iconUrl: '/asserts/public/cloud.png',
-			},
-			{
-				key: 'waiting',
-				title: '敬请期待',
-				iconUrl: '/asserts/public/waiting.png',
 			},
 		],
 		activeTab: 1, // 选中的tab
@@ -54,17 +23,21 @@ Page({
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function () {},
+	onLoad: function () {
+		const wx_openid = wx.getStorageSync('wx_openid');
+		login.getLogin().then((res) => {
+			console.log(res, 111);
+			this.getPlateMsg();
+		});
+	},
 
-	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-	onReady: function () {},
-
-	/**
-	 * 生命周期函数--监听页面显示
-	 */
-	onShow: function () {},
+	// 获取板块信息
+	getPlateMsg: function () {
+		get({ url: '/plate/getAll' }).then((res) => {
+			console.log(res, 2222);
+			this.setData({ plateList: res });
+		});
+	},
 
 	/**
 	 * 改变话题
