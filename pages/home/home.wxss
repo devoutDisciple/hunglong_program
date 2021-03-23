@@ -57,6 +57,9 @@
     flex: 1;
     overflow: hidden;
 }
+.tab_con .van-tab--active {
+    font-size: 34rpx;
+}
 
 .tab_add {
     width: 90rpx;

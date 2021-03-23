@@ -14,12 +14,9 @@
         <view class="tab">
             <view class="tab_con">
                 <van-tabs active="{{ activeTab }}" ellipsis="{{false}}">
-                    <van-tab title="关注" />
-                    <van-tab title="广场" />
-                    <van-tab title="推荐" />
-                    <van-tab title="杭州一中1111" />
-                    <van-tab title="杭州二中" />
-                    <van-tab title="杭州三中" />
+                    <block wx:key="id" wx:for="{{circleList}}">
+                        <van-tab title="{{item.name}}"/>
+                    </block>
                 </van-tabs>
             </view>
             

@@ -16,7 +16,8 @@ module.exports = {
 						post({ url: '/login/loginByWxOpenid', data: { code, ...userinfo } })
 							.then((data) => {
 								app.globalData.userInfo = data;
-								const { wx_openid } = data;
+								const { wx_openid, id } = data;
+								wx.setStorageSync('user_id', id);
 								wx.setStorageSync('wx_openid', wx_openid);
 								resolve(data);
 							})

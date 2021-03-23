@@ -8,14 +8,9 @@ Page({
 	 */
 	data: {
 		baseUrl,
-		plateList: [
-			{
-				key: 'school',
-				title: '学校',
-				iconUrl: '/asserts/public/school.png',
-			},
-		],
+		plateList: [], // 板块列表
 		activeTab: 1, // 选中的tab
+		circleList: [], // 圈子列表
 		activeNames: ['1'],
 		topicClass: 'topic_origin',
 	},
@@ -25,17 +20,36 @@ Page({
 	 */
 	onLoad: function () {
 		const wx_openid = wx.getStorageSync('wx_openid');
-		login.getLogin().then((res) => {
-			console.log(res, 111);
-			this.getPlateMsg();
-		});
+		if (!wx_openid) {
+			login.getLogin().then(() => {
+				this.getInitMsg();
+			});
+		} else {
+			this.getInitMsg();
+		}
+	},
+
+	// 初始化需要获得的信息
+	getInitMsg: function () {
+		const user_id = wx.getStorageSync('user_id');
+		this.getPlateMsg();
+		this.getCircleList(user_id);
 	},
 
 	// 获取板块信息
 	getPlateMsg: function () {
 		get({ url: '/plate/getAll' }).then((res) => {
-			console.log(res, 2222);
 			this.setData({ plateList: res });
+		});
+	},
+
+	// 获取圈子列表
+	getCircleList(user_id) {
+		get({ url: '/circle/getAllByUserId', data: { user_id } }).then((res) => {
+			console.log(res, 1111);
+			this.setData({
+				circleList: [{ id: 'attention', name: '关注' }, { id: 'recommend', name: '广场' }, ...res],
+			});
 		});
 	},
 
