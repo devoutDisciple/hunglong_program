@@ -1,41 +1,24 @@
-// components/menu.js
+// component/publish/publish.js
 Component({
 	/**
-	 * Component properties
+	 * 组件的属性列表
 	 */
-	properties: {
-		navs: {
-			type: Array,
-			value: [],
-		},
+	properties: {},
+
+	/**
+	 * 组件的初始数据
+	 */
+	data: {
+		active: false, // 是否展示发布内容
 	},
 
 	/**
-	 * Component initial data
-	 */
-	data: {
-		isFold: true,
-	},
-	/**
-	 * Component methods
+	 * 组件的方法列表
 	 */
 	methods: {
-		onClickAdd: function (e) {
-			this.setData({
-				isFold: !this.data.isFold,
-			});
-			if (this.data.isFold) {
-				this.setData({
-					maskAnimation: 'maskClose',
-					btnAnimation: 'menuClose',
-				});
-			} else {
-				this.setData({
-					maskAnimation: 'maskOpen',
-					btnAnimation: 'menuOpen',
-				});
-			}
+		onClickPublish: function () {
+			const { active } = this.data;
+			this.setData({ active: !active });
 		},
-		preventdefault: function () {},
 	},
 });

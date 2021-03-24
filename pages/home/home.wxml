@@ -1,6 +1,7 @@
 <view class="wrap">
     <header />
     <scroll-view scroll-y="{{true}}" class="content" enhanced="{{true}}" show-scrollbar="{{false}}">
+        <!-- 模块 -->
         <view class="icon_list">
             <view class="icon_chunk" wx:for="{{plateList}}" wx:key="id">
                 <view class="icon_chunk_img">
@@ -11,28 +12,30 @@
                 </view>
             </view>
         </view>
+        <!-- tab -->
         <view class="tab">
             <view class="tab_con">
-                <van-tabs active="{{ activeTab }}" ellipsis="{{false}}">
-                    <block wx:key="id" wx:for="{{circleList}}">
+                <van-tabs active="{{ activeTab }}" bind:change="onChangeCircle" ellipsis="{{false}}">
+                    <block wx:key="id" wx:for="{{circleList}}" >
                         <van-tab title="{{item.name}}"/>
                     </block>
                 </van-tabs>
             </view>
-            
             <view class="tab_add">
                 <image src="/asserts/public/tabAdd.png" />
             </view>
         </view>
-        <view class="topic {{topicClass}}">
+        <!-- 话题 -->
+        <view wx:if="{{topicList && topicList.length !== 0}}" class="topic {{topicClass}}">
            <view class="topic_con">
-                <view class="topic_item">话题1</view>
-                <view class="topic_item">话题1</view>
-                <view class="topic_item">话题1</view>
-                <view class="topic_item">话题1</view>
-                <view class="topic_item">话题1</view>
-                <view class="topic_item">话题1</view>
-                <view class="topic_item">话题1</view>
+                <block wx:key="id" wx:for="{{topicList}}" >
+                    <view 
+                        class="topic_item {{activeTopicId === item.id ? 'topic_active_item' : ''}}" 
+                        bindtap="onChangeTopic" 
+                        data-topic_id="{{item.id}}">
+                        {{item.name}}
+                    </view>
+                </block>
            </view>
            <view class="topic_icon" bindtap="cntOpen">
                 <image wx:if="{{topicClass !== 'topic_open'}}" src="/asserts/public/arrow_top.png" />
@@ -51,4 +54,5 @@
         <home-post />
         <home-post />
     </scroll-view>
+    <publish />
 </view>

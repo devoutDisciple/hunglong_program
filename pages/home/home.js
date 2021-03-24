@@ -9,9 +9,10 @@ Page({
 	data: {
 		baseUrl,
 		plateList: [], // 板块列表
-		activeTab: 1, // 选中的tab
 		circleList: [], // 圈子列表
-		activeNames: ['1'],
+		topicList: [], // 话题列表
+		activeTab: '', // 选中的tab
+		activeTopicId: '', // 选中的话题
 		topicClass: 'topic_origin',
 	},
 
@@ -46,20 +47,39 @@ Page({
 	// 获取圈子列表
 	getCircleList(user_id) {
 		get({ url: '/circle/getAllByUserId', data: { user_id } }).then((res) => {
-			console.log(res, 1111);
 			this.setData({
 				circleList: [{ id: 'attention', name: '关注' }, { id: 'recommend', name: '广场' }, ...res],
+				activeTab: 3,
 			});
 		});
 	},
 
-	/**
-	 * 改变话题
-	 */
-	onChange(event) {
-		this.setData({
-			activeNames: event.detail,
+	// 获取话题
+	getTopicByCircleId(circle_id) {
+		get({ url: '/topic/getAllByCircleId', data: { circle_id } }).then((res) => {
+			this.setData({ topicList: res || [] });
 		});
+	},
+
+	// 改变圈子
+	onChangeCircle(e) {
+		const { index } = e.detail;
+		const { circleList } = this.data;
+		const { id } = circleList[index];
+		// 选择关注或者广场 attention-关注 recommend-广场
+		if (id === 'attention' || id === 'recommend') {
+			console.log(`选择的tabid是: ${id}`);
+		} else {
+			this.getTopicByCircleId(id);
+		}
+		// 重置选择的话题id
+		this.setData({ activeTopicId: '' });
+	},
+
+	// 改变话题
+	onChangeTopic(e) {
+		const { topic_id } = e.currentTarget.dataset;
+		this.setData({ activeTopicId: topic_id });
 	},
 
 	/**

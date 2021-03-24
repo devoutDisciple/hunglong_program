@@ -13,7 +13,6 @@ module.exports = {
 				url,
 				data: params.data,
 				success: function (res) {
-					console.log(res, 111);
 					if (res.data && res.data.code === 200) {
 						resolve(res.data.data || {});
 					} else if (res.data && res.data.code === 500) {

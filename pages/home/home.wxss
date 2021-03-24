@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     font-size: 26rpx;
+    position: relative;
 }
 
 .content {
@@ -18,6 +19,7 @@
 }
 
 .icon_list {
+    min-height: 250rpx;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -106,6 +108,10 @@
     color: #585858;
     font-size: 26rpx;
     margin: 14rpx 10rpx;
+}
+.topic_active_item {
+    background: #f54572;
+    color: #fff;
 }
 
 .topic_icon {
