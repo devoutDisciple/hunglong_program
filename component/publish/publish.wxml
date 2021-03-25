@@ -1,22 +1,22 @@
 <view class="publish">
     <view class="publish_con {{active ? 'publish_active' : 'publish_disable'}}">
-        <view class="publish_item">
+        <view class="publish_item" bindtap = "onClickItem" data-itemid="vote">
             <image src="/asserts/public/vote.png" />
             投票PK
         </view>
-        <view class="publish_item">
+        <view class="publish_item" bindtap = "onClickItem" data-itemid="blogs">
             <image src="/asserts/public/blogs.png" />
             博客
         </view>
-        <view class="publish_item">
+        <view class="publish_item" bindtap = "onClickItem" data-itemid="posts">
             <image src="/asserts/public/posts.png" />
             帖子
         </view>
-        <view class="publish_item">
+        <view class="publish_item" bindtap = "onClickItem" data-itemid="image">
             <image src="/asserts/public/image.png" />
             图片
         </view>
-        <view class="publish_item">
+        <view class="publish_item" bindtap = "onClickItem" data-itemid="vedio">
             <image src="/asserts/public/vedio.png" />
             视频
         </view>

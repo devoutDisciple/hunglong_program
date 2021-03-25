@@ -7,10 +7,10 @@
         <slot></slot>
     </view>
      <view wx:if="{{type==='photo'}}" class="msg_value" bindtap="click" data-key="{{key}}">
-        <image src="{{photoTmpUrl}}" mode="heightFix"/>
+        <image src="{{photoTmpUrl}}" />
     </view>
     <view wx:if="{{type==='background'}}" class="msg_value" bindtap="click" data-key="{{key}}">
-        <image src="{{backgroundTmpUrl}}" mode="heightFix"/>
+        <image src="{{backgroundTmpUrl}}" />
     </view>
     <view class="msg_icon">
         <image src="/asserts/public/arrow_right.png" mode="heightFix"/>

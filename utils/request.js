@@ -45,9 +45,11 @@ module.exports = {
 	},
 	post: (params = {}) => {
 		return new Promise((resolve, reject) => {
+			const url = baseUrl + params.url;
+			console.log(`请求url: 传入的url: ${params.url}  拼接之后的url： ${url}`);
 			wx.request({
 				method: 'POST',
-				url: baseUrl + params.url,
+				url,
 				data: {
 					...params.data,
 				},

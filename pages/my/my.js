@@ -1,16 +1,17 @@
 import config from '../../config/config';
 import { get } from '../../utils/request';
+import loading from '../../utils/loading';
 
-const app = getApp();
 Page({
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
 		headerHight: 60,
-		userInfo: { photo: `${config.baseUrl}/public/photo.png` },
 		hasGetUserInfo: false,
-		userDetail: {}, // 用户基本信息
+		userDetail: {
+			photo: `${config.baseUrl}/public/photo.png`,
+		}, // 用户基本信息
 	},
 
 	/**
@@ -22,17 +23,16 @@ Page({
 	 * 生命周期函数--监听页面显示
 	 */
 	onShow: function () {
-		const { userInfo } = app.globalData;
+		const user_id = wx.getStorageSync('user_id');
 		// 如果还没登录;
-		if (!userInfo || !userInfo.username) {
+		if (!user_id) {
 			return wx.navigateTo({
 				url: '/pages/login/wxLogin/wxLogin',
 			});
 		}
-		this.setData({ userInfo });
 		if (!this.data.hasGetUserInfo) {
 			this.setData({ hasGetUserInfo: true });
-			this.getUserMsg(userInfo.wx_openid);
+			this.getUserMsg(user_id);
 		}
 		// const wx_openid = 'oa6Ki4kKojyBqHQJ7jD6520nq4vc';
 		// this.getUserMsg(wx_openid);
@@ -57,10 +57,15 @@ Page({
 	},
 
 	// 获取用户基本信息
-	getUserMsg(openid) {
-		get({ url: '/user/getUserByWxOpenid', data: { openid: openid } }).then((res) => {
-			this.setData({ userDetail: res });
-		});
+	getUserMsg(user_id) {
+		loading.showLoading();
+		get({ url: '/user/getUserByUserId', data: { user_id: user_id } })
+			.then((res) => {
+				this.setData({ userDetail: res });
+			})
+			.finally(() => {
+				loading.hideLoading();
+			});
 	},
 
 	/**

@@ -5,11 +5,11 @@
             <view class="person">
                 <view class="person_desc">
                     <view class="person_img">
-                        <image src="{{userInfo.photo}}" />
+                        <image src="{{userDetail.photo}}" />
                     </view>
                     <view class="person_msg">
                         <view class="person_msg_name">
-                            <view class="person_msg_name_user">{{userInfo.username || "暂无昵称"}}</view>
+                            <view class="person_msg_name_user">{{userDetail.username || "暂无昵称"}}</view>
                             <view class="person_msg_name_address">{{userDetail.address || "去完善学校信息"}}</view>
                             <view class="person_msg_name_level">
                                 <image class="person_msg_name_level_img" src="/asserts/public/vip1.png"/>

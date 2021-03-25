@@ -13,6 +13,7 @@ Page({
 		topicList: [], // 话题列表
 		activeTab: '', // 选中的tab
 		activeTopicId: '', // 选中的话题
+		userDetail: {}, // 用户基本信息
 		topicClass: 'topic_origin',
 	},
 
@@ -20,8 +21,8 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function () {
-		const wx_openid = wx.getStorageSync('wx_openid');
-		if (!wx_openid) {
+		const user_id = wx.getStorageSync('user_id');
+		if (!user_id) {
 			login.getLogin().then(() => {
 				this.getInitMsg();
 			});
@@ -33,8 +34,17 @@ Page({
 	// 初始化需要获得的信息
 	getInitMsg: function () {
 		const user_id = wx.getStorageSync('user_id');
-		this.getPlateMsg();
-		this.getCircleList(user_id);
+		this.getPlateMsg(); // 获取板块信息
+		this.getCircleList(user_id); // 获取圈子列表
+		this.getUserDetailByUserId(user_id); // 获取用户信息
+	},
+
+	// 获取用户信息
+	getUserDetailByUserId: function (user_id) {
+		get({ url: '/user/getUserByUserId', data: { user_id } }).then((res) => {
+			console.log(res, 3333);
+			this.setData({ userDetail: res || {} });
+		});
 	},
 
 	// 获取板块信息
@@ -54,13 +64,6 @@ Page({
 		});
 	},
 
-	// 获取话题
-	getTopicByCircleId(circle_id) {
-		get({ url: '/topic/getAllByCircleId', data: { circle_id } }).then((res) => {
-			this.setData({ topicList: res || [] });
-		});
-	},
-
 	// 改变圈子
 	onChangeCircle(e) {
 		const { index } = e.detail;
@@ -69,6 +72,7 @@ Page({
 		// 选择关注或者广场 attention-关注 recommend-广场
 		if (id === 'attention' || id === 'recommend') {
 			console.log(`选择的tabid是: ${id}`);
+			this.setData({ topicList: [] });
 		} else {
 			this.getTopicByCircleId(id);
 		}
@@ -76,10 +80,37 @@ Page({
 		this.setData({ activeTopicId: '' });
 	},
 
+	// 获取话题
+	getTopicByCircleId(circle_id) {
+		get({ url: '/topic/getAllByCircleId', data: { circle_id } }).then((res) => {
+			this.setData({ topicList: res || [] });
+		});
+	},
+
 	// 改变话题
 	onChangeTopic(e) {
 		const { topic_id } = e.currentTarget.dataset;
 		this.setData({ activeTopicId: topic_id });
+	},
+
+	// 点击发布
+	onPublish(e) {
+		const { itemid } = e.detail;
+		console.log(itemid, 999);
+		const user_id = wx.getStorageSync('user_id');
+		// 如果没有登录，跳转到登录页面
+		if (!user_id) {
+			return wx.navigateTo({
+				url: '/pages/login/wxLogin/wxLogin',
+			});
+		}
+		// 如果没有选择学校，去完善个人信息
+		const { userDetail } = this.data;
+		if (!userDetail.school) {
+			return wx.navigateTo({
+				url: '/pages/my/personMsg/personMsg',
+			});
+		}
 	},
 
 	/**

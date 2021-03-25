@@ -54,5 +54,5 @@
         <home-post />
         <home-post />
     </scroll-view>
-    <publish />
+    <publish bindOnTap="onPublish"/>
 </view>

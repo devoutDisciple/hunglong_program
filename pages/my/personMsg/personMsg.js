@@ -1,4 +1,6 @@
 import moment from '../../../utils/moment';
+import { baseUrl } from '../../../config/config';
+import { post } from '../../../utils/request';
 
 Page({
 	/**
@@ -28,9 +30,11 @@ Page({
 		this.setData({ activeDate: value });
 	},
 
+	// 点击类目
 	itemClick: function (e) {
 		const type = e.detail;
 		const self = this;
+		const user_id = wx.getStorageSync('user_id');
 		// 选择头像
 		if (type === 'photo') {
 			wx.chooseImage({
@@ -40,11 +44,28 @@ Page({
 				success(res) {
 					// tempFilePath可以作为img标签的src属性显示图片
 					const { tempFilePaths } = res;
-					const photoTmpUrl = tempFilePaths;
-					self.setData({ photoTmpUrl });
+					const filePath = tempFilePaths[0];
+					wx.uploadFile({
+						filePath,
+						name: 'file',
+						url: `${baseUrl}/user/uploadPhoto`,
+						formData: {
+							user_id,
+						},
+						success: function (result) {
+							console.log(result, 999);
+						},
+						fail: function (err) {
+							console.log(err);
+						},
+					});
+					self.setData({ photoTmpUrl: filePath });
 				},
-				fail: function (err) {
-					console.log(err, 222);
+				fail: function () {
+					wx.showToast({
+						title: '请重新选择',
+						icon: 'error',
+					});
 				},
 			});
 		}
@@ -62,5 +83,12 @@ Page({
 			});
 		}
 		//
+	},
+
+	// 点击下一步
+	onClickNext: function () {
+		wx.redirectTo({
+			url: '/pages/sctCircle/sctCircle',
+		});
 	},
 });

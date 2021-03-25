@@ -17,8 +17,10 @@
     color: #acacac;
 }
 .msg_value image {
-    height: 60rpx;
-    margin-top: 20rpx;
+    height: 70rpx;
+    width: 70rpx;
+    margin-top: 15rpx;
+    border-radius: 70rpx;
 }
 .msg_icon {
     width: 50rpx;
