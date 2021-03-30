@@ -1,21 +1,29 @@
 <scroll-view scroll-y class="container">
-    <message-item label="头像" value="张振" key="photo" bindclick="itemClick" type="photo" photoTmpUrl="{{photoTmpUrl}}"/>
-    <message-item label="昵称" value="张振" key="name" bindclick="itemClick" type="txt"/>
-    <message-item label="性别" value="男" key="sex" bindclick="itemClick" type="txt"/>
+    <message-item label="头像" key="photo" bindclick="itemClick" type="photo" photoTmpUrl="{{photoTmpUrl}}"/>
+    <message-item label="昵称" value="{{username}}" key="name" bindclick="itemClick" type="txt"/>
+    <message-item label="性别" value="{{sex === 0 ? '男': '女'}}" key="sex" bindclick="itemClick" type="txt"/>
     <message-item label="出生年月" key="age" type="txt">
          <picker mode="date" value="{{date}}" start="{{dateStart}}" end="{{dateEnd}}" bindchange="bindDateChange">
             {{activeDate}}
         </picker>
     </message-item>
     <message-item label="地区" key="area" type="txt">
-         <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{areaList}}">
-            浙江省杭州市
+         <picker 
+            mode="multiSelector" 
+            bindchange="addressPickerChange" 
+            bindcolumnchange="addressPickerColumnChange" 
+            range="{{areaList}}">
+            {{address}}
         </picker>
     </message-item>
-    <message-item label="选择学校" value="杭州高中" key="school" bindclick="itemClick" type="txt"/>
+    <message-item label="选择学校" key="school" type="txt">
+        <picker range="{{schoolList}}" bindchange="schoolChange">
+            {{schoolName}}
+        </picker>
+    </message-item>
     <message-item label="选择年级" key="class" bindclick="itemClick" type="txt">
-        <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
-            高一
+        <picker bindchange="levelChange" range="{{levelList}}">
+            {{levelName}}
         </picker>
     </message-item>
     <message-item label="选择主页背景" value="" key="background" bindclick="itemClick" type="background" backgroundTmpUrl="{{backgroundTmpUrl}}"/>
@@ -27,4 +35,11 @@
         </view>
     </message-item>
     <van-button custom-class="next_btn" type="primary" bind:click="onClickNext" block color="#fff">下一步</van-button>
+    <ipt-dialog 
+        maxlength="{{20}}"
+        title="请填入昵称" 
+        wx:if="{{iptDialogVisible}}" 
+        defaultValue="名称"
+        bindOnCancle="onCancleDialog" 
+        bindOnOk="onIptOk" />
 </scroll-view>

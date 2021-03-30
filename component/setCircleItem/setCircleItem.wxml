@@ -15,5 +15,10 @@
             <view class="con_item">{{item.name}}</view>
         </block>
     </view>
-    <ipt-dialog wx:if="{{iptDialogVisible}}" bindonCancle="onCancleDialog" onOk="hello"></ipt-dialog>
+    <ipt-dialog 
+        maxlength="{{6}}"
+        title="写出你感兴趣的内容" 
+        wx:if="{{iptDialogVisible}}" 
+        bindOnCancle="onCancleDialog" 
+        bindOnOk="hello" />
 </view>

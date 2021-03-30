@@ -16,7 +16,8 @@
     width: calc((100vw - 60rpx) / 3);
     height: calc((100vw - 60rpx) / 3);
     margin-left: 15rpx;
-    margin-top: 15rpx;
+    margin-top: 5rpx;
+    border-radius: 4rpx;
 }
 
 .footer {

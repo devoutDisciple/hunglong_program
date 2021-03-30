@@ -1,21 +1,21 @@
 <van-dialog
   use-slot
-  title="写出你感兴趣的内容"
+  title="{{title}}"
   show="{{ show }}"
   show-cancel-button
   bind:close="onClose"
+  bind:confirm="onOk"
   confirmButtonText="提交"
 >
     <view class="content">
         <van-field
-            value="{{ value }}"
+            value="{{ defaultValue || '' }}"
             placeholder="请输入"
             border="{{ false }}"
             auto-focus="{{ true }}"
-            maxlength="{{ 6 }}"
+            maxlength="{{ maxlength }}"
             bind:change="onChange"
             input-class="ipt"
         />
     </view>
-  
 </van-dialog>

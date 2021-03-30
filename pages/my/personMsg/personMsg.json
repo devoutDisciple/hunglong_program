@@ -1,6 +1,7 @@
 {
     "usingComponents": {
-        "message-item": "/component/personMsgItem/personMsgItem"
+        "message-item": "/component/personMsgItem/personMsgItem",
+        "ipt-dialog": "/component/iptDialog/iptDialog"
     },
     "navigationBarTitleText": "个人信息"
   }

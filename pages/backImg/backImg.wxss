@@ -2,9 +2,15 @@
     height: 100vh;
     background: #eee;
     padding: 10rpx 0;
+    font-size: 26rpx;
+}
+.img {
+    width: 100vw;
+    height: 50vw;
+    margin-top: 50rpx;
 }
 .btn{
-    margin-top: 100rpx;
+    margin-top: 50rpx;
     width: 100vw;
     border: none;
 }
