@@ -1,6 +1,5 @@
 import { baseUrl } from '../../config/config';
-import loading from '../../utils/loading';
-import { get, post } from '../../utils/request';
+import { get } from '../../utils/request';
 
 Page({
 	/**
@@ -8,6 +7,7 @@ Page({
 	 */
 	data: {
 		bgList: [],
+		currentSelectIdx: 0,
 	},
 
 	/**
@@ -24,15 +24,27 @@ Page({
 			res.forEach((item) => {
 				result.push(`${baseUrl}/bg/${item}`);
 			});
-			console.log(result, 99);
 			this.setData({ bgList: result });
 		});
 	},
 
 	/**
-	 * 点击预览
+	 * 点击选择
 	 */
-	onPrivewImg: function () {
-		console.log(123);
+	onSelectImg: function (e) {
+		const { idx } = e.currentTarget.dataset;
+		this.setData({ currentSelectIdx: idx });
+	},
+
+	// 点击确定选择
+	onSure: function () {
+		const { bgList, currentSelectIdx } = this.data;
+		const pages = getCurrentPages();
+		// prevPage 是获取上一个页面的js里面的pages的所有信息。 -2 是上一个页面，-3是上上个页面以此类推。
+		const prevPage = pages[pages.length - 2];
+		prevPage.setData({ bgUrl: bgList[currentSelectIdx] });
+		wx.navigateBack({
+			complete: () => {},
+		});
 	},
 });

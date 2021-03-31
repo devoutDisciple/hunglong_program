@@ -1,11 +1,15 @@
 <view class="wrap">
     <view class="content">
         <scroll-view scroll-y class="content_scroll" enable-flex="{{true}}">
-            <image wx:for="{{bgList}}" bindtap="onPrivewImg" src="{{item}}" wx:key="{{index}}"/>
+            <view class="img_con" wx:for="{{bgList}}" bindtap="onSelectImg" data-idx="{{index}}" wx:key="index">
+                <image wx:if="{{currentSelectIdx === index}}" class='img_radio' src="/asserts/public/radio_select.png" />
+                <image wx:else class='img_radio' src="/asserts/public/radio.png" />
+                <image class="img_chunk" src="{{item}}" />
+            </view>
             <btm-empty></btm-empty>
         </scroll-view>
     </view>
     <view class="footer">
-        <van-button custom-class="footer_btn" round type="default">确认</van-button>
+        <van-button bind:tap="onSure" custom-class="footer_btn" round type="default">确认</van-button>
     </view>
 </view>
