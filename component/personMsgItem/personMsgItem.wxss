@@ -9,7 +9,7 @@
 }
 .msg_label {
     width: 200rpx;
-    color: #3f3f3f;
+    color: #3f3f3f; 
 }
 .msg_value {
     flex: 1;
@@ -21,6 +21,10 @@
     width: 70rpx;
     margin-top: 15rpx;
     border-radius: 70rpx;
+}
+.msg_bg image {
+    border-radius: 0;
+    width: 140rpx;
 }
 .msg_icon {
     width: 50rpx;

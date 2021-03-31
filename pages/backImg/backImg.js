@@ -1,12 +1,14 @@
 import { baseUrl } from '../../config/config';
 import loading from '../../utils/loading';
+import { post } from '../../utils/request';
 
 Page({
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-		bgUrl: '',
+		bgUrl: '', // 背景图的url
+		bgName: '', // 背景图的名字
 	},
 
 	/**
@@ -35,7 +37,6 @@ Page({
 	onSelectPhoto: function (e) {
 		const { type } = e.currentTarget.dataset;
 		const self = this;
-		const user_id = wx.getStorageSync('user_id');
 		wx.chooseImage({
 			count: 1,
 			sizeType: ['original', 'compressed'],
@@ -49,11 +50,9 @@ Page({
 					filePath,
 					name: 'file',
 					url: `${baseUrl}/bgImg/uploadBg`,
-					formData: {
-						user_id,
-					},
-					success: function () {
-						self.setData({ bgUrl: filePath });
+					success: function (result) {
+						const filename = JSON.parse(result.data).data;
+						self.setData({ bgUrl: filePath, bgName: filename });
 					},
 					fail: function (err) {
 						console.log(err);
@@ -73,6 +72,25 @@ Page({
 					icon: 'error',
 				});
 			},
+		});
+	},
+
+	// 保存
+	onSave: function () {
+		const user_id = wx.getStorageSync('user_id');
+		const filename = this.data.bgName;
+		post({ url: '/bgImg/saveBgUrl', data: { filename, user_id } }).then(() => {
+			wx.showToast({
+				title: '应用成功',
+				icon: 'success',
+			});
+			const pages = getCurrentPages();
+			// prevPage 是获取上一个页面的js里面的pages的所有信息。 -2 是上一个页面，-3是上上个页面以此类推。
+			const prevPage = pages[pages.length - 2];
+			prevPage.setData({ backgroundTmpUrl: filename });
+			wx.navigateBack({
+				complete: (res) => {},
+			});
 		});
 	},
 });

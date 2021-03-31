@@ -9,7 +9,7 @@
      <view wx:if="{{type==='photo'}}" class="msg_value" bindtap="click" data-key="{{key}}">
         <image src="{{photoTmpUrl}}" />
     </view>
-    <view wx:if="{{type==='background'}}" class="msg_value" bindtap="click" data-key="{{key}}">
+    <view wx:if="{{type==='background'}}" class="msg_value msg_bg" bindtap="click" data-key="{{key}}">
         <image src="{{backgroundTmpUrl}}" />
     </view>
     <view class="msg_icon">

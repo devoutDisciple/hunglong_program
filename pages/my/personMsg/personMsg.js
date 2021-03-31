@@ -8,10 +8,11 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		photoTmpUrl: '/asserts/public/photo.png',
-		backgroundTmpUrl: '/asserts/public/photo.png',
+		baseUrl,
+		photoTmpUrl: 'photo.png',
+		backgroundTmpUrl: 'bg.png',
 		dateStart: '1990-01-01',
-		username: '张振1',
+		username: '',
 		sex: 0,
 		dateEnd: moment.getNowDate(),
 		activeDate: '2000-01-01',
@@ -19,20 +20,47 @@ Page({
 		areaList: [], // 微信小程序需要渲染的地区数据
 		provinceIdx: 0, // 选择的省的下标
 		cityIdx: 0, // 选择的市的下标
-		address: '浙江省 杭州市 西湖区',
+		address: '',
 		schoolList: [],
 		schoolName: '',
 		levelList: ['初一', '初二', '初三', '高一', '高二', '高三', '大一', '大二', '大三', '大四'],
-		levelName: '高一',
-		iptDialogVisible: false,
+		levelName: '',
+		sign: '',
+		signIptDialogVisible: false,
+		usernameIptDialogVisible: false,
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function () {
-		this.onSearchAddress();
-		this.onSearchSchool();
+		// 查询个人信息
+		this.getUserMsg();
+	},
+
+	// 查询个人信息
+	getUserMsg: function () {
+		const user_id = wx.getStorageSync('user_id');
+		loading.showLoading();
+		get({ url: '/user/getUserByUserId', data: { user_id } }).then((res) => {
+			const { photo, username, sex, birthday, address, school, level, bg_url, sign } = res;
+			this.setData(
+				{
+					photoTmpUrl: photo,
+					backgroundTmpUrl: bg_url,
+					username,
+					sex: sex - 1,
+					activeDate: birthday,
+					address,
+					schoolName: school,
+					levelName: level,
+					sign,
+				},
+				() => {
+					this.onSearchAddress();
+				},
+			);
+		});
 	},
 
 	// 查询地区信息
@@ -47,18 +75,22 @@ Page({
 
 	// 获取学校
 	onSearchSchool: function () {
-		get({ url: '/circle/getAllByAddress', data: { addressName: '杭州' } }).then((res) => {
-			if (res && Array.isArray(res)) {
-				const schoolList = [];
-				let schoolName = '';
-				res.forEach((item, index) => {
-					if (index === 0) schoolName = item.name;
-					schoolList.push(item.name);
-				});
-				console.log(schoolList, 999);
-				this.setData({ schoolList, schoolName });
-			}
-		});
+		get({ url: '/circle/getAllByAddress', data: { addressName: '杭州' } })
+			.then((res) => {
+				if (res && Array.isArray(res)) {
+					const schoolList = [];
+					let { schoolName } = this.data;
+					res.forEach((item, index) => {
+						if (index === 0 && !schoolName) schoolName = item.name;
+						schoolList.push(item.name);
+					});
+					console.log(schoolList, 999);
+					this.setData({ schoolList, schoolName });
+				}
+			})
+			.finally(() => {
+				loading.hideLoading();
+			});
 	},
 
 	// 筛选地区的选项
@@ -133,6 +165,11 @@ Page({
 					title: '保存成功',
 					icon: 'success',
 				});
+				setTimeout(() => {
+					wx.navigateTo({
+						url: '/pages/sctCircle/sctCircle',
+					});
+				}, 500);
 			}
 		});
 	},
@@ -143,15 +180,26 @@ Page({
 		this.setData({ activeDate: value });
 	},
 
-	// 点击取消弹框
-	onCancleDialog: function () {
-		this.setData({ iptDialogVisible: false });
+	// 点击昵称取消弹框
+	onCancleUsernameDialog: function () {
+		this.setData({ usernameIptDialogVisible: false });
 	},
 
-	// 弹框点击确定
-	onIptOk: function (e) {
+	// 昵称弹框点击确定
+	onOkUsernameDialog: function (e) {
 		const { data } = e.detail;
 		this.setData({ username: data });
+	},
+
+	// 点击签名取消弹框
+	onCancleSignDialog: function () {
+		this.setData({ signIptDialogVisible: false });
+	},
+
+	// 签名弹框点击确定
+	onOkSignDialog: function (e) {
+		const { data } = e.detail;
+		this.setData({ sign: data });
 	},
 
 	// 点击类目
@@ -177,14 +225,14 @@ Page({
 						formData: {
 							user_id,
 						},
-						success: function () {
+						success: function (result) {
 							wx.showToast({
 								title: '上传成功',
 							});
-							self.setData({ photoTmpUrl: filePath });
+							const filename = JSON.parse(result.data).data;
+							self.setData({ photoTmpUrl: filename });
 						},
-						fail: function (err) {
-							console.log(err);
+						fail: function () {
 							wx.showToast({
 								title: '上传失败',
 								icon: 'error',
@@ -204,7 +252,7 @@ Page({
 			});
 		}
 		if (type === 'name') {
-			this.setData({ iptDialogVisible: true });
+			this.setData({ usernameIptDialogVisible: true });
 		}
 		// 选择性别
 		if (type === 'sex') {
@@ -215,18 +263,31 @@ Page({
 					const { tapIndex } = res;
 					self.setData({ sex: tapIndex });
 				},
-				fail(res) {
-					console.log(res.errMsg);
-				},
 			});
 		}
-		//
+		// 选择背景
+		if (type === 'background') {
+			wx.navigateTo({
+				url: '/pages/backImg/backImg',
+			});
+		}
+		// 个性签名
+		if (type === 'sign') {
+			this.setData({ signIptDialogVisible: true });
+		}
 	},
 
 	// 点击下一步
 	onClickNext: function () {
-		wx.redirectTo({
-			url: '/pages/sctCircle/sctCircle',
+		const { username, sex, activeDate, address, schoolName, sign, levelName } = this.data;
+		this.onSaveMsg({
+			username,
+			sex: sex + 1,
+			birthday: activeDate,
+			address,
+			school: schoolName,
+			sign,
+			level: levelName,
 		});
 	},
 });
