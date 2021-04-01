@@ -8,11 +8,15 @@ Component({
 			type: String,
 			value: '',
 		},
-		data: {
-			type: Object,
-			value: [],
+		type: {
+			type: String,
+			value: '', // my-我的关注 circle-圈子
 		},
-		item: {
+		status: {
+			type: String,
+			value: 'new',
+		},
+		data: {
 			type: Object,
 			value: [],
 		},
@@ -22,7 +26,7 @@ Component({
 	 * 组件的初始数据
 	 */
 	data: {
-		iptDialogVisible: false,
+		iptDialogVisible: false, // 反馈弹框
 	},
 
 	lifetimes: {
@@ -43,7 +47,22 @@ Component({
 	 * 组件的方法列表
 	 */
 	methods: {
-		hello: function (...rest) {
+		// 点击管理
+		onClickManage: function () {
+			this.triggerEvent('tapManage');
+		},
+		// 移除关注圈子
+		onRemoveCircle: function (e) {
+			const { circle } = e.currentTarget.dataset;
+			this.triggerEvent('removeCircle', { data: circle });
+		},
+		// 添加关注圈子
+		onAddCircle: function (e) {
+			const { circle } = e.currentTarget.dataset;
+			this.triggerEvent('addCircle', { data: circle });
+		},
+		// 弹框确定
+		onOkDialog: function (...rest) {
 			console.log(rest, 111);
 		},
 		onCancleDialog: function (e) {
@@ -51,6 +70,7 @@ Component({
 			this.setData({ iptDialogVisible: false });
 		},
 		onFeedback: function () {
+			console.log(this.data.type);
 			this.setData({ iptDialogVisible: true });
 		},
 	},

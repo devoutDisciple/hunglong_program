@@ -1,58 +1,14 @@
-// pages/sctCircle/sctCircle.js
+import { get } from '../../utils/request';
+import loading from '../../utils/loading';
+
 Page({
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-		cricleList: [
-			{
-				plateId: 1,
-				title: '文化圈子',
-				cricleList: [
-					{ id: 1, name: '语文' },
-					{ id: 5, name: '数学' },
-					{ id: 2, name: '数学啊' },
-					{ id: 3, name: '语文语文' },
-					{ id: 4, name: '语文语文语文' },
-				],
-			},
-			{
-				plateId: 6,
-				title: '科学圈子',
-				cricleList: [
-					{ id: 1, name: '物理' },
-					{ id: 5, name: '化学' },
-					{ id: 2, name: '数理化' },
-					{ id: 3, name: '物理物理' },
-					{ id: 4, name: '物理物理物' },
-					{ id: 5, name: '物理物理物物' },
-				],
-			},
-			{
-				plateId: 7,
-				title: '娱乐圈子',
-				cricleList: [
-					{ id: 1, name: '王思聪' },
-					{ id: 5, name: '刘亦菲' },
-					{ id: 2, name: '古力娜扎' },
-					{ id: 3, name: '迪丽热巴' },
-					{ id: 4, name: '马尔扎哈' },
-					{ id: 5, name: '周杰伦' },
-				],
-			},
-			{
-				plateId: 8,
-				title: '其他圈子',
-				cricleList: [
-					{ id: 1, name: '王思聪' },
-					{ id: 5, name: '刘亦菲' },
-					{ id: 2, name: '古力娜扎' },
-					{ id: 3, name: '迪丽热巴' },
-					{ id: 4, name: '马尔扎哈' },
-					{ id: 5, name: '周杰伦' },
-				],
-			},
-		],
+		myCirCles: [], // 我关注的圈子
+		plates: [], // 所有的模块
+		status: 'edit',
 	},
 
 	/**
@@ -61,37 +17,59 @@ Page({
 	onLoad: function (options) {},
 
 	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-	onReady: function () {},
-
-	/**
 	 * 生命周期函数--监听页面显示
 	 */
-	onShow: function () {},
+	onShow: function () {
+		this.onSearchMyCircle();
+		this.getAllCirclesByPlate();
+	},
 
-	/**
-	 * 生命周期函数--监听页面隐藏
-	 */
-	onHide: function () {},
+	// 查找我关注的圈子
+	onSearchMyCircle: function () {
+		loading.showLoading();
+		const user_id = wx.getStorageSync('user_id');
+		get({ url: '/circle/getCirclesByUserId', data: { user_id } }).then((res) => {
+			console.log(res, 999);
+			this.setData({ myCirCles: res });
+			loading.hideLoading();
+		});
+	},
 
-	/**
-	 * 生命周期函数--监听页面卸载
-	 */
-	onUnload: function () {},
+	// 查找所有模块和圈子
+	getAllCirclesByPlate: function () {
+		loading.showLoading();
+		get({ url: '/circle/getAllCirclesByPlate' }).then((res) => {
+			console.log(res, 888);
+			this.setData({ plates: res });
+			loading.hideLoading();
+		});
+	},
 
-	/**
-	 * 页面相关事件处理函数--监听用户下拉动作
-	 */
-	onPullDownRefresh: function () {},
+	// 点击管理
+	onClickManage: function () {
+		this.setData({ status: this.data.status === 'new' ? 'edit' : 'new' });
+	},
 
-	/**
-	 * 页面上拉触底事件的处理函数
-	 */
-	onReachBottom: function () {},
+	// 点击添加圈子
+	onAddCircle: function (e) {
+		const { data } = e.detail;
+		const { myCirCles } = this.data;
+		const hasCircle = myCirCles.filter((item) => item.id === data.id)[0];
+		if (hasCircle) {
+			return wx.showToast({
+				title: '已关注该圈子',
+				icon: 'error',
+			});
+		}
+		myCirCles.push(data);
+		this.setData({ myCirCles });
+	},
 
-	/**
-	 * 用户点击右上角分享
-	 */
-	onShareAppMessage: function () {},
+	// 点击移除圈子
+	removeCircle: function (e) {
+		const { data } = e.detail;
+		const { myCirCles } = this.data;
+		const newCircles = myCirCles.filter((item) => item.id !== data.id);
+		this.setData({ myCirCles: newCircles });
+	},
 });

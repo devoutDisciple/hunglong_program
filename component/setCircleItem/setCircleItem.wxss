@@ -1,11 +1,11 @@
 .circle {
-    min-height: 200rpx;
+    min-height: 90rpx;
     padding: 0 20rpx;
 }
 .title {
     display: flex;
-    height: 100rpx;
-    line-height: 100rpx;
+    height: 50rpx;
+    margin-top: 20rpx;
 }
 .title_name {
     flex: 1;
@@ -23,7 +23,9 @@
     width: 400rpx;
     font-size: 24rpx;
     padding-left: 20rpx;
-    text-align: right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 .title_manager  .title_mg_desc{
     color: #b9b9b9;
@@ -33,10 +35,8 @@
 }
 .title_manager .title_mg_img {
     height: 20rpx;
-    margin-top: 40rpx;
 }
 .content{
-    min-height: 100rpx;
     display: flex;
     flex-wrap: wrap;
 }
@@ -44,6 +44,29 @@
     padding: 15rpx 30rpx;
     border: 1rpx dashed #e5e5e5;
     border-radius: 70rpx;
-    margin-bottom: 25rpx;
+    margin-top: 20rpx;
     margin-right: 15rpx;
+    position: relative;
+}
+.con_item_icon{
+    position: absolute;
+    width: 30rpx;
+    height: 30rpx;
+    top: -13rpx;
+    right: -4rpx;
+}
+
+.con_my_item {
+    background: #ededed;
+    border: none;
+}
+.empty_con {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 20rpx 0;
+}
+.empty {
+    height: 250rpx;
+    width: 250rpx;
 }

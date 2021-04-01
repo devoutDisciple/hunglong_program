@@ -2,17 +2,38 @@
     <view class="title">
         <view class="title_name">
             <text class="title_name_desc">{{title}}</text>
-            <text class="title_name_add">点击添加</text>
+            <text wx:if="{{type === 'circle'}}" class="title_name_add">点击添加</text>
         </view>
         <view class="title_manager">
-            <text class="title_mg_desc">找不到感兴趣的圈子?</text>
-            <text class="title_mg_back" bindtap="onFeedback" data-item="{{item}}">我要反馈</text>
-            <image class="title_mg_img" src="/asserts/public/arrow_right.png"  mode="heightFix"/>
+            <block wx:if="{{type === 'circle'}}">
+                <text class="title_mg_desc">找不到感兴趣的圈子?</text>
+                <text class="title_mg_back" bindtap="onFeedback" data-item="{{item}}">我要反馈</text>
+                <image class="title_mg_img" src="/asserts/public/arrow_right.png"  mode="heightFix"/>
+            </block>
+            <block wx:else>
+                <text wx:if="{{status === 'new'}}" class="title_mg_back" bindtap="onClickManage" data-item="{{item}}">点击管理</text>
+                <text wx:else class="title_mg_back" bindtap="onClickManage" data-item="{{item}}">保存</text>
+            </block>
         </view>
     </view>
     <view class="content">
-        <block wx:for="{{data}}" wx:key="index">
-            <view class="con_item">{{item.name}}</view>
+        <block wx:if="{{data}}">
+            <block wx:for="{{data}}" wx:key="index">
+                <view class="{{type === 'circle' ? 'con_item' : 'con_item con_my_item'}}">
+                    {{item.name}}
+                    <block wx:if="{{status === 'edit' && type === 'my'}}">
+                        <image bindtap="onRemoveCircle" data-circle="{{item}}" class="con_item_icon" src="/asserts/public/close.png"/>
+                    </block>
+                    <block wx:if="{{status === 'edit' && type === 'circle'}}">
+                        <image bindtap="onAddCircle" data-circle="{{item}}" class="con_item_icon" src="/asserts/public/add.png"/>
+                    </block>
+                </view>
+            </block>
+        </block>
+        <block wx:else>
+            <view class="empty_con">
+                <image class="empty" src="/asserts/public/empty.png" />
+            </view>
         </block>
     </view>
     <ipt-dialog 
@@ -20,5 +41,5 @@
         title="写出你感兴趣的内容" 
         wx:if="{{iptDialogVisible}}" 
         bindOnCancle="onCancleDialog" 
-        bindOnOk="hello" />
+        bindOnOk="onOkDialog" />
 </view>

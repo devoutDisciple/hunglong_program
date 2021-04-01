@@ -1,8 +1,20 @@
 <view class="container">
     <view class="circle" >
         <scroll-view class="circle_scroll" scroll-y>
-            <block wx:for="{{cricleList}}" wx:key="index">
-                <circle-item title="{{item.title}}" data="{{item.cricleList}}" item="{{item}}"></circle-item>
+            <circle-item 
+                type="my" 
+                title="我的关注" 
+                status="{{status}}" 
+                data="{{myCirCles}}" 
+                bindremoveCircle="removeCircle"
+                bindtapManage="onClickManage"/>
+            <block wx:for="{{plates}}" wx:key="index">
+                <circle-item 
+                    status="{{status}}" 
+                    data="{{item.circles}}" 
+                    title="{{item.plate_name}}" 
+                    bindaddCircle="onAddCircle" 
+                    type="circle"/>
             </block>
             <btm-empty></btm-empty>
         </scroll-view>

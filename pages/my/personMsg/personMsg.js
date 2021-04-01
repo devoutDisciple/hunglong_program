@@ -74,8 +74,8 @@ Page({
 	},
 
 	// 获取学校
-	onSearchSchool: function () {
-		get({ url: '/circle/getAllByAddress', data: { addressName: '杭州' } })
+	onSearchSchool: function (name) {
+		get({ url: '/circle/getAllByAddress', data: { addressName: name } })
 			.then((res) => {
 				if (res && Array.isArray(res)) {
 					const schoolList = [];
@@ -84,7 +84,6 @@ Page({
 						if (index === 0 && !schoolName) schoolName = item.name;
 						schoolList.push(item.name);
 					});
-					console.log(schoolList, 999);
 					this.setData({ schoolList, schoolName });
 				}
 			})
@@ -138,6 +137,7 @@ Page({
 		const { areaList } = this.data;
 		const [provinceList, cityList, countryList] = areaList;
 		this.setData({ address: `${provinceList[value[0]]} ${cityList[value[1]]} ${countryList[value[2]]}` });
+		this.onSearchSchool(provinceList[value[0]]);
 	},
 
 	// 选择学校
@@ -154,24 +154,6 @@ Page({
 		const { levelList } = this.data;
 		const curSelectLevel = levelList[value];
 		this.setData({ levelName: curSelectLevel });
-	},
-
-	// 保存信息到服务端
-	onSaveMsg: function (data) {
-		const user_id = wx.getStorageSync('user_id');
-		post({ url: '/user/updateMsg', data: { user_id, data } }).then((res) => {
-			if (res === 'success') {
-				wx.showToast({
-					title: '保存成功',
-					icon: 'success',
-				});
-				setTimeout(() => {
-					wx.navigateTo({
-						url: '/pages/sctCircle/sctCircle',
-					});
-				}, 500);
-			}
-		});
 	},
 
 	// 选择出生日期
@@ -278,16 +260,39 @@ Page({
 	},
 
 	// 点击下一步
-	onClickNext: function () {
+	onClickNext: async function () {
 		const { username, sex, activeDate, address, schoolName, sign, levelName } = this.data;
-		this.onSaveMsg({
-			username,
-			sex: sex + 1,
-			birthday: activeDate,
-			address,
-			school: schoolName,
-			sign,
-			level: levelName,
+		const user_id = wx.getStorageSync('user_id');
+		// 保存个人信息
+		loading.showLoading();
+		const res = await post({
+			url: '/user/updateMsg',
+			data: {
+				user_id,
+				data: {
+					username,
+					sex: sex + 1,
+					birthday: activeDate,
+					address,
+					school: schoolName,
+					sign,
+					level: levelName,
+				},
+			},
 		});
+		if (res === 'success') {
+			post({ url: '/circle/attentionCircle', data: { user_id, schoolName } }).then(() => {
+				loading.hideLoading();
+				wx.showToast({
+					title: '保存成功',
+					icon: 'success',
+				});
+				setTimeout(() => {
+					wx.navigateTo({
+						url: '/pages/sctCircle/sctCircle',
+					});
+				}, 500);
+			});
+		}
 	},
 });
