@@ -281,7 +281,7 @@ Page({
 			},
 		});
 		if (res === 'success') {
-			post({ url: '/circle/attentionCircle', data: { user_id, schoolName } }).then(() => {
+			post({ url: '/circle/attentionSchoolCircle', data: { user_id, schoolName } }).then(() => {
 				loading.hideLoading();
 				wx.showToast({
 					title: '保存成功',

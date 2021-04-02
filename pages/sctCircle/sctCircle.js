@@ -1,4 +1,4 @@
-import { get } from '../../utils/request';
+import { get, post } from '../../utils/request';
 import loading from '../../utils/loading';
 
 Page({
@@ -8,7 +8,7 @@ Page({
 	data: {
 		myCirCles: [], // 我关注的圈子
 		plates: [], // 所有的模块
-		status: 'edit',
+		status: 'new',
 	},
 
 	/**
@@ -71,5 +71,21 @@ Page({
 		const { myCirCles } = this.data;
 		const newCircles = myCirCles.filter((item) => item.id !== data.id);
 		this.setData({ myCirCles: newCircles });
+	},
+
+	// 点击下一步
+	onSave: function () {
+		const user_id = wx.getStorageSync('user_id');
+		const { myCirCles } = this.data;
+		if (!myCirCles || myCirCles.length === 0) {
+			return wx.showToast({
+				title: '强选择圈子',
+				icon: 'error',
+			});
+		}
+
+		post({ url: '/circle/attentionCircles', data: { circles: myCirCles, user_id } }).then((res) => {
+			console.log(res, 111);
+		});
 	},
 });
