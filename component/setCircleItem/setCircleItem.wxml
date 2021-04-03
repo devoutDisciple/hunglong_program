@@ -7,7 +7,7 @@
         <view class="title_manager">
             <block wx:if="{{type === 'circle'}}">
                 <text class="title_mg_desc">找不到感兴趣的圈子?</text>
-                <text class="title_mg_back" bindtap="onFeedback" data-item="{{item}}">我要反馈</text>
+                <text class="title_mg_back" bindtap="onFeedbackClick" data-item="{{item}}">我要反馈</text>
                 <image class="title_mg_img" src="/asserts/public/arrow_right.png"  mode="heightFix"/>
             </block>
             <block wx:else>
@@ -21,7 +21,7 @@
             <block wx:for="{{data}}" wx:key="index">
                 <view class="{{type === 'circle' ? 'con_item' : 'con_item con_my_item'}}">
                     {{item.name}}
-                    <block wx:if="{{status === 'edit' && type === 'my'}}">
+                    <block wx:if="{{status === 'edit' && type === 'my' && item.self_school !== 1}}">
                         <image bindtap="onRemoveCircle" data-circle="{{item}}" class="con_item_icon" src="/asserts/public/close.png"/>
                     </block>
                     <block wx:if="{{status === 'edit' && type === 'circle'}}">
@@ -40,6 +40,7 @@
         maxlength="{{6}}"
         title="写出你感兴趣的内容" 
         wx:if="{{iptDialogVisible}}" 
+        placeholer="最多输入六个字"
         bindOnCancle="onCancleDialog" 
         bindOnOk="onOkDialog" />
 </view>

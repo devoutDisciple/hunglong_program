@@ -1,3 +1,5 @@
+const { post } = require('../../utils/request');
+
 // component/setCircle/setCircle.js
 Component({
 	/**
@@ -19,6 +21,10 @@ Component({
 		data: {
 			type: Object,
 			value: [],
+		},
+		plateId: {
+			type: String,
+			value: '',
 		},
 	},
 
@@ -62,15 +68,21 @@ Component({
 			this.triggerEvent('addCircle', { data: circle });
 		},
 		// 弹框确定
-		onOkDialog: function (...rest) {
-			console.log(rest, 111);
+		onOkDialog: function (e) {
+			const { data: iptValue } = e.detail;
+			const user_id = wx.getStorageSync('user_id');
+			const { plateId } = this.data;
+			post({ url: '/feedback/aboutCircle', data: { user_id, plate_id: plateId, desc: iptValue } }).then(() => {
+				wx.showToast({
+					title: '反馈成功',
+					icon: 'success',
+				});
+			});
 		},
-		onCancleDialog: function (e) {
-			console.log(e, 2222);
+		onCancleDialog: function () {
 			this.setData({ iptDialogVisible: false });
 		},
-		onFeedback: function () {
-			console.log(this.data.type);
+		onFeedbackClick: function () {
 			this.setData({ iptDialogVisible: true });
 		},
 	},

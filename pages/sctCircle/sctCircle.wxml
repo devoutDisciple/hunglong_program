@@ -10,8 +10,9 @@
                 bindtapManage="onClickManage"/>
             <block wx:for="{{plates}}" wx:key="index">
                 <circle-item 
-                    status="{{status}}" 
+                    status="{{status}}"
                     data="{{item.circles}}" 
+                    plateId="{{item.plate_id}}"
                     title="{{item.plate_name}}" 
                     bindaddCircle="onAddCircle" 
                     type="circle"/>

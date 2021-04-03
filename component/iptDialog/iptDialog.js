@@ -16,6 +16,10 @@ Component({
 			type: Number,
 			value: 6, // 最大长度
 		},
+		placeholer: {
+			type: String,
+			value: '请输入',
+		},
 	},
 
 	/**

@@ -14,7 +14,7 @@ Page({
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function (options) {},
+	onLoad: function () {},
 
 	/**
 	 * 生命周期函数--监听页面显示
@@ -29,7 +29,6 @@ Page({
 		loading.showLoading();
 		const user_id = wx.getStorageSync('user_id');
 		get({ url: '/circle/getCirclesByUserId', data: { user_id } }).then((res) => {
-			console.log(res, 999);
 			this.setData({ myCirCles: res });
 			loading.hideLoading();
 		});
@@ -39,7 +38,6 @@ Page({
 	getAllCirclesByPlate: function () {
 		loading.showLoading();
 		get({ url: '/circle/getAllCirclesByPlate' }).then((res) => {
-			console.log(res, 888);
 			this.setData({ plates: res });
 			loading.hideLoading();
 		});
@@ -75,17 +73,27 @@ Page({
 
 	// 点击下一步
 	onSave: function () {
+		loading.showLoading();
 		const user_id = wx.getStorageSync('user_id');
 		const { myCirCles } = this.data;
 		if (!myCirCles || myCirCles.length === 0) {
+			loading.hideLoading();
 			return wx.showToast({
 				title: '强选择圈子',
 				icon: 'error',
 			});
 		}
-
-		post({ url: '/circle/attentionCircles', data: { circles: myCirCles, user_id } }).then((res) => {
-			console.log(res, 111);
+		post({ url: '/circle/attentionCircles', data: { circles: myCirCles, user_id } }).then(() => {
+			wx.showToast({
+				title: '保存成功',
+				icon: 'success',
+			});
+			loading.hideLoading();
+			setTimeout(() => {
+				wx.switchTab({
+					url: '/pages/home/home',
+				});
+			}, 500);
 		});
 	},
 });

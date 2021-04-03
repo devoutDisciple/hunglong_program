@@ -10,7 +10,7 @@
     <view class="content">
         <van-field
             value="{{ defaultValue || '' }}"
-            placeholder="请输入"
+            placeholder="{{placeholer}}"
             border="{{ false }}"
             auto-focus="{{ true }}"
             maxlength="{{ maxlength }}"
