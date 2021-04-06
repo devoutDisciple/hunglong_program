@@ -145,8 +145,14 @@
           "scene": null
         },
         {
-          "name": "pk对决",
+          "name": "pk对决详情",
           "pathName": "pages/detail/battle/battle",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "发布帖子",
+          "pathName": "pages/publish/posts/posts",
           "query": "",
           "scene": null
         }

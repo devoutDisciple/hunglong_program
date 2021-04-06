@@ -24,7 +24,8 @@
     "pages/reply/reply",
     "pages/detail/posts/posts",
     "pages/detail/vote/vote",
-    "pages/detail/battle/battle"
+    "pages/detail/battle/battle",
+    "pages/publish/posts/posts"
   ],
   "window": {
     "backgroundTextStyle": "light",

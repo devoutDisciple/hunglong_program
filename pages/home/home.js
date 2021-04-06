@@ -11,7 +11,7 @@ Page({
 		plateList: [], // 板块列表
 		circleList: [], // 圈子列表
 		topicList: [], // 话题列表
-		activeTab: '', // 选中的tab
+		activeTab: 1, // 选中的tab
 		activeTopicId: '', // 选中的话题
 		userDetail: {}, // 用户基本信息
 		topicClass: 'topic_origin',
@@ -42,7 +42,6 @@ Page({
 	// 获取用户信息
 	getUserDetailByUserId: function (user_id) {
 		get({ url: '/user/getUserByUserId', data: { user_id } }).then((res) => {
-			console.log(res, 3333);
 			this.setData({ userDetail: res || {} });
 		});
 	},
@@ -59,7 +58,6 @@ Page({
 		get({ url: '/circle/getAllByUserId', data: { user_id } }).then((res) => {
 			this.setData({
 				circleList: [{ id: 'attention', name: '关注' }, { id: 'recommend', name: '广场' }, ...res],
-				activeTab: 3,
 			});
 		});
 	},
@@ -111,6 +109,12 @@ Page({
 				url: '/pages/my/personMsg/personMsg',
 			});
 		}
+		const url = {
+			posts: '/pages/publish/posts/posts', // 帖子
+		};
+		wx.navigateTo({
+			url: url[itemid],
+		});
 	},
 
 	/**
