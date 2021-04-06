@@ -1,5 +1,7 @@
 {
   "usingComponents": {
+    "btm-empty": "/component/btmEmpty/btmEmpty",
+    "publish-btn": "/component/loginBtn/loginBtn"
   },
   "navigationBarTitleText": "发布帖子"
-}
+}   

@@ -1,3 +1,79 @@
 <view class="wrap">
-    123
+    <scroll-view scroll-y class="con_scroll">
+        <view class="circle">
+            <view class="circle_title">发布到：</view>
+            <view class="circle_con">
+                <view class="circle_chunk">
+                    圈子1
+                    <image class="circle_chunk_img" src="/asserts/public/close.png" />
+                </view>
+                <view class="circle_chunk">
+                    圈子2
+                    <image class="circle_chunk_img" src="/asserts/public/close.png" />
+                </view>
+                <view class="circle_chunk circle_spec">选择圈子</view>
+            </view>
+        </view>
+        <view class="empty" />
+        <view class="form">
+            <view class="form_title">
+                <van-field
+                    size="small"
+                    maxlength="15"
+                    show-word-limit
+                    placeholder="请输入标题"
+                    border="{{ false }}"
+                    bind:change="onChange"
+                />
+            </view>
+            <view class="form_content">
+                <van-field
+                    type="textarea"
+                    maxlength="100"
+                    show-word-limit
+                    placeholder="请输入文本内容"
+                    border="{{ false }}"
+                    bind:change="onChange"
+                />
+            </view>
+        </view>
+        <view class="img">
+            <view class="img_chunk">
+                <image class="img_con" src="/asserts/temp/7.jpg"/>
+                <image class="img_icon" src="/asserts/public/close.png" />
+            </view>
+            <view class="img_chunk">
+                <image class="img_con" src="/asserts/temp/7.jpg"/>
+            </view>
+            <view class="img_chunk">
+                <image class="img_con" src="/asserts/temp/7.jpg"/>
+            </view>
+            <view class="img_chunk">
+                <image class="img_con" src="/asserts/temp/7.jpg"/>
+            </view>
+            <view class="img_chunk img_plus">
+                <image class="plus" src="/asserts/public/plus.png"/>
+            </view>
+        </view>
+        <view class="empty" />
+        <view class="topic">
+            <view class="topic_title">发布到：</view>
+            <view class="topic_con">
+                <view class="topic_chunk">
+                    圈子1
+                </view>
+                <view class="topic_chunk">
+                111
+                </view>
+                <view class="topic_chunk topic_select">选择圈子</view>
+            </view>
+        </view>
+        <btm-empty />
+    </scroll-view>
+    <view class="btm">
+        <view class="btm_btn">
+            <publish-btn label="确定"/>
+        </view>
+    </view>
+    
 </view>
