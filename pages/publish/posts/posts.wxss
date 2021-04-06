@@ -75,11 +75,13 @@
     flex-wrap: wrap;
 }
 .img_chunk {
-    height: calc((100vw - 90rpx) / 3);
-    width: calc((100vw - 90rpx) / 3);
+    height: calc((100vw - 100rpx) / 3);
+    width: calc((100vw - 100rpx) / 3);
     position: relative;
-    margin-left: 14rpx;
-    margin-bottom: 14rpx;
+    margin-bottom: 25rpx;
+}
+.img_chunk:nth-child(3n + 2) {
+    margin: 0 25rpx;
 }
 .img_chunk .img_con {
     width: 100%;
@@ -141,8 +143,9 @@
     height: 150rpx;
 }
 .btm_btn {
-    width: 94vw;
-    margin-left: 3vw;
+    width: 90vw;
+    margin-left: 5vw;
     margin-top: 30rpx;
     height: 100rpx;
+    font-size: 34rpx;
 }
