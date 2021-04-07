@@ -10,6 +10,7 @@ Page({
 		title: '',
 		desc: '',
 		imgUrls: [],
+		hasUploadUrl: [],
 	},
 
 	/**

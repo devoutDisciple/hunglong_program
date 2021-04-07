@@ -155,6 +155,12 @@
           "pathName": "pages/publish/posts/posts",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "发布选择圈子",
+          "pathName": "pages/publish/pickCircle/pickCircle",
+          "query": "",
+          "scene": null
         }
       ]
     }

@@ -25,7 +25,8 @@
     "pages/detail/posts/posts",
     "pages/detail/vote/vote",
     "pages/detail/battle/battle",
-    "pages/publish/posts/posts"
+    "pages/publish/posts/posts",
+    "pages/publish/pickCircle/pickCircle"
   ],
   "window": {
     "backgroundTextStyle": "light",

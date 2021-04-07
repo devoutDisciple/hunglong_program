@@ -1,0 +1,37 @@
+<view class="wrap">
+    <scroll-view scroll-y="{{true}}" class="con">
+        <block wx:for="{{circles}}" wx:key="plate_id">
+            <view class="chunk">
+                <view class="title" data-plateid="{{item.plate_id}}" bindtap = "onClickPlate">
+                    <view class="title_name">{{item.plate_name}}</view>
+                    <view class="title_tap">
+                        点击选择
+                        <image wx:if="{{item.selected}}" src="/asserts/public/arrow_btm.png" />
+                        <image wx:else src="/asserts/public/arrow_right.png" />
+                    </view>
+                </view>
+                <view class="circle" wx:if="{{item.selected}}">
+                    <block wx:if="{{item.children && item.children.length !== 0}}" wx:for="{{item.children}}" wx:for-item="circle" wx:key="circle_id">
+                        <view 
+                            bindtap="onClickCircle"
+                            data-circleid="{{circle.circle_id}}" 
+                            class="circle_chunk {{circle.selected ? 'circle_chunk_select' : ''}}">
+                            {{circle.circle_name}}
+                        </view>
+                    </block>
+                    <block wx:if="{{!item.children || item.children.length === 0}}">
+                        <view class="circle_empty">
+                            <image src="/asserts/public/empty.png" />
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </block>
+        <btm-empty />
+    </scroll-view>
+    <view class="btm">
+        <van-button>确定</van-button>
+    </view>
+    
+
+</view>
