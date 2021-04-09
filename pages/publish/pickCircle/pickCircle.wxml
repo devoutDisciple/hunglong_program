@@ -30,7 +30,7 @@
         <btm-empty />
     </scroll-view>
     <view class="btm">
-        <van-button>确定</van-button>
+        <van-button bindtap="onSave">确定</van-button>
     </view>
     
 

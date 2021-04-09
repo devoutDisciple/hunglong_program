@@ -113,7 +113,7 @@
     padding-bottom: 0rpx;
 }
 .topic_title {
-    width: 110rpx;
+    width: 160rpx;
     line-height: 67rpx;
 }
 .topic_con {

@@ -3,15 +3,11 @@
         <view class="circle">
             <view class="circle_title">发布到：</view>
             <view class="circle_con">
-                <view class="circle_chunk">
-                    圈子1
-                    <image class="circle_chunk_img" src="/asserts/public/close.png" />
+                <view class="circle_chunk" wx:for="{{selectCircles}}" wx:key="circle_id">
+                    {{item.circle_name}}
+                    <image bindtap="onRemoveCircle" data-circleId="{{item.circle_id}}" class="circle_chunk_img" src="/asserts/public/close.png" />
                 </view>
-                <view class="circle_chunk">
-                    圈子2
-                    <image class="circle_chunk_img" src="/asserts/public/close.png" />
-                </view>
-                <view class="circle_chunk circle_spec">选择圈子</view>
+                <view class="circle_chunk circle_spec" bindtap="onGoSelectCircle">选择圈子</view>
             </view>
         </view>
         <view class="empty" />
@@ -49,7 +45,7 @@
         </view>
         <view class="empty" />
         <view class="topic">
-            <view class="topic_title">发布到：</view>
+            <view class="topic_title">请选择话题：</view>
             <view class="topic_con">
                 <view class="topic_chunk">
                     圈子1

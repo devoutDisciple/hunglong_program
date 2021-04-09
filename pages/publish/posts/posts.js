@@ -1,22 +1,23 @@
 /* eslint-disable no-await-in-loop */
 import loading from '../../../utils/loading';
 import { baseUrl } from '../../../config/config';
+import { get } from '../../../utils/request';
 
 Page({
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-		title: '',
-		desc: '',
-		imgUrls: [],
-		hasUploadUrl: [],
+		title: '', // 标题
+		desc: '', // 文字输入
+		imgUrls: [], // 上传图片的url
+		selectCircles: [], // 选择圈子的id
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function (options) {},
+	onLoad: function () {},
 
 	/**
 	 * 生命周期函数--监听页面初次渲染完成
@@ -26,7 +27,39 @@ Page({
 	/**
 	 * 生命周期函数--监听页面显示
 	 */
-	onShow: function () {},
+	onShow: function () {
+		this.onSearchTopic();
+	},
+
+	// 选择圈子
+	onGoSelectCircle: function () {
+		wx.navigateTo({
+			url: '/pages/publish/pickCircle/pickCircle',
+		});
+	},
+
+	// 移除圈子
+	onRemoveCircle: function (e) {
+		const { circleid } = e.target.dataset;
+		const { selectCircles } = this.data;
+		const newCircles = selectCircles.filter((item) => item.circle_id !== circleid);
+		this.setData({ selectCircles: newCircles });
+	},
+
+	// 查询话题
+	onSearchTopic: function () {
+		const { selectCircles } = this.data;
+		console.log(this.data.selectCircles, 8978);
+		const selectedIds = [];
+		if (selectCircles && selectCircles.length !== 0) {
+			selectCircles.forEach((item) => selectedIds.push(item.circle_id));
+			get({ url: '/topic/getByCircleIds', data: { circleIds: selectedIds } }).then((res) => {
+				console.log(res, 6789);
+			});
+		}
+
+		// get()
+	},
 
 	// 输入标题
 	onChangeTitle: function (e) {
