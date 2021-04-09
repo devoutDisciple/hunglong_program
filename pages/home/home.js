@@ -80,7 +80,7 @@ Page({
 
 	// 获取话题
 	getTopicByCircleId(circle_id) {
-		get({ url: '/topic/getAllByCircleId', data: { circle_id } }).then((res) => {
+		get({ url: '/topic/getByCircleId', data: { circle_id } }).then((res) => {
 			this.setData({ topicList: res || [] });
 		});
 	},

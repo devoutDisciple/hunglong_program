@@ -12,6 +12,7 @@ Page({
 		desc: '', // 文字输入
 		imgUrls: [], // 上传图片的url
 		selectCircles: [], // 选择圈子的id
+		topicList: [], // 选择的圈子下的话题
 	},
 
 	/**
@@ -49,16 +50,31 @@ Page({
 	// 查询话题
 	onSearchTopic: function () {
 		const { selectCircles } = this.data;
-		console.log(this.data.selectCircles, 8978);
 		const selectedIds = [];
 		if (selectCircles && selectCircles.length !== 0) {
 			selectCircles.forEach((item) => selectedIds.push(item.circle_id));
 			get({ url: '/topic/getByCircleIds', data: { circleIds: selectedIds } }).then((res) => {
-				console.log(res, 6789);
+				console.log(res, 11111);
+				this.setData({ topicList: res });
 			});
 		}
+	},
 
-		// get()
+	// 选择话题
+	onSelectTopic: function (e) {
+		const { topicid } = e.target.dataset;
+		const { topicList } = this.data;
+		topicList.forEach((circle) => {
+			const topics = circle.topics || [];
+			if (topics && topics.length !== 0) {
+				topics.forEach((topic) => {
+					if (topic.topic_id === topicid) {
+						topic.selected = !topic.selected;
+					}
+				});
+			}
+		});
+		this.setData({ topicList });
 	},
 
 	// 输入标题

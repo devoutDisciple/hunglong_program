@@ -47,13 +47,13 @@
         <view class="topic">
             <view class="topic_title">请选择话题：</view>
             <view class="topic_con">
-                <view class="topic_chunk">
-                    圈子1
-                </view>
-                <view class="topic_chunk">
-                111
-                </view>
-                <view class="topic_chunk topic_select">选择圈子</view>
+                <block wx:for="{{topicList}}" wx:for-item="circle" wx:key="circle_id">
+                    <block wx:for="{{circle.topics}}" wx:for-item="topic" wx:key="topic_id">
+                        <view class="topic_chunk {{topic.selected ? 'topic_select' : ''}}" bindtap="onSelectTopic" data-topicid="{{topic.topic_id}}">
+                            {{topic.topic_name}}
+                        </view>
+                    </block>
+                </block>
             </view>
         </view>
         <btm-empty />
