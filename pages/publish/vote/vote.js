@@ -16,12 +16,20 @@ Page({
 	/**
 	 * 生命周期函数--监听页面初次渲染完成
 	 */
-	onReady: function () {},
+	onReady: function () {
+		this.voteDom = this.selectComponent('#vote');
+	},
 
 	/**
 	 * 生命周期函数--监听页面显示
 	 */
 	onShow: function () {},
+
+	// 改变tab
+	onChangeTab: function (e) {
+		const { index } = e.detail;
+		this.setData({ activeTab: index });
+	},
 
 	// 移除选择的圈子
 	onRemoveCircle: function (e) {
@@ -30,8 +38,6 @@ Page({
 
 	// 点击发布
 	onSave: function () {
-		const child = this.selectComponent('#vote');
-		child.hello();
-		console.log(child);
+		console.log(this.voteDom);
 	},
 });

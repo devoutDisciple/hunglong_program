@@ -50,9 +50,13 @@
     </view>
      <view class="empty" />
      <view class="battle_btm">
-        <view class="multiple" bindtap="onMultiple">
-            <view class="multiple_left">单选/多选</view>
-            <view class="multiple_right">{{isMultiple ? "多选": "单选"}}</view>
+        <view class="time">
+            <view>截止时间</view>
+            <view class="time_con">
+                <view class="time_chunk {{activeTimeIdx == 1 ? 'time_chunk_select' : ''}}" data-index="1" bindtap="onChangeTime">一天</view>
+                <view class="time_chunk {{activeTimeIdx == 2 ? 'time_chunk_select' : ''}}" data-index="2" bindtap="onChangeTime">三天</view>
+                <view class="time_chunk {{activeTimeIdx == 3 ? 'time_chunk_select' : ''}}" data-index="3" bindtap="onChangeTime">五天</view>
+            </view>
         </view>
         <view class="battle_btm_circle">
             <sel-circle selectCircles="{{selectCircles}}"/>

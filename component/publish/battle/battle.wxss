@@ -69,22 +69,27 @@
     padding: 0 20rpx;
 }
 
-.multiple {
-    height: 80rpx;
+.time {
     border-bottom: 1rpx solid #f5f5f5;
+    padding: 20rpx 0;
+}
+
+.time_con {
     display: flex;
-    align-items: center;
-    font-size: 30rpx;
+    margin-top: 20rpx;
 }
 
-.multiple_left {
-    flex: 1;
+.time_chunk {
+    padding: 13rpx 40rpx;
+    border: 1rpx solid #f5f5f5;
+    margin-right: 20rpx;
+    border-radius: 50rpx;
 }
 
-.multiple_right {
-    width: 100rpx;
-    color: #afafaf;
-    text-align: right;
+.time_chunk_select {
+    background: #ededed;
+    color: #f54572;
+    border: none;
 }
 
 .battle_btm_circle {

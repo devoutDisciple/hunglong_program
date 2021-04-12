@@ -28,6 +28,11 @@ Component({
 		hello: function () {
 			console.log(1111);
 		},
+
+		// 输入标题内容
+		onChangeTitle: function (e) {
+			console.log(e, 324);
+		},
 		// 输入选项内容
 		onChangeItem: function (e) {
 			const { itemList } = this.data;
