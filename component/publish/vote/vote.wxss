@@ -13,4 +13,61 @@
     background: #f5f5f5;
     overflow: hidden;
     margin-top: 20rpx;
+    position: relative;
+}
+.vote_chunk_close {
+    height: 70rpx;
+    width: 56rpx;
+    position: absolute;
+    right: 15rpx;
+    top: 10rpx;
+    z-index: 10;
+    opacity: 0;
+}
+.vote_chunk_img {
+    width: 35rpx;
+    height: 35rpx;
+    position: absolute;
+    right: 25rpx;
+    top: 24rpx
+}
+.vote_add {
+    margin: 20rpx 0;
+    border: 1rpx solid #f5f5f5;
+    display: flex;
+    align-items: center;
+    padding: 25rpx 50rpx;
+    border-radius: 50rpx;
+    font-size: 28rpx;
+    color: #afafaf;
+}
+.vote_add image {
+    height: 30rpx;
+    width: 30rpx;
+    margin-right: 20rpx;
+}
+.empty {
+    height: 20rpx;
+    background: #eeeeee;
+}
+.vote_btm {
+    padding: 0 20rpx;
+}
+.multiple {
+    height: 80rpx;
+    border-bottom: 1rpx solid #f5f5f5;
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+}
+.multiple_left {
+    flex: 1;
+}
+.multiple_right {
+    width: 100rpx;
+    color: #afafaf;
+    text-align: right;
+}
+.vote_btm_circle {
+    margin: 20rpx 0;
 }

@@ -3,7 +3,7 @@
         <view class="tab">
             <van-tabs active="{{ active }}" bind:change="onChange">
                 <van-tab title="投票">
-                    <vote id="vote"/>
+                    <vote id="vote" selectCircles="{{selectCircles}}"/>
                 </van-tab>
                 <van-tab title="PK">
                     <battle />

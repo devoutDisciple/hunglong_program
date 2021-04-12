@@ -49,7 +49,6 @@ Component({
 				}
 				if (remain === 2) {
 					const newImgList = imgList.concat([{ empty: true }]);
-					console.log(imgList, imgList.length, 22222);
 					return this.setData({ imgList: newImgList, imgListLen: imgList.length });
 				}
 			}

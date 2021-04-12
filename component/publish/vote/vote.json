@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+      "sel-circle": "/component/publish/selCircle/selCircle"
+  }
 }

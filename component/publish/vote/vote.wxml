@@ -8,23 +8,39 @@
                 bind:change="onChangeTitle"
             />
         </view>
-        <view class="vote_chunk">
+        <view class="vote_chunk" wx:for="{{itemList}}" wx:key="index">
             <van-field
                 maxlength="40"
                 custom-style="background: #f5f5f5"
-                placeholder="选项一(1-40字)"
+                placeholder="{{'选项 ' + (index + 1) + ' (1-40字)'}}"
+                value="{{item.value}}"
                 border="{{ false }}"
-                bind:change="onChangeTitle"
+                data-idx="{{index}}"
+                bind:change="onChangeItem"
             />
+            <view 
+                class="vote_chunk_close"  
+                data-idx="{{index}}"
+                wx:if="{{index > 1}}"
+                bindtap="removeItem" />
+            <image 
+                wx:if="{{index > 1}}"
+                class="vote_chunk_img" 
+                src="/asserts/public/close.png" />
         </view>
-        <view class="vote_chunk">
-            <van-field
-                maxlength="40"
-                custom-style="background: #f5f5f5"
-                placeholder="选项二(1-40字)"
-                border="{{ false }}"
-                bind:change="onChangeTitle"
-            />
+        <view class="vote_add" bindtap="addItem">
+            <image src="/asserts/public/publish.png" />
+            新增选项
         </view>
     </view>
+     <view class="empty" />
+     <view class="vote_btm">
+        <view class="multiple" bindtap="onMultiple">
+            <view class="multiple_left">单选/多选</view>
+            <view class="multiple_right">{{isMultiple ? "多选": "单选"}}</view>
+        </view>
+        <view class="vote_btm_circle">
+            <sel-circle selectCircles="{{selectCircles}}"/>
+        </view>
+     </view>
 </view>
