@@ -1,7 +1,7 @@
 <view class="wrap">
     <scroll-view class="con" scroll-y="{{true}}">
         <view class="tab">
-            <van-tabs active="{{ active }}" bind:change="onChange">
+            <van-tabs active="{{ activeTab }}" bind:change="onChange">
                 <van-tab title="投票">
                     <vote id="vote" selectCircles="{{selectCircles}}"/>
                 </van-tab>

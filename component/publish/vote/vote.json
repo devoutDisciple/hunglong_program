@@ -1,6 +1,6 @@
 {
-  "component": true,
-  "usingComponents": {
-      "sel-circle": "/component/publish/selCircle/selCircle"
-  }
+	"component": true,
+	"usingComponents": {
+		"sel-circle": "/component/publish/selCircle/selCircle"
+	}
 }

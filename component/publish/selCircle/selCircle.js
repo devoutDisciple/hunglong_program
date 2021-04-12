@@ -19,13 +19,7 @@ Component({
 
 	lifetimes: {
 		// 在组件实例进入页面节点树时执行
-		attached: function () {
-			const pages = getCurrentPages();
-			const currentPage = pages[pages.length - 1];
-			console.log(currentPage, 111);
-			const { selectCircles } = currentPage.data;
-			this.setData({ selectCircles });
-		},
+		attached: function () {},
 		detached: function () {
 			// 在组件实例被从页面节点树移除时执行
 		},
@@ -58,7 +52,11 @@ Component({
 			const newCircles = selectCircles.filter((item) => item.circle_id !== circleid);
 			const pages = getCurrentPages();
 			const currentPage = pages[pages.length - 1];
-			currentPage.setData({ selectCircles: newCircles });
+			currentPage.setData({ selectCircles: newCircles }, () => {
+				if (currentPage.onRemoveCircle) {
+					currentPage.onRemoveCircle();
+				}
+			});
 		},
 	},
 });

@@ -1,1 +1,61 @@
-<view class="battle">battle</view>
+<view class="battle">
+    <view class="battle_top">
+        <view class="battle_title">
+            <van-field
+                maxlength="15"
+                placeholder="请输入PK标题(1-40字)"
+                border="{{ false }}"
+                size="small"
+                bind:change="onChangeTitle"
+            />
+        </view>
+        <view class="battle_con">
+            <view class="battle_team">
+                <image class="battle_team_title" src="/asserts/public/battle_red.png"/>
+                <view class="battle_img_con">
+                    <image class="battle_img_icon" src="/asserts/public/plus2.png" />
+                </view>
+                <view class="battle_name">
+                    <van-field
+                        maxlength="15"
+                        size="small"
+                        placeholder="输入红方名称"
+                        border="{{ false }}"
+                        custom-style="border-radius: 100rpx;background: #efefef;"
+                        bind:change="onChangeTitle"
+                    />
+                </view>
+            </view>
+            <view class="battle_vs">
+                <image class="battle_vs_img" src="/asserts/public/vs.png"/>
+            </view>
+            <view class="battle_team">
+                <image class="battle_team_title" src="/asserts/public/battle_blue.png"/>
+                <view class="battle_img_con">
+                    <image class="battle_img_icon" src="/asserts/public/plus2.png" />
+                </view>
+                <view class="battle_name">
+                    <van-field
+                        maxlength="15"
+                        size="small"
+                        placeholder="输入蓝方名称"
+                        border="{{ false }}"
+                        custom-style="border-radius: 100rpx; background: #efefef;"
+                        bind:change="onChangeTitle"
+                    />
+                </view>
+            </view>
+        </view>
+        
+    </view>
+     <view class="empty" />
+     <view class="battle_btm">
+        <view class="multiple" bindtap="onMultiple">
+            <view class="multiple_left">单选/多选</view>
+            <view class="multiple_right">{{isMultiple ? "多选": "单选"}}</view>
+        </view>
+        <view class="battle_btm_circle">
+            <sel-circle selectCircles="{{selectCircles}}"/>
+        </view>
+     </view>
+</view>

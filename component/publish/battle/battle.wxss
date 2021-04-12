@@ -1,1 +1,92 @@
-/* component/publish/battle/battle.wxss */
+.battle {
+    font-size: 26rpx;
+}
+
+.battle_top {
+    padding: 0 20rpx;
+}
+
+.battle_title {
+    border-bottom: 1rpx solid #efefef;
+}
+
+.battle_con {
+    display: flex;
+    margin: 20rpx 0;
+}
+
+.battle_team {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.battle_img_con {
+    width: calc((100vw - 140rpx) / 2);
+    height: calc((100vw - 140rpx) / 2);
+    border-radius: 20rpx;
+    background: #f5f5f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.battle_img_icon {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.battle_name {
+    padding: 10rpx 0;
+}
+
+.battle_vs {
+    width: 100rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.battle_vs_img {
+    margin-top: -60rpx;
+    height: 50rpx;
+    width: 90rpx;
+}
+
+.battle_team_title {
+    width: 140rpx;
+    height: 50rpx;
+}
+
+
+
+
+.empty {
+    height: 20rpx;
+    background: #eeeeee;
+}
+
+.battle_btm {
+    padding: 0 20rpx;
+}
+
+.multiple {
+    height: 80rpx;
+    border-bottom: 1rpx solid #f5f5f5;
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+}
+
+.multiple_left {
+    flex: 1;
+}
+
+.multiple_right {
+    width: 100rpx;
+    color: #afafaf;
+    text-align: right;
+}
+
+.battle_btm_circle {
+    margin: 20rpx 0;
+}
