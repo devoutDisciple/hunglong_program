@@ -1,0 +1,25 @@
+.wrap {
+    height: 100vh;
+    width: 100vw;
+    font-size: 26rpx;
+    display: flex;
+    flex-direction: column;
+}
+.con {
+    flex: 1;
+    overflow: hidden;
+}
+.empty {
+    height: 20rpx;
+    background: #eeeeee;
+}
+.btm{
+    height: 150rpx;
+}
+.btm_btn {
+    width: 90vw;
+    margin-left: 5vw;
+    margin-top: 30rpx;
+    height: 100rpx;
+    font-size: 34rpx;
+}

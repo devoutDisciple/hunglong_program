@@ -110,7 +110,8 @@ Page({
 			});
 		}
 		const url = {
-			posts: '/pages/publish/posts/posts', // 帖子
+			posts: '/pages/publish/posts/posts?type=posts', // 帖子
+			blogs: '/pages/publish/posts/posts?type=blogs', // 博客
 		};
 		wx.navigateTo({
 			url: url[itemid],

@@ -3,6 +3,6 @@
 	"usingComponents": {
         "header": "/component/navBar/navBar",
         "home-post": "/component/posts/homePosts/homePosts",
-        "publish": "/component/publish/publish"
+        "publish": "/component/publish/btn/btn"
     }
 }

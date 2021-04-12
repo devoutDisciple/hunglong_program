@@ -153,12 +153,24 @@
         {
           "name": "发布帖子",
           "pathName": "pages/publish/posts/posts",
-          "query": "",
+          "query": "type=posts",
           "scene": null
         },
         {
           "name": "发布选择圈子",
           "pathName": "pages/publish/pickCircle/pickCircle",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "发布博客",
+          "pathName": "pages/publish/posts/posts",
+          "query": "type=blogs",
+          "scene": null
+        },
+        {
+          "name": "发布投票",
+          "pathName": "pages/publish/vote/vote",
           "query": "",
           "scene": null
         }

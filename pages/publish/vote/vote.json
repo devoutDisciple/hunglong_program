@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "publish-btn": "/component/loginBtn/loginBtn",
+    "vote": "/component/publish/vote/vote",
+    "battle": "/component/publish/battle/battle"
+  },
+  "navigationBarTitleText": "投票PK"
+}

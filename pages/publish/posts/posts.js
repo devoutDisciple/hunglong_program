@@ -8,6 +8,7 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
+		type: 'posts', // posts-帖子 blogs-博客
 		title: '', // 标题
 		desc: '', // 文字输入
 		imgUrls: [], // 上传图片的url
@@ -18,7 +19,21 @@ Page({
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function () {
+	onLoad: function (options) {
+		if (options.type) {
+			if (options.type === 'posts') {
+				wx.setNavigationBarTitle({
+					title: '发布帖子',
+				});
+			}
+			if (options.type === 'blogs') {
+				wx.setNavigationBarTitle({
+					title: '发布博客',
+				});
+			}
+		}
+		this.setData({ type: options.type });
+		// 获取学校圈子
 		this.getPersonSchoolCircle();
 	},
 
@@ -152,9 +167,9 @@ Page({
 
 	// 发布
 	onSave: async function () {
-		const { title, desc, imgUrls, selectCircles, topicList } = this.data;
+		const { title, desc, imgUrls, selectCircles, topicList, type } = this.data;
 		// 上传图片
-		if (!title) return this.showErrorToast('请输入标题');
+		if (type === 'posts' && !title) return this.showErrorToast('请输入标题');
 		if (selectCircles && selectCircles.length === 0) return this.showErrorToast('请选择圈子');
 		const uploadImgUrls = [];
 		if (imgUrls && imgUrls.length !== 0) {
@@ -180,8 +195,16 @@ Page({
 		});
 		const user_id = wx.getStorageSync('user_id');
 		post({
-			url: '/posts/add',
-			data: { user_id, title, desc, imgUrls: uploadImgUrls, selectCirIds, topicIds },
+			url: '/posts/addPostsOrBlogs',
+			data: {
+				user_id,
+				title,
+				desc,
+				imgUrls: uploadImgUrls,
+				selectCirIds,
+				topicIds,
+				type: type === 'post' ? 1 : 2,
+			},
 		})
 			.then((res) => {
 				if (res === 'success') {

@@ -1,0 +1,19 @@
+<view class="wrap">
+    <scroll-view class="con" scroll-y="{{true}}">
+        <view class="tab">
+            <van-tabs active="{{ active }}" bind:change="onChange">
+                <van-tab title="投票">
+                    <vote id="vote"/>
+                </van-tab>
+                <van-tab title="PK">
+                    <battle />
+                </van-tab>
+            </van-tabs>
+        </view>
+    </scroll-view>
+    <view class="btm">
+        <view class="btm_btn" bindtap = "onSave">
+            <publish-btn label="发布"/>
+        </view>
+    </view>
+</view>

@@ -12,7 +12,7 @@
         </view>
         <view class="empty" />
         <view class="form">
-            <view class="form_title">
+            <view class="form_title" wx:if="{{type === 'posts'}}">
                 <van-field
                     maxlength="15"
                     show-word-limit
