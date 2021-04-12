@@ -60,29 +60,9 @@ Page({
 			.finally(() => loading.hideLoading());
 	},
 
-	// 选择圈子
-	onGoSelectCircle: function () {
-		wx.navigateTo({
-			url: '/pages/publish/pickCircle/pickCircle',
-		});
-	},
-
 	// 移除圈子
-	onRemoveCircle: function (e) {
-		const { circleid } = e.target.dataset;
-		const { selectCircles } = this.data;
-		let num = 0;
-		selectCircles.forEach((item) => {
-			if (item.selected) num++;
-		});
-		if (num === 1) {
-			return wx.showToast({
-				title: '请勿移除',
-				icon: 'error',
-			});
-		}
-		const newCircles = selectCircles.filter((item) => item.circle_id !== circleid);
-		this.setData({ selectCircles: newCircles }, () => this.onSearchTopic());
+	onRemoveCircle: function () {
+		this.onSearchTopic();
 	},
 
 	// 查询话题

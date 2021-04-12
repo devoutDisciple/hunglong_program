@@ -1,14 +1,7 @@
 <view class="wrap">
     <scroll-view scroll-y class="con_scroll">
         <view class="circle">
-            <view class="circle_title">发布到：</view>
-            <view class="circle_con">
-                <view class="circle_chunk" wx:for="{{selectCircles}}" wx:key="circle_id">
-                    {{item.circle_name}}
-                    <image bindtap="onRemoveCircle" data-circleId="{{item.circle_id}}" class="circle_chunk_img" src="/asserts/public/close.png" />
-                </view>
-                <view class="circle_chunk circle_spec" bindtap="onGoSelectCircle">选择圈子</view>
-            </view>
+            <sel-circle selectCircles="{{selectCircles}}"/>
         </view>
         <view class="empty" />
         <view class="form">

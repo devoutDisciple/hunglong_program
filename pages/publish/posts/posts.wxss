@@ -6,10 +6,12 @@
     flex-direction: column;
     overflow: hidden;
 }
+
 .con_scroll {
     flex: 1;
     overflow: hidden;
 }
+
 .circle {
     display: flex;
     padding: 10rpx 20rpx;
@@ -17,77 +19,57 @@
     padding-bottom: 0rpx;
 }
 
-.circle_title {
-    width: 110rpx;
-    line-height: 67rpx;
-}
-.circle_con {
-    flex: 1;
-    display: flex;
-    flex-wrap: wrap;
-}
-.circle_chunk {
-    padding: 14rpx 25rpx;
-    padding-right: 60rpx;
-    background: #ededed;
-    color: #484848;
-    margin: 0 15rpx;
-    border-radius: 35rpx;
-    position: relative;
-    margin-bottom: 10rpx;
-}
-.circle_spec {
-    padding-right: 25rpx;
-    color: #399ffb;
-}
-.circle_chunk_img {
-    height: 30rpx;
-    width: 30rpx;
-    position: absolute;
-    right: 17rpx;
-    top: 16rpx;
-}
 .form {
     padding: 20rpx;
     width: calc(100vw - 40rpx);
 }
+
 .form_title {
     border-bottom: 1rpx solid #f6f6f6;
 }
+
 .form_title .van-cell {
     padding: 0 10rpx 10rpx 0;
 }
+
 .form_title .van-field__word-limit {
     position: absolute;
     right: 0;
     top: 0;
 }
+
 .form_content .van-cell {
     padding: 20rpx 0;
 }
+
 .form_content .van-field__control {
     min-height: 200rpx;
     line-height: 30rpx;
 }
+
 .img {
     padding: 20rpx;
     display: flex;
     flex-wrap: wrap;
 }
+
 .img_chunk {
     height: calc((100vw - 100rpx) / 3);
     width: calc((100vw - 100rpx) / 3);
     position: relative;
     margin-bottom: 25rpx;
 }
+
 .img_chunk:nth-child(3n + 2) {
     margin: 0 25rpx;
 }
+
 .img_chunk .img_con {
     width: 100%;
     height: 100%;
     border-radius: 20rpx;
 }
+
 .img_icon {
     position: absolute;
     right: -15rpx;
@@ -95,6 +77,7 @@
     width: 30rpx;
     height: 30rpx;
 }
+
 .img_plus {
     display: flex;
     justify-content: center;
@@ -102,25 +85,30 @@
     border: 1px dashed #eaeaea;
     border-radius: 20rpx;
 }
-.img_plus .plus{
+
+.img_plus .plus {
     width: 50rpx;
     height: 50rpx;
 }
+
 .topic {
     display: flex;
     padding: 30rpx 20rpx;
     width: calc(100vw - 40rpx);
     padding-bottom: 0rpx;
 }
+
 .topic_title {
     width: 160rpx;
     line-height: 67rpx;
 }
+
 .topic_con {
     flex: 1;
     display: flex;
     flex-wrap: wrap;
 }
+
 .topic_chunk {
     padding: 14rpx 25rpx;
     color: #484848;
@@ -130,18 +118,22 @@
     position: relative;
     margin-bottom: 10rpx;
 }
+
 .topic_select {
     background: #fcded6;
     color: #cd2e08;
     border: none;
 }
+
 .empty {
     height: 20rpx;
     background: #eeeeee;
 }
-.btm{
+
+.btm {
     height: 150rpx;
 }
+
 .btm_btn {
     width: 90vw;
     margin-left: 5vw;
