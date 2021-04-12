@@ -1,5 +1,5 @@
 import loading from '../../../utils/loading';
-import { get, post } from '../../../utils/request';
+import { get } from '../../../utils/request';
 
 Page({
 	/**
@@ -27,7 +27,6 @@ Page({
 		const pages = getCurrentPages();
 		// prevPage 是获取上一个页面的js里面的pages的所有信息。 -2 是上一个页面，-3是上上个页面以此类推。
 		const prevPage = pages[pages.length - 2];
-		console.log(prevPage, prevPage.data, 89);
 		const { selectCircles } = prevPage.data;
 		const user_id = wx.getStorageSync('user_id');
 		const newCircles = [];
@@ -54,7 +53,7 @@ Page({
 					obj.children.push({
 						circle_id: circle.id,
 						circle_name: circle.name,
-						selected: !!selectCircles.filter((selCir) => selCir.circle_id === item.id)[0],
+						selected: !!selectCircles.filter((selCir) => selCir.circle_id === circle.id)[0],
 					});
 				});
 			}
@@ -85,6 +84,7 @@ Page({
 				});
 			}
 		});
+		console.log(circles, 7898);
 		this.setData({ circles });
 	},
 
@@ -93,6 +93,7 @@ Page({
 		const { circles } = this.data;
 		const finalArr = [];
 		const selectCircles = [];
+		// 得到选择的圈子
 		circles.forEach((item) => {
 			if (Array.isArray(item.children)) {
 				item.children.forEach((circle) => {
@@ -103,8 +104,10 @@ Page({
 		if (selectCircles.length === 0) {
 			return wx.showToast({
 				title: '请选择圈子',
+				icon: 'error',
 			});
 		}
+		// 去重
 		selectCircles.forEach((item) => {
 			const tempArr = finalArr.filter((circle) => circle.circle_id === item.circle_id)[0];
 			if (!tempArr) finalArr.push(item);

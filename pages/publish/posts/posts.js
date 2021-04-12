@@ -1,7 +1,7 @@
 /* eslint-disable no-await-in-loop */
 import loading from '../../../utils/loading';
 import { baseUrl } from '../../../config/config';
-import { get } from '../../../utils/request';
+import { get, post } from '../../../utils/request';
 
 Page({
 	/**
@@ -11,25 +11,38 @@ Page({
 		title: '', // 标题
 		desc: '', // 文字输入
 		imgUrls: [], // 上传图片的url
-		selectCircles: [], // 选择圈子的id
+		selectCircles: [], // 选择的圈子
 		topicList: [], // 选择的圈子下的话题
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function () {},
-
-	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-	onReady: function () {},
+	onLoad: function () {
+		this.getPersonSchoolCircle();
+	},
 
 	/**
 	 * 生命周期函数--监听页面显示
 	 */
 	onShow: function () {
 		this.onSearchTopic();
+	},
+
+	// 获取个人的学校圈子
+	getPersonSchoolCircle: function () {
+		loading.showLoading();
+		const user_id = wx.getStorageSync('user_id');
+		const { selectCircles } = this.data;
+		// 获取个人学校圈子
+		get({ url: '/circle/getPersonSchoolCircle', data: { user_id } })
+			.then((res) => {
+				if (!res) return;
+				res.selected = true;
+				const newCircle = [...selectCircles, res];
+				this.setData({ selectCircles: newCircle }, () => this.onSearchTopic());
+			})
+			.finally(() => loading.hideLoading());
 	},
 
 	// 选择圈子
@@ -43,20 +56,32 @@ Page({
 	onRemoveCircle: function (e) {
 		const { circleid } = e.target.dataset;
 		const { selectCircles } = this.data;
+		let num = 0;
+		selectCircles.forEach((item) => {
+			if (item.selected) num++;
+		});
+		if (num === 1) {
+			return wx.showToast({
+				title: '请勿移除',
+				icon: 'error',
+			});
+		}
 		const newCircles = selectCircles.filter((item) => item.circle_id !== circleid);
-		this.setData({ selectCircles: newCircles });
+		this.setData({ selectCircles: newCircles }, () => this.onSearchTopic());
 	},
 
 	// 查询话题
 	onSearchTopic: function () {
+		loading.showLoading();
 		const { selectCircles } = this.data;
 		const selectedIds = [];
 		if (selectCircles && selectCircles.length !== 0) {
 			selectCircles.forEach((item) => selectedIds.push(item.circle_id));
-			get({ url: '/topic/getByCircleIds', data: { circleIds: selectedIds } }).then((res) => {
-				console.log(res, 11111);
-				this.setData({ topicList: res });
-			});
+			get({ url: '/topic/getByCircleIds', data: { circleIds: selectedIds } })
+				.then((res) => {
+					this.setData({ topicList: res });
+				})
+				.finally(() => loading.hideLoading());
 		}
 	},
 
@@ -118,20 +143,60 @@ Page({
 		this.setData({ imgUrls });
 	},
 
+	showErrorToast: function (title) {
+		wx.showToast({
+			title,
+			icon: 'error',
+		});
+	},
+
 	// 发布
 	onSave: async function () {
-		const { title, desc, imgUrls } = this.data;
+		const { title, desc, imgUrls, selectCircles, topicList } = this.data;
 		// 上传图片
-		console.log(title, desc, imgUrls);
+		if (!title) return this.showErrorToast('请输入标题');
+		if (selectCircles && selectCircles.length === 0) return this.showErrorToast('请选择圈子');
+		const uploadImgUrls = [];
 		if (imgUrls && imgUrls.length !== 0) {
 			let len = imgUrls.length;
 			loading.showLoading();
 			while (len > 0) {
 				len -= 1;
-				await this.uploadImg(imgUrls[len]);
+				const filename = await this.uploadImg(imgUrls[len]);
+				uploadImgUrls.push(filename);
 			}
-			loading.hideLoading();
 		}
+		// 选择的圈子id
+		const selectCirIds = [];
+		// 选择的话题id
+		const topicIds = [];
+		selectCircles.forEach((item) => selectCirIds.push(item.circle_id));
+		topicList.forEach((circle) => {
+			if (circle.topics && circle.topics.length !== 0) {
+				circle.topics.forEach((item) => {
+					if (item.selected) topicIds.push(item.topic_id);
+				});
+			}
+		});
+		const user_id = wx.getStorageSync('user_id');
+		post({
+			url: '/posts/add',
+			data: { user_id, title, desc, imgUrls: uploadImgUrls, selectCirIds, topicIds },
+		})
+			.then((res) => {
+				if (res === 'success') {
+					wx.showToast({
+						title: '发布成功',
+						icon: 'success',
+					});
+					setTimeout(() => {
+						wx.navigateBack({
+							complete: () => {},
+						});
+					}, 500);
+				}
+			})
+			.finally(() => loading.hideLoading());
 	},
 
 	// 上传图片
@@ -145,16 +210,12 @@ Page({
 					const filename = JSON.parse(result.data).data;
 					resolve(filename);
 				},
-				fail: function (err) {
-					console.log(err);
+				fail: function () {
 					wx.showToast({
 						title: '上传失败',
 						icon: 'error',
 					});
 					reject('系统错误');
-				},
-				complete: function () {
-					loading.hideLoading();
 				},
 			});
 		});
