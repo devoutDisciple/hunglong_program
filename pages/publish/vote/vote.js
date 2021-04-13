@@ -18,6 +18,7 @@ Page({
 	 */
 	onReady: function () {
 		this.voteDom = this.selectComponent('#vote');
+		this.battleDom = this.selectComponent('#battle');
 	},
 
 	/**
@@ -38,6 +39,12 @@ Page({
 
 	// 点击发布
 	onSave: function () {
-		console.log(this.voteDom);
+		const { activeTab } = this.data;
+		if (activeTab === 0) {
+			this.voteDom.onPublish();
+		}
+		if (activeTab === 1) {
+			this.battleDom.onPublish();
+		}
 	},
 });

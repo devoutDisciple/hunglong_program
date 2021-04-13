@@ -112,6 +112,9 @@ Page({
 		const url = {
 			posts: '/pages/publish/posts/posts?type=posts', // 帖子
 			blogs: '/pages/publish/posts/posts?type=blogs', // 博客
+			vote: '/pages/publish/vote/vote', // 投票pk
+			image: '/pages/publish/posts/posts?type=posts', // 图片
+			vedio: '/pages/publish/posts/posts?type=blogs', // 视频
 		};
 		wx.navigateTo({
 			url: url[itemid],

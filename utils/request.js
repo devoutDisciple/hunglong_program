@@ -84,4 +84,25 @@ module.exports = {
 			});
 		});
 	},
+	uploadFile: (params = {}) => {
+		return new Promise((resolve, reject) => {
+			const url = baseUrl + params.url;
+			wx.uploadFile({
+				filePath: params.data,
+				name: 'file',
+				url,
+				success: function (result) {
+					const filename = JSON.parse(result.data).data;
+					resolve(filename);
+				},
+				fail: function () {
+					wx.showToast({
+						title: '上传失败',
+						icon: 'error',
+					});
+					reject('系统错误');
+				},
+			});
+		});
+	},
 };

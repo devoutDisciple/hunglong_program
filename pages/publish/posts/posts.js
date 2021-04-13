@@ -1,7 +1,6 @@
 /* eslint-disable no-await-in-loop */
 import loading from '../../../utils/loading';
-import { baseUrl } from '../../../config/config';
-import { get, post } from '../../../utils/request';
+import { get, post, uploadFile } from '../../../utils/request';
 
 Page({
 	/**
@@ -157,7 +156,7 @@ Page({
 			loading.showLoading();
 			while (len > 0) {
 				len -= 1;
-				const filename = await this.uploadImg(imgUrls[len]);
+				const filename = await uploadFile({ url: '/posts/uploadImg', data: imgUrls[len] });
 				uploadImgUrls.push(filename);
 			}
 		}
@@ -200,27 +199,5 @@ Page({
 				}
 			})
 			.finally(() => loading.hideLoading());
-	},
-
-	// 上传图片
-	uploadImg: function (filePath) {
-		return new Promise((resolve, reject) => {
-			wx.uploadFile({
-				filePath: filePath,
-				name: 'file',
-				url: `${baseUrl}/posts/uploadImg`,
-				success: function (result) {
-					const filename = JSON.parse(result.data).data;
-					resolve(filename);
-				},
-				fail: function () {
-					wx.showToast({
-						title: '上传失败',
-						icon: 'error',
-					});
-					reject('系统错误');
-				},
-			});
-		});
 	},
 });

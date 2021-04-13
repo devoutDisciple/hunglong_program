@@ -6,7 +6,7 @@
                     <vote id="vote" selectCircles="{{selectCircles}}"/>
                 </van-tab>
                 <van-tab title="PK">
-                    <battle selectCircles="{{selectCircles}}" />
+                    <battle id="battle" selectCircles="{{selectCircles}}" />
                 </van-tab>
             </van-tabs>
         </view>

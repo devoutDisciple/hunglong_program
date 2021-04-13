@@ -2,27 +2,29 @@
     <view class="battle_top">
         <view class="battle_title">
             <van-field
-                maxlength="15"
-                placeholder="请输入PK标题(1-40字)"
-                border="{{ false }}"
                 size="small"
+                maxlength="15"
+                border="{{ false }}"
                 bind:change="onChangeTitle"
+                placeholder="请输入PK标题(1-40字)"
             />
         </view>
         <view class="battle_con">
             <view class="battle_team">
                 <image class="battle_team_title" src="/asserts/public/battle_red.png"/>
-                <view class="battle_img_con">
-                    <image class="battle_img_icon" src="/asserts/public/plus2.png" />
+                <view class="battle_img_con" data-team="red" bindtap="onChooseImg">
+                    <image wx:if="{{redImgUrl}}" class="battle_img_temp" src="{{redImgUrl}}" />
+                    <image wx:else class="battle_img_icon" src="/asserts/public/plus2.png" />
                 </view>
                 <view class="battle_name">
                     <van-field
-                        maxlength="15"
                         size="small"
-                        placeholder="输入红方名称"
+                        maxlength="15"
+                        data-team="red"
                         border="{{ false }}"
+                        placeholder="输入红方名称"
+                        bind:change="onChangeName"
                         custom-style="border-radius: 100rpx;background: #efefef;"
-                        bind:change="onChangeTitle"
                     />
                 </view>
             </view>
@@ -31,17 +33,19 @@
             </view>
             <view class="battle_team">
                 <image class="battle_team_title" src="/asserts/public/battle_blue.png"/>
-                <view class="battle_img_con">
-                    <image class="battle_img_icon" src="/asserts/public/plus2.png" />
+                <view class="battle_img_con" data-team="blue" bindtap="onChooseImg">
+                    <image wx:if="{{blueImgUrl}}" class="battle_img_temp" src="{{blueImgUrl}}" />
+                    <image wx:else class="battle_img_icon" src="/asserts/public/plus2.png" />
                 </view>
                 <view class="battle_name">
                     <van-field
-                        maxlength="15"
                         size="small"
-                        placeholder="输入蓝方名称"
+                        maxlength="15"
+                        data-team="blue"
                         border="{{ false }}"
+                        placeholder="输入蓝方名称"
+                        bind:change="onChangeName"
                         custom-style="border-radius: 100rpx; background: #efefef;"
-                        bind:change="onChangeTitle"
                     />
                 </view>
             </view>
