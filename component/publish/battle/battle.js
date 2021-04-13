@@ -1,5 +1,5 @@
 import loading from '../../../utils/loading';
-import { uploadFile } from '../../../utils/request';
+import { post, uploadFile } from '../../../utils/request';
 
 Component({
 	/**
@@ -66,15 +66,46 @@ Component({
 			const { detail } = e;
 			this.setData(team === 'red' ? { redName: detail } : { blueName: detail });
 		},
+		showErrToast: function (title) {
+			wx.showToast({
+				title,
+				icon: 'error',
+			});
+		},
 		// 发布
 		onPublish: async function () {
 			loading.showLoading();
-			const { activeTimeIdx, title, redImgUrl, redName, blueImgUrl, blueName } = this.data;
+			const user_id = wx.getStorageSync('user_id');
+			const { activeTimeIdx, title, redImgUrl, redName, blueImgUrl, blueName, selectCircles } = this.data;
+			if (!title) return this.showErrToast('请输入标题');
+			if (!redImgUrl) return this.showErrToast('缺少红方图片');
+			if (!redName) return this.showErrToast('缺少红方名称');
+			if (!blueName) return this.showErrToast('缺少蓝方名称');
+			if (!blueImgUrl) return this.showErrToast('缺少蓝方图片');
+			if (!selectCircles || selectCircles.length === 0) return this.showErrToast('请选择圈子');
 			// 上传图片
-			const redImgCurUrl = await uploadFile({ url: '/posts/uploadImg', data: redImgUrl });
-			const blueImgCurUrl = await uploadFile({ url: '/posts/uploadImg', data: blueImgUrl });
-			console.log(activeTimeIdx, title, redImgCurUrl, redName, blueImgCurUrl, blueName, 111);
-			loading.hideLoading();
+			const redImgCurUrl = await uploadFile({ url: '/battle/uploadImg', data: redImgUrl });
+			const blueImgCurUrl = await uploadFile({ url: '/battle/uploadImg', data: blueImgUrl });
+			const circleIds = [];
+			selectCircles.forEach((item) => circleIds.push(item.circle_id));
+			post({
+				url: '/battle/addBattle',
+				data: { user_id, activeTimeIdx, title, redImgCurUrl, redName, blueImgCurUrl, blueName, circleIds },
+			})
+				.then((res) => {
+					if (res === 'success') {
+						wx.showToast({
+							title: '发布成功',
+							icon: 'success',
+						});
+						setTimeout(() => {
+							wx.navigateBack({
+								complete: () => {},
+							});
+						}, 500);
+					}
+				})
+				.finally(() => loading.hideLoading());
 		},
 	},
 });

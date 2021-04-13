@@ -1,4 +1,6 @@
-// pages/publish/vote/vote.js
+import loading from '../../../utils/loading';
+import { get } from '../../../utils/request';
+
 Page({
 	/**
 	 * 页面的初始数据
@@ -11,7 +13,10 @@ Page({
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function () {},
+	onLoad: function () {
+		// 获取个人学校圈子
+		this.getPersonSchoolCircle();
+	},
 
 	/**
 	 * 生命周期函数--监听页面初次渲染完成
@@ -26,15 +31,26 @@ Page({
 	 */
 	onShow: function () {},
 
+	// 获取个人的学校圈子
+	getPersonSchoolCircle: function () {
+		loading.showLoading();
+		const user_id = wx.getStorageSync('user_id');
+		const { selectCircles } = this.data;
+		// 获取个人学校圈子
+		get({ url: '/circle/getPersonSchoolCircle', data: { user_id } })
+			.then((res) => {
+				if (!res) return;
+				res.selected = true;
+				const newCircle = [...selectCircles, res];
+				this.setData({ selectCircles: newCircle });
+			})
+			.finally(() => loading.hideLoading());
+	},
+
 	// 改变tab
 	onChangeTab: function (e) {
 		const { index } = e.detail;
 		this.setData({ activeTab: index });
-	},
-
-	// 移除选择的圈子
-	onRemoveCircle: function (e) {
-		console.log(e, 234);
 	},
 
 	// 点击发布
