@@ -6,7 +6,7 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		activeTab: 1, // 当前选择的tab
+		activeTab: 0, // 当前选择的tab
 		selectCircles: [], // 选择的圈子
 	},
 

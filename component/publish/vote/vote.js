@@ -1,4 +1,6 @@
-// component/publish/vote/vote.js
+import loading from '../../../utils/loading';
+import { post } from '../../../utils/request';
+
 Component({
 	/**
 	 * 组件的属性列表
@@ -19,19 +21,17 @@ Component({
 			{ id: 1, value: '' },
 		],
 		isMultiple: false, // 默认单选
+		title: '', // 标题
 	},
 
 	/**
 	 * 组件的方法列表
 	 */
 	methods: {
-		hello: function () {
-			console.log(1111);
-		},
-
 		// 输入标题内容
 		onChangeTitle: function (e) {
-			console.log(e, 324);
+			const { detail } = e;
+			this.setData({ title: detail });
 		},
 		// 输入选项内容
 		onChangeItem: function (e) {
@@ -76,6 +76,53 @@ Component({
 					self.setData({ isMultiple: tapIndex === 1 });
 				},
 			});
+		},
+		showErrToast: function (title) {
+			wx.showToast({
+				title,
+				icon: 'error',
+			});
+		},
+		// 发布
+		onPublish: async function () {
+			loading.showLoading();
+			const user_id = wx.getStorageSync('user_id');
+			const { isMultiple, title, itemList, selectCircles } = this.data;
+			if (!title) return this.showErrToast('请输入标题');
+			if (!selectCircles || selectCircles.length === 0) return this.showErrToast('请选择圈子');
+			let flag = false;
+			itemList.forEach((item) => {
+				if (!item.value) flag = true;
+			});
+			if (flag) return this.showErrToast('请输入内容');
+			const circleIds = [];
+			selectCircles.forEach((item) => circleIds.push(item.circle_id));
+			const conList = [];
+			itemList.forEach((item, index) => {
+				conList.push({
+					idx: index,
+					num: 0,
+					value: item.value,
+				});
+			});
+			post({
+				url: '/vote/addVote',
+				data: { user_id, isMultiple, title, conList, circleIds },
+			})
+				.then((res) => {
+					if (res === 'success') {
+						wx.showToast({
+							title: '发布成功',
+							icon: 'success',
+						});
+						setTimeout(() => {
+							wx.navigateBack({
+								complete: () => {},
+							});
+						}, 500);
+					}
+				})
+				.finally(() => loading.hideLoading());
 		},
 	},
 });
