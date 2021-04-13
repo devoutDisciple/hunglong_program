@@ -1,7 +1,7 @@
 module.exports = {
 	showLoading: () => {
 		wx.showLoading({
-			title: '...',
+			title: '加载中...',
 			mask: true,
 		});
 	},

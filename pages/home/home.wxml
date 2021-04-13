@@ -1,6 +1,6 @@
 <view class="wrap">
     <header />
-    <scroll-view scroll-y="{{true}}" class="content" enhanced="{{true}}" show-scrollbar="{{false}}">
+    <scroll-view scroll-y="{{true}}" bindscroll="onPageScroll" class="content" enhanced="{{true}}" show-scrollbar="{{false}}">
         <!-- 模块 -->
         <view class="icon_list">
             <view class="icon_chunk" wx:for="{{plateList}}" wx:key="id">
@@ -13,35 +13,38 @@
             </view>
         </view>
         <!-- tab -->
-        <view class="tab">
-            <view class="tab_con">
-                <van-tabs active="{{ activeTab }}" bind:change="onChangeCircle" ellipsis="{{false}}">
-                    <block wx:key="id" wx:for="{{circleList}}" >
-                        <van-tab title="{{item.name}}"/>
+        <view class=" {{fixed ? 'top_fixed' : ''}}">
+            <view class="tab">
+                <view class="tab_con">
+                    <van-tabs active="{{ activeTab }}" bind:change="onChangeCircle" ellipsis="{{false}}">
+                        <block wx:key="id" wx:for="{{circleList}}" >
+                            <van-tab title="{{item.name}}"/>
+                        </block>
+                    </van-tabs>
+                </view>
+                <view class="tab_add">
+                    <image src="/asserts/public/tabAdd.png" />
+                </view>
+            </view>
+            <!-- 话题 -->
+            <view wx:if="{{topicList && topicList.length !== 0}}" class="topic {{topicClass}}">
+            <view class="topic_con">
+                    <block wx:key="id" wx:for="{{topicList}}" >
+                        <view 
+                            class="topic_item {{activeTopicId === item.id ? 'topic_active_item' : ''}}" 
+                            bindtap="onChangeTopic" 
+                            data-topic_id="{{item.id}}">
+                            {{item.name}}
+                        </view>
                     </block>
-                </van-tabs>
             </view>
-            <view class="tab_add">
-                <image src="/asserts/public/tabAdd.png" />
+            <view class="topic_icon" bindtap="cntOpen">
+                    <image wx:if="{{topicClass !== 'topic_open'}}" src="/asserts/public/arrow_top.png" />
+                    <image wx:else src="/asserts/public/arrow_btm.png" />
+            </view>
             </view>
         </view>
-        <!-- 话题 -->
-        <view wx:if="{{topicList && topicList.length !== 0}}" class="topic {{topicClass}}">
-           <view class="topic_con">
-                <block wx:key="id" wx:for="{{topicList}}" >
-                    <view 
-                        class="topic_item {{activeTopicId === item.id ? 'topic_active_item' : ''}}" 
-                        bindtap="onChangeTopic" 
-                        data-topic_id="{{item.id}}">
-                        {{item.name}}
-                    </view>
-                </block>
-           </view>
-           <view class="topic_icon" bindtap="cntOpen">
-                <image wx:if="{{topicClass !== 'topic_open'}}" src="/asserts/public/arrow_top.png" />
-                <image wx:else src="/asserts/public/arrow_btm.png" />
-           </view>
-        </view>
+        
         <home-post 
             bindOnTapCon="onTapCon" 
             bindOnTapGood="onTapGood" 

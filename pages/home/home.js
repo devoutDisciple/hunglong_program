@@ -1,4 +1,5 @@
 import login from '../../utils/login';
+import loading from '../../utils/loading';
 import { get } from '../../utils/request';
 import { baseUrl } from '../../config/config';
 
@@ -7,6 +8,7 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
+		fixed: false, // 滚动的距离
 		baseUrl,
 		plateList: [], // 板块列表
 		circleList: [], // 圈子列表
@@ -29,41 +31,53 @@ Page({
 		} else {
 			this.getInitMsg();
 		}
+		this.getRecomment();
+	},
+
+	// 滚动时
+	onPageScroll: function (e) {
+		const { fixed } = this.data;
+		const { scrollTop } = e.detail;
+		if (scrollTop > 159 && !fixed) {
+			this.setData({ fixed: true });
+		}
+		if (scrollTop < 159 && fixed) {
+			this.setData({ fixed: false });
+		}
 	},
 
 	// 初始化需要获得的信息
-	getInitMsg: function () {
+	getInitMsg: async function () {
 		const user_id = wx.getStorageSync('user_id');
-		this.getPlateMsg(); // 获取板块信息
-		this.getCircleList(user_id); // 获取圈子列表
-		this.getUserDetailByUserId(user_id); // 获取用户信息
+		loading.showLoading();
+		await this.getPlateMsg(); // 获取板块信息
+		await this.getCircleList(user_id); // 获取圈子列表
+		await this.getUserDetailByUserId(user_id); // 获取用户信息
+		loading.hideLoading();
 	},
 
 	// 获取用户信息
-	getUserDetailByUserId: function (user_id) {
-		get({ url: '/user/getUserByUserId', data: { user_id } }).then((res) => {
-			this.setData({ userDetail: res || {} });
-		});
+	getUserDetailByUserId: async function (user_id) {
+		const res = await get({ url: '/user/getUserByUserId', data: { user_id } });
+		this.setData({ userDetail: res || {} });
 	},
 
 	// 获取板块信息
-	getPlateMsg: function () {
-		get({ url: '/plate/getAll' }).then((res) => {
-			this.setData({ plateList: res });
-		});
+	getPlateMsg: async function () {
+		const res = await get({ url: '/plate/getAll' });
+		this.setData({ plateList: res });
 	},
 
 	// 获取圈子列表
-	getCircleList(user_id) {
-		get({ url: '/circle/getAllByUserId', data: { user_id } }).then((res) => {
-			this.setData({
-				circleList: [{ id: 'attention', name: '关注' }, { id: 'recommend', name: '广场' }, ...res],
-			});
+	getCircleList: async function (user_id) {
+		const res = await get({ url: '/circle/getAllByUserId', data: { user_id } });
+		this.setData({
+			circleList: [{ id: 'attention', name: '关注' }, { id: 'recommend', name: '广场' }, ...res],
 		});
 	},
 
 	// 改变圈子
-	onChangeCircle(e) {
+	onChangeCircle: function (e) {
 		const { index } = e.detail;
 		const { circleList } = this.data;
 		const { id } = circleList[index];
@@ -79,22 +93,28 @@ Page({
 	},
 
 	// 获取话题
-	getTopicByCircleId(circle_id) {
-		get({ url: '/topic/getByCircleId', data: { circle_id } }).then((res) => {
-			this.setData({ topicList: res || [] });
-		});
+	getTopicByCircleId: async function (circle_id) {
+		loading.showLoading();
+		const res = await get({ url: '/topic/getByCircleId', data: { circle_id } });
+		this.setData({ topicList: res || [] });
+		loading.hideLoading();
 	},
 
 	// 改变话题
-	onChangeTopic(e) {
+	onChangeTopic: function (e) {
 		const { topic_id } = e.currentTarget.dataset;
 		this.setData({ activeTopicId: topic_id });
 	},
 
+	// 获取推荐内容
+	getRecomment: async function () {
+		const res = await get({ url: '/content/recomment' });
+		console.log(res, 111);
+	},
+
 	// 点击发布
-	onPublish(e) {
+	onPublish: function (e) {
 		const { itemid } = e.detail;
-		console.log(itemid, 999);
 		const user_id = wx.getStorageSync('user_id');
 		// 如果没有登录，跳转到登录页面
 		if (!user_id) {
