@@ -167,7 +167,6 @@ Page({
 		// 选择的话题id
 		const topicIds = [];
 		const topicNames = [];
-		console.log(selectCircles, 111);
 		selectCircles.forEach((item) => {
 			selectCirIds.push(item.circle_id);
 			selectCirNames.push(item.circle_name);
@@ -182,6 +181,8 @@ Page({
 				});
 			}
 		});
+		if (selectCirIds.length > 2) return this.showErrorToast('最多两个圈子');
+		if (topicIds.length > 2) return this.showErrorToast('最多两个话题');
 		const user_id = wx.getStorageSync('user_id');
 		post({
 			url: '/posts/addPostsOrBlogs',

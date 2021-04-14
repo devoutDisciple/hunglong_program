@@ -28,7 +28,6 @@ Component({
 	 */
 	methods: {
 		onClick: function () {
-			// this.triggerEvent('OnTapCon');
 			const { type } = this.data;
 			wx.navigateTo({
 				url: `/pages/detail/posts/posts?type=${type === 1 ? 'posts' : 'blogs'}`,

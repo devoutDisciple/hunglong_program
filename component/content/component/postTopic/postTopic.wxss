@@ -5,11 +5,21 @@
 .topic_left {
     flex: 1;
     display: flex;
+    flex-wrap: wrap;
 }
 .topic_left .topic_item {
+    height: 40rpx;
     margin-right: 10rpx;
+    margin-bottom: 10rpx;
 }
 .topic_right {
-    width: 200rpx;
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+.circle_item {
+    margin-right: 10rpx;
+    margin-bottom: 10rpx; 
     background: #def1ff;
 }

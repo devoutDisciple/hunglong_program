@@ -1,13 +1,17 @@
 <view class="topic">
     <view class="topic_left">
-        <view class="topic_item">
-            <topic-btn title="这是话题1"/>
-        </view>
-        <view class="topic_item">
-            <topic-btn title="这是话题2"/>
-        </view>
+        <block wx:if="{{topics && topics.length !== 0}}">
+            <view class="topic_item" wx:for="{{topics}}" wx:key="{{item}}">
+                <topic-btn title="{{item}}"/>
+            </view>
+        </block>
     </view>
     <view class="topic_right">
-        <circle-btn title="圈子圈子圈子"/>
+        <block wx:if="{{circles && circles.length !== 0}}">
+            <view class="circle_item" wx:for="{{circles}}" wx:key="{{item}}" >
+                <circle-btn title="{{item}}"/>
+            </view>
+        </block>
+        
     </view>
 </view>
