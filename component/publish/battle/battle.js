@@ -86,11 +86,25 @@ Component({
 			// 上传图片
 			const redImgCurUrl = await uploadFile({ url: '/battle/uploadImg', data: redImgUrl });
 			const blueImgCurUrl = await uploadFile({ url: '/battle/uploadImg', data: blueImgUrl });
-			const circleIds = [];
-			selectCircles.forEach((item) => circleIds.push(item.circle_id));
+			const circle_ids = [];
+			const circle_names = [];
+			selectCircles.forEach((item) => {
+				circle_ids.push(item.circle_id);
+				circle_names.push(item.circle_name);
+			});
 			post({
 				url: '/battle/addBattle',
-				data: { user_id, activeTimeIdx, title, redImgCurUrl, redName, blueImgCurUrl, blueName, circleIds },
+				data: {
+					user_id,
+					activeTimeIdx,
+					title,
+					redImgCurUrl,
+					redName,
+					blueImgCurUrl,
+					blueName,
+					circle_ids,
+					circle_names,
+				},
 			})
 				.then((res) => {
 					if (res === 'success') {

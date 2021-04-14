@@ -44,7 +44,6 @@
             </view>
             </view>
         </view>
-        
         <home-post 
             bindOnTapCon="onTapCon" 
             bindOnTapGood="onTapGood" 

@@ -1,0 +1,7 @@
+{
+	"component": true,
+	"usingComponents": {
+		"circle-btn": "/component/content/component/circleBtn/circleBtn",
+		"topic-btn": "/component/content/component/topicBtn/topicBtn"
+	}
+}

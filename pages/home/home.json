@@ -2,7 +2,7 @@
 	"navigationStyle": "custom",
 	"usingComponents": {
         "header": "/component/navBar/navBar",
-        "home-post": "/component/posts/homePosts/homePosts",
+        "home-post": "/component/content/posts/posts",
         "publish": "/component/publish/btn/btn"
     }
 }

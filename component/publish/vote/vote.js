@@ -95,8 +95,12 @@ Component({
 				if (!item.value) flag = true;
 			});
 			if (flag) return this.showErrToast('请输入内容');
-			const circleIds = [];
-			selectCircles.forEach((item) => circleIds.push(item.circle_id));
+			const circle_ids = [];
+			const circle_names = [];
+			selectCircles.forEach((item) => {
+				circle_ids.push(item.circle_id);
+				circle_names.push(item.circle_name);
+			});
 			const conList = [];
 			itemList.forEach((item, index) => {
 				conList.push({
@@ -107,7 +111,7 @@ Component({
 			});
 			post({
 				url: '/vote/addVote',
-				data: { user_id, isMultiple, title, conList, circleIds },
+				data: { user_id, isMultiple, title, conList, circle_ids, circle_names },
 			})
 				.then((res) => {
 					if (res === 'success') {

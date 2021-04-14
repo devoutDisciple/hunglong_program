@@ -16,6 +16,7 @@ Page({
 		activeTab: 1, // 选中的tab
 		activeTopicId: '', // 选中的话题
 		userDetail: {}, // 用户基本信息
+		dataList: [], // 数据列表
 		topicClass: 'topic_origin',
 	},
 
@@ -76,6 +77,21 @@ Page({
 		});
 	},
 
+	// 获取话题
+	getTopicByCircleId: async function (circle_id) {
+		loading.showLoading();
+		const res = await get({ url: '/topic/getByCircleId', data: { circle_id } });
+		this.setData({ topicList: res || [] });
+		loading.hideLoading();
+	},
+
+	// 获取推荐内容
+	getRecomment: async function () {
+		const res = await get({ url: '/content/recomment' });
+		console.log(res, 111);
+		this.setData({ dataList: res || [] });
+	},
+
 	// 改变圈子
 	onChangeCircle: function (e) {
 		const { index } = e.detail;
@@ -92,24 +108,10 @@ Page({
 		this.setData({ activeTopicId: '' });
 	},
 
-	// 获取话题
-	getTopicByCircleId: async function (circle_id) {
-		loading.showLoading();
-		const res = await get({ url: '/topic/getByCircleId', data: { circle_id } });
-		this.setData({ topicList: res || [] });
-		loading.hideLoading();
-	},
-
 	// 改变话题
 	onChangeTopic: function (e) {
 		const { topic_id } = e.currentTarget.dataset;
 		this.setData({ activeTopicId: topic_id });
-	},
-
-	// 获取推荐内容
-	getRecomment: async function () {
-		const res = await get({ url: '/content/recomment' });
-		console.log(res, 111);
 	},
 
 	// 点击发布

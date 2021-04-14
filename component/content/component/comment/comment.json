@@ -1,0 +1,6 @@
+{
+  "component": true,
+  "usingComponents": {
+      "comment-img": "/component/content/component/commentImg/commentImg"
+  }
+}

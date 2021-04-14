@@ -162,13 +162,22 @@ Page({
 		}
 		// 选择的圈子id
 		const selectCirIds = [];
+		const selectCirNames = [];
 		// 选择的话题id
 		const topicIds = [];
-		selectCircles.forEach((item) => selectCirIds.push(item.circle_id));
+		const topicNames = [];
+		console.log(selectCircles, 111);
+		selectCircles.forEach((item) => {
+			selectCirIds.push(item.circle_id);
+			selectCirNames.push(item.circle_name);
+		});
 		topicList.forEach((circle) => {
 			if (circle.topics && circle.topics.length !== 0) {
 				circle.topics.forEach((item) => {
-					if (item.selected) topicIds.push(item.topic_id);
+					if (item.selected) {
+						topicIds.push(item.topic_id);
+						topicNames.push(item.topic_name);
+					}
 				});
 			}
 		});
@@ -180,8 +189,10 @@ Page({
 				title,
 				desc,
 				imgUrls: uploadImgUrls,
-				selectCirIds,
-				topicIds,
+				circle_ids: selectCirIds,
+				circle_names: selectCirNames,
+				topic_ids: topicIds,
+				topic_names: topicNames,
 				type: type === 'post' ? 1 : 2,
 			},
 		})

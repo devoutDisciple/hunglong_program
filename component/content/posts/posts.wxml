@@ -1,4 +1,4 @@
-<view class="content">
+<view class="posts">
     <post-header />
     <post-txt bindOnTap="onTapCon"/>
     <post-img imgList="{{imgList}}"/>
