@@ -1,4 +1,5 @@
-// component/postImg/postImg.js
+import { postsUrl } from '../../../../config/config';
+
 Component({
 	/**
 	 * 组件的属性列表
@@ -17,7 +18,9 @@ Component({
 	/**
 	 * 组件的初始数据
 	 */
-	data: {},
+	data: {
+		postsUrl,
+	},
 
 	/**
 	 * 组件的方法列表
@@ -40,6 +43,11 @@ Component({
 	lifetimes: {
 		attached: function () {
 			const { imgList } = this.data;
+			if (Array.isArray(imgList)) {
+				imgList.forEach((item) => {
+					item.url = `${postsUrl}/${item.url}`;
+				});
+			}
 			if (Array.isArray(imgList) && imgList.length > 2) {
 				const len = imgList.length;
 				const remain = len % 3;
@@ -52,7 +60,7 @@ Component({
 					return this.setData({ imgList: newImgList, imgListLen: imgList.length });
 				}
 			}
-			this.setData({ imgListLen: imgList.length });
+			this.setData({ imgList, imgListLen: imgList.length });
 		},
 		detached: function () {
 			// 在组件实例被从页面节点树移除时执行

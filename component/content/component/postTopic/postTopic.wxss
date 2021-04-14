@@ -1,6 +1,6 @@
 .topic {
     display: flex;
-    padding: 10rpx 0;
+    padding-top: 10rpx;
 }
 .topic_left {
     flex: 1;

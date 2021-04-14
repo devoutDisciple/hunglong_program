@@ -3,7 +3,12 @@ Component({
 	/**
 	 * 组件的属性列表
 	 */
-	properties: {},
+	properties: {
+		detail: {
+			type: Object,
+			value: {},
+		},
+	},
 
 	/**
 	 * 组件的初始数据
@@ -25,6 +30,12 @@ Component({
 		// 点击赞
 		onTapGood: function () {
 			this.triggerEvent('OnTapGood');
+		},
+	},
+
+	lifetimes: {
+		attached: function () {
+			console.log(this.data.detail, 6666);
 		},
 	},
 });

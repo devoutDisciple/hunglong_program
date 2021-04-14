@@ -157,8 +157,8 @@ Page({
 			loading.showLoading();
 			while (len > 0) {
 				len -= 1;
-				const filename = await uploadFile({ url: '/posts/uploadImg', data: imgUrls[len] });
-				uploadImgUrls.push(filename);
+				const fileDetail = await uploadFile({ url: '/posts/uploadImg', data: imgUrls[len] });
+				uploadImgUrls.push(fileDetail);
 			}
 		}
 		// 选择的圈子id

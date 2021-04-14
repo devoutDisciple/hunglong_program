@@ -1,14 +1,14 @@
 <view class="topic">
     <view class="topic_left">
         <block wx:if="{{topics && topics.length !== 0}}">
-            <view class="topic_item" wx:for="{{topics}}" wx:key="{{item}}">
+            <view class="topic_item" wx:for="{{topics}}" wx:key="item">
                 <topic-btn title="{{item}}"/>
             </view>
         </block>
     </view>
     <view class="topic_right">
         <block wx:if="{{circles && circles.length !== 0}}">
-            <view class="circle_item" wx:for="{{circles}}" wx:key="{{item}}" >
+            <view class="circle_item" wx:for="{{circles}}" wx:key="item" >
                 <circle-btn title="{{item}}"/>
             </view>
         </block>

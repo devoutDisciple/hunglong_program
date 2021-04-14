@@ -25,8 +25,6 @@ Component({
 	methods: {},
 
 	lifetimes: {
-		attached: function () {
-			console.log(this.data.circles, 98768);
-		},
+		attached: function () {},
 	},
 });
