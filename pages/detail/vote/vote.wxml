@@ -1,8 +1,3 @@
 <posts-detail type="vote">
-    <view class="vote_item">
-        <vote-item isSelect="{{true}}"/>
-    </view>
-    <view class="vote_item">
-        <vote-item />
-    </view>
+    <vote-con />
 </posts-detail>

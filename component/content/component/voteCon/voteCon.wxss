@@ -1,0 +1,10 @@
+.vote_con {
+    font-size: 26rpx;
+}
+.title {
+    margin-top: 10rpx;
+    padding-left: 10rpx;
+}
+.vote_item {
+    margin: 20rpx 0;
+}

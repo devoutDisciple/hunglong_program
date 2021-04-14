@@ -47,10 +47,7 @@ Component({
 	methods: {
 		// 点击内容区
 		onTapCon: function () {
-			// this.triggerEvent('OnTapCon');
-			wx.navigateTo({
-				url: '/pages/detail/posts/posts',
-			});
+			this.triggerEvent('OnTapCon');
 		},
 		// 点赞
 		onTapGood: function () {

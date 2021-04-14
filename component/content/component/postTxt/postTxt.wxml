@@ -1,4 +1,4 @@
 <view bindtap="onClick" class="txt {{showAll ? '' : 'ellipsis' }}">
-    <text class="link">#这里是话题#</text>
+    <text class="link">#这里是标题#</text>
     疾风剑豪111·亚索，是MOBA竞技网游中第117位登场的英雄角色，英雄定位为战士、刺客疾风剑豪·亚索，是MOBA竞技网游中第117位登场的英雄角色，英雄定位为战士、刺客.亚索是一位近战爆发AD刺客，双突进的技能设置使得他在中单游刃有余，并且大招在队友的配合下，在团战中能够发挥至关重要的作用。
 </view>

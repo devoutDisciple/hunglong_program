@@ -1,0 +1,9 @@
+<view class="posts">
+    <post-header />
+    <vote-con />
+    <post-topic />
+    <view class="reply">
+        <hot-reply bindOnTapGood="onTapGood" bindOnTapCon="onTapCon"/>
+    </view>
+    <action-opt bindOnTapShare="onTapShare" bindOnTapMsg="onTapCon" bindOnTapGood="onTapGood"/>
+</view>

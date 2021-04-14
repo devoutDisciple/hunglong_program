@@ -1,4 +1,5 @@
 <view class="wrap">
+    <view class="title">这是标题</view>
     <view class="battle">
         <view class="battle_chunk">
             <image src="/asserts/public/logo.png"/>

@@ -4,6 +4,7 @@
         "header": "/component/navBar/navBar",
         "home-post": "/component/content/posts/posts",
         "home-battle": "/component/content/battle/battle",
+        "home-vote": "/component/content/vote/vote",
         "publish": "/component/publish/btn/btn"
     }
 }

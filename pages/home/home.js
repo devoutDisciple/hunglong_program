@@ -150,16 +150,4 @@ Page({
 		const { topicClass } = this.data;
 		this.setData({ topicClass: topicClass !== 'topic_open' ? 'topic_open' : 'topic_close' });
 	},
-
-	// 点击帖子内容区
-	onTapCon: function () {
-		wx.navigateTo({
-			url: '/pages/detail/posts/posts',
-		});
-	},
-
-	// 给帖子点赞
-	onTapGood: function () {
-		console.log('点赞');
-	},
 });

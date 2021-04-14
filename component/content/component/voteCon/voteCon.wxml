@@ -1,0 +1,9 @@
+<view class="vote_con">
+    <view class="title">这是标题</view>
+    <view class="vote_item">
+        <vote-item isSelect="{{true}}"/>
+    </view>
+    <view class="vote_item">
+        <vote-item />
+    </view>
+</view>

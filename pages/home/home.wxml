@@ -44,13 +44,9 @@
             </view>
             </view>
         </view>
+        <home-vote />
         <home-battle />
-        <home-post 
-            bindOnTapCon="onTapCon" 
-            bindOnTapGood="onTapGood" 
-            bindOnTapReplyCon="onTapCon" 
-            bindOnTapShare="OnTapShare" 
-            bindOnTapMsg="onTapCon"/>
+        <home-post />
         <home-post />
         <home-post />
         <home-post />

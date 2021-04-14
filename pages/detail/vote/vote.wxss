@@ -2,6 +2,3 @@
     background: #fff;
     font-size: 26rpx;
 }
-.vote_item {
-    margin: 20rpx 0;
-}

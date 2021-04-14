@@ -2,7 +2,7 @@
   "component": true,
   "usingComponents": {
     "post-header": "/component/content/component/postHeader/postHeader",
-    "battle-con": "/component/content/component/battleCon/battleCon",
+    "vote-con": "/component/content/component/voteCon/voteCon",
     "hot-reply": "/component/content/component/hotReply/hotReply",
     "action-opt": "/component/content/component/actionOpt/actionOpt",
     "post-topic": "/component/content/component/postTopic/postTopic"
