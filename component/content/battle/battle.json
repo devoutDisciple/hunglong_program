@@ -1,0 +1,12 @@
+{
+  "component": true,
+  "usingComponents": {
+    "post-header": "/component/content/component/postHeader/postHeader",
+    "post-txt": "/component/content/component/postTxt/postTxt",
+    "post-img": "/component/content/component/postImg/postImg",
+    "battle-con": "/component/content/component/battleCon/battleCon",
+    "hot-reply": "/component/content/component/hotReply/hotReply",
+    "action-opt": "/component/content/component/actionOpt/actionOpt",
+    "post-topic": "/component/content/component/postTopic/postTopic"
+  }
+}

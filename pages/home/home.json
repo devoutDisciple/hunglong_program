@@ -3,6 +3,7 @@
 	"usingComponents": {
         "header": "/component/navBar/navBar",
         "home-post": "/component/content/posts/posts",
+        "home-battle": "/component/content/battle/battle",
         "publish": "/component/publish/btn/btn"
     }
 }

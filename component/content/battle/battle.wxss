@@ -1,0 +1,8 @@
+.posts {
+    background: #fff;
+    padding: 20rpx;
+    margin-bottom: 20rpx;
+}
+.reply {
+    margin: 10rpx 0;
+}

@@ -3,7 +3,6 @@
         <view class="title" wx:if="{{type === 'posts'}}">这是标题</view>
         <view class="detail">
             <post-header />
-            <post-txt showTopic="false" showAll="{{true}}"/>
             <slot></slot>
             <post-topic />
         </view>

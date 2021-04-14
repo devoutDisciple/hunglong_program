@@ -2,7 +2,6 @@
 	"usingComponents": {
 		"posts-detail": "/component/detail/detail",
 		"post-txt": "/component/content/component/postTxt/postTxt",
-        "battle-con": "/component/content/component/battleCon/battleCon",
 		"post-img": "/component/content/component/postImg/postImg"
 	},
     "navigationBarTitleText": "周六来hi呀"
