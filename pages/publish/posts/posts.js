@@ -111,6 +111,7 @@ Page({
 	// 选择图片
 	chooseImg: function () {
 		const self = this;
+		const { imgUrls } = this.data;
 		wx.chooseImage({
 			count: 9,
 			sizeType: ['original', 'compressed'],
@@ -118,7 +119,7 @@ Page({
 			success(res) {
 				// tempFilePath可以作为img标签的src属性显示图片
 				const { tempFilePaths } = res;
-				self.setData({ imgUrls: tempFilePaths });
+				self.setData({ imgUrls: [...imgUrls, ...tempFilePaths] });
 			},
 			fail: function () {
 				wx.showToast({
@@ -193,7 +194,7 @@ Page({
 				circle_names: selectCirNames,
 				topic_ids: topicIds,
 				topic_names: topicNames,
-				type: type === 'post' ? 1 : 2,
+				type: type === 'posts' ? 1 : 2,
 			},
 		})
 			.then((res) => {

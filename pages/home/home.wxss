@@ -157,3 +157,13 @@
         overflow: hidden;
     }
 }
+.empty {
+    width: 100%;
+    height: calc(100vw - 80rpx);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.empty image {
+    width: calc(100vw - 80rpx);
+}

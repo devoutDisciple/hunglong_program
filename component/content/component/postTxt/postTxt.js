@@ -8,6 +8,14 @@ Component({
 			type: Boolean,
 			value: false,
 		},
+		type: {
+			type: Number,
+			value: 1,
+		},
+		detail: {
+			type: Object,
+			value: {},
+		},
 	},
 
 	/**
@@ -20,7 +28,11 @@ Component({
 	 */
 	methods: {
 		onClick: function () {
-			this.triggerEvent('OnTap');
+			// this.triggerEvent('OnTapCon');
+			const { type } = this.data;
+			wx.navigateTo({
+				url: `/pages/detail/posts/posts?type=${type === 1 ? 'posts' : 'blogs'}`,
+			});
 		},
 	},
 });

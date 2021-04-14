@@ -44,14 +44,20 @@
             </view>
             </view>
         </view>
-        <home-vote />
-        <home-battle />
-        <home-post />
-        <home-post />
-        <home-post />
-        <home-post />
-        <home-post />
-        <home-post />
+        <block wx:if="{{dataList && dataList.length !== 0}}">
+            <block wx:for="{{dataList}}" wx:key="id">
+                <home-post wx:if="{{item.type === 1}}" detail="{{item}}"/>
+                <home-post wx:if="{{item.type === 2}}" />
+                <home-battle wx:if="{{item.type === 4}}" />
+                <home-vote wx:if="{{item.type === 3}}" />
+            </block>
+        </block>
+        <block wx:else>
+            <view class="empty">
+                <image src="/asserts/public/empty.png"/>
+            </view>
+        </block>
+        
     </scroll-view>
     <publish bindOnTap="onPublish"/>
 </view>

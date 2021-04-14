@@ -1,7 +1,7 @@
 <view class="posts">
-    <post-header />
-    <post-txt bindOnTap="onTapCon"/>
-    <post-img imgList="{{imgList}}"/>
+    <post-header type="{{detail.type}}" createTime="{{detail.create_time}}" userDetail="{{detail.userDetail}}"/>
+    <post-txt detail="{{detail.postsDetail}}" type="{{detail.type}}"/>
+    <post-img detail="{{detail.postsDetail}}" imgList="{{imgList}}"/>
     <post-topic />
     <view class="reply">
         <hot-reply bindOnTapGood="onTapGood" bindOnTapCon="onTapCon"/>

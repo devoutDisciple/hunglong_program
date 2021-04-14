@@ -88,7 +88,6 @@ Page({
 	// 获取推荐内容
 	getRecomment: async function () {
 		const res = await get({ url: '/content/recomment' });
-		console.log(res, 111);
 		this.setData({ dataList: res || [] });
 	},
 

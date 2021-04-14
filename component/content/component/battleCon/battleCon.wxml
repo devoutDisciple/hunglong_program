@@ -18,6 +18,10 @@
         </view> 
         <view class="progress_right" />
     </view>
+    <view class="name">
+        <view class="red_name">红队名称</view>
+        <view class="blue_name">蓝队名称</view>
+    </view>
     <view class="btn">
         <view class="btn_left">
             <view class="btn_select">已选中</view>
