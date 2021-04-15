@@ -1,9 +1,8 @@
 <view class="vote_con">
-    <view class="title">这是标题</view>
-    <view class="vote_item">
-        <vote-item isSelect="{{true}}"/>
-    </view>
-    <view class="vote_item">
-        <vote-item />
-    </view>
+    <view class="title">{{detail.title}}</view>
+    <block wx:for="{{detail.content}}" wx:key="idx">
+        <view class="vote_item">
+            <vote-item detail="{{item}}" isSelect="{{false}}"/>
+        </view>
+    </block>
 </view>

@@ -66,7 +66,6 @@ Component({
 
 	lifetimes: {
 		attached: function () {
-			console.log(this.data.detail, 111);
 			const { imgList } = this.data;
 			const imgLen = parseInt(Math.random() * 10);
 			const newArr = [];

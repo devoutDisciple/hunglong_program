@@ -47,9 +47,9 @@
         <block wx:if="{{dataList && dataList.length !== 0}}">
             <block wx:for="{{dataList}}" wx:key="id">
                 <home-post wx:if="{{item.type === 1}}" detail="{{item}}"/>
-                <home-post wx:if="{{item.type === 2}}" />
+                <home-post wx:if="{{item.type === 2}}" detail="{{item}}"/>
+                <home-vote wx:if="{{item.type === 3}}" detail="{{item}}" />
                 <home-battle wx:if="{{item.type === 4}}" />
-                <home-vote wx:if="{{item.type === 3}}" />
             </block>
         </block>
         <block wx:else>

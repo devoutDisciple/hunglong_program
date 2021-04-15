@@ -11,6 +11,13 @@ Component({
 			type: Boolean,
 			value: false,
 		},
+		detail: {
+			type: Object,
+			value: {
+				num: 0,
+				value: '',
+			},
+		},
 	},
 
 	/**

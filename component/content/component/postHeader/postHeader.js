@@ -1,4 +1,5 @@
 import { photoUrl } from '../../../../config/config';
+import { filterContentType } from '../../../../utils/filter';
 
 Component({
 	/**
@@ -24,6 +25,7 @@ Component({
 	 */
 	data: {
 		photoUrl,
+		typeTxt: '帖子',
 	},
 
 	/**
@@ -32,6 +34,9 @@ Component({
 	methods: {},
 
 	lifetimes: {
-		attached: function () {},
+		attached: function () {
+			const txt = filterContentType(this.data.type);
+			this.setData({ typeTxt: txt });
+		},
 	},
 });

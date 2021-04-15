@@ -29,13 +29,12 @@ Component({
 		},
 		// 点击赞
 		onTapGood: function () {
-			this.triggerEvent('OnTapGood');
+			const { detail } = this.data;
+			console.log(detail, 1111);
 		},
 	},
 
 	lifetimes: {
-		attached: function () {
-			console.log(this.data.detail, 6666);
-		},
+		attached: function () {},
 	},
 });
