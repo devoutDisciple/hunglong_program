@@ -1,14 +1,14 @@
 <view class="wrap">
-    <view class="title">这是标题</view>
+    <view class="title">{{detail.title}}</view>
     <view class="battle">
         <view class="battle_chunk">
-            <image src="/asserts/public/logo.png"/>
+            <img data="{{detail.red_url}}"/>
         </view>
         <view class="battle_icon">
             <image src="/asserts/public/vs.png"/>
         </view>
         <view class="battle_chunk">
-            <image src="/asserts/public/logo.png"/>
+            <img data="{{detail.blue_url}}"/>
         </view>
     </view>
     <view class="progress">
@@ -19,8 +19,8 @@
         <view class="progress_right" />
     </view>
     <view class="name">
-        <view class="red_name">红队名称</view>
-        <view class="blue_name">蓝队名称</view>
+        <view class="red_name">{{detail.red_name}}</view>
+        <view class="blue_name">{{detail.blue_name}}</view>
     </view>
     <view class="btn">
         <view class="btn_left">

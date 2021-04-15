@@ -1,9 +1,9 @@
 <view class="posts">
-    <post-header />
-    <battle-con />
-    <post-topic />
+    <post-header type="{{detail.type}}" createTime="{{detail.create_time}}" userDetail="{{detail.userDetail}}"/>
+    <battle-con detail="{{detail.battleDetail}}"/>
+    <post-topic topics="{{detail.topic_names}}" circles="{{detail.circle_names}}"/>
     <view class="reply">
         <hot-reply bindOnTapGood="onTapGood" bindOnTapCon="onTapCon"/>
     </view>
-    <action-opt bindOnTapShare="onTapShare" bindOnTapMsg="onTapCon" bindOnTapGood="onTapGood"/>
+    <action-opt detail="{{detail}}" bindOnTapShare="onTapShare" bindOnTapMsg="onTapCon" bindOnTapGood="onTapGood"/>
 </view>

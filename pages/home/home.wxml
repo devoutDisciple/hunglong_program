@@ -49,7 +49,7 @@
                 <home-post wx:if="{{item.type === 1}}" detail="{{item}}"/>
                 <home-post wx:if="{{item.type === 2}}" detail="{{item}}"/>
                 <home-vote wx:if="{{item.type === 3}}" detail="{{item}}" />
-                <home-battle wx:if="{{item.type === 4}}" />
+                <home-battle wx:if="{{item.type === 4}}" detail="{{item}}" />
             </block>
         </block>
         <block wx:else>

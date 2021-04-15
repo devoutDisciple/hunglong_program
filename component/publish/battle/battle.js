@@ -84,8 +84,8 @@ Component({
 			if (!blueImgUrl) return this.showErrToast('缺少蓝方图片');
 			if (!selectCircles || selectCircles.length === 0) return this.showErrToast('请选择圈子');
 			// 上传图片
-			const redImgCurUrl = await uploadFile({ url: '/battle/uploadImg', data: redImgUrl });
-			const blueImgCurUrl = await uploadFile({ url: '/battle/uploadImg', data: blueImgUrl });
+			const redImg = await uploadFile({ url: '/battle/uploadImg', data: redImgUrl });
+			const blueImg = await uploadFile({ url: '/battle/uploadImg', data: blueImgUrl });
 			const circle_ids = [];
 			const circle_names = [];
 			selectCircles.forEach((item) => {
@@ -94,17 +94,7 @@ Component({
 			});
 			post({
 				url: '/battle/addBattle',
-				data: {
-					user_id,
-					activeTimeIdx,
-					title,
-					redImgCurUrl,
-					redName,
-					blueImgCurUrl,
-					blueName,
-					circle_ids,
-					circle_names,
-				},
+				data: { user_id, activeTimeIdx, title, redImg, redName, blueImg, blueName, circle_ids, circle_names },
 			})
 				.then((res) => {
 					if (res === 'success') {
