@@ -53,16 +53,7 @@ Component({
 	/**
 	 * 组件的方法列表
 	 */
-	methods: {
-		// 点赞
-		onTapGood: function () {
-			console.log('点赞');
-		},
-		// 点击分享
-		onTapShare: function () {
-			console.log('点击分享');
-		},
-	},
+	methods: {},
 
 	lifetimes: {
 		attached: function () {

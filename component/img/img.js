@@ -1,3 +1,5 @@
+import { emptyImgUrl } from '../../config/config';
+
 Component({
 	/**
 	 * 组件的属性列表
@@ -6,7 +8,7 @@ Component({
 		data: {
 			type: Object,
 			value: {
-				url: '/asserts/public/empty.png',
+				url: emptyImgUrl,
 				width: 100,
 				height: 100,
 			},

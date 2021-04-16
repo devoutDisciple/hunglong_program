@@ -173,6 +173,12 @@
           "pathName": "pages/publish/vote/vote",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "详情页面",
+          "pathName": "pages/detail/detail",
+          "query": "",
+          "scene": null
         }
       ]
     }

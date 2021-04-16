@@ -25,13 +25,20 @@ Component({
 		},
 		// 点击消息
 		onTapMsg: function () {
-			this.triggerEvent('OnTapMsg');
+			const { detail } = this.data;
+			const { type } = detail;
+			// 进入详情页面
+			const goToDetail = (url) => {
+				wx.navigateTo({
+					url: `${url}?content_id=${detail.id}&type=${type}`,
+				});
+			};
+			if (type === 1 || type === 2) goToDetail('/pages/detail/detail');
+			if (type === 3) goToDetail('/pages/detail/vote/vote');
+			if (type === 4) goToDetail('/pages/detail/battle/battle');
 		},
 		// 点击赞
-		onTapGood: function () {
-			const { detail } = this.data;
-			console.log(detail, 1111);
-		},
+		onTapGood: function () {},
 	},
 
 	lifetimes: {

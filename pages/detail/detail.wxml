@@ -1,0 +1,14 @@
+<view class="wrap">
+    <posts-detail type="battle">
+        <block wx:if="{{type === 1 || type === 2}}">
+            <post-txt showTopic="false" showAll="{{true}}"/>
+            <post-img imgList="{{imgList}}" showAll="{{true}}"/>
+        </block>
+        <block wx:if="{{type === 3}}">
+            <vote-con />
+        </block>
+        <block wx:if="{{type === 4}}">
+            <battle-con />
+        </block>
+    </posts-detail>
+</view>

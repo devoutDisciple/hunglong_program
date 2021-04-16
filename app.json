@@ -4,7 +4,6 @@
     "pages/circle/circle",
     "pages/message/message",
     "pages/my/my",
-    "pages/test/test",
     "pages/sctCircle/sctCircle",
     "pages/backImg/backImg",
     "pages/selBackImg/selBackImg",
@@ -26,7 +25,8 @@
     "pages/detail/battle/battle",
     "pages/publish/posts/posts",
     "pages/publish/pickCircle/pickCircle",
-    "pages/publish/vote/vote"
+    "pages/publish/vote/vote",
+    "pages/detail/detail"
   ],
   "window": {
     "backgroundTextStyle": "light",

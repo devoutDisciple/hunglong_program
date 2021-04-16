@@ -1,0 +1,10 @@
+{
+	"usingComponents": {
+		"posts-detail": "/component/detail/detail",
+        "vote-con": "/component/content/component/voteCon/voteCon",
+        "post-txt": "/component/content/component/postTxt/postTxt",
+		"post-img": "/component/content/component/postImg/postImg",
+        "battle-con": "/component/content/component/battleCon/battleCon"
+	},
+    "navigationBarTitleText": "周六来hi呀"
+}

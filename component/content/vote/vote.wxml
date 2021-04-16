@@ -5,5 +5,5 @@
     <view class="reply">
         <hot-reply bindOnTapGood="onTapGood" bindOnTapCon="onTapCon"/>
     </view>
-    <action-opt detail="{{detail}}" bindOnTapShare="onTapShare" bindOnTapMsg="onTapCon" bindOnTapGood="onTapGood"/>
+    <action-opt detail="{{detail}}"/>
 </view>
