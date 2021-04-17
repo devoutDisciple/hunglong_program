@@ -134,8 +134,8 @@
         },
         {
           "name": "投票详情",
-          "pathName": "pages/detail/vote/vote",
-          "query": "",
+          "pathName": "pages/detail/detail",
+          "query": "content_id=37&type=vote",
           "scene": null
         },
         {

@@ -1,5 +1,0 @@
-<view class="wrap">
-    <posts-detail type="battle">
-        <battle-con />
-    </posts-detail>
-</view>

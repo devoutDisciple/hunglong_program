@@ -1,7 +1,0 @@
-{
-	"usingComponents": {
-		"posts-detail": "/component/detail/detail",
-        "vote-con": "/component/content/component/voteCon/voteCon"
-	},
-    "navigationBarTitleText": "周六来hi呀"
-}

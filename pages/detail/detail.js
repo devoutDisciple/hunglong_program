@@ -1,5 +1,6 @@
 import { get } from '../../utils/request';
 import { battleUrl } from '../../config/config';
+import loading from '../../utils/loading';
 import { filterContentTypeByNum } from '../../utils/filter';
 
 Page({
@@ -28,21 +29,23 @@ Page({
 
 	// 获取详情
 	getDetail: function (data) {
-		get({ url: '/content/contentDetail', data }).then((res) => {
-			res.type = filterContentTypeByNum(res.type);
-			if (res.type === 'battle') {
-				if (res.battleDetail) {
-					if (res.battleDetail.red_url && res.battleDetail.red_url.url) {
-						res.battleDetail.red_url.url = `${battleUrl}/${res.battleDetail.red_url.url}`;
-					}
-					if (res.battleDetail.blue_url && res.battleDetail.blue_url.url) {
-						res.battleDetail.blue_url.url = `${battleUrl}/${res.battleDetail.blue_url.url}`;
+		loading.showLoading();
+		get({ url: '/content/contentDetail', data })
+			.then((res) => {
+				res.type = filterContentTypeByNum(res.type);
+				if (res.type === 'battle') {
+					if (res.battleDetail) {
+						if (res.battleDetail.red_url && res.battleDetail.red_url.url) {
+							res.battleDetail.red_url.url = `${battleUrl}/${res.battleDetail.red_url.url}`;
+						}
+						if (res.battleDetail.blue_url && res.battleDetail.blue_url.url) {
+							res.battleDetail.blue_url.url = `${battleUrl}/${res.battleDetail.blue_url.url}`;
+						}
 					}
 				}
-			}
-			console.log(res.type, 321312);
-			this.setData({ detail: res, type: res.type });
-		});
+				this.setData({ detail: res, type: res.type });
+			})
+			.finally(() => loading.hideLoading());
 	},
 
 	/**

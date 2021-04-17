@@ -1,6 +1,0 @@
-<view class="wrap">
-    <posts-detail type="posts">
-        <post-txt showTopic="false" showAll="{{true}}"/>
-        <post-img imgList="{{imgList}}" showAll="{{true}}"/>
-    </posts-detail>
-</view>
