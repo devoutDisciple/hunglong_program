@@ -28,14 +28,10 @@ Component({
 	methods: {},
 
 	// 组件生命周期函数-在组件实例进入页面节点树时执行)
-	attached: function () {
-		const { detail } = this.data;
-		if (detail.red_url && detail.red_url.url) {
-			detail.red_url.url = `${battleUrl}/${detail.red_url.url}`;
-		}
-		if (detail.blue_url && detail.blue_url.url) {
-			detail.blue_url.url = `${battleUrl}/${detail.blue_url.url}`;
-		}
-		this.setData({ detail });
+	lifetimes: {
+		attached: function () {
+			const { detail } = this.data;
+			console.log(detail, 12312);
+		},
 	},
 });

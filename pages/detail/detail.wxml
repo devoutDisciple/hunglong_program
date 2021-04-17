@@ -5,10 +5,10 @@
             <post-img imgList="{{detail.postsDetail.img_urls}}" showAll="{{true}}"/>
         </block>
         <block wx:if="{{type === 'vote'}}">
-            <vote-con />
+            <vote-con detail="{{detail.voteDetail}}"/>
         </block>
         <block wx:if="{{type === 'battle'}}">
-            <battle-con />
+            <battle-con detail="{{detail.battleDetail}}"/>
         </block>
     </posts-detail>
 </view>

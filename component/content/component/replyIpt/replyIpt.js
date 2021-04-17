@@ -28,8 +28,6 @@ Component({
 	},
 
 	observers: {
-		'focus, visible': function (focus, visible) {
-			console.log(focus, visible);
-		},
+		'focus, visible': function (focus, visible) {},
 	},
 });

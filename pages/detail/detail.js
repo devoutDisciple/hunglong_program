@@ -1,4 +1,5 @@
 import { get } from '../../utils/request';
+import { battleUrl } from '../../config/config';
 import { filterContentTypeByNum } from '../../utils/filter';
 
 Page({
@@ -22,14 +23,25 @@ Page({
 				url: '/pages/home/home',
 			});
 		}
-		// this.setData({ type: filterContentTypeByNum(type) });
 		this.getDetail({ content_id, type });
 	},
 
 	// 获取详情
 	getDetail: function (data) {
 		get({ url: '/content/contentDetail', data }).then((res) => {
-			this.setData({ detail: res, type: filterContentTypeByNum(res.type) });
+			res.type = filterContentTypeByNum(res.type);
+			if (res.type === 'battle') {
+				if (res.battleDetail) {
+					if (res.battleDetail.red_url && res.battleDetail.red_url.url) {
+						res.battleDetail.red_url.url = `${battleUrl}/${res.battleDetail.red_url.url}`;
+					}
+					if (res.battleDetail.blue_url && res.battleDetail.blue_url.url) {
+						res.battleDetail.blue_url.url = `${battleUrl}/${res.battleDetail.blue_url.url}`;
+					}
+				}
+			}
+			console.log(res.type, 321312);
+			this.setData({ detail: res, type: res.type });
 		});
 	},
 

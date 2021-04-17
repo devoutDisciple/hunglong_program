@@ -35,7 +35,6 @@ Component({
 
 	lifetimes: {
 		attached: function () {
-			console.log(this.data.type, 2332);
 			const txt = filterContentTypeByField(this.data.type);
 			this.setData({ typeTxt: txt });
 		},

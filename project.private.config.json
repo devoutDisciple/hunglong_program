@@ -141,13 +141,13 @@
         {
           "name": "帖子详情",
           "pathName": "pages/detail/detail",
-          "query": "content_id=35&type=1",
+          "query": "content_id=35&type=posts",
           "scene": null
         },
         {
           "name": "pk对决详情",
-          "pathName": "pages/detail/battle/battle",
-          "query": "",
+          "pathName": "pages/detail/detail",
+          "query": "content_id=39&type=battle",
           "scene": null
         },
         {

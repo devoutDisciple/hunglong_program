@@ -44,7 +44,7 @@ Page({
 					self.setData({ photoTmpUrl });
 				},
 				fail: function (err) {
-					console.log(err, 222);
+					console.log(err);
 				},
 			});
 		}

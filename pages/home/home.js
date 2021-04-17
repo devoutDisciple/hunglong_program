@@ -1,7 +1,7 @@
 import login from '../../utils/login';
 import loading from '../../utils/loading';
 import { get } from '../../utils/request';
-import { baseUrl } from '../../config/config';
+import { baseUrl, battleUrl } from '../../config/config';
 import { filterContentTypeByNum } from '../../utils/filter';
 
 Page({
@@ -92,6 +92,16 @@ Page({
 		console.log(res, '获取的内容');
 		res.forEach((item) => {
 			item.type = filterContentTypeByNum(item.type);
+			if (item.type === 'battle') {
+				if (item.battleDetail) {
+					if (item.battleDetail.red_url && item.battleDetail.red_url.url) {
+						item.battleDetail.red_url.url = `${battleUrl}/${item.battleDetail.red_url.url}`;
+					}
+					if (item.battleDetail.blue_url && item.battleDetail.blue_url.url) {
+						item.battleDetail.blue_url.url = `${battleUrl}/${item.battleDetail.blue_url.url}`;
+					}
+				}
+			}
 		});
 		this.setData({ dataList: res || [] });
 	},

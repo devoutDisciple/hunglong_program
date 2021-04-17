@@ -1,3 +1,5 @@
+import { emptyImgUrl } from '../../config/config';
+
 Component({
 	options: {
 		// isolated 表示启用样式隔离，在自定义组件内外，使用 class 指定的样式将不会相互影响（一般情况下的默认值）；
@@ -9,7 +11,11 @@ Component({
 	properties: {
 		detail: {
 			type: Object,
-			value: {},
+			value: {
+				userDetail: {
+					photo: emptyImgUrl,
+				},
+			},
 		},
 		type: {
 			type: String,
@@ -23,11 +29,7 @@ Component({
 	data: {},
 
 	lifetimes: {
-		attached: function () {
-			const { type, detail } = this.data;
-			console.log('type === ', type);
-			console.log('detail === ', detail);
-		},
+		attached: function () {},
 	},
 
 	/**

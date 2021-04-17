@@ -84,7 +84,6 @@ Page({
 				});
 			}
 		});
-		console.log(circles, 7898);
 		this.setData({ circles });
 	},
 
@@ -113,7 +112,6 @@ Page({
 			if (!tempArr) finalArr.push(item);
 		});
 		const pages = getCurrentPages();
-		console.log(pages, 234);
 		// prevPage 是获取上一个页面的js里面的pages的所有信息。 -2 是上一个页面，-3是上上个页面以此类推。
 		const prevPage = pages[pages.length - 2];
 		prevPage.setData({

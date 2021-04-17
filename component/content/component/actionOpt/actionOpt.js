@@ -34,8 +34,8 @@ Component({
 				});
 			};
 			if (type === 'posts' || type === 'blogs') goToDetail('/pages/detail/detail');
-			if (type === 'vote') goToDetail('/pages/detail/vote/vote');
-			if (type === 'battle') goToDetail('/pages/detail/battle/battle');
+			if (type === 'vote') goToDetail('/pages/detail/detail');
+			if (type === 'battle') goToDetail('/pages/detail/detail');
 		},
 		// 点击赞
 		onTapGood: function () {},
