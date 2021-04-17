@@ -46,10 +46,10 @@
         </view>
         <block wx:if="{{dataList && dataList.length !== 0}}">
             <block wx:for="{{dataList}}" wx:key="id">
-                <home-post wx:if="{{item.type === 1}}" detail="{{item}}"/>
-                <home-post wx:if="{{item.type === 2}}" detail="{{item}}"/>
-                <home-vote wx:if="{{item.type === 3}}" detail="{{item}}" />
-                <home-battle wx:if="{{item.type === 4}}" detail="{{item}}" />
+                <home-post wx:if="{{item.type === 'posts'}}" detail="{{item}}"/>
+                <home-post wx:if="{{item.type === 'blogs'}}" detail="{{item}}"/>
+                <home-vote wx:if="{{item.type === 'vote'}}" detail="{{item}}" />
+                <home-battle wx:if="{{item.type === 'battle'}}" detail="{{item}}" />
             </block>
         </block>
         <block wx:else>

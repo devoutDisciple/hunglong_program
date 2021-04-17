@@ -33,9 +33,9 @@ Component({
 					url: `${url}?content_id=${detail.id}&type=${type}`,
 				});
 			};
-			if (type === 1 || type === 2) goToDetail('/pages/detail/detail');
-			if (type === 3) goToDetail('/pages/detail/vote/vote');
-			if (type === 4) goToDetail('/pages/detail/battle/battle');
+			if (type === 'posts' || type === 'blogs') goToDetail('/pages/detail/detail');
+			if (type === 'vote') goToDetail('/pages/detail/vote/vote');
+			if (type === 'battle') goToDetail('/pages/detail/battle/battle');
 		},
 		// 点击赞
 		onTapGood: function () {},

@@ -1,42 +1,33 @@
-// components/menu.js
 Component({
 	options: {
-		styleIsolation: 'isolated', // isolated 表示启用样式隔离，在自定义组件内外，使用 class 指定的样式将不会相互影响（一般情况下的默认值）；
+		// isolated 表示启用样式隔离，在自定义组件内外，使用 class 指定的样式将不会相互影响（一般情况下的默认值）；
+		styleIsolation: 'isolated',
 	},
 	/**
 	 * Component properties
 	 */
 	properties: {
+		detail: {
+			type: Object,
+			value: {},
+		},
 		type: {
 			type: String,
-			value: '', // posts-帖子 blogs-博客 vote-投票 battle-pk
+			value: 'posts',
 		},
 	},
 
 	/**
 	 * Component initial data
 	 */
-	data: {
-		replyImgList: [
-			{
-				url: '/asserts/temp/1.jpg',
-				width: 600,
-				height: 500,
-			},
-			{
-				url: '/asserts/temp/2.jpg',
-				width: 600,
-				height: 500,
-			},
-			{
-				url: '/asserts/temp/3.jpg',
-				width: 600,
-				height: 500,
-			},
-		],
-		focus: false,
-		iptVisible: false, // 评论输入框
-		iptFocus: false, // 评论输入框聚焦
+	data: {},
+
+	lifetimes: {
+		attached: function () {
+			const { type, detail } = this.data;
+			console.log('type === ', type);
+			console.log('detail === ', detail);
+		},
 	},
 
 	/**

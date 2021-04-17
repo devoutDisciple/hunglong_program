@@ -1,23 +1,36 @@
-// pages/detail/detail.js
+import { get } from '../../utils/request';
+import { filterContentTypeByNum } from '../../utils/filter';
+
 Page({
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
-		type: 1, // 1-帖子 2-博客 3-投票 4-对决
+		type: '',
+		detail: {
+			userDetail: {},
+		},
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		console.log(options, 111);
 		const { content_id, type } = options;
 		if (!content_id || !type) {
-			wx.switchTab({
+			return wx.switchTab({
 				url: '/pages/home/home',
 			});
 		}
+		// this.setData({ type: filterContentTypeByNum(type) });
+		this.getDetail({ content_id, type });
+	},
+
+	// 获取详情
+	getDetail: function (data) {
+		get({ url: '/content/contentDetail', data }).then((res) => {
+			this.setData({ detail: res, type: filterContentTypeByNum(res.type) });
+		});
 	},
 
 	/**
@@ -29,29 +42,4 @@ Page({
 	 * 生命周期函数--监听页面显示
 	 */
 	onShow: function () {},
-
-	/**
-	 * 生命周期函数--监听页面隐藏
-	 */
-	onHide: function () {},
-
-	/**
-	 * 生命周期函数--监听页面卸载
-	 */
-	onUnload: function () {},
-
-	/**
-	 * 页面相关事件处理函数--监听用户下拉动作
-	 */
-	onPullDownRefresh: function () {},
-
-	/**
-	 * 页面上拉触底事件的处理函数
-	 */
-	onReachBottom: function () {},
-
-	/**
-	 * 用户点击右上角分享
-	 */
-	onShareAppMessage: function () {},
 });

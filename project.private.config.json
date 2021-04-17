@@ -140,8 +140,8 @@
         },
         {
           "name": "帖子详情",
-          "pathName": "pages/detail/posts/posts",
-          "query": "",
+          "pathName": "pages/detail/detail",
+          "query": "content_id=35&type=1",
           "scene": null
         },
         {

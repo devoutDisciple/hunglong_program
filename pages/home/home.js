@@ -2,6 +2,7 @@ import login from '../../utils/login';
 import loading from '../../utils/loading';
 import { get } from '../../utils/request';
 import { baseUrl } from '../../config/config';
+import { filterContentTypeByNum } from '../../utils/filter';
 
 Page({
 	/**
@@ -89,6 +90,9 @@ Page({
 	getRecomment: async function () {
 		const res = await get({ url: '/content/recomment' });
 		console.log(res, '获取的内容');
+		res.forEach((item) => {
+			item.type = filterContentTypeByNum(item.type);
+		});
 		this.setData({ dataList: res || [] });
 	},
 

@@ -30,7 +30,7 @@ Component({
 		onClick: function () {
 			const { type } = this.data;
 			wx.navigateTo({
-				url: `/pages/detail/posts/posts?type=${type === 1 ? 'posts' : 'blogs'}`,
+				url: `/pages/detail/posts/posts?type=${type}`,
 			});
 		},
 	},

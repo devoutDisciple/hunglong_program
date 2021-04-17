@@ -1,4 +1,4 @@
 <view bindtap="onClick" class="txt {{showAll ? '' : 'ellipsis' }}">
-    <text class="link" wx:if="{{detail.title && type === 1}}">#{{detail.title}}#</text>
+    <text class="link" wx:if="{{detail.title && type === 'posts'}}">#{{detail.title}}#</text>
     {{detail.desc}}
 </view>

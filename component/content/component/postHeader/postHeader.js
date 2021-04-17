@@ -1,5 +1,5 @@
 import { photoUrl } from '../../../../config/config';
-import { filterContentType } from '../../../../utils/filter';
+import { filterContentTypeByField } from '../../../../utils/filter';
 
 Component({
 	/**
@@ -11,8 +11,8 @@ Component({
 			value: {},
 		},
 		type: {
-			type: Number,
-			value: 1,
+			type: String,
+			value: '',
 		},
 		createTime: {
 			type: String,
@@ -35,7 +35,8 @@ Component({
 
 	lifetimes: {
 		attached: function () {
-			const txt = filterContentType(this.data.type);
+			console.log(this.data.type, 2332);
+			const txt = filterContentTypeByField(this.data.type);
 			this.setData({ typeTxt: txt });
 		},
 	},
