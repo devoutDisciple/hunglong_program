@@ -17,13 +17,13 @@
 }
 .title {
     background: #fff;
-    padding: 30rpx 20rpx;
-    padding-bottom: 0;
+    padding: 0 20rpx 0 30rpx;
     font-size: 36rpx;
     color: #333333;
 }
 .detail {
     padding: 20rpx;
+    padding-top: 0;
     width: calc(100vw - 40rpx);
     background: #fff;
 }

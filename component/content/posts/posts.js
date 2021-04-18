@@ -28,6 +28,9 @@ Component({
 	methods: {},
 
 	lifetimes: {
-		attached: function () {},
+		attached: function () {
+			const { detail } = this.data;
+			console.log(detail, 9998);
+		},
 	},
 });

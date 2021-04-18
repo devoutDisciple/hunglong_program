@@ -9,8 +9,12 @@ Component({
 			value: false,
 		},
 		type: {
-			type: Number,
-			value: 1,
+			type: String,
+			value: '',
+		},
+		showLink: {
+			type: Boolean,
+			value: false,
 		},
 		detail: {
 			type: Object,
@@ -22,6 +26,10 @@ Component({
 	 * 组件的初始数据
 	 */
 	data: {},
+
+	lifetimes: {
+		attached: function () {},
+	},
 
 	/**
 	 * 组件的方法列表
