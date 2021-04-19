@@ -22,5 +22,6 @@
         visible="{{visible}}" 
         contentId="{{currentReply.id}}" 
         bindOnClose="onCloseIptDialog"
+        bindCallback="onSerchReplyList"
         />
 </view>

@@ -52,22 +52,27 @@ Component({
 		onCloseIptDialog: function () {
 			this.setData({ iptVisible: false, iptFocus: false });
 		},
+
+		onSearchCommonts: function () {
+			const { detail } = this.data;
+			loading.showLoading();
+			get({ url: '/reply/allByContentId', data: { content_id: detail.id, current: 1 } })
+				.then((res) => {
+					if (Array.isArray(res)) {
+						res.forEach((item) => {
+							item.userPhoto = `${photoUrl}/${item.userPhoto}`;
+						});
+					}
+					this.setData({ comments: res || [] });
+				})
+				.finally(() => loading.hideLoading());
+		},
 	},
 
 	observers: {
 		detail: function (detail) {
 			if (detail.id) {
-				loading.showLoading();
-				get({ url: '/reply/allByContentId', data: { content_id: detail.id, current: 1 } })
-					.then((res) => {
-						if (Array.isArray(res)) {
-							res.forEach((item) => {
-								item.userPhoto = `${photoUrl}/${item.userPhoto}`;
-							});
-						}
-						this.setData({ comments: res || [] });
-					})
-					.finally(() => loading.hideLoading());
+				this.onSearchCommonts();
 			}
 		},
 	},

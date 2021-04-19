@@ -48,5 +48,6 @@
         focus="{{iptFocus}}"
         visible="{{iptVisible}}" 
         contentId="{{detail.id}}"
+        bindCallback="onSearchCommonts"
         bindOnClose="onCloseIptDialog"/>
 </view>

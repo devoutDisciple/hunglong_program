@@ -22,6 +22,10 @@ Component({
 			type: String,
 			value: '',
 		},
+		callback: {
+			type: Function,
+			value: () => {},
+		},
 	},
 
 	/**
@@ -47,7 +51,7 @@ Component({
 		onSendMsg: function () {
 			loading.showLoading();
 			// type: 1-给帖子评论 2-二级评论
-			const { replyValue, type, contentId } = this.data;
+			const { replyValue, type, contentId, callback } = this.data;
 			const user_id = wx.getStorageSync('user_id');
 			let url = '/reply/addContentReply';
 			if (type === 2) url = '/reply/addReplyReply';
@@ -61,6 +65,7 @@ Component({
 						title: '评论成功',
 						icon: 'success',
 					});
+					this.triggerEvent('Callback');
 					this.triggerEvent('OnClose');
 				})
 				.finally(() => {

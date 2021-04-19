@@ -58,11 +58,21 @@ Page({
 	 */
 	onShow: function () {},
 
+	// 获取当前评论详情
 	getReplyData: async function (id) {
 		loading.showLoading();
-		// 获取当前评论详情
 		const currentReply = await get({ url: '/reply/replyDetailById', data: { id } });
+		currentReply.userPhoto = `${photoUrl}/${currentReply.userPhoto}`;
+		this.setData({ currentReply: currentReply || {} }, () => {
+			this.onSerchReplyList();
+			loading.hideLoading();
+		});
+	},
 
+	// 获取评论的评论的列表
+	onSerchReplyList: async function () {
+		const { currentReply } = this.data;
+		loading.showLoading();
 		// 获取评论的评论的列表
 		const replyList = await get({ url: '/reply/replyListByReplyId', data: { id: currentReply.id } });
 		if (Array.isArray(replyList)) {
@@ -70,8 +80,7 @@ Page({
 				item.userPhoto = `${photoUrl}/${item.userPhoto}`;
 			});
 		}
-		currentReply.userPhoto = `${photoUrl}/${currentReply.userPhoto}`;
-		this.setData({ currentReply: currentReply || {}, replyList }, () => {
+		this.setData({ replyList }, () => {
 			loading.hideLoading();
 		});
 	},

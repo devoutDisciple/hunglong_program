@@ -45,7 +45,7 @@
     border-bottom: 1rpx solid #f2f2f2;
 }
 .con_data_time {
-    width: 200rpx;
+    width: 220rpx;
     color: #b7b7b7;
 }
 .con_data_opt {
