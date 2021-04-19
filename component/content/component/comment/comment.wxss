@@ -19,11 +19,11 @@
     height: 40rpx;
     line-height: 40rpx;
     color: #666666;
-    font-size: 24rpx;
+    font-size: 22rpx;
 }
 .con_desc {
     color: #333333;
-    font-size: 24rpx;
+    font-size: 28rpx;
     line-height: 40rpx;
     margin: 5rpx 0;
 }
@@ -32,7 +32,7 @@
     height: 50rpx;
     display: flex;
     align-items: center;
-    font-size: 24rpx;
+    font-size: 22rpx;
 }
 .con_comment_num image{
     height: 22rpx;

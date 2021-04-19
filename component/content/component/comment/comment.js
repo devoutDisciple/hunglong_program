@@ -12,6 +12,10 @@ Component({
 			type: Array,
 			value: [], // 评论区的图片
 		},
+		detail: {
+			type: Object,
+			value: {},
+		},
 	},
 
 	/**

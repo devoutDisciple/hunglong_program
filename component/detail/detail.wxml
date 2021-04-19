@@ -8,22 +8,22 @@
         </view>
         <view class="comment">
             <view class="comment_title">
-                <view class="comment_title_left">评论</view>
+                <view class="comment_title_left">评论 {{detail.comment}}</view>
                 <view class="comment_title_right">
                     {{detail.comment}}<image src="/asserts/public/good_select.png"/>
                 </view>
             </view>
             <view class="comment_con">
-                <comment bindSearchReply="searchReply" type="post" imgList="{{replyImgList}}"/>
-                <comment bindSearchReply="searchReply" type="post" imgList="{{replyImgList}}"/>
-                <comment bindSearchReply="searchReply" type="post" imgList="{{replyImgList}}"/>
-                <comment bindSearchReply="searchReply" type="post" imgList="{{replyImgList}}"/>
-                <comment bindSearchReply="searchReply" type="post" imgList="{{replyImgList}}"/>
-                <comment bindSearchReply="searchReply" type="post" imgList="{{replyImgList}}"/>
-                <comment bindSearchReply="searchReply" type="post" imgList="{{replyImgList}}"/>
-                <comment bindSearchReply="searchReply" type="post" imgList="{{replyImgList}}"/>
-                <comment bindSearchReply="searchReply" type="post" imgList="{{replyImgList}}"/>
-                <comment bindSearchReply="searchReply" type="post" imgList="{{replyImgList}}"/>
+                <block wx:if="{{comments && comments.length !== 0}}">
+                    <comment 
+                        type="post" 
+                        wx:key="id"
+                        detail="{{item}}"
+                        wx:for="{{comments}}"
+                        bindSearchReply="searchReply" 
+                        imgList="{{replyImgList}}"/>
+                </block>
+                
             </view>
         </view>
         <btm-empty />
@@ -44,5 +44,10 @@
             赞
         </view>
     </view>
-    <reply-ipt visible="{{iptVisible}}" focus="{{iptFocus}}" bindOnClose="onCloseIptDialog"/>
+    <reply-ipt 
+        type="1"
+        focus="{{iptFocus}}"
+        visible="{{iptVisible}}" 
+        contentId="{{detail.id}}"
+        bindOnClose="onCloseIptDialog"/>
 </view>

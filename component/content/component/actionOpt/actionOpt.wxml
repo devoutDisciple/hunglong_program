@@ -6,6 +6,6 @@
         <image src="/asserts/public/message.png" />{{detail.comment}}
     </view>
     <view class="chunk" bindtap = "onTapGood">
-        <image src="/asserts/public/good.png" />{{detail.good}}
+        <image src="/asserts/public/good.png" />{{detail.goods}}
     </view>
 </view>
