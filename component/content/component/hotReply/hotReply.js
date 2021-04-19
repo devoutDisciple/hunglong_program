@@ -3,7 +3,20 @@ Component({
 	/**
 	 * 组件的属性列表
 	 */
-	properties: {},
+	properties: {
+		replyDetail: {
+			type: Object,
+			value: {},
+		},
+		contentId: {
+			type: String,
+			value: '',
+		},
+		type: {
+			type: String,
+			value: '',
+		},
+	},
 
 	/**
 	 * 组件的初始数据
@@ -17,8 +30,14 @@ Component({
 		onTapGood: function () {
 			this.triggerEvent('OnTapGood');
 		},
+
+		// 点击内容区
 		onTapContent: function () {
 			this.triggerEvent('OnTapCon');
+			const { type, contentId } = this.data;
+			wx.navigateTo({
+				url: `/pages/detail/detail?content_id=${contentId}&type=${type}`,
+			});
 		},
 	},
 });

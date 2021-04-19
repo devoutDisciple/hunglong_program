@@ -1,15 +1,15 @@
 .reply {
-    height: 120rpx;
+    height: 100rpx;
     background: #f8f8f8;
     padding: 20rpx;
 }
 .reply_top {
-    height: 50rpx;
+    height: 40rpx;
     display: flex;
 }
 .reply_top_img {
-    height: 50rpx;
-    width: 50rpx;
+    height: 40rpx;
+    width: 40rpx;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,7 +21,8 @@
 }
 .reply_top_name {
     flex: 1;
-    line-height: 50rpx;
+    line-height: 40rpx;
+    margin-left: 10rpx;
     color: #666666;
     font-size: 22rpx;
 }
@@ -42,7 +43,7 @@
 }
 .reply_btm {
     height: 50rpx;
-    margin-top: 20rpx;
+    margin-top: 14rpx;
     padding: 0 5rpx;
     color: #333333;
     font-size: 26rpx;

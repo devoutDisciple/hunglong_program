@@ -4,7 +4,12 @@
     <post-img imgList="{{detail.postsDetail.img_urls}}"/>
     <post-topic topics="{{detail.topic_names}}" circles="{{detail.circle_names}}"/>
     <view class="reply">
-        <hot-reply bindOnTapGood="onTapGood" bindOnTapCon="onTapCon"/>
+        <hot-reply 
+            type="{{detail.type}}"
+            contentId="{{detail.id}}" 
+            replyDetail="{{detail.hotReply}}" 
+            bindOnTapGood="onTapGood" 
+            bindOnTapCon="onTapCon"/>
     </view>
     <action-opt detail="{{detail}}"/>
 </view>
