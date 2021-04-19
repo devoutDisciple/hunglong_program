@@ -6,7 +6,7 @@
         </view>
     </view>
      <view wx:elif="{{imgListLen === 2}}" class="wrap wrap2">
-        <view  bindtap="showImg" data-index="{{index}}" class="img" wx:for="{{imgList}}" wx:key="index">
+        <view bindtap="showImg" data-index="{{index}}" class="img" wx:for="{{imgList}}" wx:key="index">
             <image wx:if="{{item.width > item.height}}" class="fix_height" src="{{item.url}}" mode="heightFix"/>
             <image wx:else class="fix_width" src="{{item.url}}" mode="widthFix"/>
         </view>

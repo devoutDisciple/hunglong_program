@@ -27,13 +27,11 @@ Component({
 	 * 组件的方法列表
 	 */
 	methods: {
-		onTapGood: function () {
-			this.triggerEvent('OnTapGood');
-		},
+		// 点赞
+		onTapGood: function () {},
 
 		// 点击内容区
 		onTapContent: function () {
-			this.triggerEvent('OnTapCon');
 			const { type, contentId } = this.data;
 			wx.navigateTo({
 				url: `/pages/detail/detail?content_id=${contentId}&type=${type}`,

@@ -49,8 +49,11 @@ Component({
 			// type: 1-给帖子评论 2-二级评论
 			const { replyValue, type, contentId } = this.data;
 			const user_id = wx.getStorageSync('user_id');
+			let url = '/reply/addContentReply';
+			if (type === 2) url = '/reply/addReplyReply';
+			console.log(url, type, 12312);
 			post({
-				url: '/reply/addContentReply',
+				url,
 				data: { user_id, content_id: contentId, type, desc: replyValue },
 			})
 				.then(() => {

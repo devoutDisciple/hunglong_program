@@ -129,7 +129,7 @@
         {
           "name": "评论详情",
           "pathName": "pages/reply/reply",
-          "query": "",
+          "query": "id=3",
           "scene": null
         },
         {
@@ -171,12 +171,6 @@
         {
           "name": "发布投票",
           "pathName": "pages/publish/vote/vote",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "详情页面",
-          "pathName": "pages/detail/detail",
           "query": "",
           "scene": null
         }

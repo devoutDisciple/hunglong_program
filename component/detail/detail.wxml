@@ -16,11 +16,10 @@
             <view class="comment_con">
                 <block wx:if="{{comments && comments.length !== 0}}">
                     <comment 
-                        type="post" 
                         wx:key="id"
+                        type="content" 
                         detail="{{item}}"
                         wx:for="{{comments}}"
-                        bindSearchReply="searchReply" 
                         imgList="{{replyImgList}}"/>
                 </block>
                 

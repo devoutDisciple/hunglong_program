@@ -1,4 +1,3 @@
-// component/homePosts/homePosts.js
 Component({
 	options: {
 		// isolated 表示启用样式隔离，在自定义组件内外，使用 class 指定的样式将不会相互影响（一般情况下的默认值）；
@@ -28,9 +27,6 @@ Component({
 	methods: {},
 
 	lifetimes: {
-		attached: function () {
-			const { detail } = this.data;
-			console.log(detail, 9998);
-		},
+		attached: function () {},
 	},
 });

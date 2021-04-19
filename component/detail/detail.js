@@ -40,13 +40,6 @@ Component({
 	 * Component methods
 	 */
 	methods: {
-		// 查询评论回复内容
-		searchReply: function () {
-			wx.navigateTo({
-				url: '/pages/reply/reply',
-			});
-		},
-
 		// 打开评论输入框
 		onShowIptDialog: function () {
 			this.setData({ iptVisible: true });

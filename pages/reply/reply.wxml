@@ -1,22 +1,26 @@
 <view class="wrap">
     <scroll-view class="con" scroll-y="{{true}}">
         <view class="con_my">
-            <comment type="reply"/>
+            <comment detail="{{currentReply}}" type="reply"/>
         </view>
         <view class="con_other">
-            <comment type="reply" />
-            <comment type="reply" />
-            <comment type="reply" imgList="{{replyImgList}}"/>
-            <comment type="reply" />
-            <comment type="reply" />
-            <comment type="reply" />
-            <comment type="reply" />
-            <comment type="reply" />
+            <block wx:if="{{replyList && replyList.length !== 0}}">
+                <comment wx:for="{{replyList}}" wx:key="id" detail="{{item}}" type="reply" imgList="{{replyImgList}}"/>
+            </block>
+            <block wx:else>
+                <empty-img />
+            </block>
         </view>
         <btm-empty />
     </scroll-view>
     <view class="bottom" bindtap = "openReply">
         <view class="ipt">好话一句句，让人心情变美丽</view>
     </view>
-    <reply-ipt visible="{{visible}}" focus="{{focus}}" bindOnClose="onCloseIptDialog"/>
+    <reply-ipt 
+        type="2" 
+        focus="{{focus}}" 
+        visible="{{visible}}" 
+        contentId="{{currentReply.id}}" 
+        bindOnClose="onCloseIptDialog"
+        />
 </view>

@@ -4,17 +4,17 @@
    </view> 
    <view class="content">
         <view class="con_name">{{detail.username}}</view>
-        <view class="con_desc">{{detail.desc}}</view>
+        <view class="con_desc" bindtap="searchReply">{{detail.desc}}</view>
         <comment-img imgList="{{imgList}}"/>
         <view 
-            wx:if="{{detail.reply_num > 0}}" 
+            wx:if="{{detail.reply_num > 0 && type === 'content'}}" 
             class="con_comment_num" 
             bindtap="searchReply">共{{detail.reply_num}}条回复 <image src="/asserts/public/arrow_right_blue.png" /> 
         </view>
         <view class="con_data">
             <view class="con_data_time">{{detail.create_time}}</view>
              <view class="con_data_opt">
-                <view wx:if="{{type === 'post'}}" class="con_data_opt_chunk">
+                <view wx:if="{{type === 'content'}}" class="con_data_opt_chunk">
                     <image src="/asserts/public/share.png" />
                 </view>
                 <view class="con_data_opt_chunk">

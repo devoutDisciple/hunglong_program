@@ -2,7 +2,8 @@
   "usingComponents": {
       "comment": "/component/content/component/comment/comment",
       "btm-empty": "/component/btmEmpty/btmEmpty",
-      "reply-ipt": "/component/content/component/replyIpt/replyIpt"
+      "reply-ipt": "/component/content/component/replyIpt/replyIpt",
+      "empty-img": "/component/emptyImg/emptyImg"
   },
   "navigationBarTitleText": "评论回复"
 }

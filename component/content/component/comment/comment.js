@@ -6,7 +6,7 @@ Component({
 	properties: {
 		type: {
 			type: String,
-			value: 'post', // post-帖子回复 reply-评论回复
+			value: '', // content-内容回复 reply-评论回复
 		},
 		imgList: {
 			type: Array,
@@ -32,7 +32,10 @@ Component({
 	 */
 	methods: {
 		searchReply: function () {
-			this.triggerEvent('SearchReply');
+			const { detail } = this.data;
+			wx.navigateTo({
+				url: `/pages/reply/reply?id=${detail.id}`,
+			});
 		},
 	},
 });
