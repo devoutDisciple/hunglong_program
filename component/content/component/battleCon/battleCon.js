@@ -1,4 +1,5 @@
 import { battleUrl } from '../../../../config/config';
+import { post } from '../../../../utils/request';
 
 Component({
 	options: {
@@ -10,6 +11,10 @@ Component({
 	 */
 	properties: {
 		detail: {
+			type: Object,
+			value: {},
+		},
+		contentDetail: {
 			type: Object,
 			value: {},
 		},
@@ -25,7 +30,29 @@ Component({
 	/**
 	 * 组件的方法列表
 	 */
-	methods: {},
+	methods: {
+		onSelectItem: function (e) {
+			const user_id = wx.getStorageSync('user_id');
+			const { detail, contentDetail } = this.data;
+			const { item } = e.currentTarget.dataset;
+			if (detail.expire) {
+				return wx.showToast({
+					title: '投票已截止',
+					icon: 'error',
+				});
+			}
+			if (String(detail.selectItem) !== String(item)) {
+				detail.selectItem = item;
+			} else {
+				detail.selectItem = 3;
+			}
+			post({
+				url: '/battle/selectBattleItem',
+				data: { user_id, content_id: contentDetail.id, type: detail.selectItem },
+			});
+			this.setData({ detail });
+		},
+	},
 
 	// 组件生命周期函数-在组件实例进入页面节点树时执行)
 	lifetimes: {

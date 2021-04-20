@@ -24,10 +24,20 @@
     </view>
     <view class="btn">
         <view class="btn_left">
-            <view class="btn_select">已选中</view>
+            <view 
+                bindtap="onSelectItem"
+                data-item="1"
+                class="{{detail.selectItem == 1 ? 'btn_select' : 'btn_noSe'}}">
+                {{detail.selectItem == 1 ? '已选择' : '选择'}}
+            </view>
         </view>
         <view class="btn_right">
-            <view class="btn_noSe">选择</view>
+            <view 
+                bindtap="onSelectItem"
+                data-item="2"
+                class="{{detail.selectItem == 2 ? 'btn_select' : 'btn_noSe'}}">
+                {{detail.selectItem == 2 ? '已选择' : '选择'}}
+            </view>
         </view>
     </view>
 </view>

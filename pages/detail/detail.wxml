@@ -8,7 +8,7 @@
             <vote-con detail="{{detail.voteDetail}}"/>
         </block>
         <block wx:if="{{detail.type === 'battle'}}">
-            <battle-con detail="{{detail.battleDetail}}"/>
+            <battle-con detail="{{detail.battleDetail}}" contentDetail="{{detail}}"/>
         </block>
     </posts-detail>
 </view>
