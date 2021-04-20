@@ -1,5 +1,5 @@
-import { emptyImgUrl, photoUrl } from '../../config/config';
-import { get } from '../../utils/request';
+import { emptyImgUrl } from '../../config/config';
+import { get, post } from '../../utils/request';
 import loading from '../../utils/loading';
 
 Component({
@@ -53,6 +53,7 @@ Component({
 			this.setData({ iptVisible: false, iptFocus: false });
 		},
 
+		// 查询评论
 		onSearchCommonts: function () {
 			const { detail } = this.data;
 			loading.showLoading();
@@ -61,6 +62,20 @@ Component({
 					this.setData({ comments: res || [] });
 				})
 				.finally(() => loading.hideLoading());
+		},
+
+		// 改变点赞
+		onChangeGoods: function () {
+			const { detail } = this.data;
+			const user_id = wx.getStorageSync('user_id');
+			const flag = !detail.hadGoods;
+			detail.goods += flag ? 1 : -1;
+			detail.hadGoods = flag;
+			this.setData({ detail });
+			post({
+				url: '/goods/addPostsGoods',
+				data: { user_id, content_id: detail.id, goods_type: flag },
+			});
 		},
 	},
 

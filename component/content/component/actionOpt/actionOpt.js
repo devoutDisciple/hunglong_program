@@ -40,7 +40,7 @@ Component({
 			const user_id = wx.getStorageSync('user_id');
 			post({
 				url: '/goods/addPostsGoods',
-				data: { user_id, content_id: detail.id, good_type: !detail.hadGoods },
+				data: { user_id, content_id: detail.id, goods_type: !detail.hadGoods },
 			});
 		},
 	},

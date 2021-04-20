@@ -6,7 +6,8 @@
         <view class="reply_top_name">{{replyDetail.username}}</view>
         <view bindtap = "onTapGood" class="reply_top_good">
             <view class="reply_top_good_txt">{{replyDetail.goods}}</view>
-            <image src="/asserts/public/good.png" />
+            <image wx:if="{{replyDetail.hadGoods}}" src="/asserts/public/good_select.png" />
+            <image wx:else src="/asserts/public/good.png" />
         </view>
     </view>
     <view bindtap = "onTapContent" class="reply_btm">

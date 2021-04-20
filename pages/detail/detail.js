@@ -32,7 +32,8 @@ Page({
 	getDetail: function () {
 		loading.showLoading();
 		const { content_id, type } = this.data;
-		get({ url: '/content/contentDetail', data: { content_id, type } })
+		const user_id = wx.getStorageSync('user_id');
+		get({ url: '/content/contentDetail', data: { content_id, type, user_id } })
 			.then((res) => {
 				res.type = filterContentTypeByNum(res.type);
 				this.setData({ detail: res });
