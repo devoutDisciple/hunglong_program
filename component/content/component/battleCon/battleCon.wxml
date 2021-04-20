@@ -32,8 +32,8 @@
         <view class="progress_right" />
     </view>
     <view class="name">
-        <view class="red_name">{{detail.red_name}}</view>
-        <view class="blue_name">{{detail.blue_name}}</view>
+        <view class="red_name">{{detail.red_name}} {{detail.red_percent}}%</view>
+        <view class="blue_name">{{detail.blue_name}} {{detail.blue_percent}}%</view>
     </view>
     <view class="btn">
         <view class="btn_left">

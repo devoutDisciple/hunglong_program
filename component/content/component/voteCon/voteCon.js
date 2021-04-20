@@ -23,7 +23,25 @@ Component({
 	/**
 	 * 组件的方法列表
 	 */
-	methods: {},
+	methods: {
+		// 选择的第几项
+		onSelectItem: function (e) {
+			const { idx } = e.currentTarget.dataset;
+			const { detail } = this.data;
+			if (Array.isArray(detail.content)) {
+				if (String(detail.type) === '1') {
+					// 单选
+					detail.content.forEach((item, index) => {
+						item.selected = idx === index ? !item.selected : false;
+					});
+				} else {
+					// 多选
+					detail.content[idx].selected = !detail.content[idx].selected;
+				}
+			}
+			this.setData({ detail });
+		},
+	},
 
 	// 组件生命周期函数-在组件实例进入页面节点树时执行)
 	attached: function () {
