@@ -17,11 +17,12 @@
                 <view wx:if="{{type === 'content'}}" class="con_data_opt_chunk">
                     <image src="/asserts/public/share.png" />
                 </view>
-                <view class="con_data_opt_chunk">
+                <view wx:if="{{type === 'content'}}" class="con_data_opt_chunk" bindtap="searchReply">
                     <image src="/asserts/public/message.png" />{{detail.comment}}
                 </view>
-                <view class="con_data_opt_chunk">
-                    <image src="/asserts/public/good.png" />
+                <view class="con_data_opt_chunk" bindtap="onChangeGoods">
+                    <image wx:if="{{detail.hadGoods}}" src="/asserts/public/good_select.png" />
+                    <image wx:else src="/asserts/public/good.png" />
                     {{detail.goods}}
                 </view>
              </view>

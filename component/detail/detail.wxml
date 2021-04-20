@@ -25,7 +25,6 @@
                         contentId="{{detail.id}}"
                         imgList="{{replyImgList}}"/>
                 </block>
-                
             </view>
         </view>
         <btm-empty />

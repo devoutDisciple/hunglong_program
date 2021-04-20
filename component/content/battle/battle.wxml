@@ -3,7 +3,11 @@
     <battle-con detail="{{detail.battleDetail}}"/>
     <post-topic topics="{{detail.topic_names}}" circles="{{detail.circle_names}}"/>
     <view class="reply">
-        <hot-reply bindOnTapGood="onTapGood" bindOnTapCon="onTapCon"/>
+        <hot-reply 
+            type="{{detail.type}}"
+            contentId="{{detail.id}}" 
+            replyDetail="{{detail.hotReply}}" 
+            wx:if="{{detail.hotReply && detail.hotReply.id}}"/>
     </view>
-    <action-opt detail="{{detail}}"/>
+    <action-opt bindOnTapGoods="onTapGoods" detail="{{detail}}"/>
 </view>

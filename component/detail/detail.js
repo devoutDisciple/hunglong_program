@@ -33,7 +33,9 @@ Component({
 	},
 
 	lifetimes: {
-		attached: function () {},
+		attached: function () {
+			this.onSearchCommonts();
+		},
 	},
 
 	/**
@@ -79,11 +81,11 @@ Component({
 		},
 	},
 
-	observers: {
-		detail: function (detail) {
-			if (detail.id) {
-				this.onSearchCommonts();
-			}
-		},
-	},
+	// observers: {
+	// 	detail: function (detail) {
+	// 		if (detail.id) {
+	// 			this.onSearchCommonts();
+	// 		}
+	// 	},
+	// },
 });

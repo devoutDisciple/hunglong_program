@@ -67,7 +67,6 @@ Page({
 		loading.showLoading();
 		const { commentId } = this.data;
 		const currentReply = await get({ url: '/reply/replyDetailById', data: { commentId } });
-		currentReply.userPhoto = `${photoUrl}/${currentReply.userPhoto}`;
 		this.setData({ currentReply: currentReply || {} }, () => {
 			this.onSerchReplyList();
 			loading.hideLoading();
@@ -80,11 +79,6 @@ Page({
 		loading.showLoading();
 		// 获取评论的评论的列表
 		const replyList = await get({ url: '/reply/replyListByReplyId', data: { id: currentReply.id } });
-		if (Array.isArray(replyList)) {
-			replyList.forEach((item) => {
-				item.userPhoto = `${photoUrl}/${item.userPhoto}`;
-			});
-		}
 		this.setData({ replyList }, () => {
 			loading.hideLoading();
 		});

@@ -7,7 +7,8 @@
         <hot-reply 
             type="{{detail.type}}"
             contentId="{{detail.id}}" 
-            replyDetail="{{detail.hotReply}}" />
+            replyDetail="{{detail.hotReply}}" 
+            wx:if="{{detail.hotReply && detail.hotReply.id}}"/>
     </view>
     <action-opt bindOnTapGoods="onTapGoods" detail="{{detail}}"/>
 </view>
