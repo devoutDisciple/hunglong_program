@@ -1,5 +1,5 @@
 import moment from '../../../utils/moment';
-import { baseUrl } from '../../../config/config';
+import { baseUrl, defaultUserPhotoUrl, defaultBgUrl } from '../../../config/config';
 import loading from '../../../utils/loading';
 import { get, post } from '../../../utils/request';
 
@@ -9,8 +9,8 @@ Page({
 	 */
 	data: {
 		baseUrl,
-		photoTmpUrl: 'photo.png',
-		backgroundTmpUrl: 'bg.png',
+		photoTmpUrl: defaultUserPhotoUrl,
+		backgroundTmpUrl: defaultBgUrl,
 		dateStart: '1990-01-01',
 		username: '',
 		sex: 0,
@@ -43,6 +43,7 @@ Page({
 		const user_id = wx.getStorageSync('user_id');
 		loading.showLoading();
 		get({ url: '/user/getUserByUserId', data: { user_id } }).then((res) => {
+			console.log(res, 1231231);
 			const { photo, username, sex, birthday, address, school, level, bg_url, sign } = res;
 			this.setData(
 				{

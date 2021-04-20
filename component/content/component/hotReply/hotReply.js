@@ -28,7 +28,9 @@ Component({
 	 */
 	methods: {
 		// 点赞
-		onTapGood: function () {},
+		onTapGood: function () {
+			console.log(this.data.replyDetail);
+		},
 
 		// 点击内容区
 		onTapContent: function () {

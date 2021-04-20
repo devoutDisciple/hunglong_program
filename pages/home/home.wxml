@@ -5,7 +5,7 @@
         <view class="icon_list">
             <view class="icon_chunk" wx:for="{{plateList}}" wx:key="id">
                 <view class="icon_chunk_img">
-                    <image src="{{baseUrl + item.url}}" />
+                    <image src="{{item.url}}" />
                 </view>
                 <view class="icon_chunk_txt">
                     {{item.name}}

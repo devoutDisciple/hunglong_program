@@ -1,7 +1,6 @@
 import login from '../../utils/login';
 import loading from '../../utils/loading';
 import { get } from '../../utils/request';
-import { baseUrl, battleUrl, postsUrl } from '../../config/config';
 import { filterContentTypeByNum } from '../../utils/filter';
 
 Page({
@@ -10,7 +9,6 @@ Page({
 	 */
 	data: {
 		fixed: false, // 滚动的距离
-		baseUrl,
 		plateList: [], // 板块列表
 		circleList: [], // 圈子列表
 		topicList: [], // 话题列表
@@ -93,23 +91,6 @@ Page({
 		console.log(res, '获取的内容');
 		res.forEach((item) => {
 			item.type = filterContentTypeByNum(item.type);
-			if (item.type === 'battle') {
-				if (item.battleDetail) {
-					if (item.battleDetail.red_url && item.battleDetail.red_url.url) {
-						item.battleDetail.red_url.url = `${battleUrl}/${item.battleDetail.red_url.url}`;
-					}
-					if (item.battleDetail.blue_url && item.battleDetail.blue_url.url) {
-						item.battleDetail.blue_url.url = `${battleUrl}/${item.battleDetail.blue_url.url}`;
-					}
-				}
-			}
-			if (item.type === 'posts' || item.type === 'blogs') {
-				if (item.postsDetail && item.postsDetail.img_urls) {
-					item.postsDetail.img_urls.forEach((post) => {
-						post.url = `${postsUrl}/${post.url}`;
-					});
-				}
-			}
 		});
 		this.setData({ dataList: res || [] });
 	},

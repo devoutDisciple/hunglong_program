@@ -1,5 +1,5 @@
 <scroll-view scroll-y class="container">
-    <message-item label="头像" key="photo" bindclick="itemClick" type="photo" photoTmpUrl="{{baseUrl + '/photo/' + photoTmpUrl}}"/>
+    <message-item label="头像" key="photo" bindclick="itemClick" type="photo" photoTmpUrl="{{photoTmpUrl}}"/>
     <message-item label="昵称" value="{{username}}" key="name" bindclick="itemClick" type="txt"/>
     <message-item label="性别" value="{{sex === 0 ? '男': '女'}}" key="sex" bindclick="itemClick" type="txt"/>
     <message-item label="出生年月" key="age" type="txt">
@@ -26,7 +26,7 @@
             {{levelName}}
         </picker>
     </message-item>
-    <message-item label="选择主页背景" value="" key="background" bindclick="itemClick" type="background" backgroundTmpUrl="{{baseUrl + '/bg/' + backgroundTmpUrl}}"/>
+    <message-item label="选择主页背景" value="" key="background" bindclick="itemClick" type="background" backgroundTmpUrl="{{backgroundTmpUrl}}"/>
     <message-item label="个性签名" key="sign" bindclick="itemClick" type="txt" heightAuto>
         <view class="sign">
             <view class="sign_content">
