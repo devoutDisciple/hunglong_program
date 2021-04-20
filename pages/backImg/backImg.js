@@ -89,7 +89,7 @@ Page({
 			const prevPage = pages[pages.length - 2];
 			prevPage.setData({ backgroundTmpUrl: filePath });
 			wx.navigateBack({
-				complete: (res) => {},
+				complete: () => {},
 			});
 		});
 	},

@@ -1,6 +1,6 @@
 <view class="content">
     <view class="img">
-        <image src="{{photoUrl + '/' + userDetail.photo}}" />
+        <image src="{{userDetail.photo}}" />
     </view>
     <view class="desc">
         <view class="desc_top">

@@ -1,5 +1,4 @@
 import { get } from '../../utils/request';
-import { battleUrl } from '../../config/config';
 import loading from '../../utils/loading';
 import { filterContentTypeByNum } from '../../utils/filter';
 
@@ -8,7 +7,6 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		type: '',
 		content_id: '',
 		detail: {
 			userDetail: {},
@@ -37,17 +35,7 @@ Page({
 		get({ url: '/content/contentDetail', data: { content_id, type } })
 			.then((res) => {
 				res.type = filterContentTypeByNum(res.type);
-				if (res.type === 'battle') {
-					if (res.battleDetail) {
-						if (res.battleDetail.red_url && res.battleDetail.red_url.url) {
-							res.battleDetail.red_url.url = `${battleUrl}/${res.battleDetail.red_url.url}`;
-						}
-						if (res.battleDetail.blue_url && res.battleDetail.blue_url.url) {
-							res.battleDetail.blue_url.url = `${battleUrl}/${res.battleDetail.blue_url.url}`;
-						}
-					}
-				}
-				this.setData({ detail: res, type: res.type });
+				this.setData({ detail: res });
 			})
 			.finally(() => loading.hideLoading());
 	},

@@ -58,11 +58,6 @@ Component({
 			loading.showLoading();
 			get({ url: '/reply/allByContentId', data: { content_id: detail.id, current: 1 } })
 				.then((res) => {
-					if (Array.isArray(res)) {
-						res.forEach((item) => {
-							item.userPhoto = `${photoUrl}/${item.userPhoto}`;
-						});
-					}
 					this.setData({ comments: res || [] });
 				})
 				.finally(() => loading.hideLoading());

@@ -1,7 +1,7 @@
 <view class="reply">
     <view class="reply_top">
         <view class="reply_top_img">
-            <image src="/asserts/public/logo.png" />
+            <image src="{{replyDetail.userPhoto}}" />
         </view>
         <view class="reply_top_name">{{replyDetail.username}}</view>
         <view bindtap = "onTapGood" class="reply_top_good">
