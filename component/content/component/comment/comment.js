@@ -8,6 +8,10 @@ Component({
 			type: String,
 			value: '', // content-内容回复 reply-评论回复
 		},
+		contentId: {
+			type: String,
+			value: '',
+		},
 		imgList: {
 			type: Array,
 			value: [], // 评论区的图片
@@ -32,9 +36,9 @@ Component({
 	 */
 	methods: {
 		searchReply: function () {
-			const { detail } = this.data;
+			const { detail, contentId } = this.data;
 			wx.navigateTo({
-				url: `/pages/reply/reply?id=${detail.id}`,
+				url: `/pages/reply/reply?commentId=${detail.id}&contentId=${contentId}`,
 			});
 		},
 	},

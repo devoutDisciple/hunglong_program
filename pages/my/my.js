@@ -10,7 +10,7 @@ Page({
 		headerHight: 60,
 		hasGetUserInfo: false,
 		userDetail: {
-			photo: `${config.baseUrl}/public/photo.png`,
+			photo: `${config.photoUrl}/photo.png`,
 		}, // 用户基本信息
 	},
 

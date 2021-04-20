@@ -18,6 +18,10 @@ Component({
 			type: Number,
 			value: 1,
 		},
+		commentId: {
+			type: String,
+			value: '',
+		},
 		contentId: {
 			type: String,
 			value: '',
@@ -51,14 +55,13 @@ Component({
 		onSendMsg: function () {
 			loading.showLoading();
 			// type: 1-给帖子评论 2-二级评论
-			const { replyValue, type, contentId, callback } = this.data;
+			const { replyValue, type, contentId, commentId } = this.data;
 			const user_id = wx.getStorageSync('user_id');
 			let url = '/reply/addContentReply';
 			if (type === 2) url = '/reply/addReplyReply';
-			console.log(url, type, 12312);
 			post({
 				url,
-				data: { user_id, content_id: contentId, type, desc: replyValue },
+				data: { user_id, content_id: contentId, comment_id: commentId, type, desc: replyValue },
 			})
 				.then(() => {
 					wx.showToast({

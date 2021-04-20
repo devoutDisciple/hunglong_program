@@ -43,11 +43,6 @@ Component({
 	lifetimes: {
 		attached: function () {
 			const { imgList } = this.data;
-			if (Array.isArray(imgList)) {
-				imgList.forEach((item) => {
-					item.url = `${postsUrl}/${item.url}`;
-				});
-			}
 			if (Array.isArray(imgList) && imgList.length > 2) {
 				const len = imgList.length;
 				const remain = len % 3;

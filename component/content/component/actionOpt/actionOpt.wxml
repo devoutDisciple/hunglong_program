@@ -1,11 +1,15 @@
 <view class="wrap">
     <view class="chunk" bindtap = "onTapShare">
-        <image src="/asserts/public/share.png" />{{detail.share}}
+        <image src="/asserts/public/share.png" />
+        {{detail.share}}
     </view>
     <view class="chunk" bindtap = "onTapMsg">
-        <image src="/asserts/public/message.png" />{{detail.comment}}
+        <image src="/asserts/public/message.png" />
+        {{detail.comment}}
     </view>
     <view class="chunk" bindtap = "onTapGood">
-        <image src="/asserts/public/good.png" />{{detail.goods}}
+        <image wx:if="{{detail.hadGoods}}" src="/asserts/public/good_select.png" />
+        <image wx:else src="/asserts/public/good.png" />
+        {{detail.goods}}
     </view>
 </view>

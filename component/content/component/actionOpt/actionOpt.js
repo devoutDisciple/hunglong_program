@@ -1,4 +1,5 @@
-// component/goodBtm/goodBtm.js
+import { post } from '../../../../utils/request';
+
 Component({
 	/**
 	 * 组件的属性列表
@@ -28,17 +29,20 @@ Component({
 			const { detail } = this.data;
 			const { type } = detail;
 			// 进入详情页面
-			const goToDetail = (url) => {
-				wx.navigateTo({
-					url: `${url}?content_id=${detail.id}&type=${type}`,
-				});
-			};
-			if (type === 'posts' || type === 'blogs') goToDetail('/pages/detail/detail');
-			if (type === 'vote') goToDetail('/pages/detail/detail');
-			if (type === 'battle') goToDetail('/pages/detail/detail');
+			wx.navigateTo({
+				url: `/pages/detail/detail?content_id=${detail.id}&type=${type}`,
+			});
 		},
 		// 点击赞
-		onTapGood: function () {},
+		onTapGood: function () {
+			const { detail } = this.data;
+			this.triggerEvent('OnTapGoods');
+			const user_id = wx.getStorageSync('user_id');
+			post({
+				url: '/goods/addPostsGoods',
+				data: { user_id, content_id: detail.id, good_type: !detail.hadGoods },
+			});
+		},
 	},
 
 	lifetimes: {

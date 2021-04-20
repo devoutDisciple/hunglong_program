@@ -10,16 +10,17 @@
             <view class="comment_title">
                 <view class="comment_title_left">评论 {{detail.comment}}</view>
                 <view class="comment_title_right">
-                    {{detail.comment}}<image src="/asserts/public/good_select.png"/>
+                    {{detail.goods}}<image src="/asserts/public/good_select.png"/>
                 </view>
             </view>
             <view class="comment_con">
                 <block wx:if="{{comments && comments.length !== 0}}">
                     <comment 
                         wx:key="id"
-                        type="content" 
+                        type="content"
                         detail="{{item}}"
                         wx:for="{{comments}}"
+                        contentId="{{detail.id}}"
                         imgList="{{replyImgList}}"/>
                 </block>
                 

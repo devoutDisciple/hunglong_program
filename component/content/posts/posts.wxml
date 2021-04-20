@@ -9,5 +9,5 @@
             contentId="{{detail.id}}" 
             replyDetail="{{detail.hotReply}}" />
     </view>
-    <action-opt detail="{{detail}}"/>
+    <action-opt bindOnTapGoods="onTapGoods" detail="{{detail}}"/>
 </view>

@@ -11,6 +11,8 @@ Page({
 		focus: false,
 		currentReply: {},
 		replyList: [],
+		commentId: '', // 评论的id
+		contentId: '', // 内容的id
 		replyImgList: [
 			{
 				url: '/asserts/temp/1.jpg',
@@ -39,13 +41,15 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		const { id } = options;
-		if (!id) {
+		const { commentId, contentId } = options;
+		if (!commentId) {
 			return wx.switchTab({
 				url: '/pages/home/home',
 			});
 		}
-		this.getReplyData(id);
+		this.setData({ commentId, contentId }, () => {
+			this.getReplyData();
+		});
 	},
 
 	/**
@@ -59,9 +63,10 @@ Page({
 	onShow: function () {},
 
 	// 获取当前评论详情
-	getReplyData: async function (id) {
+	getReplyData: async function () {
 		loading.showLoading();
-		const currentReply = await get({ url: '/reply/replyDetailById', data: { id } });
+		const { commentId } = this.data;
+		const currentReply = await get({ url: '/reply/replyDetailById', data: { commentId } });
 		currentReply.userPhoto = `${photoUrl}/${currentReply.userPhoto}`;
 		this.setData({ currentReply: currentReply || {} }, () => {
 			this.onSerchReplyList();

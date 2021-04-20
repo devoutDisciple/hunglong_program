@@ -9,6 +9,7 @@ Page({
 	 */
 	data: {
 		type: '',
+		content_id: '',
 		detail: {
 			userDetail: {},
 		},
@@ -24,13 +25,16 @@ Page({
 				url: '/pages/home/home',
 			});
 		}
-		this.getDetail({ content_id, type });
+		this.setData({ content_id, type }, () => {
+			this.getDetail();
+		});
 	},
 
 	// 获取详情
-	getDetail: function (data) {
+	getDetail: function () {
 		loading.showLoading();
-		get({ url: '/content/contentDetail', data })
+		const { content_id, type } = this.data;
+		get({ url: '/content/contentDetail', data: { content_id, type } })
 			.then((res) => {
 				res.type = filterContentTypeByNum(res.type);
 				if (res.type === 'battle') {
@@ -52,6 +56,14 @@ Page({
 	 * 生命周期函数--监听页面初次渲染完成
 	 */
 	onReady: function () {},
+
+	/**
+	 * 页面相关事件处理函数--监听用户下拉动作
+	 */
+	onPullDownRefresh: function () {
+		wx.stopPullDownRefresh();
+		this.getDetail();
+	},
 
 	/**
 	 * 生命周期函数--监听页面显示

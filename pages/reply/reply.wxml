@@ -5,7 +5,12 @@
         </view>
         <view class="con_other">
             <block wx:if="{{replyList && replyList.length !== 0}}">
-                <comment wx:for="{{replyList}}" wx:key="id" detail="{{item}}" type="reply" imgList="{{replyImgList}}"/>
+                <comment 
+                    wx:key="id" 
+                    type="reply" 
+                    detail="{{item}}" 
+                    wx:for="{{replyList}}" 
+                    imgList="{{replyImgList}}"/>
             </block>
             <block wx:else>
                 <empty-img />
@@ -20,7 +25,8 @@
         type="2" 
         focus="{{focus}}" 
         visible="{{visible}}" 
-        contentId="{{currentReply.id}}" 
+        contentId="{{contentId}}" 
+        commentId="{{currentReply.id}}" 
         bindOnClose="onCloseIptDialog"
         bindCallback="onSerchReplyList"
         />

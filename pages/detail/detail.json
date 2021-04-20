@@ -6,5 +6,6 @@
 		"post-img": "/component/content/component/postImg/postImg",
         "battle-con": "/component/content/component/battleCon/battleCon"
 	},
-    "navigationBarTitleText": "周六来hi呀"
+    "navigationBarTitleText": "周六来hi呀",
+    "enablePullDownRefresh": true
 }

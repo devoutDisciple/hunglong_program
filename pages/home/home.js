@@ -1,7 +1,7 @@
 import login from '../../utils/login';
 import loading from '../../utils/loading';
 import { get } from '../../utils/request';
-import { baseUrl, battleUrl } from '../../config/config';
+import { baseUrl, battleUrl, postsUrl } from '../../config/config';
 import { filterContentTypeByNum } from '../../utils/filter';
 
 Page({
@@ -88,7 +88,8 @@ Page({
 
 	// 获取推荐内容
 	getRecomment: async function () {
-		const res = await get({ url: '/content/recomment' });
+		const user_id = wx.getStorageSync('user_id');
+		const res = await get({ url: '/content/recomment', data: { user_id } });
 		console.log(res, '获取的内容');
 		res.forEach((item) => {
 			item.type = filterContentTypeByNum(item.type);
@@ -100,6 +101,13 @@ Page({
 					if (item.battleDetail.blue_url && item.battleDetail.blue_url.url) {
 						item.battleDetail.blue_url.url = `${battleUrl}/${item.battleDetail.blue_url.url}`;
 					}
+				}
+			}
+			if (item.type === 'posts' || item.type === 'blogs') {
+				if (item.postsDetail && item.postsDetail.img_urls) {
+					item.postsDetail.img_urls.forEach((post) => {
+						post.url = `${postsUrl}/${post.url}`;
+					});
 				}
 			}
 		});
