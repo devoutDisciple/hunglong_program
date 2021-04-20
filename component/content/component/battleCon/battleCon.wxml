@@ -12,10 +12,23 @@
         </view>
     </view>
     <view class="progress">
-        <view class="progress_left" style="width: {{redTeam}}"/>
-        <view class="progress_icon" style="left: calc({{redTeam}} - 25rpx)">
-            <image src="/asserts/public/pk.png"/>
-        </view> 
+        <view class="progress_left" style="width: {{detail.red_percent}}%"/>
+        
+        <block wx:if="{{detail.red_percent < 5}}"> 
+            <view class="progress_icon" style="left: 15rpx">
+                <image src="/asserts/public/pk.png"/>
+            </view>
+        </block>
+        <block wx:elif="{{detail.red_percent > 95}}"> 
+             <view class="progress_icon" style="right: 0">
+                <image src="/asserts/public/pk.png"/>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="progress_icon" style="left: calc({{detail.red_percent}}% - 6rpx)">
+                <image src="/asserts/public/pk.png"/>
+            </view>
+        </block>
         <view class="progress_right" />
     </view>
     <view class="name">
