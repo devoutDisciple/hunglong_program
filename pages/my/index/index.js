@@ -1,6 +1,6 @@
-import config from '../../config/config';
-import { get } from '../../utils/request';
-import loading from '../../utils/loading';
+import config from '../../../config/config';
+import { get } from '../../../utils/request';
+import loading from '../../../utils/loading';
 
 Page({
 	/**
@@ -66,6 +66,27 @@ Page({
 			.finally(() => {
 				loading.hideLoading();
 			});
+	},
+
+	// 点击 发布 我的赞 粉丝 关注
+	onTapChunk: function (e) {
+		const { item } = e.currentTarget.dataset;
+		const urls = {
+			publish: '/pages/my/myPublish/myPublish',
+			fans: '/pages/my/myFans/myFans',
+			goods: '/pages/my/myPublish/myPublish',
+			attention: '/pages/my/myFellow/myFellow',
+		};
+		wx.navigateTo({
+			url: urls[item],
+		});
+	},
+
+	// 点击谁看过我
+	onTapViewMe: function () {
+		wx.navigateTo({
+			url: '/pages/my/viewMe/viewMe',
+		});
 	},
 
 	/**

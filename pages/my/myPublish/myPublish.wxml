@@ -1,0 +1,16 @@
+<block wx:if="{{dataList && dataList.length !== 0}}">
+    <scroll-view class="wrap" scroll-y="{{true}}">
+        <block wx:for="{{dataList}}" wx:key="id">
+            <home-post wx:if="{{item.type === 'posts'}}" detail="{{item}}"/>
+            <home-post wx:if="{{item.type === 'blogs'}}" detail="{{item}}"/>
+            <home-vote wx:if="{{item.type === 'vote'}}" detail="{{item}}" />
+            <home-battle wx:if="{{item.type === 'battle'}}" detail="{{item}}" />
+        </block>
+        <btm-empty />
+    </scroll-view>
+</block>
+<block wx:else>
+    <view class="empty">
+        <empty-img />
+    </view>
+</block>

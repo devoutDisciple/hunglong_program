@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "home-post": "/component/content/posts/posts",
+    "home-battle": "/component/content/battle/battle",
+    "home-vote": "/component/content/vote/vote",
+    "empty-img": "/component/emptyImg/emptyImg",
+    "btm-empty": "/component/btmEmpty/btmEmpty"
+  },
+  "navigationBarTitleText": "我的发布"
+}

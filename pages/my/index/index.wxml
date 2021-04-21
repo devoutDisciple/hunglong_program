@@ -27,19 +27,19 @@
                     </view>
                 </view>
                 <view class="person_data">
-                    <view class="person_data_chunk">
+                    <view class="person_data_chunk" data-item="publish" bindtap="onTapChunk">
                         <view class="person_data_chunk_label">发布</view>
                         <view class="person_data_chunk_num">{{userDetail.publish}}</view>
                     </view>
-                    <view class="person_data_chunk">
+                    <view class="person_data_chunk" data-item="fans" bindtap="onTapChunk">
                         <view class="person_data_chunk_label">粉丝</view>
                         <view class="person_data_chunk_num">{{userDetail.fans}}</view>
                     </view>
-                    <view class="person_data_chunk">
+                    <view class="person_data_chunk" data-item="goods" bindtap="onTapChunk">
                         <view class="person_data_chunk_label">我的赞</view>
                         <view class="person_data_chunk_num">{{userDetail.goods}}</view>
                     </view>
-                    <view class="person_data_chunk">
+                    <view class="person_data_chunk" data-item="attention" bindtap="onTapChunk">
                         <view class="person_data_chunk_label">关注</view>
                         <view class="person_data_chunk_num">{{userDetail.fellow}}</view>
                     </view>
@@ -51,7 +51,7 @@
         <view class="container">
             <view class="viewer">
                 <view class="viewer_titile">谁看过我</view>
-                <view class="viewer_content">
+                <view class="viewer_content" bindtap="onTapViewMe">
                     <view class="viewer_left">
                         <scroll-view scroll-x="{{true}}" class="viewer_scroll" enable-flex="{{true}}">
                             <view class="viewer_chunk">
