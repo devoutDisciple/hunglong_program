@@ -1,4 +1,5 @@
-// component/content/component/voteCon/voteCon.js
+import { post } from '../../../../utils/request';
+
 Component({
 	/**
 	 * 组件的属性列表
@@ -13,6 +14,10 @@ Component({
 				type: 1, // 1-单选 2-多选
 			},
 		},
+		contentDetail: {
+			type: Object,
+			value: {},
+		},
 	},
 
 	/**
@@ -26,20 +31,61 @@ Component({
 	methods: {
 		// 选择的第几项
 		onSelectItem: function (e) {
+			const user_id = wx.getStorageSync('user_id');
 			const { idx } = e.currentTarget.dataset;
-			const { detail } = this.data;
+			const { detail, contentDetail } = this.data;
 			if (Array.isArray(detail.content)) {
 				if (String(detail.type) === '1') {
 					// 单选
 					detail.content.forEach((item, index) => {
-						item.selected = idx === index ? !item.selected : false;
+						if (idx === index) {
+							item.selected = !item.selected;
+							item.num = Number(item.num) + (item.selected ? 1 : -1);
+							detail.total = Number(detail.total) + (item.selected ? 1 : -1);
+						} else {
+							if (item.selected) {
+								item.selected = false;
+								item.num = Number(item.num) - 1;
+								detail.total -= 1;
+							}
+							item.selected = false;
+						}
 					});
 				} else {
+					// 取消的时候
+					if (detail.content[idx].selected) {
+						detail.content[idx].num -= 1;
+						detail.total -= 1;
+					} else {
+						detail.content[idx].num += 1;
+						detail.total += 1;
+					}
 					// 多选
 					detail.content[idx].selected = !detail.content[idx].selected;
 				}
 			}
+			const selectItems = [];
+			if (Array.isArray(detail.content)) {
+				detail.content.forEach((item, index) => {
+					// 要传输的数据
+					if (item.selected) selectItems.push(index);
+					// 重新计算数量
+					if (String(detail.total) === '0') {
+						item.width = '0%';
+					} else {
+						item.width = `${Number((item.num / detail.total) * 100).toFixed(0)}%`;
+					}
+				});
+			}
+			const pages = getCurrentPages();
+			const currentPage = pages[pages.length - 1];
+			console.log(currentPage, 1213);
+			post({
+				url: '/vote/selectVoteItem',
+				data: { user_id, content_id: contentDetail.id, select_items: selectItems },
+			});
 			this.setData({ detail });
+			this.triggerEvent('OnTapSelect', { data: detail });
 		},
 	},
 

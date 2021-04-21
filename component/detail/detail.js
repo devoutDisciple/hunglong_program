@@ -73,6 +73,7 @@ Component({
 			const flag = !detail.hadGoods;
 			detail.goods += flag ? 1 : -1;
 			detail.hadGoods = flag;
+
 			this.setData({ detail });
 			post({
 				url: '/goods/addPostsGoods',

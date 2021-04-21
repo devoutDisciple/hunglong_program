@@ -5,7 +5,7 @@
             <post-img imgList="{{detail.postsDetail.img_urls}}" showAll="{{true}}"/>
         </block>
         <block wx:if="{{detail.type === 'vote'}}">
-            <vote-con detail="{{detail.voteDetail}}"/>
+            <vote-con bindOnTapSelect="onTapSelectItem" detail="{{detail.voteDetail}}" contentDetail="{{detail}}"/>
         </block>
         <block wx:if="{{detail.type === 'battle'}}">
             <battle-con detail="{{detail.battleDetail}}" contentDetail="{{detail}}"/>

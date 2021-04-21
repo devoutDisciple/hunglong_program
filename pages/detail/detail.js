@@ -41,6 +41,14 @@ Page({
 			.finally(() => loading.hideLoading());
 	},
 
+	// 选择某一项
+	onTapSelectItem: function (e) {
+		const { detail } = this.data;
+		const { data } = e.detail;
+		detail.voteDetail = data;
+		this.setData({ detail });
+	},
+
 	/**
 	 * 生命周期函数--监听页面初次渲染完成
 	 */

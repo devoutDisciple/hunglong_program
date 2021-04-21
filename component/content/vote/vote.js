@@ -34,6 +34,14 @@ Component({
 			if (detail.goods < 0) detail.goods = 0;
 			this.setData({ detail });
 		},
+
+		// 选择某一项
+		onTapSelectItem: function (e) {
+			const { detail } = this.data;
+			const { data } = e.detail;
+			detail.voteDetail = data;
+			this.setData({ detail });
+		},
 	},
 
 	// 组件生命周期函数-在组件实例进入页面节点树时执行)
