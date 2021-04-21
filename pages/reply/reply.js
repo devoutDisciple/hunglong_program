@@ -66,7 +66,8 @@ Page({
 	getReplyData: async function () {
 		loading.showLoading();
 		const { commentId } = this.data;
-		const currentReply = await get({ url: '/reply/replyDetailById', data: { commentId } });
+		const user_id = wx.getStorageSync('user_id');
+		const currentReply = await get({ url: '/reply/replyDetailById', data: { comment_id: commentId, user_id } });
 		this.setData({ currentReply: currentReply || {} }, () => {
 			this.onSerchReplyList();
 			loading.hideLoading();
@@ -75,10 +76,11 @@ Page({
 
 	// 获取评论的评论的列表
 	onSerchReplyList: async function () {
-		const { currentReply } = this.data;
 		loading.showLoading();
+		const { currentReply } = this.data;
+		const user_id = wx.getStorageSync('user_id');
 		// 获取评论的评论的列表
-		const replyList = await get({ url: '/reply/replyListByReplyId', data: { id: currentReply.id } });
+		const replyList = await get({ url: '/reply/replyListByReplyId', data: { id: currentReply.id, user_id } });
 		this.setData({ replyList }, () => {
 			loading.hideLoading();
 		});

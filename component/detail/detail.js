@@ -57,9 +57,10 @@ Component({
 
 		// 查询评论
 		onSearchCommonts: function () {
+			const user_id = wx.getStorageSync('user_id');
 			const { detail } = this.data;
 			loading.showLoading();
-			get({ url: '/reply/allByContentId', data: { content_id: detail.id, current: 1 } })
+			get({ url: '/reply/allByContentId', data: { content_id: detail.id, user_id, current: 1 } })
 				.then((res) => {
 					this.setData({ comments: res || [] });
 				})
