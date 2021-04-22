@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: row;
     height: 100rpx;
+    font-size: 26rpx;
 }
 .img {
     width: 80rpx;
@@ -66,15 +67,18 @@
     margin-left: 10rpx;
 }
 .concern{
-    width: 100rpx;
     display: flex;
     align-items: center;
 }
 .concern_btn{
-    width: 98rpx;
-    height: 50rpx;
+    padding: 8rpx 27rpx;
     text-align: center;
-    line-height: 50rpx;
     border: 1rpx solid #999999;
     border-radius: 50rpx;
+}
+.concern_active_btn {
+    padding: 10rpx 29rpx;
+    background: #ededed;
+    color: #969696;
+    border: none;
 }

@@ -1,4 +1,3 @@
-import { photoUrl } from '../../../../config/config';
 import { filterContentTypeByField } from '../../../../utils/filter';
 
 Component({
@@ -24,14 +23,19 @@ Component({
 	 * 组件的初始数据
 	 */
 	data: {
-		photoUrl,
-		typeTxt: '帖子',
+		typeTxt: '',
+		hadAttention: false, // 是否已经关注
 	},
 
 	/**
 	 * 组件的方法列表
 	 */
-	methods: {},
+	methods: {
+		// 点击关注和取消关注
+		onAttentionUser: function () {
+			this.setData({ hadAttention: !this.data.hadAttention });
+		},
+	},
 
 	lifetimes: {
 		attached: function () {

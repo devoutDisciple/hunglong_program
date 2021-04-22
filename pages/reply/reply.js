@@ -1,5 +1,4 @@
 import { get } from '../../utils/request';
-import { photoUrl } from '../../config/config';
 import loading from '../../utils/loading';
 
 Page({
