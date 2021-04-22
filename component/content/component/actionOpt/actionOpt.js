@@ -36,11 +36,15 @@ Component({
 		// 点击赞
 		onTapGood: function () {
 			const { detail } = this.data;
-			this.triggerEvent('OnTapGoods');
+			const flag = !detail.hadGoods;
+			detail.hadGoods = flag;
+			detail.goods = Number(detail.goods) + (flag ? 1 : -1);
+			if (detail.goods < 0) detail.goods = 0;
+			this.setData({ detail });
 			const user_id = wx.getStorageSync('user_id');
 			post({
 				url: '/goods/addPostsGoods',
-				data: { user_id, content_id: detail.id, goods_type: !detail.hadGoods },
+				data: { user_id, content_id: detail.id, goods_type: flag },
 			});
 		},
 	},

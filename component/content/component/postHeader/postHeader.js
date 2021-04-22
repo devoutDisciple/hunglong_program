@@ -1,4 +1,5 @@
 import { filterContentTypeByField } from '../../../../utils/filter';
+import { post } from '../../../../utils/request';
 
 Component({
 	/**
@@ -33,7 +34,17 @@ Component({
 	methods: {
 		// 点击关注和取消关注
 		onAttentionUser: function () {
-			this.setData({ hadAttention: !this.data.hadAttention });
+			const { userDetail } = this.data;
+			const user_id = wx.getStorageSync('user_id');
+			if (!user_id) {
+				return wx.showToast({
+					title: '请先登录',
+					icon: 'error',
+				});
+			}
+			userDetail.hadAttention = !userDetail.hadAttention;
+			post({ url: '/attention/attentionUser', data: { user_id, other_id: userDetail.id } });
+			this.setData({ userDetail });
 		},
 	},
 

@@ -16,7 +16,7 @@
         </view>
     </view>
     <view class="concern" bindtap="onAttentionUser">
-        <view wx:if="{{hadAttention}}" class="concern_btn concern_active_btn">已关注</view>
+        <view wx:if="{{userDetail.hadAttention}}" class="concern_btn concern_active_btn">已关注</view>
         <view wx:else class="concern_btn">关注</view>
     </view>
 </view>

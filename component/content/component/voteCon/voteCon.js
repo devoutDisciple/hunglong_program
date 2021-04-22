@@ -77,15 +77,11 @@ Component({
 					}
 				});
 			}
-			const pages = getCurrentPages();
-			const currentPage = pages[pages.length - 1];
-			console.log(currentPage, 1213);
 			post({
 				url: '/vote/selectVoteItem',
 				data: { user_id, content_id: contentDetail.id, select_items: selectItems },
 			});
 			this.setData({ detail });
-			this.triggerEvent('OnTapSelect', { data: detail });
 		},
 	},
 
