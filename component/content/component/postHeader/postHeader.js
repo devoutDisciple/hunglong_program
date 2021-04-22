@@ -25,6 +25,7 @@ Component({
 	 */
 	data: {
 		typeTxt: '',
+		user_id: '',
 		hadAttention: false, // 是否已经关注
 	},
 
@@ -51,7 +52,8 @@ Component({
 	lifetimes: {
 		attached: function () {
 			const txt = filterContentTypeByField(this.data.type);
-			this.setData({ typeTxt: txt });
+			const user_id = wx.getStorageSync('user_id');
+			this.setData({ typeTxt: txt, user_id });
 		},
 	},
 });

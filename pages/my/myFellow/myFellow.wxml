@@ -1,7 +1,0 @@
-<scroll-view scroll-y="{{true}}" class="content">
-    <user-item hasAttention></user-item>
-    <user-item hasAttention></user-item>
-    <user-item hasAttention="{{false}}"></user-item>
-    <user-item hasAttention></user-item>
-    <btm-empty />
-</scroll-view>

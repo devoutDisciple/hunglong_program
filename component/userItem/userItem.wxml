@@ -1,10 +1,10 @@
 <view class="user">
     <view class="user_photo">
-        <image src="/asserts/public/logo.png" />
+        <image src="{{detail.userDetail.photo}}" />
     </view>
     <view class="user_desc">
         <view class="user_msg">
-            <view class="user_msg_name">疾风剑豪压缩123疾风剑豪压缩123疾风剑豪压缩123疾风剑豪压缩123疾风剑豪压缩123疾风剑豪压缩123</view>
+            <view class="user_msg_name">{{detail.userDetail.username}}</view>
             <view class="user_msg_order">
                 <image src="/asserts/public/vip1.png" />
             </view>
@@ -12,7 +12,7 @@
                 <view class="user_msg_level_txt">小白 1</view>
             </view>
         </view>
-        <view class="user_sign">这是签名内容这是签名内容这是签名内容这是签名内容这是签名内容这是签名内容这是签名内容这是签名内容</view>
+        <view class="user_sign">{{detail.userDetail.sign}}</view>
     </view>
     <view class="user_attention">
         <view wx:if="{{hasAttention}}" class="attention_btn">已关注</view>

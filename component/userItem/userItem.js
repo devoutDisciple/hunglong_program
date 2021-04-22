@@ -8,6 +8,12 @@ Component({
 			type: Boolean,
 			value: false,
 		},
+		detail: {
+			type: Object,
+			value: {
+				userDetail: {},
+			},
+		},
 	},
 
 	/**

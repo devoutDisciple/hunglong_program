@@ -13,12 +13,6 @@
     "miniprogram": {
       "list": [
         {
-          "name": "测试页面",
-          "pathName": "pages/test/test",
-          "query": "",
-          "scene": null
-        },
-        {
           "name": "微信登录页面",
           "pathName": "pages/login/wxLogin/wxLogin",
           "query": "",
@@ -103,30 +97,6 @@
           "scene": null
         },
         {
-          "name": "反馈信息",
-          "pathName": "pages/my/feedbackMsg/feedbackMsg",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "谁看过我",
-          "pathName": "pages/my/viewMe/viewMe",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "我关注的",
-          "pathName": "pages/my/myFellow/myFellow",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "我的粉丝",
-          "pathName": "pages/my/myFans/myFans",
-          "query": "",
-          "scene": null
-        },
-        {
           "name": "评论详情",
           "pathName": "pages/reply/reply",
           "query": "id=3",
@@ -177,6 +147,30 @@
         {
           "name": "我的发布",
           "pathName": "pages/my/myPublish/myPublish",
+          "query": "user_id=9",
+          "scene": null
+        },
+        {
+          "name": "我关注的",
+          "pathName": "pages/my/myAttention/myAttention",
+          "query": "user_id=10",
+          "scene": null
+        },
+        {
+          "name": "谁看过我",
+          "pathName": "pages/my/viewMe/viewMe",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "反馈信息",
+          "pathName": "pages/my/feedbackMsg/feedbackMsg",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的粉丝",
+          "pathName": "pages/my/myFans/myFans",
           "query": "",
           "scene": null
         }

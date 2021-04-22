@@ -13,8 +13,9 @@ Page({
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function () {
-		this.getContentsByUserId();
+	onLoad: function (options) {
+		const { user_id } = options;
+		this.getContentsByUserId(user_id);
 	},
 
 	/**
@@ -28,9 +29,8 @@ Page({
 	onShow: function () {},
 
 	// 获取用户发过的内容
-	getContentsByUserId: function () {
+	getContentsByUserId: function (user_id) {
 		loading.showLoading();
-		const user_id = wx.getStorageSync('user_id');
 		if (!user_id) {
 			wx.switchTab({
 				url: '/pages/home/home',

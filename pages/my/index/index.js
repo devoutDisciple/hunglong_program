@@ -12,12 +12,21 @@ Page({
 		userDetail: {
 			photo: `${config.photoUrl}/photo.png`,
 		}, // 用户基本信息
+		userData: {
+			attentionNum: 0,
+			fansNum: 0,
+			goodsNum: 0,
+			publishNum: 0,
+		},
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad() {},
+	onLoad() {
+		// 获取统计数据
+		this.getUserData();
+	},
 
 	/**
 	 * 生命周期函数--监听页面显示
@@ -32,10 +41,8 @@ Page({
 		}
 		if (!this.data.hasGetUserInfo) {
 			this.setData({ hasGetUserInfo: true });
-			this.getUserMsg(user_id);
+			this.getUserMsg();
 		}
-		// const wx_openid = 'oa6Ki4kKojyBqHQJ7jD6520nq4vc';
-		// this.getUserMsg(wx_openid);
 	},
 
 	/**
@@ -56,9 +63,19 @@ Page({
 		});
 	},
 
+	/**
+	 * 页面相关事件处理函数--监听用户下拉动作
+	 */
+	onPullDownRefresh: function () {
+		wx.stopPullDownRefresh();
+		this.getUserMsg();
+		this.getUserData();
+	},
+
 	// 获取用户基本信息
-	getUserMsg(user_id) {
+	getUserMsg: function () {
 		loading.showLoading();
+		const user_id = wx.getStorageSync('user_id');
 		get({ url: '/user/getUserByUserId', data: { user_id: user_id } })
 			.then((res) => {
 				this.setData({ userDetail: res });
@@ -68,24 +85,32 @@ Page({
 			});
 	},
 
+	// 获取用户数据
+	getUserData: function () {
+		loading.showLoading();
+		const user_id = wx.getStorageSync('user_id');
+		get({ url: '/user/userData', data: { user_id } })
+			.then((res) => {
+				this.setData({ userData: res });
+			})
+			.finally(() => {
+				loading.hideLoading();
+			});
+	},
+
 	// 点击 发布 我的赞 粉丝 关注
 	onTapChunk: function (e) {
 		const { item } = e.currentTarget.dataset;
+		const user_id = wx.getStorageSync('user_id');
 		const urls = {
-			publish: '/pages/my/myPublish/myPublish',
-			fans: '/pages/my/myFans/myFans',
+			publish: `/pages/my/myPublish/myPublish?user_id=${user_id}`,
+			fans: `/pages/my/myFans/myFans?user_id=${user_id}`,
 			goods: '/pages/my/myPublish/myPublish',
-			attention: '/pages/my/myFellow/myFellow',
+			attention: '/pages/my/myAttention/myAttention',
+			viewMe: '/pages/my/viewMe/viewMe', // 谁看过我
 		};
 		wx.navigateTo({
 			url: urls[item],
-		});
-	},
-
-	// 点击谁看过我
-	onTapViewMe: function () {
-		wx.navigateTo({
-			url: '/pages/my/viewMe/viewMe',
 		});
 	},
 

@@ -1,0 +1,8 @@
+<scroll-view scroll-y="{{true}}" class="content">
+    <block wx:if="{{attentionList && attentionList.length !== 0}}">
+        <block wx:for="{{attentionList}}" wx:key="id">
+            <user-item hasAttention detail="{{item}}"></user-item>
+        </block>
+    </block>
+    <btm-empty />
+</scroll-view>
