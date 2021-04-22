@@ -1,7 +1,14 @@
-<scroll-view scroll-y="{{true}}" class="content">
-    <user-item hasAttention></user-item>
-    <user-item hasAttention></user-item>
-    <user-item hasAttention="{{false}}"></user-item>
-    <user-item hasAttention></user-item>
-    <btm-empty />
-</scroll-view>
+<block wx:if="{{attentionList && attentionList.length !== 0}}">
+    <scroll-view scroll-y="{{true}}" class="content">
+        <block wx:for="{{attentionList}}" wx:key="id">
+            <user-item detail="{{item}}"></user-item>
+        </block>
+        <btm-empty />
+    </scroll-view>
+</block>
+<block wx:else>
+     <view class="empty">
+        <empty-img />
+    </view>
+</block>
+    

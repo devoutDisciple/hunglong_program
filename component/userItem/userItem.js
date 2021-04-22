@@ -24,5 +24,12 @@ Component({
 	/**
 	 * 组件的方法列表
 	 */
-	methods: {},
+	methods: {
+		// 点击关注
+		onAttentionUser: function () {
+			const { detail } = this.data;
+			detail.hadAttenttion = !detail.hadAttenttion;
+			this.setData({ detail });
+		},
+	},
 });

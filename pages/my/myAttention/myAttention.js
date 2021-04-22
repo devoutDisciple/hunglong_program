@@ -1,4 +1,5 @@
 import { get } from '../../../utils/request';
+import loading from '../../../utils/loading';
 
 Page({
 	/**
@@ -13,15 +14,18 @@ Page({
 	 */
 	onLoad: function (options) {
 		const { user_id } = options;
-		console.log(user_id);
 		this.getMyAttentionUsers(user_id);
 	},
 
 	// 获取关注的用户 myAttentionUsers
 	getMyAttentionUsers: function (user_id) {
-		get({ url: '/attention/myAttentionUsers', data: { user_id } }).then((res) => {
-			console.log(res, 12321);
-			this.setData({ attentionList: res || [] });
-		});
+		loading.showLoading();
+		get({ url: '/attention/myAttentionUsers', data: { user_id } })
+			.then((res) => {
+				this.setData({ attentionList: res || [] });
+			})
+			.finally(() => {
+				loading.hideLoading();
+			});
 	},
 });

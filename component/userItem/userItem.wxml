@@ -14,8 +14,8 @@
         </view>
         <view class="user_sign">{{detail.userDetail.sign}}</view>
     </view>
-    <view class="user_attention">
-        <view wx:if="{{hasAttention}}" class="attention_btn">已关注</view>
-        <view wx:else class="attention_not_btn">关注</view>
+    <view class="user_attention" bindtap="onAttentionUser">
+        <view wx:if="{{detail.hadAttenttion}}" class="attention_btn attention_not_btn">已关注</view>
+        <view wx:else class="attention_btn">关注</view>
     </view>
 </view>

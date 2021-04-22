@@ -24,7 +24,8 @@
     "pages/publish/pickCircle/pickCircle",
     "pages/publish/vote/vote",
     "pages/detail/detail",
-    "pages/my/myPublish/myPublish"
+    "pages/my/myPublish/myPublish",
+    "pages/my/myGoods/myGoods"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "user-item": "/component/userItem/userItem",
+    "empty-img": "/component/emptyImg/emptyImg",
     "btm-empty": "/component/btmEmpty/btmEmpty"
   },
   "navigationBarTitleText": "我关注的"

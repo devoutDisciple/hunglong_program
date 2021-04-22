@@ -1,7 +1,8 @@
 {
-    "usingComponents": {
-      "user-item": "/component/userItem/userItem",
-      "btm-empty": "/component/btmEmpty/btmEmpty"
-    },
-    "navigationBarTitleText": "我的粉丝"
-  }
+	"usingComponents": {
+		"user-item": "/component/userItem/userItem",
+		"empty-img": "/component/emptyImg/emptyImg",
+		"btm-empty": "/component/btmEmpty/btmEmpty"
+	},
+	"navigationBarTitleText": "我的粉丝"
+}
