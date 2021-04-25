@@ -1,4 +1,3 @@
-const app = getApp();
 Page({
 	/**
 	 * 页面的初始数据
@@ -17,15 +16,17 @@ Page({
 
 	// 监听数据函数
 	watch: function () {
+		const { myReceiveGoodsNum, myReceiveCommentsNum } = this.data;
 		// 设置点赞数量
-		this.setData({ myReceiveGoodsNum: app.globalData.num.myReceiveGoodsNum });
+		this.setData({ myReceiveGoodsNum: getApp().globalData.myReceiveGoodsNum });
 		// 评论数量
-		this.setData({ myReceiveCommentsNum: app.globalData.num.myReceiveCommentsNum });
+		this.setData({ myReceiveCommentsNum: getApp().globalData.myReceiveCommentsNum });
 		setInterval(() => {
-			this.setData({ myReceiveGoodsNum: app.globalData.num.myReceiveGoodsNum });
+			console.log(getApp().globalData, 1231);
+			this.setData({ myReceiveGoodsNum: getApp().globalData.myReceiveGoodsNum });
 			// 设置点赞数量
-			this.setData({ myReceiveCommentsNum: app.globalData.num.myReceiveCommentsNum });
-		}, 5000);
+			this.setData({ myReceiveCommentsNum: getApp().globalData.myReceiveCommentsNum });
+		}, 3000);
 	},
 
 	/**
