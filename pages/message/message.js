@@ -1,14 +1,32 @@
-// pages/message/message.js
+const app = getApp();
 Page({
 	/**
 	 * 页面的初始数据
 	 */
-	data: {},
+	data: {
+		myReceiveGoodsNum: 0, // 我收到的点赞量
+		myReceiveCommentsNum: 0, // 我收到的评论数量
+	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function (options) {},
+	onLoad: function (options) {
+		this.watch();
+	},
+
+	// 监听数据函数
+	watch: function () {
+		// 设置点赞数量
+		this.setData({ myReceiveGoodsNum: app.globalData.num.myReceiveGoodsNum });
+		// 评论数量
+		this.setData({ myReceiveCommentsNum: app.globalData.num.myReceiveCommentsNum });
+		setInterval(() => {
+			this.setData({ myReceiveGoodsNum: app.globalData.num.myReceiveGoodsNum });
+			// 设置点赞数量
+			this.setData({ myReceiveCommentsNum: app.globalData.num.myReceiveCommentsNum });
+		}, 5000);
+	},
 
 	/**
 	 * 生命周期函数--监听页面初次渲染完成

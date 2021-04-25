@@ -6,7 +6,7 @@
         {{type === 'good' ? '点赞' : '评论'}}
     </view>
     <view class="good_right">
-        <view class="good_right_num">{{num > 99 ? '99+' : num}}</view>
+        <view wx:if="{{num != 0}}" class="good_right_num">{{num > 99 ? '99+' : num}}</view>
         <image src="/asserts/public/arrow_right.png" />
     </view>
 </view> 
