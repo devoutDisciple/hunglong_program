@@ -1,7 +1,8 @@
 {
   "usingComponents": {
       "chat-left": "/component/message/chatLeft/chatLeft",
-      "chat-right": "/component/message/chatRight/chatRight"
+      "chat-right": "/component/message/chatRight/chatRight",
+      "btm-empty": "/component/btmEmpty/btmEmpty"
   },
   "navigationBarTitleText": "聊天"
 }

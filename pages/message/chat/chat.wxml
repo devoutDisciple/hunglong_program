@@ -1,10 +1,10 @@
 <view class="wrap">
     <scroll-view class="content" scroll-y="{{true}}">
-        <chat-left wx:if="{{msg[0]}}" msg="{{msg[0]}}"/>
-        <chat-right wx:if="{{msg[0]}}" msg="{{msg[0]}}"/>
-        <!-- <block wx:for="{{msg}}" wx:key="{{index}}">
-            <chat-item wx:if="{{item}}" msg="{{item}}"/>
-        </block> -->
+        <block wx:for="{{msg}}" wx:key="index">
+            <chat-left wx:if="{{item && item.from == 2}}" msg="{{item}}"/>
+            <chat-right wx:if="{{item && item.from == 1}}" msg="{{item}}"/>
+        </block>
+        <btm-empty />
     </scroll-view>
     <view class="footer">
         <view class="desc">

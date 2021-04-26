@@ -1,7 +1,6 @@
 .chat {
     font-size: 26rpx;
     width: 80%;
-    background: red;
 }
 
 .time {

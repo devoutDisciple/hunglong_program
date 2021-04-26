@@ -1,16 +1,13 @@
 .chat {
     font-size: 26rpx;
     width: 80%;
-    background: red;
-}
-.chat_right {
     margin-left: 20%;
 }
 .time {
     padding: 10rpx;
     color: #999999;
     text-align: center;
-    padding-left: 90rpx;
+    padding-right: 90rpx;
 }
 .con {
     display: flex;
@@ -18,17 +15,24 @@
 .con_img {
     width: 70rpx;
     height: 70rpx;
+    margin-left: 20rpx;
 }
 .con_img_img{
     width: 70rpx;
     height: 70rpx;
     border-radius: 70rpx;
 }
+.con_right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
 .con_txt {
-    margin-left: 20rpx;
     padding: 16rpx 20rpx;
     line-height: 40rpx;
     background: #fff;
     color: #333333;
-    border-radius: 0rpx 15rpx 15rpx 15rpx;
+    color: #fff;
+    border-radius: 15rpx 0rpx 15rpx 15rpx;
+    background: linear-gradient(to right, #fa5484, #fba5d2);
 }
