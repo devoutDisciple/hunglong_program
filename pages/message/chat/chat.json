@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+      "chat-left": "/component/message/chatLeft/chatLeft",
+      "chat-right": "/component/message/chatRight/chatRight"
+  },
   "navigationBarTitleText": "聊天"
 }

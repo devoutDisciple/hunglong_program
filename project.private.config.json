@@ -183,6 +183,7 @@
         {
           "name": "聊天页面",
           "pathName": "pages/message/chat/chat",
+          "query": "person_id=1",
           "scene": null
         }
       ]

@@ -8,7 +8,7 @@ Page({
 		photoTmpUrl: '/asserts/public/photo.png',
 		backgroundTmpUrl: '/asserts/public/photo.png',
 		dateStart: '1990-01-01',
-		dateEnd: moment.getNowDate(),
+		dateEnd: moment().format('YYYY-MM-DD HH:mm:ss'),
 		activeDate: '2000-01-01',
 		areaList: [
 			['浙江省', '河南省'],

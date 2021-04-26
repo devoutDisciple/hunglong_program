@@ -1,0 +1,32 @@
+.chat {
+    font-size: 26rpx;
+    width: 80%;
+    background: red;
+}
+
+.time {
+    padding: 10rpx;
+    color: #999999;
+    text-align: center;
+    padding-left: 90rpx;
+}
+.con {
+    display: flex;
+}
+.con_img {
+    width: 70rpx;
+    height: 70rpx;
+}
+.con_img_img{
+    width: 70rpx;
+    height: 70rpx;
+    border-radius: 70rpx;
+}
+.con_txt {
+    margin-left: 20rpx;
+    padding: 16rpx 20rpx;
+    line-height: 40rpx;
+    background: #fff;
+    color: #333333;
+    border-radius: 0rpx 15rpx 15rpx 15rpx;
+}

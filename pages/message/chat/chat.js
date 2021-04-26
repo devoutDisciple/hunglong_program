@@ -5,6 +5,8 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
+		orginData: [], // 全部的消息记录
+		msg: [], // 消息记录
 		focus: true, // input是否聚焦
 		showEmoji: true, // 是否展示emoji
 		emojis: emoji.emoji,
@@ -14,7 +16,17 @@ Page({
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function (options) {},
+	onLoad: function (options) {
+		const { person_id } = options;
+		let msgData = wx.getStorageSync('msg_data');
+		msgData = JSON.parse(msgData);
+		if (Array.isArray(msgData)) {
+			const nowData = msgData.filter((item) => String(item.person_id) === String(person_id))[0];
+			const { msg } = nowData;
+			console.log(nowData, 111);
+			this.setData({ orginData: msgData, msg });
+		}
+	},
 
 	/**
 	 * 生命周期函数--监听页面初次渲染完成
@@ -76,7 +88,6 @@ Page({
 
 	// 输入框输入的时候
 	onChangeValue: function (e) {
-		console.log(e, 234);
 		const { value } = e.detail;
 		this.setData({ msgTxt: value });
 	},

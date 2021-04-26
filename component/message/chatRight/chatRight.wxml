@@ -1,0 +1,9 @@
+<view class="chat">
+    <view class="time">12:11</view>
+    <view class="con">
+        <view class="con_img">
+            <image class="con_img_img" src="/asserts/public/logo.png" />
+        </view>
+        <view class="con_txt">开发绝对是开发绝对是开发绝对是开发绝对是开发绝对是开发绝对是开发绝对是开发绝对是开发绝对是开发绝对是</view>
+    </view>
+</view>

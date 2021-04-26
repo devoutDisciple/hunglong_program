@@ -1,17 +1,10 @@
 <view class="wrap">
     <scroll-view class="content" scroll-y="{{true}}">
-        这是内容
-        <view class="chunk">213</view>
-        <view class="chunk">213</view>
-        <view class="chunk">213</view>
-        <view class="chunk">213</view>
-        <view class="chunk">213</view>
-        <view class="chunk">213</view>
-        <view class="chunk">213</view>
-        <view class="chunk">213</view>
-        <view class="chunk">213</view>
-        <view class="chunk">213</view>
-        <view class="chunk">213</view>
+        <chat-left wx:if="{{msg[0]}}" msg="{{msg[0]}}"/>
+        <chat-right wx:if="{{msg[0]}}" msg="{{msg[0]}}"/>
+        <!-- <block wx:for="{{msg}}" wx:key="{{index}}">
+            <chat-item wx:if="{{item}}" msg="{{item}}"/>
+        </block> -->
     </scroll-view>
     <view class="footer">
         <view class="desc">

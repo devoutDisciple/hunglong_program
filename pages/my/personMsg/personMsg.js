@@ -14,7 +14,7 @@ Page({
 		dateStart: '1990-01-01',
 		username: '',
 		sex: 0,
-		dateEnd: moment.getNowDate(),
+		dateEnd: moment().format('YYYY-MM-DD HH:mm:ss'),
 		activeDate: '2000-01-01',
 		originArea: [], // 原始的地区数据
 		areaList: [], // 微信小程序需要渲染的地区数据

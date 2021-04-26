@@ -17,25 +17,27 @@
     height: 90rpx;
     border-radius: 100%;
 }
-.txt {
+.chunk {
     flex: 1;
 }
-.txt_name {
+
+.chunk_title {
     height: 50rpx;
+    display: flex;
     line-height: 50rpx;
+}
+.chunk_title_name {
+    flex: 1;
     color: #333333;
-    font-size: 26rpx;
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
     word-break: break-all;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
+    margin-right: 40rpx;
 }
-.txt_content {
-    height: 50rpx;
-    line-height: 50rpx;
-    margin-top: 12rpx;
+.chunk_title_time {
     font-size: 22rpx;
     color: #999999;
     display: -webkit-box;
@@ -45,30 +47,33 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
 }
-.tip {
-    width: 150rpx;
-}
-.tip_time {
+.chunk_content {
     height: 50rpx;
+    display: flex;
     line-height: 50rpx;
+}
+.chunk_content_txt {
+    flex: 1;
+    line-height: 66rpx;
+    font-size: 22rpx;
+    margin-right: 40rpx;
     color: #999999;
-    display: flex;
-    justify-content: flex-end;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
-.tip_cir {
-    height: 50rpx;
-    line-height: 50rpx;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-.tip_num {
-    width: 45rpx;
-    height: 45rpx;
-    border-radius: 45rpx;
-    text-align: center;
-    line-height: 45rpx;
+.chunk_content_num {
     font-size: 20rpx;
+    height: 44rpx;
+    width: 44rpx;
+    text-align: center;
+    line-height: 44rpx;
     background: #f5406d;
+    border-radius: 100%;
     color: #fff;
 }
+
+

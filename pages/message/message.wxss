@@ -10,3 +10,7 @@
     height: 0;
     color: transparent;
 }
+
+.empty {
+    margin-top: 100rpx;
+}

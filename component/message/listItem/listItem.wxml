@@ -1,15 +1,18 @@
-<view class="list">
+<view class="list" bindtap="onTapMsg">
     <view class="photo">
-        <image src="{{url}}" />
+        <image src="{{msg.user_photo}}" />
     </view>
-     <view class="txt">
-        <view class="txt_name">{{username}}</view>
-        <view class="txt_content">{{txt}}</view>
-    </view>
-     <view class="tip">
-        <view class="tip_time">{{time}}</view>
-        <view class="tip_cir">
-            <view class="tip_num">{{num > 99 ? "99+" : num}}</view>
+    <view class="chunk">
+        <view class="chunk_title">
+            <view class="chunk_title_name">{{msg.user_name}}</view>
+            <view class="chunk_title_time">{{msg.lastMsgTime}}</view>
+        </view>
+        <view class="chunk_content">
+            <view class="chunk_content_txt">{{msg.lastMsgTxt}}</view>
+            <view class="chunk_content_num">
+                <!-- {{num > 99 ? "99+" : num}} -->
+                12
+            </view>
         </view>
     </view>
 </view>

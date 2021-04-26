@@ -4,11 +4,14 @@
     font-size: 26rpx;
     display: flex;
     flex-direction: column;
+    
 }
 .content {
     flex: 1;
     overflow: hidden;
     background: #eeeeee;
+    width: calc(100vw - 40rpx);
+    padding: 20rpx;
 }
 .chunk {
     height: 200rpx;

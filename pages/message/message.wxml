@@ -2,17 +2,13 @@
     <good-item type="goods" num="{{myReceiveGoodsNum}}" />
     <good-item type="comment" num="{{myReceiveCommentsNum}}" />
     <block wx:if="{{msgData && msgData.length !== 0}}">
-        <block wx:for="{{msgData}}">
-            <list-item 
-                url="{{item.user_photo}}" 
-                username="{{item.username}}" 
-                txt="防守打法是" 
-                time="12-23" 
-                num="12"/>
+        <block wx:for="{{msgData}}" wx:key="person_id">
+            <list-item msg="{{item}}" wx:if="{{item.person_id && item.person_id}}"/>
         </block>
+        <btm-empty />
     </block>
     <block wx:else>
+        <view class="empty"></view>
         <empty-img />
     </block>
-    <btm-empty />
 </scroll-view>

@@ -1,3 +1,4 @@
+// component/message/chatItem/chatItem.js
 Component({
 	/**
 	 * 组件的属性列表
@@ -17,13 +18,5 @@ Component({
 	/**
 	 * 组件的方法列表
 	 */
-	methods: {
-		// 点击消息
-		onTapMsg: function () {
-			const { msg } = this.data;
-			wx.navigateTo({
-				url: `/pages/message/chat/chat?person_id=${msg.person_id}`,
-			});
-		},
-	},
+	methods: {},
 });
