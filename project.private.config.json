@@ -179,6 +179,11 @@
           "pathName": "pages/my/myGoods/myGoods",
           "query": "user_id=10",
           "scene": null
+        },
+        {
+          "name": "聊天页面",
+          "pathName": "pages/message/chat/chat",
+          "scene": null
         }
       ]
     }

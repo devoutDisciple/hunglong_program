@@ -1,0 +1,39 @@
+<view class="wrap">
+    <scroll-view class="content" scroll-y="{{true}}">
+        这是内容
+        <view class="chunk">213</view>
+        <view class="chunk">213</view>
+        <view class="chunk">213</view>
+        <view class="chunk">213</view>
+        <view class="chunk">213</view>
+        <view class="chunk">213</view>
+        <view class="chunk">213</view>
+        <view class="chunk">213</view>
+        <view class="chunk">213</view>
+        <view class="chunk">213</view>
+        <view class="chunk">213</view>
+    </scroll-view>
+    <view class="footer">
+        <view class="desc">
+            <input 
+                class="ipt" 
+                maxlength="200"
+                value="{{msgTxt}}"
+                placeholder="请输入" 
+                cursor-spacing="180" 
+                bindfocus="onInputFocus"
+                bindinput="onChangeValue"
+                confirm-type="send"/>
+            <view class="send" bindtap = "onSendMsg">发送</view>
+        </view>
+        <view wx:if="{{focus}}" class="icon">
+            <image class="icon_img" src="/asserts/public/img.png" />
+            <image bindtap = "onShowEmoji" class="icon_img" src="/asserts/public/emoji.png" />
+        </view>
+        <scroll-view scroll-y="{{true}}" enable-flex wx:if="{{showEmoji}}" class="emoji">
+            <block wx:for="{{emojis}}" wx:key="index">
+                <view bindtap = "onClickEmoji" data-item="{{item}}" class="emoji_chunk">{{item}}</view>
+            </block>
+        </scroll-view>
+    </view>
+</view>

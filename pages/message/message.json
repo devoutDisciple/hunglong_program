@@ -2,7 +2,8 @@
   "usingComponents": {
     "good-item": "/component/message/goodItem/goodItem",
     "list-item": "/component/message/listItem/listItem",
-    "btm-empty": "/component/btmEmpty/btmEmpty"
+    "btm-empty": "/component/btmEmpty/btmEmpty",
+    "empty-img": "/component/emptyImg/emptyImg"
   },
   "navigationBarTitleText": "消息"
 }

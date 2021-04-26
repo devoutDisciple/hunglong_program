@@ -25,7 +25,8 @@
     "pages/publish/vote/vote",
     "pages/detail/detail",
     "pages/my/myPublish/myPublish",
-    "pages/my/myGoods/myGoods"
+    "pages/my/myGoods/myGoods",
+    "pages/message/chat/chat"
   ],
   "window": {
     "backgroundTextStyle": "light",

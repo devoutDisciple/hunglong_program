@@ -1,27 +1,41 @@
 import { get } from './utils/request';
 import { formatTime } from './utils/util';
+import config from './config/config';
 
 App({
 	globalData: {
 		userInfo: null,
-		myReceiveGoodsNum: 10, // 我收到的点赞量
-		myReceiveCommentsNum: 10, // 我收到的评论数
+		myReceiveGoodsNum: 0, // 我收到的点赞量
+		myReceiveCommentsNum: 0, // 我收到的评论数
 	},
+
 	data: {
 		goodsTimer: null, // 刷新点赞的记录
 	},
+
 	onLaunch: async function () {
-		// 在这里统计实时在线人数
+		if (config.env !== 'dev') {
+			// 统计各种信息
+			setInterval(() => {
+				this.getTotalMsg();
+			}, 5000);
+		}
+	},
+
+	// 各种统计信息
+	getTotalMsg: async function () {
 		// 获取收到的点赞
-		// const goodsNum = await this.getGoodsByUser();
-		// // 获取收到评论的数量
-		// const commnsNum = await this.getCommentsNumByUser();
-		// let totalNum = Number(goodsNum) + Number(commnsNum);
-		// totalNum = totalNum > 99 ? '99+' : totalNum;
-		// wx.setTabBarBadge({
-		// 	index: 2,
-		// 	text: String(totalNum),
-		// });
+		const goodsNum = await this.getGoodsByUser();
+		// 获取收到评论的数量
+		const commnsNum = await this.getCommentsNumByUser();
+		let totalNum = Number(goodsNum) + Number(commnsNum);
+		totalNum = totalNum > 99 ? '99+' : totalNum;
+		if (String(totalNum) !== '0') {
+			wx.setTabBarBadge({
+				index: 2,
+				text: String(totalNum),
+			});
+		}
 	},
 
 	// 获取收到的点赞
