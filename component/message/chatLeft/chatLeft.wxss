@@ -1,13 +1,15 @@
 .chat {
     font-size: 26rpx;
     width: 80%;
+    margin-top: 30rpx;
 }
 
 .time {
-    padding: 10rpx;
+    padding: 15rpx;
     color: #999999;
     text-align: center;
     padding-left: 90rpx;
+    font-size: 20rpx;
 }
 .con {
     display: flex;

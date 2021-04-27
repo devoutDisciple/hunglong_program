@@ -1,4 +1,5 @@
 import emoji from '../../../config/emoji';
+import { formatTime } from '../../../utils/util';
 
 Page({
 	/**
@@ -10,7 +11,8 @@ Page({
 		focus: true, // input是否聚焦
 		showEmoji: true, // 是否展示emoji
 		emojis: emoji.emoji,
-		msgTxt: '',
+		msgTxt: '', // 输入的内容
+		scrollBtmId: '',
 	},
 
 	/**
@@ -19,12 +21,21 @@ Page({
 	onLoad: function (options) {
 		const { person_id } = options;
 		let msgData = wx.getStorageSync('msg_data');
+
 		msgData = JSON.parse(msgData);
 		if (Array.isArray(msgData)) {
 			const nowData = msgData.filter((item) => String(item.person_id) === String(person_id))[0];
 			const { msg } = nowData;
 			console.log(nowData, 111);
-			this.setData({ orginData: msgData, msg });
+			console.log(msg, 222);
+			wx.setNavigationBarTitle({
+				title: nowData.user_name || '聊天',
+			});
+			this.setData({ orginData: msgData, msg: msg || [] }, () => {
+				if (!msg || msg.length === 0) return;
+				// 滚动到底部
+				this.setData({ scrollBtmId: `item_${msg.length}` });
+			});
 		}
 	},
 
@@ -48,24 +59,8 @@ Page({
 	 */
 	onUnload: function () {},
 
-	/**
-	 * 页面相关事件处理函数--监听用户下拉动作
-	 */
-	onPullDownRefresh: function () {},
-
-	/**
-	 * 页面上拉触底事件的处理函数
-	 */
-	onReachBottom: function () {},
-
-	/**
-	 * 用户点击右上角分享
-	 */
-	onShareAppMessage: function () {},
-
 	// 键盘聚焦的事件
-	onInputFocus: function (e) {
-		console.log(e, 23423);
+	onInputFocus: function () {
 		this.setData({ focus: true });
 	},
 
@@ -90,5 +85,21 @@ Page({
 	onChangeValue: function (e) {
 		const { value } = e.detail;
 		this.setData({ msgTxt: value });
+	},
+
+	// 点击发送
+	onSendMsg: function () {
+		const { msgTxt, msg } = this.data;
+		const newMsg = {
+			content: msgTxt,
+			from: 1,
+			time: formatTime(new Date()),
+			type: 1,
+		};
+		msg.push(newMsg);
+		this.setData({ msg, msgTxt: '' }, () => {
+			// 滚动到底部
+			this.setData({ scrollBtmId: `item_${msg.length}` });
+		});
 	},
 });

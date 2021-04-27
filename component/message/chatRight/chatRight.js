@@ -1,4 +1,5 @@
-// component/message/chatItem/chatItem.js
+import { getMsgShowTime } from '../../../utils/util';
+
 Component({
 	/**
 	 * 组件的属性列表
@@ -19,4 +20,12 @@ Component({
 	 * 组件的方法列表
 	 */
 	methods: {},
+
+	lifetimes: {
+		attached: function () {
+			const { msg } = this.data;
+			msg.time = msg.time ? getMsgShowTime(msg.time) : '';
+			this.setData({ msg });
+		},
+	},
 });
