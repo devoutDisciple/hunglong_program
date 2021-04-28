@@ -1,6 +1,7 @@
 import { emptyImgUrl } from '../../config/config';
 import { get, post } from '../../utils/request';
 import loading from '../../utils/loading';
+import login from '../../utils/login';
 
 Component({
 	options: {
@@ -44,6 +45,7 @@ Component({
 	methods: {
 		// 打开评论输入框
 		onShowIptDialog: function () {
+			if (!login.isLogin()) return;
 			this.setData({ iptVisible: true });
 			setTimeout(() => {
 				this.setData({ iptFocus: true });
@@ -69,6 +71,7 @@ Component({
 
 		// 改变点赞
 		onChangeGoods: function () {
+			if (!login.isLogin()) return;
 			const { detail } = this.data;
 			const user_id = wx.getStorageSync('user_id');
 			const flag = !detail.hadGoods;

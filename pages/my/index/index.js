@@ -1,6 +1,6 @@
-import config from '../../../config/config';
 import { get } from '../../../utils/request';
 import loading from '../../../utils/loading';
+import login from '../../../utils/login';
 
 Page({
 	/**
@@ -9,8 +9,9 @@ Page({
 	data: {
 		headerHight: 60,
 		hasGetUserInfo: false,
+		showSelfImg: false,
 		userDetail: {
-			photo: `${config.photoUrl}/photo.png`,
+			photo: '',
 		}, // 用户基本信息
 		userData: {
 			attentionNum: 0,
@@ -32,13 +33,8 @@ Page({
 	 * 生命周期函数--监听页面显示
 	 */
 	onShow: function () {
-		const user_id = wx.getStorageSync('user_id');
-		// 如果还没登录;
-		if (!user_id) {
-			return wx.navigateTo({
-				url: '/pages/login/wxLogin/wxLogin',
-			});
-		}
+		// 判断用户是否登录
+		if (!login.isLogin()) return;
 		if (!this.data.hasGetUserInfo) {
 			this.setData({ hasGetUserInfo: true });
 			this.getUserMsg();
@@ -78,7 +74,8 @@ Page({
 		const user_id = wx.getStorageSync('user_id');
 		get({ url: '/user/getUserByUserId', data: { user_id: user_id } })
 			.then((res) => {
-				this.setData({ userDetail: res });
+				const flag = res.photo.includes('https://thirdwx.qlogo.cn');
+				this.setData({ userDetail: res, showSelfImg: flag });
 			})
 			.finally(() => {
 				loading.hideLoading();

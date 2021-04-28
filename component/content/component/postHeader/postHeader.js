@@ -1,5 +1,6 @@
-import { filterContentTypeByField } from '../../../../utils/filter';
 import { post } from '../../../../utils/request';
+import login from '../../../../utils/login';
+import { filterContentTypeByField } from '../../../../utils/filter';
 
 Component({
 	/**
@@ -43,6 +44,7 @@ Component({
 					icon: 'error',
 				});
 			}
+			if (!login.isLogin()) return;
 			userDetail.hadAttention = !userDetail.hadAttention;
 			post({ url: '/attention/attentionUser', data: { user_id, other_id: userDetail.id } });
 			this.setData({ userDetail });

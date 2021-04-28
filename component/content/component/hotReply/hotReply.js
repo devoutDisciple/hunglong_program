@@ -1,4 +1,5 @@
 import { post } from '../../../../utils/request';
+import login from '../../../../utils/login';
 
 Component({
 	/**
@@ -31,6 +32,7 @@ Component({
 		// 点赞
 		onTapGood: function () {
 			const user_id = wx.getStorageSync('user_id');
+			if (!login.isLogin()) return;
 			const { replyDetail } = this.data;
 			const flag = !replyDetail.hadGoods;
 			replyDetail.goods += flag ? 1 : -1;

@@ -128,11 +128,7 @@ Page({
 		const { itemid } = e.detail;
 		const user_id = wx.getStorageSync('user_id');
 		// 如果没有登录，跳转到登录页面
-		if (!user_id) {
-			return wx.navigateTo({
-				url: '/pages/login/wxLogin/wxLogin',
-			});
-		}
+		if (!login.isLogin()) return;
 		// 如果没有选择学校，去完善个人信息
 		const { userDetail } = this.data;
 		if (!userDetail.school) {

@@ -1,6 +1,5 @@
 import { get } from './utils/request';
 import { formatTime } from './utils/util';
-import config from './config/config';
 
 App({
 	globalData: {

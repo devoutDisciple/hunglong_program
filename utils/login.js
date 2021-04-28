@@ -37,4 +37,16 @@ module.exports = {
 			});
 		});
 	},
+
+	// 判断用户是否登录
+	isLogin: () => {
+		const is_login = wx.getStorageSync('is_login');
+		if (!is_login || String(is_login) !== '1') {
+			wx.navigateTo({
+				url: '/pages/login/wxLogin/wxLogin',
+			});
+			return false;
+		}
+		return true;
+	},
 };

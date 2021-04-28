@@ -1,4 +1,5 @@
 import { post } from '../../../../utils/request';
+import login from '../../../../utils/login';
 
 Component({
 	/**
@@ -22,6 +23,7 @@ Component({
 	methods: {
 		// 点击转发
 		onTapShare: function () {
+			if (!login.isLogin()) return;
 			this.triggerEvent('OnTapShare');
 		},
 		// 点击消息
@@ -35,6 +37,7 @@ Component({
 		},
 		// 点击赞
 		onTapGood: function () {
+			if (!login.isLogin()) return;
 			const { detail } = this.data;
 			const flag = !detail.hadGoods;
 			detail.hadGoods = flag;

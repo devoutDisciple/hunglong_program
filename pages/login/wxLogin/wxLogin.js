@@ -12,9 +12,8 @@ Page({
 	getUserInfo: function (e) {
 		if (e && e.detail && e.detail.errMsg === 'getUserInfo:ok') {
 			const { userInfo } = e.detail;
-			login.getLogin(userInfo).then((res) => {
-				app.globalData.userInfo = res;
-				wx.setStorageSync('wx_openid', res.wx_openid);
+			login.getLogin(userInfo).then(() => {
+				wx.setStorageSync('is_login', 1);
 				wx.switchTab({
 					url: '/pages/home/home',
 				});
