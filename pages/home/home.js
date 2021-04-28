@@ -2,6 +2,7 @@ import login from '../../utils/login';
 import loading from '../../utils/loading';
 import { get } from '../../utils/request';
 import { filterContentTypeByNum } from '../../utils/filter';
+import { getDeviceInfo } from '../../utils/util';
 
 Page({
 	/**
@@ -17,12 +18,17 @@ Page({
 		userDetail: {}, // 用户基本信息
 		dataList: [], // 数据列表
 		topicClass: 'topic_origin',
+		headerHight: '60px',
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function () {
+		// 获取设备信息
+		getDeviceInfo().then((res) => {
+			this.setData({ headerHight: `${res.headerHight}px` });
+		});
 		const user_id = wx.getStorageSync('user_id');
 		if (!user_id) {
 			login.getLogin().then(() => {

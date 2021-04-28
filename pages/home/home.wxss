@@ -28,6 +28,7 @@
     padding-top: 40rpx;
     background: #fff;
     justify-content: space-around;
+    margin-bottom: 20rpx;
 }
 
 .icon_chunk {
@@ -48,7 +49,6 @@
 }
 
 .tab {
-    margin-top: 20rpx;
     display: flex;
     flex-direction: row;
     overflow: hidden;
@@ -58,7 +58,9 @@
 
 .top_fixed {
     position: fixed;
-    top: 101rpx;
+    /* top: 101rpx; */
+    z-index: 9999;
+    box-shadow: 0rpx 9rpx 14rpx 0rpx #eeeeee;
 }
 
 .tab_con {

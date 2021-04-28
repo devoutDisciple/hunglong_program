@@ -1,3 +1,5 @@
+import { getDeviceInfo } from '../../utils/util';
+
 Component({
 	properties: {
 		/**
@@ -22,30 +24,25 @@ Component({
 
 	// 组件生命周期函数-在组件实例进入页面节点树时执行)
 	attached() {
-		const self = this;
-		// 菜单按钮的布局信息
-		const menuDetail = wx.getMenuButtonBoundingClientRect();
-		// 获取设备信息
-		wx.getSystemInfo({
-			success: function (res) {
-				const { height: btnHeight, top: btnTop, width: btnWidth, right: btnRight } = menuDetail;
-				const { statusBarHeight, screenWidth } = res;
-				const headerHight = (btnTop - statusBarHeight) * 2 + statusBarHeight + btnHeight;
-				const navHeight = headerHight - statusBarHeight;
-				const disWidth = (screenWidth - btnRight) * 2 + btnWidth;
-				const paddingLeft = screenWidth - btnRight;
-				const paddingTop = btnTop - statusBarHeight;
-				const conHegiht = navHeight - paddingTop * 2;
-				self.setData({
-					headerHight,
-					statusHeight: statusBarHeight,
-					navHeight,
-					conHegiht,
-					disWidth,
-					paddingLeft,
-					paddingTop,
-				});
-			},
+		getDeviceInfo().then((res) => {
+			const {
+				headerHight,
+				statusBarHeight: statusHeight,
+				navHeight,
+				conHegiht,
+				disWidth,
+				paddingLeft,
+				paddingTop,
+			} = res;
+			this.setData({
+				headerHight,
+				statusHeight,
+				navHeight,
+				conHegiht,
+				disWidth,
+				paddingLeft,
+				paddingTop,
+			});
 		});
 	},
 });
