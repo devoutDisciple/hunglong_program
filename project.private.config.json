@@ -85,6 +85,12 @@
 					"scene": null
 				},
 				{
+					"name": "个人主页",
+					"pathName": "pages/person/person",
+					"query": "",
+					"scene": null
+				},
+				{
 					"name": "账号信息",
 					"pathName": "pages/my/accountMsg/accountMsg",
 					"query": "",

@@ -1,0 +1,128 @@
+.wrap {
+    font-size: 26rpx;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.content {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    background: #fff;
+}
+.header {
+    width: 100vw;
+    text-align: center;
+    position: absolute;
+    color: #fff;
+    font-size: 30rpx;
+}
+
+.head_img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.bg {
+    width: 100vw;
+    height: 50vw;
+    overflow: hidden;
+}
+
+.bg_img {
+    width: 100%;
+    min-height: 50vw;
+}
+
+.introduce {
+    width: 100vw;
+    height: 140rpx;
+    position: absolute;
+    top: calc(50vw - 50rpx);
+    display: flex;
+}
+.intro_img {
+    height: 140rpx;
+    width: 140rpx;
+    border-radius: 140rpx;
+    margin-left: 20rpx;
+}
+.intro_msg {
+    flex: 1;
+}
+.intro_msg_empty {
+    height: 50rpx;
+}
+.intro_msg_con {
+    height: 90rpx;
+    display: flex;
+}
+.intro_msg_con_left {
+    flex: 1;
+    margin: 0 10rpx;
+}
+.intro_msg_con_left_top {
+    height: 60rpx;
+    display: flex;
+}
+.intro_msg_con_left_top_name {
+    color: #333333;
+    line-height: 60rpx;
+    font-size: 28rpx;
+}
+.intro_msg_con_left_top_img {
+    width: 50rpx;
+    margin-left: 10rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.intro_msg_con_left_top_img image {
+    width: 30rpx;
+    height: 30rpx;
+}
+.intro_msg_con_left_btm {
+    height: 30rpx;
+    line-height: 30rpx;
+    font-size: 20rpx;
+    color: #999999;
+}
+.intro_msg_con_right {
+    padding-right: 20rpx;
+    display: flex;
+    align-items: center;
+}
+.concern_btn{
+    padding: 8rpx 27rpx;
+    text-align: center;
+    border: 1rpx solid #999999;
+    border-radius: 50rpx;
+}
+.concern_active_btn {
+    padding: 10rpx 29rpx;
+    background: #ededed;
+    color: #969696;
+    border: none;
+}
+.sign {
+    margin-top: 90rpx;
+    background: #fff;
+    font-size: 22rpx;
+    padding: 20rpx;
+    padding-top: 10rpx;
+    color: #999999;
+}
+
+.test {
+    height: 300rpx;
+}
+.footer {
+    height: 100rpx;
+    background: blue;
+}
+

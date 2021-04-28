@@ -1,0 +1,47 @@
+<view class="wrap">
+    <scroll-view scroll-y="{{true}}" class="content">
+         <view class="bg">
+            <image class="bg_img" src="/asserts/temp/16.png"/>
+        </view>
+        <view class="header" style="{{'height: '+navHeight+'; top: '+ statusBarHeight+ '; line-height: '+navHeight}}">
+            个人主页
+            <image 
+                style="{{'height: '+backIconHeight+'; width: '+backIconHeight+'; top: '+backIconMarginTop+'; left: '+backIconMarginTop}}" 
+                class="head_img" src="/asserts/public/back_icon.png" />
+        </view>
+        <view class="introduce">
+            <image class="intro_img" src="/asserts/public/logo.png"/>
+            <view class="intro_msg">
+                <view class="intro_msg_empty" />
+                 <view class="intro_msg_con">
+                    <view class="intro_msg_con_left">
+                        <view class="intro_msg_con_left_top">
+                            <view class="intro_msg_con_left_top_name">疾风剑豪</view>
+                            <view class="intro_msg_con_left_top_img">
+                                <image src="/asserts/public/vip1.png" />
+                            </view>
+                        </view>
+                        <view class="intro_msg_con_left_btm">杭州市高级中学</view>
+                    </view>
+                    <view class="intro_msg_con_right">
+                        <view wx:if="{{userDetail.hadAttention}}" class="concern_btn concern_active_btn">已关注</view>
+                        <view wx:else class="concern_btn">关注</view>
+                    </view>
+                 </view>
+            </view>
+        </view>
+        <view class="sign">个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名</view>
+        <view class="test">test</view>
+        <view class="test">test</view>
+        <view class="test">test</view>
+        <view class="test">test</view>
+        <view class="test">test</view>
+        <view class="test">test</view>
+        <view class="test">test</view>
+        <view class="test">test</view>
+        <view class="test">test</view>
+        <view class="test">test</view>
+        <view class="test">test</view>
+    </scroll-view>
+    <view class="footer">123</view>
+</view>

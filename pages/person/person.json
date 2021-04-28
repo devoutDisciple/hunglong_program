@@ -1,0 +1,6 @@
+{
+	"usingComponents": {
+        "img": "/component/img/img"
+    },
+    "navigationStyle": "custom"
+}

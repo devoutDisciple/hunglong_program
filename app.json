@@ -26,7 +26,8 @@
     "pages/detail/detail",
     "pages/my/myPublish/myPublish",
     "pages/my/myGoods/myGoods",
-    "pages/message/chat/chat"
+    "pages/message/chat/chat",
+    "pages/person/person"
   ],
   "window": {
     "backgroundTextStyle": "light",
