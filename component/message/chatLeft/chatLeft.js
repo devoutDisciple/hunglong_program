@@ -1,5 +1,3 @@
-import { getMsgShowTime } from '../../../utils/util';
-
 Component({
 	/**
 	 * 组件的属性列表
@@ -7,6 +5,10 @@ Component({
 	properties: {
 		msg: {
 			type: Object,
+			value: {},
+		},
+		userPhoto: {
+			type: String,
 			value: '',
 		},
 	},

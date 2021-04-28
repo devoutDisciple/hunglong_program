@@ -5,7 +5,7 @@
             <view class="con_txt">{{msg.content}}</view>
         </view>
         <view class="con_img">
-            <image class="con_img_img" src="/asserts/public/logo.png" />
+            <image class="con_img_img" src="{{userPhoto}}" />
         </view>
     </view>
 </view>

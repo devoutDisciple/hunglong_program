@@ -25,43 +25,41 @@ App({
 
 	// 获取消息
 	getMyMessage: function () {
-		console.log(9999);
 		const user_id = wx.getStorageSync('user_id');
 		if (!user_id) return;
 		get({ url: '/message/msgsByUserId', data: { user_id } }).then((res) => {
-			console.log(res, 2222);
-			if (Array.isArray(res)) {
-				let msgData = wx.getStorageSync('msg_data') || [];
-				if (msgData) {
-					msgData = JSON.parse(msgData);
-					console.log(msgData, 444);
-					res.forEach((item) => {
-						const currentMsg = msgData.filter((msg) => item.user_id === msg.person_id)[0];
-						if (currentMsg) {
-							currentMsg.msg.push({
-								content: item.content,
-								from: 2,
-								time: item.create_time,
-								type: 1,
-							});
-						} else {
-							msgData.push({
-								person_id: item.user_id,
-								person_name: item.person_name,
-								person_photo: item.person_photo,
-								msg: [
-									{
-										content: item.content,
-										from: 2,
-										time: item.create_time,
-										type: 1,
-									},
-								],
-							});
-						}
-					});
-				}
-				console.log(msgData, 12321);
+			if (res && Array.isArray(res.data) && res.data.length !== 0) {
+				const { data, total } = res;
+				console.log(res, 111);
+				let msgData = wx.getStorageSync('msg_data') || '[]';
+				msgData = JSON.parse(msgData);
+				data.forEach((item) => {
+					const currentMsg = msgData.filter((msg) => item.user_id === msg.person_id)[0];
+					if (currentMsg) {
+						currentMsg.noread = Number(currentMsg.noread) + Number(total);
+						currentMsg.msg.push({
+							content: item.content,
+							from: 2,
+							time: item.create_time,
+							type: 1,
+						});
+					} else {
+						msgData.push({
+							person_id: item.user_id,
+							person_name: item.username,
+							person_photo: item.user_photo,
+							noread: total,
+							msg: [
+								{
+									content: item.content,
+									from: 2,
+									time: item.create_time,
+									type: 1,
+								},
+							],
+						});
+					}
+				});
 				wx.setStorageSync('msg_data', JSON.stringify(msgData));
 			}
 		});

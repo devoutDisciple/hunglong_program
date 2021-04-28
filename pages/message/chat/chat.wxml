@@ -2,8 +2,8 @@
     <scroll-view class="content" scroll-y="{{true}}" scroll-into-view="{{scrollBtmId}}">
         <block wx:if="{{msg && msg.length !== 0}}">
             <block wx:for="{{msg}}" wx:key="index">
-                <chat-left wx:if="{{item && item.from == 2}}" msg="{{item}}"/>
-                <chat-right wx:if="{{item && item.from == 1}}" msg="{{item}}"/>
+                <chat-left wx:if="{{item && item.from == 2}}" msg="{{item}}" userPhoto="{{person_detail.person_photo}}"/>
+                <chat-right wx:if="{{item && item.from == 1}}" msg="{{item}}" userPhoto="{{user_detail.photo}}"/>
             </block>
             <text id="{{'item_' + msg.length}}"></text>
             <btm-empty />

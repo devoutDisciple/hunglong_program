@@ -1,5 +1,5 @@
 import emoji from '../../../config/emoji';
-import { post } from '../../../utils/request';
+import { post, get } from '../../../utils/request';
 import { formatTime, getMsgShowTime, getDiffTime } from '../../../utils/util';
 
 Page({
@@ -8,6 +8,7 @@ Page({
 	 */
 	data: {
 		orginData: [], // 全部的消息记录
+		user_detail: {}, // 当前用户的基本信息
 		person_detail: {}, // 当前聊天的用户信息
 		msg: [], // 消息记录
 		focus: true, // input是否聚焦
@@ -22,6 +23,12 @@ Page({
 	 */
 	onLoad: function (options) {
 		const { person_id } = options;
+		if (!person_id) {
+			return wx.switchTab({
+				url: '/pages/home/home',
+			});
+		}
+		this.getUserMsg();
 		let orginData = wx.getStorageSync('msg_data');
 		orginData = JSON.parse(orginData);
 		if (Array.isArray(orginData)) {
@@ -61,6 +68,15 @@ Page({
 		}
 	},
 
+	// 获取个人信息
+	getUserMsg: function () {
+		const user_id = wx.getStorageSync('user_id');
+		get({ url: '/user/getUserByUserId', data: { user_id } }).then((res) => {
+			console.log(res, 433);
+			this.setData({ user_detail: res });
+		});
+	},
+
 	// 键盘聚焦的事件
 	onInputFocus: function () {
 		this.setData({ focus: true });
@@ -89,12 +105,14 @@ Page({
 		this.setData({ msgTxt: value });
 	},
 
-	// 发送消息
+	// 保存消息到服务端
 	postMessage: function (msgTxt) {
 		const user_id = wx.getStorageSync('user_id');
-		const { person_detail } = this.data;
-		const { person_id, person_name, person_photo } = person_detail;
-		post({ url: '/message/addMsg', data: { user_id, person_id, person_name, person_photo, content: msgTxt } });
+		const { person_detail, user_detail } = this.data;
+		const { person_id } = person_detail;
+		console.log(user_detail, 1123);
+		const { username, photo } = user_detail;
+		post({ url: '/message/addMsg', data: { user_id, person_id, username, user_photo: photo, content: msgTxt } });
 	},
 
 	// 点击发送

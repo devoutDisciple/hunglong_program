@@ -13,20 +13,21 @@ Page({
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function () {
+	onShow: function () {
 		this.getTotalNum();
 
-		this.setStoreageMsg();
-		// this.getStorageMsg();
+		// this.setStoreageMsg();
+		this.getStorageMsg();
 	},
 
 	// 模拟数据存储
 	setStoreageMsg: function () {
 		const data = [];
 		data.push({
-			person_id: 1,
-			person_name: '疾风剑豪',
-			person_photo: '/asserts/public/logo.png',
+			person_id: 9,
+			person_name: '张振',
+			person_photo: 'http://localhost:8888/photo/6LPH9ZEBX891R5J5-1618900313345.png',
+			unread: 0,
 			msg: [],
 		});
 		wx.setStorageSync('msg_data', JSON.stringify(data));
@@ -67,11 +68,6 @@ Page({
 	 * 生命周期函数--监听页面初次渲染完成
 	 */
 	onReady: function () {},
-
-	/**
-	 * 生命周期函数--监听页面显示
-	 */
-	onShow: function () {},
 
 	/**
 	 * 生命周期函数--监听页面隐藏
