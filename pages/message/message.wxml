@@ -3,7 +3,7 @@
     <good-item type="comment" num="{{myReceiveCommentsNum}}" />
     <block wx:if="{{msgData && msgData.length !== 0}}">
         <block wx:for="{{msgData}}" wx:key="person_id">
-            <list-item msg="{{item}}" wx:if="{{item.person_id && item.person_id}}"/>
+            <list-item msg="{{item}}" wx:if="{{item.person_id && item.person_name}}"/>
         </block>
         <btm-empty />
     </block>

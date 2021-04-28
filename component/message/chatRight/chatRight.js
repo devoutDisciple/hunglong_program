@@ -21,11 +21,5 @@ Component({
 	 */
 	methods: {},
 
-	lifetimes: {
-		attached: function () {
-			const { msg } = this.data;
-			msg.time = msg.time ? getMsgShowTime(msg.time) : '';
-			this.setData({ msg });
-		},
-	},
+	lifetimes: {},
 });

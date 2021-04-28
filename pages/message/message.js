@@ -1,5 +1,4 @@
 import util from '../../utils/util';
-import moment from '../../utils/moment';
 
 Page({
 	/**
@@ -14,30 +13,22 @@ Page({
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function (options) {
+	onLoad: function () {
 		this.getTotalNum();
 
-		// this.setStoreageMsg();
-		this.getStorageMsg();
+		this.setStoreageMsg();
+		// this.getStorageMsg();
 	},
 
 	// 模拟数据存储
 	setStoreageMsg: function () {
 		const data = [];
-		for (let i = 1; i < 10; i++) {
-			const obj = { person_id: i, user_name: `zhangzhen${i}`, user_photo: '/asserts/public/logo.png', msg: [] };
-			for (let j = 0; j < 100; j++) {
-				obj.msg.push({
-					from: Math.random() > 0.5 ? 1 : 2, // 1-我发的信息 2-他发的信息
-					content: `这是信息${j}`,
-					type: 1, // 1-文字 2-图片
-					time: moment()
-						.subtract(i * j, 'hours')
-						.format('YYYY-MM-DD HH:mm:ss'),
-				});
-			}
-			data.push(obj);
-		}
+		data.push({
+			person_id: 1,
+			person_name: '疾风剑豪',
+			person_photo: '/asserts/public/logo.png',
+			msg: [],
+		});
 		wx.setStorageSync('msg_data', JSON.stringify(data));
 	},
 
@@ -46,13 +37,9 @@ Page({
 		let msgData = wx.getStorageSync('msg_data');
 		if (msgData) {
 			msgData = JSON.parse(msgData);
-			console.log(msgData, 1111);
 			if (Array.isArray(msgData)) {
 				msgData.forEach((item) => {
-					if (Array.isArray(item.msg)) {
-						item.msg.forEach((msg) => {
-							msg.showTime = util.getMsgShowTime(msg.time);
-						});
+					if (Array.isArray(item.msg) && item.msg.length !== 0) {
 						const lastMsg = item.msg[item.msg.length - 1];
 						item.lastMsgTxt = lastMsg.content || '';
 						item.lastMsgTime = util.getMsgShowTime(lastMsg.time);

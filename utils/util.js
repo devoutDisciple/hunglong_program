@@ -17,12 +17,19 @@ const formatTime = (date) => {
 
 const getMsgShowTime = (date) => {
 	const diffDays = moment(new Date()).diff(moment(date), 'days');
-	if (diffDays < 3) return moment(date).fromNow();
+	if (diffDays < 3) return moment(date).calendar();
 	if (diffDays < 30) return moment(date).format('MM-DD HH:mm');
 	return moment(date).format('YYYY-MM-DD HH:mm');
+};
+
+const getDiffTime = (d1, d2) => {
+	const diffDays = moment(d1).diff(moment(d2), 'minutes');
+	console.log(diffDays, 111);
+	return diffDays;
 };
 
 module.exports = {
 	formatTime,
 	getMsgShowTime,
+	getDiffTime,
 };

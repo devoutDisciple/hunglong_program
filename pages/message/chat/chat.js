@@ -1,5 +1,6 @@
 import emoji from '../../../config/emoji';
-import { formatTime } from '../../../utils/util';
+import { post } from '../../../utils/request';
+import { formatTime, getMsgShowTime, getDiffTime } from '../../../utils/util';
 
 Page({
 	/**
@@ -7,6 +8,7 @@ Page({
 	 */
 	data: {
 		orginData: [], // 全部的消息记录
+		person_detail: {}, // 当前聊天的用户信息
 		msg: [], // 消息记录
 		focus: true, // input是否聚焦
 		showEmoji: true, // 是否展示emoji
@@ -20,44 +22,44 @@ Page({
 	 */
 	onLoad: function (options) {
 		const { person_id } = options;
-		let msgData = wx.getStorageSync('msg_data');
-
-		msgData = JSON.parse(msgData);
-		if (Array.isArray(msgData)) {
-			const nowData = msgData.filter((item) => String(item.person_id) === String(person_id))[0];
+		let orginData = wx.getStorageSync('msg_data');
+		orginData = JSON.parse(orginData);
+		if (Array.isArray(orginData)) {
+			const nowData = orginData.filter((item) => String(item.person_id) === String(person_id))[0];
+			console.log(nowData, 234);
+			if (!nowData) return;
 			const { msg } = nowData;
-			console.log(nowData, 111);
-			console.log(msg, 222);
 			wx.setNavigationBarTitle({
-				title: nowData.user_name || '聊天',
+				title: nowData.person_name || '聊天',
 			});
-			this.setData({ orginData: msgData, msg: msg || [] }, () => {
-				if (!msg || msg.length === 0) return;
-				// 滚动到底部
-				this.setData({ scrollBtmId: `item_${msg.length}` });
-			});
+			if (Array.isArray(msg)) {
+				let time = formatTime(new Date());
+				msg.forEach((item) => {
+					// 如果时间间隔大于30分钟
+					if (getDiffTime(time, item.time) > 30) {
+						item.showTime = getMsgShowTime(item.time);
+						time = item.time;
+					}
+				});
+			}
+			this.setData(
+				{
+					orginData,
+					msg: msg || [],
+					person_detail: {
+						person_id: nowData.person_id,
+						person_name: nowData.person_name,
+						person_photo: nowData.person_photo,
+					},
+				},
+				() => {
+					if (!msg || msg.length === 0) return;
+					// 滚动到底部
+					this.setData({ scrollBtmId: `item_${msg.length}` });
+				},
+			);
 		}
 	},
-
-	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-	onReady: function () {},
-
-	/**
-	 * 生命周期函数--监听页面显示
-	 */
-	onShow: function () {},
-
-	/**
-	 * 生命周期函数--监听页面隐藏
-	 */
-	onHide: function () {},
-
-	/**
-	 * 生命周期函数--监听页面卸载
-	 */
-	onUnload: function () {},
 
 	// 键盘聚焦的事件
 	onInputFocus: function () {
@@ -87,9 +89,17 @@ Page({
 		this.setData({ msgTxt: value });
 	},
 
+	// 发送消息
+	postMessage: function (msgTxt) {
+		const user_id = wx.getStorageSync('user_id');
+		const { person_detail } = this.data;
+		const { person_id, person_name, person_photo } = person_detail;
+		post({ url: '/message/addMsg', data: { user_id, person_id, person_name, person_photo, content: msgTxt } });
+	},
+
 	// 点击发送
 	onSendMsg: function () {
-		const { msgTxt, msg } = this.data;
+		const { orginData, msgTxt, msg } = this.data;
 		const newMsg = {
 			content: msgTxt,
 			from: 1,
@@ -97,9 +107,25 @@ Page({
 			type: 1,
 		};
 		msg.push(newMsg);
+		if (Array.isArray(msg)) {
+			let time = formatTime(new Date());
+			msg.forEach((item) => {
+				// 如果时间间隔大于30分钟
+				if (getDiffTime(time, item.time) > 30) {
+					item.showTime = getMsgShowTime(item.time);
+					time = item.time;
+				}
+			});
+		}
 		this.setData({ msg, msgTxt: '' }, () => {
 			// 滚动到底部
 			this.setData({ scrollBtmId: `item_${msg.length}` });
+			// 存储消息
+			wx.setStorage({
+				data: JSON.stringify(orginData),
+				key: 'msg_data',
+			});
+			this.postMessage(msgTxt);
 		});
 	},
 });

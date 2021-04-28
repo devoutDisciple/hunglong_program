@@ -1,10 +1,10 @@
 <view class="list" bindtap="onTapMsg">
     <view class="photo">
-        <image src="{{msg.user_photo}}" />
+        <image src="{{msg.person_photo}}" />
     </view>
     <view class="chunk">
         <view class="chunk_title">
-            <view class="chunk_title_name">{{msg.user_name}}</view>
+            <view class="chunk_title_name">{{msg.person_name}}</view>
             <view class="chunk_title_time">{{msg.lastMsgTime}}</view>
         </view>
         <view class="chunk_content">

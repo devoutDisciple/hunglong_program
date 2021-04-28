@@ -14,12 +14,57 @@ App({
 	},
 
 	onLaunch: async function () {
-		if (config.env !== 'dev') {
-			// 统计各种信息
-			setInterval(() => {
-				this.getTotalMsg();
-			}, 5000);
-		}
+		// if (config.env !== 'dev') {
+		// 统计各种信息
+		// setInterval(() => {
+		this.getTotalMsg();
+		this.getMyMessage();
+		// }, 5000);
+		// }
+	},
+
+	// 获取消息
+	getMyMessage: function () {
+		console.log(9999);
+		const user_id = wx.getStorageSync('user_id');
+		if (!user_id) return;
+		get({ url: '/message/msgsByUserId', data: { user_id } }).then((res) => {
+			console.log(res, 2222);
+			if (Array.isArray(res)) {
+				let msgData = wx.getStorageSync('msg_data') || [];
+				if (msgData) {
+					msgData = JSON.parse(msgData);
+					console.log(msgData, 444);
+					res.forEach((item) => {
+						const currentMsg = msgData.filter((msg) => item.user_id === msg.person_id)[0];
+						if (currentMsg) {
+							currentMsg.msg.push({
+								content: item.content,
+								from: 2,
+								time: item.create_time,
+								type: 1,
+							});
+						} else {
+							msgData.push({
+								person_id: item.user_id,
+								person_name: item.person_name,
+								person_photo: item.person_photo,
+								msg: [
+									{
+										content: item.content,
+										from: 2,
+										time: item.create_time,
+										type: 1,
+									},
+								],
+							});
+						}
+					});
+				}
+				console.log(msgData, 12321);
+				wx.setStorageSync('msg_data', JSON.stringify(msgData));
+			}
+		});
 	},
 
 	// 各种统计信息

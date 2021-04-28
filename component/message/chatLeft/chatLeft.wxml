@@ -1,5 +1,5 @@
 <view class="chat">
-    <view class="time">{{msg.time}}</view>
+    <view class="time">{{msg.showTime}}</view>
     <view class="con">
         <view class="con_img">
             <image class="con_img_img" src="/asserts/public/logo.png" />
