@@ -1,5 +1,5 @@
 <view class="wrap">
-    <view class="title">{{detail.title}}</view>
+    <view class="title" bindtap = "onGoDetail" >{{detail.title}}</view>
     <view class="battle">
         <view class="battle_chunk">
             <img data="{{detail.red_url}}"/>

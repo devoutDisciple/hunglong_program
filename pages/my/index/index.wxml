@@ -9,10 +9,10 @@
                             <open-data class="person_img_img" type="userAvatarUrl"></open-data>
                         </block>
                         <block wx:else>
-                            <image class="person_img_img" src="{{userDetail.photo}}" />
+                            <image bindtap = "onGoUserDetail" class="person_img_img" src="{{userDetail.photo}}" />
                         </block>
                     </view>
-                    <view class="person_msg">
+                    <view class="person_msg" bindtap = "onGoUserMsg">
                         <view class="person_msg_name">
                             <block wx:if="{{showSelfImg && !userDetail.username}}">
                                 <open-data type="userNickName"></open-data>

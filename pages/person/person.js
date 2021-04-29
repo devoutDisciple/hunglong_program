@@ -46,6 +46,7 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
+		console.log(options, 3242);
 		const current_user_id = wx.getStorageSync('user_id');
 		const { user_id } = options;
 		this.setData({ user_id, current_user_id }, () => {
@@ -57,6 +58,13 @@ Page({
 			this.getMyAttentionUsersNum();
 			// 获取帖子博客等内容
 			this.getPostsByUserId(0);
+		});
+	},
+
+	// 点击返回
+	onGoback: function () {
+		wx.navigateBack({
+			complete: () => {},
 		});
 	},
 

@@ -33,14 +33,14 @@ Page({
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function () {
+	onLoad: function (options) {
+		const { user_id } = options;
 		// 查询个人信息
-		this.getUserMsg();
+		this.getUserMsg(user_id);
 	},
 
 	// 查询个人信息
-	getUserMsg: function () {
-		const user_id = wx.getStorageSync('user_id');
+	getUserMsg: function (user_id) {
 		loading.showLoading();
 		get({ url: '/user/userDetailByUserId', data: { user_id } }).then((res) => {
 			const { photo, username, sex, birthday, address, school, level, bg_url, sign } = res;

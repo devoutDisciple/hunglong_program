@@ -1,5 +1,5 @@
 <view class="vote_con">
-    <view class="title">{{detail.title}}</view>
+    <view bindtap = "onGoDetail" class="title">{{detail.title}}</view>
     <block wx:for="{{detail.content}}" wx:key="idx">
         <view class="vote_item" bindtap = "onSelectItem" data-idx="{{index}}">
             <vote-item detail="{{item}}" isSelect="{{item.selected}}"/>

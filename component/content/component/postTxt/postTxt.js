@@ -8,15 +8,15 @@ Component({
 			type: Boolean,
 			value: false,
 		},
-		type: {
-			type: String,
-			value: '',
-		},
 		showLink: {
 			type: Boolean,
 			value: false,
 		},
 		detail: {
+			type: Object,
+			value: {},
+		},
+		contentDetail: {
 			type: Object,
 			value: {},
 		},
@@ -36,10 +36,14 @@ Component({
 	 */
 	methods: {
 		onClick: function () {
-			const { type } = this.data;
-			wx.navigateTo({
-				url: `/pages/detail/posts/posts?type=${type}`,
-			});
+			const { contentDetail } = this.data;
+			const pages = getCurrentPages();
+			const currentPage = pages[pages.length - 1];
+			if (currentPage.router !== 'pages/detail/detail') {
+				wx.navigateTo({
+					url: `/pages/detail/detail?content_id=${contentDetail.id}&type=${contentDetail.type}`,
+				});
+			}
 		},
 	},
 });

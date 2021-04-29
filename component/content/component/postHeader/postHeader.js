@@ -49,6 +49,14 @@ Component({
 			post({ url: '/attention/attentionUser', data: { user_id, other_id: userDetail.id } });
 			this.setData({ userDetail });
 		},
+
+		// 点击用户头像
+		onSearchUserDetail: function () {
+			const { userDetail } = this.data;
+			wx.navigateTo({
+				url: `/pages/person/person?user_id=${userDetail.id}`,
+			});
+		},
 	},
 
 	lifetimes: {

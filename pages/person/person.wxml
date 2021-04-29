@@ -6,6 +6,7 @@
         <view class="header" style="{{'height: '+navHeight+'; top: '+ statusBarHeight+ '; line-height: '+navHeight}}">
             个人主页
             <image 
+                bindtap = "onGoback"
                 style="{{'height: '+backIconHeight+'; width: '+backIconHeight+'; top: '+backIconMarginTop+'; left: '+backIconMarginTop}}" 
                 class="head_img" src="/asserts/public/back_icon.png" />
         </view>

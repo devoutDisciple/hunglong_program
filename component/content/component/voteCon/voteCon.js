@@ -83,6 +83,18 @@ Component({
 			});
 			this.setData({ detail });
 		},
+
+		// 查看详情
+		onGoDetail: function () {
+			const { contentDetail } = this.data;
+			const pages = getCurrentPages();
+			const currentPage = pages[pages.length - 1];
+			if (currentPage.router !== 'pages/detail/detail') {
+				wx.navigateTo({
+					url: `/pages/detail/detail?content_id=${contentDetail.id}&type=${contentDetail.type}`,
+				});
+			}
+		},
 	},
 
 	// 组件生命周期函数-在组件实例进入页面节点树时执行)

@@ -1,4 +1,4 @@
-<view class="content">
+<view class="content" bindtap="onSearchUserDetail">
     <view class="img">
         <image src="{{userDetail.photo}}" />
     </view>

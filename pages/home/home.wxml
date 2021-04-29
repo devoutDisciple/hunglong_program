@@ -22,7 +22,7 @@
                         </block>
                     </van-tabs>
                 </view>
-                <view class="tab_add">
+                <view class="tab_add" bindtap = "onSelectCicle">
                     <image src="/asserts/public/tabAdd.png" />
                 </view>
             </view>

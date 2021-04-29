@@ -35,10 +35,11 @@ Page({
 	onShow: function () {
 		// 判断用户是否登录
 		if (!login.isLogin()) return;
-		if (!this.data.hasGetUserInfo) {
-			this.setData({ hasGetUserInfo: true });
-			this.getUserMsg();
-		}
+		// if (!this.data.hasGetUserInfo) {
+		// 	this.setData({ hasGetUserInfo: true });
+		// 	this.getUserMsg();
+		// }
+		this.getUserMsg();
 	},
 
 	/**
@@ -66,6 +67,26 @@ Page({
 		wx.stopPullDownRefresh();
 		this.getUserMsg();
 		this.getUserData();
+	},
+
+	// 点击用户头像
+	onGoUserDetail: function () {
+		const { userDetail } = this.data;
+		// 判断用户是否登录
+		if (!login.isLogin()) return;
+		wx.navigateTo({
+			url: `/pages/person/person?user_id=${userDetail.id}`,
+		});
+	},
+
+	// 点击个人信息
+	onGoUserMsg: function () {
+		// 判断用户是否登录
+		if (!login.isLogin()) return;
+		const { userDetail } = this.data;
+		wx.navigateTo({
+			url: `/pages/my/personMsg/personMsg?user_id=${userDetail.id}`,
+		});
 	},
 
 	// 获取用户基本信息

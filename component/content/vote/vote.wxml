@@ -1,6 +1,6 @@
 <view class="posts">
     <post-header type="{{detail.type}}" createTime="{{detail.create_time}}" userDetail="{{detail.userDetail}}"/>
-    <vote-con detail="{{detail.voteDetail}}" contentDetail="{{detail}}"/>
+    <vote-con goDetail="1" detail="{{detail.voteDetail}}" contentDetail="{{detail}}"/>
     <post-topic topics="{{detail.topic_names}}" circles="{{detail.circle_names}}"/>
     <view class="reply">
        <hot-reply 
