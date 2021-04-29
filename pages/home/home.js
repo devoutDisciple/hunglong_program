@@ -64,7 +64,7 @@ Page({
 
 	// 获取用户信息
 	getUserDetailByUserId: async function (user_id) {
-		const res = await get({ url: '/user/getUserByUserId', data: { user_id } });
+		const res = await get({ url: '/user/userDetailByUserId', data: { user_id } });
 		this.setData({ userDetail: res || {} });
 	},
 

@@ -42,8 +42,7 @@ Page({
 	getUserMsg: function () {
 		const user_id = wx.getStorageSync('user_id');
 		loading.showLoading();
-		get({ url: '/user/getUserByUserId', data: { user_id } }).then((res) => {
-			console.log(res, 1231231);
+		get({ url: '/user/userDetailByUserId', data: { user_id } }).then((res) => {
 			const { photo, username, sex, birthday, address, school, level, bg_url, sign } = res;
 			this.setData(
 				{

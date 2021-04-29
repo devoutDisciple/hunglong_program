@@ -114,15 +114,47 @@
     background: #fff;
     font-size: 22rpx;
     padding: 20rpx;
-    padding-top: 10rpx;
     color: #999999;
 }
+.data {
+    margin-bottom: 20rpx;
+}
+.data_num {
+    font-size: 32rpx;
+    margin-left: 20rpx;
+    color: #151515;
+}
+.data_txt {
+    font-size: 26rpx;
+    color: #333333;
+}
+.empty {
+    height: 20rpx;
+    background: #eeeeee;
+}
+.tab {
+    border-bottom: 1rpx solid #eee;
+}
+.tab .van-tab--active {
+    font-size: 35rpx;
+}
 
-.test {
-    height: 300rpx;
+.posts {
+    background: #eee;
+}
+.empty_img {
+    background: #fff;
 }
 .footer {
     height: 100rpx;
-    background: blue;
+    border-top: 1rpx solid #f6f6f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999999;
 }
-
+.footer_img {
+    height: 30rpx;
+    width: 30rpx;
+    margin-right: 20rpx;
+}

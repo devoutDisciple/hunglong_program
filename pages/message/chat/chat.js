@@ -71,8 +71,7 @@ Page({
 	// 获取个人信息
 	getUserMsg: function () {
 		const user_id = wx.getStorageSync('user_id');
-		get({ url: '/user/getUserByUserId', data: { user_id } }).then((res) => {
-			console.log(res, 433);
+		get({ url: '/user/userDetailByUserId', data: { user_id } }).then((res) => {
 			this.setData({ user_detail: res });
 		});
 	},

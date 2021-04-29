@@ -72,7 +72,7 @@ Page({
 	getUserMsg: function () {
 		loading.showLoading();
 		const user_id = wx.getStorageSync('user_id');
-		get({ url: '/user/getUserByUserId', data: { user_id: user_id } })
+		get({ url: '/user/userDetailByUserId', data: { user_id: user_id } })
 			.then((res) => {
 				const flag = res.photo.includes('https://thirdwx.qlogo.cn');
 				this.setData({ userDetail: res, showSelfImg: flag });

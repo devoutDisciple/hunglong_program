@@ -1,7 +1,7 @@
 <view class="wrap">
     <scroll-view scroll-y="{{true}}" class="content">
          <view class="bg">
-            <image class="bg_img" src="/asserts/temp/16.png"/>
+            <image class="bg_img" src="{{userDetail.bg_url}}"/>
         </view>
         <view class="header" style="{{'height: '+navHeight+'; top: '+ statusBarHeight+ '; line-height: '+navHeight}}">
             个人主页
@@ -10,38 +10,68 @@
                 class="head_img" src="/asserts/public/back_icon.png" />
         </view>
         <view class="introduce">
-            <image class="intro_img" src="/asserts/public/logo.png"/>
+            <image class="intro_img" src="{{userDetail.photo}}"/>
             <view class="intro_msg">
                 <view class="intro_msg_empty" />
                  <view class="intro_msg_con">
                     <view class="intro_msg_con_left">
                         <view class="intro_msg_con_left_top">
-                            <view class="intro_msg_con_left_top_name">疾风剑豪</view>
+                            <view class="intro_msg_con_left_top_name">{{userDetail.username}}</view>
                             <view class="intro_msg_con_left_top_img">
                                 <image src="/asserts/public/vip1.png" />
                             </view>
                         </view>
-                        <view class="intro_msg_con_left_btm">杭州市高级中学</view>
+                        <view class="intro_msg_con_left_btm">{{userDetail.school}}</view>
                     </view>
                     <view class="intro_msg_con_right">
-                        <view wx:if="{{userDetail.hadAttention}}" class="concern_btn concern_active_btn">已关注</view>
-                        <view wx:else class="concern_btn">关注</view>
+                        <block wx:if="{{String(current_user_id) !== String(user_id)}}">
+                            <view wx:if="{{userDetail.hadAttention}}" class="concern_btn concern_active_btn">已关注</view>
+                            <view wx:else class="concern_btn">关注</view>
+                        </block>
+                        
                     </view>
                  </view>
             </view>
         </view>
-        <view class="sign">个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名个性签名</view>
-        <view class="test">test</view>
-        <view class="test">test</view>
-        <view class="test">test</view>
-        <view class="test">test</view>
-        <view class="test">test</view>
-        <view class="test">test</view>
-        <view class="test">test</view>
-        <view class="test">test</view>
-        <view class="test">test</view>
-        <view class="test">test</view>
-        <view class="test">test</view>
+        <view class="sign">{{userDetail.sign}}</view>
+        <view class="data">
+            <text class="data_num">{{userDetail.goods || 0}} </text>
+            <text class="data_txt">被赞</text>
+            <text class="data_num">{{attentionNum || 0}} </text>
+            <text class="data_txt">关注</text>
+            <text class="data_num">{{userDetail.fans || 0}} </text>
+            <text class="data_txt">粉丝</text>
+        </view>
+        <view class="empty" />
+        <view class="tab">
+            <van-tabs bind:change="onChangeTab" ellipsis="{{false}}">
+                <block wx:key="key" wx:for="{{tabList}}" >
+                    <van-tab title="{{item.value}}"/>
+                </block>
+            </van-tabs>
+        </view>
+        <view class="posts">
+            <block wx:if="{{dataList && dataList.length !== 0}}">
+                <block wx:for="{{dataList}}" wx:key="id">
+                    <home-post wx:if="{{item.type === 'posts'}}" detail="{{item}}"/>
+                    <home-post wx:if="{{item.type === 'blogs'}}" detail="{{item}}"/>
+                    <home-vote wx:if="{{item.type === 'vote'}}" detail="{{item}}" />
+                    <home-battle wx:if="{{item.type === 'battle'}}" detail="{{item}}" />
+                </block>
+            </block>
+            <block wx:else>
+                <view class="empty_img">
+                    <empty-img />
+                </view>
+            </block>
+        </view>
+        <btm-empty />
     </scroll-view>
-    <view class="footer">123</view>
+    <block wx:if="{{String(current_user_id) !== String(user_id)}}">
+        <view class="footer">
+            <image class="footer_img" src="/asserts/public/msg.png" />
+            私信
+        </view>
+    </block>
+    
 </view>
