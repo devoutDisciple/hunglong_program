@@ -134,6 +134,10 @@
     border-bottom: 1rpx solid #eee;
 }
 
+.tab_wrap {
+    width: 400rpx;
+}
+
 .tab .van-tab--active {
     font-size: 35rpx;
 }

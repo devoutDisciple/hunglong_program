@@ -2,7 +2,7 @@ import login from '../../utils/login';
 import loading from '../../utils/loading';
 import { get } from '../../utils/request';
 import { filterContentTypeByNum } from '../../utils/filter';
-import { getDeviceInfo } from '../../utils/util';
+import util from '../../utils/util';
 
 Page({
 	/**
@@ -26,7 +26,7 @@ Page({
 	 */
 	onLoad: function () {
 		// 获取设备信息
-		getDeviceInfo().then((res) => {
+		util.getDeviceInfo().then((res) => {
 			this.setData({ headerHight: `${res.headerHight}px` });
 		});
 		const user_id = wx.getStorageSync('user_id');
@@ -126,7 +126,6 @@ Page({
 	// 点击发布
 	onPublish: function (e) {
 		const { itemid } = e.detail;
-		const user_id = wx.getStorageSync('user_id');
 		// 如果没有登录，跳转到登录页面
 		if (!login.isLogin()) return;
 		// 如果没有选择学校，去完善个人信息
@@ -140,8 +139,8 @@ Page({
 			posts: '/pages/publish/posts/posts?type=posts', // 帖子
 			blogs: '/pages/publish/posts/posts?type=blogs', // 博客
 			vote: '/pages/publish/vote/vote', // 投票pk
-			image: '/pages/publish/posts/posts?type=posts', // 图片
-			vedio: '/pages/publish/posts/posts?type=blogs', // 视频
+			image: '/pages/publish/posts/posts?type=img', // 图片
+			vedio: '/pages/publish/vedio/vedio', // 视频
 		};
 		wx.navigateTo({
 			url: url[itemid],

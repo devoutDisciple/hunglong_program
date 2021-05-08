@@ -12,10 +12,10 @@
             <image src="/asserts/public/posts.png" />
             帖子
         </view>
-        <view class="publish_item" bindtap = "onClickItem" data-itemid="image">
+        <!-- <view class="publish_item" bindtap = "onClickItem" data-itemid="image">
             <image src="/asserts/public/image.png" />
             图片
-        </view>
+        </view> -->
         <view class="publish_item" bindtap = "onClickItem" data-itemid="vedio">
             <image src="/asserts/public/vedio.png" />
             视频

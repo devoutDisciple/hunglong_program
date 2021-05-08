@@ -1,5 +1,5 @@
 import { get } from '../../utils/request';
-import { getDeviceInfo } from '../../utils/util';
+import util from '../../utils/util';
 import loading from '../../utils/loading';
 import { filterContentTypeByNum } from '../../utils/filter';
 
@@ -12,31 +12,23 @@ Page({
 		statusBarHeight: '20px',
 		backIconHeight: '20px',
 		backIconMarginTop: '10px',
-		activeIdx: 0,
-		attentionNum: 0,
-		user_id: '',
-		userDetail: {},
-		dataList: [],
-		bgData: {
-			url: '/asserts/temp/16.png',
-			width: 300,
-			height: 100,
-		},
+		activeIdx: 0, // 当前选择的tab
+		attentionNum: 0, // 关注量
+		user_id: '', // 当前主页的用户id
+		userDetail: {}, // 当前用户的数据
+		current_user_id: '', // 当前登录账户
+		dataList: [], // 数据
 		tabList: [
 			{
 				key: 'posts',
-				value: '帖子',
+				value: '文字',
 			},
 			{
 				key: 'blog',
-				value: '博客',
+				value: '视频',
 			},
 			{
 				key: 'vote',
-				value: '投票PK',
-			},
-			{
-				key: 'picture',
 				value: '相册',
 			},
 		],
@@ -46,7 +38,6 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		console.log(options, 3242);
 		const current_user_id = wx.getStorageSync('user_id');
 		const { user_id } = options;
 		this.setData({ user_id, current_user_id }, () => {
@@ -71,7 +62,7 @@ Page({
 	// 获取设备信息
 	getDeviceData: function () {
 		// 获取设备信息
-		getDeviceInfo().then((res) => {
+		util.getDeviceInfo().then((res) => {
 			this.setData({
 				navHeight: `${res.navHeight}px`,
 				statusBarHeight: `${res.statusBarHeight}px`,
@@ -87,6 +78,7 @@ Page({
 		const { user_id } = this.data;
 		get({ url: '/user/userDetailByUserId', data: { user_id } })
 			.then((res) => {
+				console.log(res, 123);
 				this.setData({ userDetail: res });
 			})
 			.finally(() => loading.hideLoading());

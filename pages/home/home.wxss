@@ -38,7 +38,7 @@
     text-align: center;
 }
 
-.icon_chunk_img image {
+.icon_chunk_img .icon_chunk_img_con {
     width: 50rpx;
     height: 50rpx;
 }
@@ -75,7 +75,7 @@
     width: 90rpx;
 }
 
-.tab_add image {
+.tab_add .tab_add_img {
     height: 90rpx;
     width: 90rpx;
 }
@@ -134,7 +134,7 @@
     border-radius: 50rpx;
 }
 
-.topic_icon image {
+.topic_icon .topic_icon_img {
     width: 34rpx;
     height: 34rpx;
 }

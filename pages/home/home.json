@@ -5,6 +5,7 @@
         "home-post": "/component/content/posts/posts",
         "home-battle": "/component/content/battle/battle",
         "home-vote": "/component/content/vote/vote",
+        "empty-img": "/component/emptyImg/emptyImg",
         "publish": "/component/publish/btn/btn"
     }
 }

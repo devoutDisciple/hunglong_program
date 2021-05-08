@@ -191,6 +191,12 @@
           "pathName": "pages/my/myGoods/myGoods",
           "query": "user_id=10",
           "scene": null
+        },
+        {
+          "name": "发布视频",
+          "pathName": "pages/publish/vedio/vedio",
+          "query": "",
+          "scene": null
         }
       ]
     }
