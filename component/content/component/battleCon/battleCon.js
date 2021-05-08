@@ -58,7 +58,7 @@ Component({
 			const { contentDetail } = this.data;
 			const pages = getCurrentPages();
 			const currentPage = pages[pages.length - 1];
-			if (currentPage.router !== 'pages/detail/detail') {
+			if (currentPage.route !== 'pages/detail/detail') {
 				wx.navigateTo({
 					url: `/pages/detail/detail?content_id=${contentDetail.id}&type=${contentDetail.type}`,
 				});

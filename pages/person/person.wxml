@@ -1,5 +1,4 @@
-<view class="wrap">
-    <scroll-view scroll-y="{{true}}" class="content">
+    <scroll-view scroll-y="{{true}}" class="wrap">
          <view class="bg">
             <image class="bg_img" src="{{userDetail.bg_url}}"/>
         </view>
@@ -12,36 +11,39 @@
         </view>
         <view class="introduce">
             <image class="intro_img" src="{{userDetail.photo}}"/>
-            <view class="intro_msg">
-                <view class="intro_msg_empty" />
-                 <view class="intro_msg_con">
-                    <view class="intro_msg_con_left">
-                        <view class="intro_msg_con_left_top">
-                            <view class="intro_msg_con_left_top_name">{{userDetail.username}}</view>
-                            <view class="intro_msg_con_left_top_img">
-                                <image src="/asserts/public/vip1.png" />
-                            </view>
-                        </view>
-                        <view class="intro_msg_con_left_btm">{{userDetail.school}}</view>
-                    </view>
-                    <view class="intro_msg_con_right">
+            <!-- <view class="intro_msg_con_right">
                         <block wx:if="{{String(current_user_id) !== String(user_id)}}">
                             <view wx:if="{{userDetail.hadAttention}}" class="concern_btn concern_active_btn">已关注</view>
                             <view wx:else class="concern_btn">关注</view>
                         </block>
                         
-                    </view>
-                 </view>
-            </view>
+                    </view> -->
+            <block>
+                <view wx:if="{{userDetail.hadAttention}}" class="concern_btn concern_active_btn">已关注</view>
+                <view wx:else class="concern_btn">关注</view>
+            </block>
+            <image class="intro_msg" src="/asserts/public/personMsg.png" />
+        </view>
+        <view class="user">
+            <view class="user_name">张振</view>
+            <image class="user_level" src="/asserts/public/vip1.png" />
         </view>
         <view class="sign">{{userDetail.sign}}</view>
         <view class="data">
-            <text class="data_num">{{userDetail.goods || 0}} </text>
-            <text class="data_txt">被赞</text>
-            <text class="data_num">{{attentionNum || 0}} </text>
-            <text class="data_txt">关注</text>
-            <text class="data_num">{{userDetail.fans || 0}} </text>
-            <text class="data_txt">粉丝</text>
+            <view class="data_chunk">
+                <text class="data_num">{{userDetail.goods || 0}}</text>
+                <text class="data_txt">被赞</text>
+            </view>
+            <view class="data_split"/>
+            <view class="data_chunk">
+                <text class="data_num">{{attentionNum || 0}}</text>
+                <text class="data_txt">关注</text>
+            </view>
+            <view class="data_split"/>
+            <view class="data_chunk">
+                <text class="data_num">{{userDetail.fans || 0}}</text>
+                <text class="data_txt">粉丝</text>
+            </view>
         </view>
         <view class="empty" />
         <view class="tab">
@@ -68,11 +70,3 @@
         </view>
         <btm-empty />
     </scroll-view>
-    <block wx:if="{{String(current_user_id) !== String(user_id)}}">
-        <view class="footer">
-            <image class="footer_img" src="/asserts/public/msg.png" />
-            私信
-        </view>
-    </block>
-    
-</view>
