@@ -1,6 +1,6 @@
 const filterContentTypeByTxt = (type) => {
 	let txt = '帖子';
-	switch (type) {
+	switch (Number(type)) {
 		case 1:
 			txt = '帖子';
 			break;
@@ -12,6 +12,9 @@ const filterContentTypeByTxt = (type) => {
 			break;
 		case 4:
 			txt = 'PK';
+			break;
+		case 5:
+			txt = '视频';
 			break;
 		default:
 			break;
@@ -34,6 +37,9 @@ const filterContentTypeByField = (type) => {
 		case 'battle':
 			txt = 'PK';
 			break;
+		case 'vedio':
+			txt = '视频';
+			break;
 		default:
 			break;
 	}
@@ -54,6 +60,9 @@ const filterContentTypeByNum = (type) => {
 			break;
 		case 4:
 			txt = 'battle';
+			break;
+		case 5:
+			txt = 'vedio';
 			break;
 		default:
 			break;

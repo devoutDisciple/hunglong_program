@@ -1,0 +1,15 @@
+.container {
+    width: 100%;
+    font-size: 26rpx;
+    position: relative;
+}
+.video {
+    width: 100%;
+}
+.video_play_img {
+    position: absolute;
+    height: 80rpx;
+    width: 80rpx;
+    left: calc(50% - 40rpx);
+    top: calc(50% - 40rpx);
+}

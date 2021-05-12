@@ -2,7 +2,8 @@
   "usingComponents": {
     "btm-empty": "/component/btmEmpty/btmEmpty",
     "publish-btn": "/component/loginBtn/loginBtn",
-    "sel-circle": "/component/publish/selCircle/selCircle"
+    "sel-circle": "/component/publish/selCircle/selCircle",
+    "simple-vedio": "/component/simpleVideo/simpleVideo"
   },
   "navigationBarTitleText": "发布视频"
 }

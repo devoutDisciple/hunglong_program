@@ -1,0 +1,32 @@
+<view class="container">
+    <!--
+        src="http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400" 
+    -->
+    <video 
+        id="myVideo"
+        class="video"
+        src="{{videoDetail.url}}"
+        controls="{{true}}"
+        show-progress="{{true}}"
+        show-play-btn="{{false}}"
+        enable-progress-gesture="{{true}}"
+        show-center-play-btn='{{false}}'
+        picture-in-picture-show-progress="{{true}}" 
+        bindtap = "onTapVideo"
+        bindended="onVideoEnd"
+        binderror="videoErrorCallback"  />
+        <!--
+            controls: 是否显示默认播放控件（播放/暂停按钮、播放进度、时间）
+            show-progress: 若不设置，宽度大于240时才会显示
+            autoplay: 是否自动播放
+            show-fullscreen-btn： 是否显示全屏按钮
+            show-play-btn： 是否显示视频底部控制栏的播放按钮
+            show-center-play-btn: 是否显示视频中间的播放按钮
+            enable-progress-gesture: 是否开启控制进度的手势
+            poster: 视频封面的图片网络资源地址或云文件ID（2.3.0）。若 controls 属性值为 false 则设置 poster 无效
+            enable-play-gesture: 是否开启播放手势，即双击切换播放/暂停
+            picture-in-picture-show-progress: 是否在小窗模式下显示播放进度
+            enable-auto-rotation: 是否开启手机横屏时自动全屏，当系统设置开启自动旋转时生效
+        -->
+    <image  wx:if="{{!active}}" bindtap="onTapVideo" class="video_play_img" src="/asserts/public/play.png" />
+</view>

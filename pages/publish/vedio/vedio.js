@@ -7,33 +7,32 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		type: 'posts', // posts-帖子 blogs-博客
-		title: '', // 标题
 		desc: '', // 文字输入
 		imgUrls: [], // 上传图片的url
 		selectCircles: [], // 选择的圈子
 		topicList: [], // 选择的圈子下的话题
+		videoDetail: {}, // video的详情
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function (options) {
-		if (options.type) {
-			if (options.type === 'posts') {
-				wx.setNavigationBarTitle({
-					title: '发布帖子',
-				});
-			}
-			if (options.type === 'blogs') {
-				wx.setNavigationBarTitle({
-					title: '发布博客',
-				});
-			}
-		}
-		this.setData({ type: options.type });
+	onLoad: function () {
 		// 获取学校圈子
 		this.getPersonSchoolCircle();
+	},
+
+	onPause: function () {
+		console.log(this.videoContext, 232);
+	},
+
+	onReady() {
+		this.videoContext = wx.createVideoContext('myVideo');
+	},
+
+	videoErrorCallback(e) {
+		console.log('视频错误信息:');
+		console.log(e.detail.errMsg);
 	},
 
 	/**
@@ -96,30 +95,49 @@ Page({
 		this.setData({ topicList });
 	},
 
-	// 输入标题
-	onChangeTitle: function (e) {
-		const { detail } = e;
-		this.setData({ title: detail });
-	},
-
 	// 输入内容
 	onChangeDesc: function (e) {
 		const { detail } = e;
 		this.setData({ desc: detail });
 	},
 
-	// 选择图片
-	chooseImg: function () {
+	// 选择视频
+	chooseVideo: function () {
 		const self = this;
 		const { imgUrls } = this.data;
-		wx.chooseImage({
-			count: 9,
-			sizeType: ['original', 'compressed'],
-			sourceType: ['album', 'camera'],
+		console.log(11111);
+		wx.chooseMedia({
+			count: 1,
+			mediaType: ['video'], // 文件类型
+			sourceType: ['album', 'camera'], // 视频来源
 			success(res) {
+				console.log(2222);
 				// tempFilePath可以作为img标签的src属性显示图片
-				const { tempFilePaths } = res;
-				self.setData({ imgUrls: [...imgUrls, ...tempFilePaths] });
+				// const { tempFilePaths } = res;
+				// self.setData({ imgUrls: [...imgUrls, ...tempFilePaths] });
+				console.log(res, 111);
+				loading.hideLoading();
+				if (res && res.errMsg === 'chooseMedia:ok' && Array.isArray(res.tempFiles)) {
+					const tempFile = res.tempFiles[0];
+					console.log(tempFile, 3333);
+					// duration: 6.166667
+					// fileType: "video"
+					// height: 960
+					// size: 966555
+					// tempFilePath: "http://tmp/o3yufPlxhrAw0e4914ef41e613e3ef590cf45a69493e.mp4"
+					// thumbTempFilePath: "http://tmp/I7kEPZcXhmZO9749cfc7faad2d62d17926bebcba8f77.jpg"
+					// width: 544
+					self.setData({
+						videoDetail: {
+							url: tempFile.tempFilePath,
+							height: tempFile.height,
+							width: tempFile.width,
+							duration: tempFile.duration,
+							size: tempFile.size,
+							photo: tempFile.thumbTempFilePath,
+						},
+					});
+				}
 			},
 			fail: function () {
 				wx.showToast({
@@ -147,9 +165,8 @@ Page({
 
 	// 发布
 	onSave: async function () {
-		const { title, desc, imgUrls, selectCircles, topicList, type } = this.data;
+		const { desc, imgUrls, selectCircles, topicList } = this.data;
 		// 上传图片
-		if (type === 'posts' && !title) return this.showErrorToast('请输入标题');
 		if (selectCircles && selectCircles.length === 0) return this.showErrorToast('请选择圈子');
 		const uploadImgUrls = [];
 		if (imgUrls && imgUrls.length !== 0) {
@@ -188,14 +205,13 @@ Page({
 			url: '/posts/addPostsOrBlogs',
 			data: {
 				user_id,
-				title,
 				desc,
 				imgUrls: uploadImgUrls,
 				circle_ids: selectCirIds,
 				circle_names: selectCirNames,
 				topic_ids: topicIds,
 				topic_names: topicNames,
-				type: type === 'posts' ? 1 : 2,
+				type: 5,
 			},
 		})
 			.then((res) => {
