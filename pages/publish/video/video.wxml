@@ -3,7 +3,6 @@
         <view class="circle">
             <sel-circle selectCircles="{{selectCircles}}"/>
         </view>
-        <!-- <simple-vedio /> -->
         <view class="empty" />
         <view class="form">
             <view class="form_content">
@@ -26,14 +25,14 @@
         </block>
         <block wx:else>
             <view class="video">
-                <simple-video videoId="my_vedio" wx:if="{{videoDetail.url && videoDetail.photo}}" videoDetail="{{videoDetail}}"/>
+                <simple-video videoId="my_video" wx:if="{{videoDetail.url && videoDetail.photo}}" videoDetail="{{videoDetail}}"/>
                 <image class="video_close" src="/asserts/public/close.png" bindtap = "onRemoveVideo"/>
             </view>
         </block>
 
         <!--
         <view class="video">
-                <simple-video videoId="my_vedio" videoDetail="{{videoDetail}}"/>
+                <simple-video videoId="my_video" videoDetail="{{videoDetail}}"/>
                 <image class="video_close" src="/asserts/public/close.png" bindtap = "onRemoveVideo"/>
             </view>
         -->

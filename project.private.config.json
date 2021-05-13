@@ -194,7 +194,7 @@
         },
         {
           "name": "发布视频",
-          "pathName": "pages/publish/vedio/vedio",
+          "pathName": "pages/publish/video/video",
           "query": "",
           "scene": null
         }

@@ -1,0 +1,11 @@
+{
+  "component": true,
+  "usingComponents": {
+    "post-header": "/component/content/component/postHeader/postHeader",
+    "post-txt": "/component/content/component/postTxt/postTxt",
+    "simple-video": "/component/simpleVideo/simpleVideo",
+    "hot-reply": "/component/content/component/hotReply/hotReply",
+    "action-opt": "/component/content/component/actionOpt/actionOpt",
+    "post-topic": "/component/content/component/postTopic/postTopic"
+  }
+}

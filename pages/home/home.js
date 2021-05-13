@@ -140,7 +140,7 @@ Page({
 			blogs: '/pages/publish/posts/posts?type=blogs', // 博客
 			vote: '/pages/publish/vote/vote', // 投票pk
 			image: '/pages/publish/posts/posts?type=img', // 图片
-			vedio: '/pages/publish/vedio/vedio', // 视频
+			video: '/pages/publish/video/video', // 视频
 		};
 		wx.navigateTo({
 			url: url[itemid],

@@ -28,7 +28,7 @@
     "pages/my/myGoods/myGoods",
     "pages/message/chat/chat",
     "pages/person/person",
-    "pages/publish/vedio/vedio"
+    "pages/publish/video/video"
   ],
   "window": {
     "backgroundTextStyle": "light",

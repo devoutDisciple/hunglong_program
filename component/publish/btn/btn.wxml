@@ -16,8 +16,8 @@
             <image src="/asserts/public/image.png" />
             图片
         </view> -->
-        <view class="publish_item" bindtap = "onClickItem" data-itemid="vedio">
-            <image src="/asserts/public/vedio.png" />
+        <view class="publish_item" bindtap = "onClickItem" data-itemid="video">
+            <image src="/asserts/public/video.png" />
             视频
         </view>
     </view>

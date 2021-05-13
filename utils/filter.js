@@ -37,7 +37,7 @@ const filterContentTypeByField = (type) => {
 		case 'battle':
 			txt = 'PK';
 			break;
-		case 'vedio':
+		case 'video':
 			txt = '视频';
 			break;
 		default:
@@ -62,7 +62,7 @@ const filterContentTypeByNum = (type) => {
 			txt = 'battle';
 			break;
 		case 5:
-			txt = 'vedio';
+			txt = 'video';
 			break;
 		default:
 			break;
