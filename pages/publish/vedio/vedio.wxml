@@ -17,22 +17,26 @@
                 />
             </view>
         </view>
-
         <block wx:if="{{!videoDetail || !videoDetail.url}}">
             <view class="img">
-                <view wx:if="{{imgUrls.length < 9}}" class="img_chunk img_plus" bindtap="chooseVideo">
+                <view class="img_chunk" bindtap="chooseVideo">
                     <image class="plus" src="/asserts/public/plus.png"/>
                 </view>
             </view>
         </block>
         <block wx:else>
-            <simple-vedio wx:if="{{videoDetail.url && videoDetail.photo}}" videoDetail="{{videoDetail}}"/>
+            <view class="video">
+                <simple-video videoId="my_vedio" wx:if="{{videoDetail.url && videoDetail.photo}}" videoDetail="{{videoDetail}}"/>
+                <image class="video_close" src="/asserts/public/close.png" bindtap = "onRemoveVideo"/>
+            </view>
         </block>
-        
-            <!--
-            <simple-vedio videoDetail="{{videoDetail}}"/>
-            <image wx:if="{{thumbTempFilePath}}" src="{{thumbTempFilePath}}" />
-            -->
+
+        <!--
+        <view class="video">
+                <simple-video videoId="my_vedio" videoDetail="{{videoDetail}}"/>
+                <image class="video_close" src="/asserts/public/close.png" bindtap = "onRemoveVideo"/>
+            </view>
+        -->
         <view class="empty" />
         <view class="topic">
             <view class="topic_title">请选择话题：</view>
@@ -46,7 +50,6 @@
                 </block>
             </view>
         </view>
-        
         <btm-empty />
     </scroll-view>
     <view class="btm">

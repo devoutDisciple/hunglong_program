@@ -91,11 +91,13 @@ module.exports = {
 				filePath: params.data,
 				name: 'file',
 				url,
+				formData: params.formData || {},
 				success: function (result) {
 					const filename = JSON.parse(result.data).data;
 					resolve(filename);
 				},
-				fail: function () {
+				fail: function (e) {
+					console.log(e, 11232);
 					wx.showToast({
 						title: '上传失败',
 						icon: 'error',

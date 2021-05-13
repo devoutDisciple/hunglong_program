@@ -8,6 +8,10 @@ Component({
 			type: Object,
 			value: {},
 		},
+		videoId: {
+			type: String,
+			value: '',
+		},
 	},
 
 	/**
@@ -23,9 +27,10 @@ Component({
 	methods: {
 		// 点击视频，控制视频播放和结束
 		onTapVideo: function () {
-			const { active } = this.data;
+			const { active, videoId } = this.data;
+			if (!videoId) return;
 			// 组件中必须用this
-			const videoContext = wx.createVideoContext('myVideo', this);
+			const videoContext = wx.createVideoContext(videoId, this);
 			if (active) {
 				videoContext.pause();
 			} else {

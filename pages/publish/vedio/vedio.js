@@ -8,7 +8,6 @@ Page({
 	 */
 	data: {
 		desc: '', // 文字输入
-		imgUrls: [], // 上传图片的url
 		selectCircles: [], // 选择的圈子
 		topicList: [], // 选择的圈子下的话题
 		videoDetail: {}, // video的详情
@@ -104,22 +103,17 @@ Page({
 	// 选择视频
 	chooseVideo: function () {
 		const self = this;
-		const { imgUrls } = this.data;
-		console.log(11111);
 		wx.chooseMedia({
 			count: 1,
 			mediaType: ['video'], // 文件类型
 			sourceType: ['album', 'camera'], // 视频来源
 			success(res) {
-				console.log(2222);
 				// tempFilePath可以作为img标签的src属性显示图片
 				// const { tempFilePaths } = res;
-				// self.setData({ imgUrls: [...imgUrls, ...tempFilePaths] });
-				console.log(res, 111);
 				loading.hideLoading();
 				if (res && res.errMsg === 'chooseMedia:ok' && Array.isArray(res.tempFiles)) {
 					const tempFile = res.tempFiles[0];
-					console.log(tempFile, 3333);
+					console.log(tempFile, 11111);
 					// duration: 6.166667
 					// fileType: "video"
 					// height: 960
@@ -148,12 +142,9 @@ Page({
 		});
 	},
 
-	// 移除图片
-	onRemoveImg: function (e) {
-		const { idx } = e.target.dataset;
-		const { imgUrls } = this.data;
-		imgUrls.splice(idx, 1);
-		this.setData({ imgUrls });
+	// 移除视频
+	onRemoveVideo: function () {
+		this.setData({ videoDetail: {} });
 	},
 
 	showErrorToast: function (title) {
@@ -165,25 +156,20 @@ Page({
 
 	// 发布
 	onSave: async function () {
-		const { desc, imgUrls, selectCircles, topicList } = this.data;
-		// 上传图片
+		const { desc, videoDetail, selectCircles, topicList } = this.data;
+		loading.showLoading();
 		if (selectCircles && selectCircles.length === 0) return this.showErrorToast('请选择圈子');
-		const uploadImgUrls = [];
-		if (imgUrls && imgUrls.length !== 0) {
-			let len = imgUrls.length;
-			loading.showLoading();
-			while (len > 0) {
-				len -= 1;
-				const fileDetail = await uploadFile({ url: '/posts/uploadImg', data: imgUrls[len] });
-				uploadImgUrls.push(fileDetail);
-			}
-		}
+		if (!videoDetail.url) return this.showErrorToast('请上传视频');
+		// 上传视频封面
+		const coverImgName = await uploadFile({ url: '/videoCover/upload', data: videoDetail.photo });
+
 		// 选择的圈子id
 		const selectCirIds = [];
 		const selectCirNames = [];
 		// 选择的话题id
 		const topicIds = [];
 		const topicNames = [];
+
 		selectCircles.forEach((item) => {
 			selectCirIds.push(item.circle_id);
 			selectCirNames.push(item.circle_name);
@@ -201,32 +187,34 @@ Page({
 		if (selectCirIds.length > 2) return this.showErrorToast('最多两个圈子');
 		if (topicIds.length > 2) return this.showErrorToast('最多两个话题');
 		const user_id = wx.getStorageSync('user_id');
-		post({
-			url: '/posts/addPostsOrBlogs',
-			data: {
-				user_id,
-				desc,
-				imgUrls: uploadImgUrls,
-				circle_ids: selectCirIds,
-				circle_names: selectCirNames,
-				topic_ids: topicIds,
-				topic_names: topicNames,
-				type: 5,
-			},
-		})
-			.then((res) => {
-				if (res === 'success') {
-					wx.showToast({
-						title: '发布成功',
-						icon: 'success',
-					});
-					setTimeout(() => {
-						wx.navigateBack({
-							complete: () => {},
-						});
-					}, 500);
-				}
-			})
-			.finally(() => loading.hideLoading());
+		const formData = {
+			photo: coverImgName,
+			width: videoDetail.width,
+			height: videoDetail.height,
+			duration: videoDetail.duration,
+			size: videoDetail.size,
+			user_id,
+			desc,
+			circle_ids: JSON.stringify(selectCirIds),
+			circle_names: JSON.stringify(selectCirNames),
+			topic_ids: JSON.stringify(topicIds),
+			topic_names: JSON.stringify(topicNames),
+		};
+		// 上传视频
+		await uploadFile({
+			url: '/video/upload',
+			data: videoDetail.url,
+			formData,
+		});
+		wx.showToast({
+			title: '发布成功',
+			icon: 'success',
+		});
+		setTimeout(() => {
+			wx.navigateBack({
+				complete: () => {},
+			});
+		}, 500);
+		loading.hideLoading();
 	},
 });
