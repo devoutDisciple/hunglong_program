@@ -28,6 +28,8 @@ Component({
 		typeTxt: '',
 		user_id: '',
 		hadAttention: false, // 是否已经关注
+		showAttentionBtn: true, // 是否显示关注按钮
+		routerUrl: '',
 	},
 
 	/**
@@ -52,7 +54,10 @@ Component({
 
 		// 点击用户头像
 		onSearchUserDetail: function () {
-			const { userDetail } = this.data;
+			const { userDetail, routerUrl } = this.data;
+			if (routerUrl === 'pages/person/person') {
+				return;
+			}
 			wx.navigateTo({
 				url: `/pages/person/person?user_id=${userDetail.id}`,
 			});
@@ -62,8 +67,16 @@ Component({
 	lifetimes: {
 		attached: function () {
 			const txt = filterContentTypeByField(this.data.type);
+			const { userDetail } = this.data;
 			const user_id = wx.getStorageSync('user_id');
-			this.setData({ typeTxt: txt, user_id });
+			const pages = getCurrentPages();
+			const currentPage = pages[pages.length - 1];
+			if (currentPage.route === 'pages/person/person' || String(user_id) === String(userDetail.id)) {
+				this.setData({ showAttentionBtn: false });
+			} else {
+				this.setData({ showAttentionBtn: true });
+			}
+			this.setData({ typeTxt: txt, user_id, routerUrl: currentPage.route });
 		},
 	},
 });

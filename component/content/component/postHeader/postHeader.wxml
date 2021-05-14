@@ -15,7 +15,7 @@
             <view class="desc_btm_src">来自于{{typeTxt}}</view>
         </view>
     </view>
-    <view class="concern" bindtap="onAttentionUser" wx:if="{{user_id !== userDetail.id}}">
+    <view class="concern" bindtap="onAttentionUser" wx:if="{{showAttentionBtn}}">
         <view wx:if="{{userDetail.hadAttention}}" class="concern_btn concern_active_btn">已关注</view>
         <view wx:else class="concern_btn">关注</view>
     </view>

@@ -1,4 +1,4 @@
-import { get } from '../../utils/request';
+import { get, post } from '../../utils/request';
 import util from '../../utils/util';
 import loading from '../../utils/loading';
 import { filterContentTypeByNum } from '../../utils/filter';
@@ -74,23 +74,45 @@ Page({
 
 	// 获取用户基本信息
 	getUserDetail: function () {
-		loading.showLoading();
 		const { user_id } = this.data;
-		get({ url: '/user/userDetailByUserId', data: { user_id } })
-			.then((res) => {
-				this.setData({ userDetail: res });
-			})
-			.finally(() => loading.hideLoading());
+		get({ url: '/user/userDetailByUserId', data: { user_id } }).then((res) => {
+			this.setData({ userDetail: res }, () => {
+				// 获取是否已经关注该用户
+				this.getHadAttentionUser();
+			});
+		});
 	},
+
 	// 获取关注数量
 	getMyAttentionUsersNum: function () {
-		loading.showLoading();
 		const { user_id } = this.data;
-		get({ url: '/attention/myAttentionUsersNum', data: { user_id } })
-			.then((res) => {
-				this.setData({ attentionNum: res.num });
-			})
-			.finally(() => loading.hideLoading());
+		get({ url: '/attention/myAttentionUsersNum', data: { user_id } }).then((res) => {
+			this.setData({ attentionNum: res.num });
+		});
+	},
+
+	// 获取是否已经关注该用户
+	getHadAttentionUser: function () {
+		const { user_id, current_user_id, userDetail } = this.data;
+		get({ url: '/user/hadAttentionUser', data: { user_id, current_user_id } }).then((res) => {
+			userDetail.hadAttention = res.hadAttention;
+			this.setData({ userDetail });
+		});
+	},
+
+	// 点击关注获取取消
+	onAttentionUser: function () {
+		const { userDetail } = this.data;
+		const user_id = wx.getStorageSync('user_id');
+		if (!user_id) {
+			return wx.showToast({
+				title: '请先登录',
+				icon: 'error',
+			});
+		}
+		userDetail.hadAttention = !userDetail.hadAttention;
+		post({ url: '/attention/attentionUser', data: { user_id, other_id: userDetail.id } });
+		this.setData({ userDetail });
 	},
 
 	// 切换tab的时候
