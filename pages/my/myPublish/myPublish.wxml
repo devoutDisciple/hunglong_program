@@ -5,6 +5,7 @@
             <home-post wx:if="{{item.type === 'blogs'}}" detail="{{item}}"/>
             <home-vote wx:if="{{item.type === 'vote'}}" detail="{{item}}" />
             <home-battle wx:if="{{item.type === 'battle'}}" detail="{{item}}" />
+            <home-video wx:if="{{item.type === 'video'}}" detail="{{item}}" />
         </block>
         <btm-empty />
     </scroll-view>

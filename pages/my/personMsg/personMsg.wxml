@@ -34,7 +34,9 @@
             </view>
         </view>
     </message-item>
-    <van-button custom-class="next_btn" type="primary" bind:click="onClickNext" block color="#fff">下一步</van-button>
+    <van-button custom-class="next_btn" type="primary" bind:click="onClickNext" block color="#fff">
+        {{from === "my" ? '确定': '下一步'}}
+    </van-button>
     <ipt-dialog 
         maxlength="{{20}}"
         title="请填入昵称" 

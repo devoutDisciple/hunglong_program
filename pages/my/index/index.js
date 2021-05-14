@@ -85,7 +85,7 @@ Page({
 		if (!login.isLogin()) return;
 		const { userDetail } = this.data;
 		wx.navigateTo({
-			url: `/pages/my/personMsg/personMsg?user_id=${userDetail.id}`,
+			url: `/pages/my/personMsg/personMsg?user_id=${userDetail.id}&from=my`,
 		});
 	},
 

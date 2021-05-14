@@ -26,6 +26,7 @@ Page({
 		levelList: ['初一', '初二', '初三', '高一', '高二', '高三', '大一', '大二', '大三', '大四'],
 		levelName: '',
 		sign: '',
+		from: '', // my-代表从我的页面点击进来的，只修改默认信息
 		signIptDialogVisible: false,
 		usernameIptDialogVisible: false,
 	},
@@ -34,7 +35,8 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
-		const { user_id } = options;
+		const { user_id, from } = options;
+		this.setData({ from });
 		// 查询个人信息
 		this.getUserMsg(user_id);
 	},
@@ -50,11 +52,11 @@ Page({
 					backgroundTmpUrl: bg_url,
 					username,
 					sex: sex - 1,
-					activeDate: birthday,
+					activeDate: birthday || '2010-01-01',
 					address,
-					schoolName: school,
+					schoolName: school || '',
 					levelName: level,
-					sign,
+					sign: sign || '',
 				},
 				() => {
 					this.onSearchAddress();
@@ -261,7 +263,7 @@ Page({
 
 	// 点击下一步
 	onClickNext: async function () {
-		const { username, sex, activeDate, address, schoolName, sign, levelName } = this.data;
+		const { username, sex, activeDate, address, schoolName, sign, levelName, from } = this.data;
 		const user_id = wx.getStorageSync('user_id');
 		// 保存个人信息
 		loading.showLoading();
@@ -288,6 +290,12 @@ Page({
 					icon: 'success',
 				});
 				setTimeout(() => {
+					if (from === 'my') {
+						return wx.navigateBack({
+							complete: () => {},
+						});
+					}
+
 					wx.navigateTo({
 						url: '/pages/sctCircle/sctCircle',
 					});

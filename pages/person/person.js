@@ -78,7 +78,6 @@ Page({
 		const { user_id } = this.data;
 		get({ url: '/user/userDetailByUserId', data: { user_id } })
 			.then((res) => {
-				console.log(res, 123);
 				this.setData({ userDetail: res });
 			})
 			.finally(() => loading.hideLoading());

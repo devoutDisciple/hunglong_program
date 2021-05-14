@@ -59,7 +59,7 @@
 .top_fixed {
     position: fixed;
     /* top: 101rpx; */
-    z-index: 9999;
+    z-index: 10;
     box-shadow: 0rpx 9rpx 14rpx 0rpx #eeeeee;
 }
 
