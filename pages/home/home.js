@@ -19,6 +19,7 @@ Page({
 		dataList: [], // 数据列表
 		topicClass: 'topic_origin',
 		headerHight: '60px',
+		videoContext: {}, // 当前播放视频的上下文
 	},
 
 	/**

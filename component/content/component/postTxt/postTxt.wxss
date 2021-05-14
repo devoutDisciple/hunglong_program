@@ -1,6 +1,6 @@
 .txt{
-    margin-top: 15rpx;
-    font-size: 28rpx;
+    margin-top: 10rpx;
+    font-size: 26rpx;
     color: #151515;
 }
 .ellipsis {

@@ -123,7 +123,7 @@
         {
           "name": "帖子详情",
           "pathName": "pages/detail/detail",
-          "query": "content_id=35&type=posts",
+          "query": "content_id=50&type=video",
           "scene": null
         },
         {

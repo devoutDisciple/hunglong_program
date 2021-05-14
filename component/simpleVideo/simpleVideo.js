@@ -19,6 +19,7 @@ Component({
 	 */
 	data: {
 		active: false,
+		hasPlay: false, // 是否已经播放过
 	},
 
 	/**
@@ -27,16 +28,31 @@ Component({
 	methods: {
 		// 点击视频，控制视频播放和结束
 		onTapVideo: function () {
+			const pages = getCurrentPages();
+			const currentPage = pages[pages.length - 1];
+			// 将当前播放的视频上下文保存在当前页面，以确保当前只有一个视频在播放
+			const { videoContext: pageVideoContext } = currentPage.data;
 			const { active, videoId } = this.data;
 			if (!videoId) return;
 			// 组件中必须用this
 			const videoContext = wx.createVideoContext(videoId, this);
+			// 停止上一个视频
+			if (pageVideoContext && pageVideoContext.stop) {
+				pageVideoContext.pause();
+			}
 			if (active) {
 				videoContext.pause();
 			} else {
+				this.setData({ hasPlay: true });
 				videoContext.play();
 			}
+			// 替换当前视频上下文
+			currentPage.setData({ videoContext });
 			this.setData({ active: !active });
+		},
+		// 视频暂停的时候
+		onVideoPause: function () {
+			this.setData({ active: false });
 		},
 		// 视频播放结束时候
 		onVideoEnd: function () {

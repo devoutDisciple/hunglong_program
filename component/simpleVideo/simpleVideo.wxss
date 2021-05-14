@@ -6,10 +6,27 @@
 .video {
     width: 100%;
 }
-.video_play_img {
+.video_cover_img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+.video_play_container {
     position: absolute;
     height: 80rpx;
     width: 80rpx;
     left: calc(50% - 40rpx);
     top: calc(50% - 40rpx);
+    background: #333;
+    opacity: 0.3;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.video_play_img {
+    height: 35rpx;
+    width: 35rpx;
 }

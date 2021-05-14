@@ -14,6 +14,7 @@
         picture-in-picture-show-progress="{{true}}" 
         bindtap = "onTapVideo"
         bindended="onVideoEnd"
+        bindpause="onVideoPause"
         binderror="videoErrorCallback"  />
         <!--
             controls: 是否显示默认播放控件（播放/暂停按钮、播放进度、时间）
@@ -28,5 +29,8 @@
             picture-in-picture-show-progress: 是否在小窗模式下显示播放进度
             enable-auto-rotation: 是否开启手机横屏时自动全屏，当系统设置开启自动旋转时生效
         -->
-    <image  wx:if="{{!active}}" bindtap="onTapVideo" class="video_play_img" src="/asserts/public/play.png" />
+    <image class="video_cover_img" wx:if="{{videoDetail.photo && !hasPlay && !active}}" src="{{videoDetail.photo}}" bindtap="onTapVideo"/>
+    <view bindtap="onTapVideo" wx:if="{{!active}}" class="video_play_container">
+        <image class="video_play_img" src="/asserts/public/play.png" />
+    </view>
 </view>

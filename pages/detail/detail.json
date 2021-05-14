@@ -4,7 +4,8 @@
         "vote-con": "/component/content/component/voteCon/voteCon",
         "post-txt": "/component/content/component/postTxt/postTxt",
 		"post-img": "/component/content/component/postImg/postImg",
-        "battle-con": "/component/content/component/battleCon/battleCon"
+        "battle-con": "/component/content/component/battleCon/battleCon",
+        "simple-video": "/component/simpleVideo/simpleVideo"
 	},
     "navigationBarTitleText": "周六来hi呀",
     "enablePullDownRefresh": true
