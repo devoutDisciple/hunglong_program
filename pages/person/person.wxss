@@ -146,6 +146,73 @@
     background: #eee;
 }
 
+.time_split {
+    padding-left: 20rpx;
+    padding: 3rpx 0 3rpx 20rpx;
+}
+
+.today_img {
+    display: flex;
+    padding: 30rpx 20rpx;
+    background: #fff;
+}
+
+.today_img_date {
+    font-size: 40rpx;
+}
+
+.today_imgupload{
+    flex: 1;
+    margin-left: 20rpx;
+}
+
+.camera_container {
+    width: 180rpx;
+    height: 180rpx;
+    background: #F8F8F8;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.camera_img {
+    width: 70rpx;
+    height: 70rpx;
+}
+
+.camera_txt {
+    font-size: 22rpx;
+    color: #AAA;
+    margin-top: 10rpx;
+}
+
+.img_wrap {
+    background: #fff;
+}
+
+.img_wrap_title {
+    padding: 20rpx;
+    color: #666666;
+}
+
+.img_chunk {
+    background: #fff;
+    display: flex;
+    padding: 10rpx 20rpx;
+    background: #fff;
+}
+
+.img_date {
+    background: red;
+}
+
+.img_date_month {
+    font-size: 40rpx;
+}
+
+
+
 .empty_img {
     background: #fff;
 }

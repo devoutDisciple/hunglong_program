@@ -12,12 +12,22 @@ Page({
 		statusBarHeight: '20px',
 		backIconHeight: '20px',
 		backIconMarginTop: '10px',
-		activeIdx: 0, // 当前选择的tab
+		activeIdx: 2, // 当前选择的tab
 		attentionNum: 0, // 关注量
 		user_id: '', // 当前主页的用户id
 		userDetail: {}, // 当前用户的数据
 		current_user_id: '', // 当前登录账户
-		dataList: [], // 数据
+		txtObj: {
+			threeDays: [], // 三天内的数据
+			monthDays: [], // 一个月内的数据
+			longago: [], // 一月以前的数据
+		}, // 文字数据
+		videoObj: {
+			threeDays: [], // 三天内的数据
+			monthDays: [], // 一个月内的数据
+			longago: [], // 一月以前的数据
+		}, // 视频数据
+
 		tabList: [
 			{
 				key: 'posts',
@@ -118,23 +128,70 @@ Page({
 	// 切换tab的时候
 	onChangeTab: function (e) {
 		const { index } = e.detail;
-		// this.setData({ activeIdx: index });
-		this.getPostsByUserId(index);
+
+		this.setData(
+			{
+				activeIdx: index,
+				txtObj: {
+					threeDays: [], // 三天内的数据
+					monthDays: [], // 一个月内的数据
+					longago: [], // 一月以前的数据
+				},
+				videoObj: {
+					threeDays: [], // 三天内的数据
+					monthDays: [], // 一个月内的数据
+					longago: [], // 一月以前的数据
+				},
+			},
+			() => {
+				if (index === 2) {
+					return;
+				}
+				this.getPostsByUserId(index);
+			},
+		);
 	},
 
 	// 获取帖子博客等相应内容
 	getPostsByUserId: function (activeIdx) {
 		loading.showLoading();
-		const { user_id } = this.data;
+		const { user_id, txtObj } = this.data;
 		get({ url: '/content/contentsByTypeAndUserId', data: { user_id, activeIdx } })
 			.then((res) => {
 				if (Array.isArray) {
-					res.forEach((item) => {
+					const {
+						threeDays = [], // 三天内的数据
+						monthDays = [], // 一个月内的数据
+						longago = [], // 一月以前的数据
+					} = res;
+					threeDays.forEach((item) => {
 						item.type = filterContentTypeByNum(item.type);
 					});
-					this.setData({ dataList: res || [] });
+					monthDays.forEach((item) => {
+						item.type = filterContentTypeByNum(item.type);
+					});
+					longago.forEach((item) => {
+						item.type = filterContentTypeByNum(item.type);
+					});
+					const result = {
+						threeDays: txtObj.threeDays.concat(threeDays),
+						monthDays: txtObj.monthDays.concat(monthDays),
+						longago: txtObj.longago.concat(longago),
+					};
+					console.log(result, 123);
+					if (activeIdx === 0) {
+						this.setData({ txtObj: result || [] });
+					} else if (activeIdx === 1) {
+						this.setData({ videoObj: result || [] });
+					}
 				} else {
-					this.setData({ dataList: [] });
+					this.setData({
+						txtObj: {
+							threeDays: [], // 三天内的数据
+							monthDays: [], // 一个月内的数据
+							longago: [], // 一月以前的数据
+						},
+					});
 				}
 			})
 			.finally(() => loading.hideLoading());
