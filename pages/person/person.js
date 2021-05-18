@@ -42,6 +42,11 @@ Page({
 				value: '相册',
 			},
 		],
+		testImg: {
+			url: '/asserts/public/logo.png',
+			width: 200,
+			height: 100,
+		},
 	},
 
 	/**

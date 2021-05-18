@@ -158,7 +158,8 @@
 }
 
 .today_img_date {
-    font-size: 40rpx;
+    width: 120rpx;
+    font-size: 48rpx;
 }
 
 .today_imgupload{
@@ -187,13 +188,10 @@
     margin-top: 10rpx;
 }
 
-.img_wrap {
-    background: #fff;
-}
-
-.img_wrap_title {
+.img_title {
     padding: 20rpx;
     color: #666666;
+    background: #fff;
 }
 
 .img_chunk {
@@ -203,15 +201,30 @@
     background: #fff;
 }
 
-.img_date {
-    background: red;
-}
-
 .img_date_month {
-    font-size: 40rpx;
+    width: 120rpx;
+    font-size: 48rpx;
+    text-align: right;
 }
 
+.img_date_year {
+    text-align: right;
+    color: #666666;
+    font-size: 24rpx;
+}
 
+.img_wrap {
+    flex: 1;
+    background: blue;
+    margin-left: 20rpx;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.img_item {
+    width: calc((100vw - 210rpx) / 3);
+    height: calc((100vw - 210rpx) / 3);
+}
 
 .empty_img {
     background: #fff;

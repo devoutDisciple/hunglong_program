@@ -21,7 +21,7 @@
         {
           "name": "个人信息",
           "pathName": "pages/my/personMsg/personMsg",
-          "query": "",
+          "query": "user_id=13",
           "scene": null
         },
         {

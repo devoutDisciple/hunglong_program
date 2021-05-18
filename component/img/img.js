@@ -9,7 +9,7 @@ Component({
 			type: Object,
 			value: {
 				url: emptyImgUrl,
-				width: 100,
+				width: 200,
 				height: 100,
 			},
 		},

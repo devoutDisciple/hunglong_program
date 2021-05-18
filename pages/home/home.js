@@ -131,9 +131,10 @@ Page({
 		if (!login.isLogin()) return;
 		// 如果没有选择学校，去完善个人信息
 		const { userDetail } = this.data;
+		const user_id = wx.getStorageSync('user_id');
 		if (!userDetail.school) {
 			return wx.navigateTo({
-				url: '/pages/my/personMsg/personMsg',
+				url: `/pages/my/personMsg/personMsg?user_id=${user_id}`,
 			});
 		}
 		const url = {

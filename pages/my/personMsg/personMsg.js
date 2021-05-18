@@ -124,6 +124,7 @@ Page({
 		countryRes.forEach((item) => {
 			countryList.push(item.name);
 		});
+		console.log(provinceList, cityList, countryList, 1232);
 		this.setData({ areaList: [provinceList, cityList, countryList], provinceIdx, cityIdx });
 	},
 

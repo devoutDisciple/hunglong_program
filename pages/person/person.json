@@ -1,11 +1,11 @@
 {
 	"usingComponents": {
-		"img": "/component/img/img",
 		"home-post": "/component/content/posts/posts",
 		"home-battle": "/component/content/battle/battle",
 		"home-vote": "/component/content/vote/vote",
         "home-video": "/component/content/video/video",
 		"empty-img": "/component/emptyImg/emptyImg",
+		"my-img": "/component/img/img",
 		"btm-empty": "/component/btmEmpty/btmEmpty"
 	},
 	"navigationStyle": "custom"

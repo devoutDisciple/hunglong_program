@@ -134,20 +134,45 @@
                 </view>
             </view>
             <view class="empty" />
-            <view class="img_wrap">
-                <view class="img_wrap_title">全部照片</view>
-            </view>
+            <view class="img_title">全部照片</view>
             <view class="img_chunk">
                 <view class="img_date">
                     <view class="img_date_month">03月</view>
                     <view class="img_date_year">2021</view>
                 </view>
                 <view class="img_wrap">
-                1213
+                    <view class="img_item">
+                        <my-img data="{{testImg}}"/>
+                    </view>
+                    <view class="img_item">
+                        <my-img data="{{testImg}}"/>
+                    </view>
+                    <view class="img_item">
+                        <my-img data="{{testImg}}"/>
+                    </view>
+                    <view class="img_item">
+                        <my-img data="{{testImg}}"/>
+                    </view>
+                    <view class="img_item">
+                        <my-img data="{{testImg}}"/>
+                    </view>
+                    <view class="img_item">
+                        <my-img data="{{testImg}}"/>
+                    </view>
+                    <view class="img_item">
+                        <my-img data="{{testImg}}"/>
+                    </view>
                 </view>
             </view>
-            <!-- <block wx:if="{{videoObj && (videoObj.threeDays.length !== 0 || videoObj.monthDays.length !== 0 || videoObj.longago.length !== 0)}}">
-                
+            <!-- 
+<image class="img_item" src="/asserts/public/logo.png" />
+                    <image class="img_item" src="/asserts/public/logo.png" />
+                    <image class="img_item" src="/asserts/public/logo.png" />
+                    <image class="img_item" src="/asserts/public/logo.png" />
+                    <image class="img_item" src="/asserts/public/logo.png" />
+
+
+            <block wx:if="{{videoObj && (videoObj.threeDays.length !== 0 || videoObj.monthDays.length !== 0 || videoObj.longago.length !== 0)}}">
             </block>
             <block wx:else>
                 <view class="empty_img">

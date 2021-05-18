@@ -7,6 +7,7 @@
             {{activeDate}}
         </picker>
     </message-item>
+    
     <message-item label="地区" key="area" type="txt">
          <picker 
             mode="multiSelector" 
@@ -15,7 +16,7 @@
             range="{{areaList}}">
             {{address}}
         </picker>
-    </message-item>
+    </message-item> 
     <message-item label="选择学校" key="school" type="txt">
         <picker range="{{schoolList}}" bindchange="schoolChange">
             {{schoolName}}
