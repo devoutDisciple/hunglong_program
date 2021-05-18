@@ -87,7 +87,7 @@
         {
           "name": "个人主页",
           "pathName": "pages/person/person",
-          "query": "user_id=9",
+          "query": "user_id=1",
           "scene": null
         },
         {

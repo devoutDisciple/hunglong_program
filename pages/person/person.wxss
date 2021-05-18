@@ -222,8 +222,16 @@
 }
 
 .img_item {
-    width: calc((100vw - 210rpx) / 3);
-    height: calc((100vw - 210rpx) / 3);
+    width: calc((100vw - 203rpx) / 3);
+    height: calc((100vw - 203rpx) / 3);
+    margin-left: 10rpx;
+    margin-bottom: 10rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+}
+
+.img_item:nth-child(3n-2) {
+    margin-left: 0;
 }
 
 .empty_img {
