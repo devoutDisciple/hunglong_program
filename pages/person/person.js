@@ -1,5 +1,4 @@
 import { get, post, uploadFile } from '../../utils/request';
-import { baseUrl } from '../../config/config';
 import util from '../../utils/util';
 import loading from '../../utils/loading';
 import { filterContentTypeByNum } from '../../utils/filter';
@@ -13,7 +12,7 @@ Page({
 		statusBarHeight: '20px',
 		backIconHeight: '20px',
 		backIconMarginTop: '10px',
-		activeIdx: 2, // 当前选择的tab
+		activeIdx: 0, // 当前选择的tab
 		attentionNum: 0, // 关注量
 		user_id: '', // 当前主页的用户id
 		userDetail: {}, // 当前用户的数据
@@ -43,11 +42,7 @@ Page({
 				value: '相册',
 			},
 		],
-		testImg: {
-			url: '/asserts/public/logo.png',
-			width: 200,
-			height: 100,
-		},
+		albumsList: [], // 相册列表
 	},
 
 	/**
@@ -134,7 +129,6 @@ Page({
 	// 切换tab的时候
 	onChangeTab: function (e) {
 		const { index } = e.detail;
-
 		this.setData(
 			{
 				activeIdx: index,
@@ -148,14 +142,24 @@ Page({
 					monthDays: [], // 一个月内的数据
 					longago: [], // 一月以前的数据
 				},
+				albumsList: [],
 			},
 			() => {
 				if (index === 2) {
-					return;
+					this.getAllImgsByUserId();
+				} else {
+					this.getPostsByUserId(index);
 				}
-				this.getPostsByUserId(index);
 			},
 		);
+	},
+
+	// 根据user_id 查询图片
+	getAllImgsByUserId: function () {
+		const { user_id } = this.data;
+		get({ url: '/album/allByUserId', data: { user_id } }).then((res) => {
+			this.setData({ albumsList: res || [] });
+		});
 	},
 
 	// 上传图片
@@ -169,21 +173,19 @@ Page({
 				// tempFilePath可以作为img标签的src属性显示图片
 				if (res.errMsg === 'chooseImage:ok') {
 					const { tempFilePaths } = res;
-					console.log(tempFilePaths, 12321);
 					if (tempFilePaths && tempFilePaths.length !== 0) {
 						let len = tempFilePaths.length;
 						loading.showLoading();
 						while (len > 0) {
 							len -= 1;
 							// eslint-disable-next-line no-await-in-loop
-							const fileDetail = await uploadFile({
+							await uploadFile({
 								url: '/album/upload',
 								data: tempFilePaths[len],
 								formData: { user_id },
 							});
-							console.log(fileDetail, 111);
-							// uploadImgUrls.push(fileDetail);
 						}
+						this.getAllImgsByUserId();
 						loading.hideLoading();
 					}
 				}
@@ -195,13 +197,6 @@ Page({
 				});
 			},
 		});
-	},
-
-	// 预览图片
-	onPreviewImg: function (e) {
-		console.log(e, 111);
-		const { url } = e.currentTarget.dataset.src;
-		wx.previewImage({ urls: [url] });
 	},
 
 	// 获取帖子博客等相应内容
@@ -230,7 +225,6 @@ Page({
 						monthDays: txtObj.monthDays.concat(monthDays),
 						longago: txtObj.longago.concat(longago),
 					};
-					console.log(result, 123);
 					if (activeIdx === 0) {
 						this.setData({ txtObj: result || [] });
 					} else if (activeIdx === 1) {

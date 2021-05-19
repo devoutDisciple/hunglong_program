@@ -23,5 +23,10 @@ Component({
 	/**
 	 * 组件的方法列表
 	 */
-	methods: {},
+	methods: {
+		onPreviewImg: function (e) {
+			const { url } = e.currentTarget.dataset.src;
+			wx.previewImage({ urls: [url] });
+		},
+	},
 });

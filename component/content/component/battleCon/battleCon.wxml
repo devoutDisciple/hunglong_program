@@ -25,7 +25,7 @@
             </view>
         </block>
         <block wx:else>
-            <view class="progress_icon" style="left: calc({{detail.red_percent}}% - 6rpx)">
+            <view class="progress_icon" style="left: calc({{detail.red_percent}}% - 25rpx)">
                 <image src="/asserts/public/pk.png"/>
             </view>
         </block>
