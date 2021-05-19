@@ -97,7 +97,7 @@ module.exports = {
 					resolve(filename);
 				},
 				fail: function (e) {
-					console.log(e, 11232);
+					console.log(e, '上传失败');
 					wx.showToast({
 						title: '上传失败',
 						icon: 'error',

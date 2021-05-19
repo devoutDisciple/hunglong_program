@@ -126,7 +126,7 @@
         <view class="posts" wx:if="{{activeIdx === 2}}">
             <view class="today_img">
                 <view class="today_img_date">今天</view>
-                <view class="today_imgupload">
+                <view class="today_imgupload" bindtap="onUploadImg">
                     <view class="camera_container">
                         <image class="camera_img" src="/asserts/public/camera.png" />
                         <view class="camera_txt">上传图片</view>
@@ -135,6 +135,35 @@
             </view>
             <view class="empty" />
             <view class="img_title">全部照片</view>
+            <view class="img_chunk">
+                <view class="img_date">
+                    <view class="img_date_month">03月</view>
+                    <view class="img_date_year">2021</view>
+                </view>
+                <view class="img_wrap">
+                    <view class="img_item" data-src="{{testImg}}" bindtap = "onPreviewImg">
+                        <my-img data="{{testImg}}"/>
+                    </view>
+                    <view class="img_item">
+                        <my-img data="{{testImg}}"/>
+                    </view>
+                    <view class="img_item">
+                        <my-img data="{{testImg}}"/>
+                    </view>
+                    <view class="img_item">
+                        <my-img data="{{testImg}}"/>
+                    </view>
+                    <view class="img_item">
+                        <my-img data="{{testImg}}"/>
+                    </view>
+                    <view class="img_item">
+                        <my-img data="{{testImg}}"/>
+                    </view>
+                    <view class="img_item">
+                        <my-img data="{{testImg}}"/>
+                    </view>
+                </view>
+            </view>
             <view class="img_chunk">
                 <view class="img_date">
                     <view class="img_date_month">03月</view>

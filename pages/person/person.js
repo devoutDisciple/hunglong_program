@@ -1,4 +1,5 @@
-import { get, post } from '../../utils/request';
+import { get, post, uploadFile } from '../../utils/request';
+import { baseUrl } from '../../config/config';
 import util from '../../utils/util';
 import loading from '../../utils/loading';
 import { filterContentTypeByNum } from '../../utils/filter';
@@ -155,6 +156,52 @@ Page({
 				this.getPostsByUserId(index);
 			},
 		);
+	},
+
+	// 上传图片
+	onUploadImg: function () {
+		const user_id = wx.getStorageSync('user_id');
+		wx.chooseImage({
+			count: 9,
+			sizeType: ['original', 'compressed'],
+			sourceType: ['album', 'camera'],
+			success: async (res) => {
+				// tempFilePath可以作为img标签的src属性显示图片
+				if (res.errMsg === 'chooseImage:ok') {
+					const { tempFilePaths } = res;
+					console.log(tempFilePaths, 12321);
+					if (tempFilePaths && tempFilePaths.length !== 0) {
+						let len = tempFilePaths.length;
+						loading.showLoading();
+						while (len > 0) {
+							len -= 1;
+							// eslint-disable-next-line no-await-in-loop
+							const fileDetail = await uploadFile({
+								url: '/album/upload',
+								data: tempFilePaths[len],
+								formData: { user_id },
+							});
+							console.log(fileDetail, 111);
+							// uploadImgUrls.push(fileDetail);
+						}
+						loading.hideLoading();
+					}
+				}
+			},
+			fail: function () {
+				wx.showToast({
+					title: '请重新选择',
+					icon: 'error',
+				});
+			},
+		});
+	},
+
+	// 预览图片
+	onPreviewImg: function (e) {
+		console.log(e, 111);
+		const { url } = e.currentTarget.dataset.src;
+		wx.previewImage({ urls: [url] });
 	},
 
 	// 获取帖子博客等相应内容
