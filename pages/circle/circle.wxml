@@ -1,1 +1,74 @@
-<view class="content">1111</view>
+<view class="wrap">
+    <header />
+    <scroll-view scroll-y="{{true}}" class="con">
+        <view class="hot">
+            <view class="title">
+                <view class="title_left">
+                    <view class="title_name">热议中</view>
+                    <view class="title_desc">点击进入圈子</view>
+                </view>
+            </view>
+            <scroll-view scroll-x="true" class="hot_circle" enable-flex="true">
+                <block wx:for="{{circleList}}" wx:key="item">
+                    <view class="hot_circle_chunk">
+                        <image class="hot_cicle_chunk_bg" src="/asserts/public/logo.png" />
+                        <view class="hot_circle_chunk_modal"/>
+                        <view class="hot_circle_chunk_con">
+                            <image class="hot_circle_chunk_photo" src="/asserts/public/logo.png" />
+                            <view class="hot_circle_chunk_name">圈子名称</view>
+                            <hot-circle />
+                        </view>
+                    </view>
+                </block>
+                <view class="hot_empty"></view>
+            </scroll-view>
+        </view>
+        <view class="hot">
+            <view class="title title_btm">
+                <view class="title_left">
+                    <view class="title_name">我关注的圈子</view>
+                    <view class="title_desc">点击进入圈子</view>
+                </view>
+                 <view class="title_right">
+                    <view class="title_right_more">查看更多</view>
+                    <image class="title_right_icon" src="/asserts/public/arrow_right.png" />
+                </view>
+            </view>
+            <view class="my_attr">
+                <block wx:for="{{circleList}}" wx:key="item">
+                    <view class="my_attr_chunk">
+                        <image class="my_attr_chunk_img" src="/asserts/public/logo.png" />
+                        <view class="my_attr_chunk_right">
+                            <view class="my_attr_chunk_right_name">圈子名称</view>
+                            <view class="my_attr_chunk_right_hot">
+                                <hot-circle />
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+        <view class="empty_gray" />
+        <view class="hot">
+            <view class="title title_btm">
+                <view class="title_left">
+                    <view class="title_name">为你推荐</view>
+                    <view class="title_desc">点击进入圈子</view>
+                </view>
+            </view>
+            <view class="my_attr">
+                <block wx:for="{{circleList}}" wx:key="item">
+                    <view class="my_attr_chunk">
+                        <image class="my_attr_chunk_img" src="/asserts/public/logo.png" />
+                        <view class="my_attr_chunk_right">
+                            <view class="my_attr_chunk_right_name">圈子名称名称</view>
+                            <view class="my_attr_chunk_right_hot">
+                                <hot-circle />
+                            </view>
+                        </view>
+                    </view>
+                </block>
+            </view>
+        </view>
+    </scroll-view>
+</view>

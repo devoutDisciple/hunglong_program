@@ -1,0 +1,21 @@
+.hot {
+    font-size: 26rpx;
+    width: 75rpx;
+    height: 40rpx;
+    position: relative;
+}
+
+.hot_img {
+    width: 100%;
+    height: 100%;
+}
+
+.hot_num {
+    width: 75rpx;
+    text-align: center;
+    position: absolute;
+    bottom: 3rpx;
+    font-size: 20rpx;
+    left: 10rpx;
+    color: #fff;
+}

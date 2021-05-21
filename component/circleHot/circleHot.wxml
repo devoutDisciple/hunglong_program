@@ -1,0 +1,4 @@
+<view class="hot">
+    <image class="hot_img" src="/asserts/public/hot.png" />
+    <view class="hot_num">80</view>
+</view>

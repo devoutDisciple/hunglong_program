@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "圈子"
+  "usingComponents": {
+    "header": "/component/navBar/navBar",
+    "hot-circle": "/component/circleHot/circleHot"
+  },
+  "navigationStyle": "custom"
 }
