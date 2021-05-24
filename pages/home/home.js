@@ -71,13 +71,13 @@ Page({
 
 	// 获取板块信息
 	getPlateMsg: async function () {
-		const res = await get({ url: '/plate/getAll' });
+		const res = await get({ url: '/plate/all' });
 		this.setData({ plateList: res });
 	},
 
 	// 获取圈子列表
 	getCircleList: async function (user_id) {
-		const res = await get({ url: '/circle/getAllByUserId', data: { user_id } });
+		const res = await get({ url: '/circle/allByUserId', data: { user_id } });
 		this.setData({
 			circleList: [{ id: 'attention', name: '关注' }, { id: 'recommend', name: '广场' }, ...res],
 		});

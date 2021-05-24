@@ -56,19 +56,37 @@
                     <view class="title_desc">点击进入圈子</view>
                 </view>
             </view>
-            <view class="my_attr">
-                <block wx:for="{{circleList}}" wx:key="item">
-                    <view class="my_attr_chunk">
-                        <image class="my_attr_chunk_img" src="/asserts/public/logo.png" />
-                        <view class="my_attr_chunk_right">
-                            <view class="my_attr_chunk_right_name">圈子名称名称</view>
-                            <view class="my_attr_chunk_right_hot">
-                                <hot-circle />
-                            </view>
-                        </view>
-                    </view>
-                </block>
+            <view class="plate_tab">
+                <van-tabs active="{{ activeTab }}" bind:change="onChangeCircle" ellipsis="{{false}}">
+                    <block wx:key="id" wx:for="{{plates}}" >
+                        <van-tab title="{{item.name}}"/>
+                    </block>
+                </van-tabs>
+            </view>
+            <view class="plate_wrap">
+                <view class="circle_item">
+                    <circle-recommend-item />
+                </view>
+                <view class="circle_item">
+                    <circle-recommend-item />
+                </view>
+                <view class="circle_item">
+                    <circle-recommend-item />
+                </view>
+                <view class="circle_item">
+                    <circle-recommend-item />
+                </view>
+                <view class="circle_item">
+                    <circle-recommend-item />
+                </view>
+                <view class="circle_item">
+                    <circle-recommend-item />
+                </view>
+                <view class="circle_item">
+                    <circle-recommend-item />
+                </view>
             </view>
         </view>
+        <view class="empty_btm"/>
     </scroll-view>
 </view>

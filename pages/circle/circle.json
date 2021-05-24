@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "header": "/component/navBar/navBar",
-    "hot-circle": "/component/circleHot/circleHot"
+    "hot-circle": "/component/circleHot/circleHot",
+    "circle-recommend-item": "/component/circleRecommendItem/circleRecommendItem"
   },
   "navigationStyle": "custom"
 }

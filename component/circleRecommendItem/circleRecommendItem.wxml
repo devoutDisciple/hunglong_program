@@ -1,0 +1,19 @@
+<view class="wrap">
+    <image class="photo" src="/asserts/public/logo.png" />
+    <view class="desc">
+        <view class="desc_name">
+            <view class="desc_name_txt">这是名称这是名称这是名称这是名称</view>
+            <view class="hot_icon">
+                <hot-circle />
+            </view>
+        </view>
+        <view class="desc_num">
+            <view class="desc_num_chunk">关注 2.6w</view>
+            <view class="desc_num_chunk">图文 2.6w</view>
+            <view class="desc_num_chunk">视频 2.6w</view>
+        </view>
+    </view>
+    <view class="concern" bindtap="">
+        <attention-btn active="{{false}}" bindOnTap="onTapAttention"/>
+    </view>
+</view>

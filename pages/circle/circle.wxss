@@ -112,6 +112,7 @@
     width: 90rpx;
     border-radius: 100%;
 }
+
 .hot_circle_chunk_name {
     font-size: 28rpx;
     color: #fff;
@@ -124,25 +125,29 @@
     display: flex;
     flex-wrap: wrap;
 }
+
 .my_attr_chunk {
     width: calc((100vw - 40rpx) / 2 - 10rpx);
     height: 120rpx;
-    margin-bottom: 30rpx; 
+    margin-bottom: 30rpx;
     display: flex;
     margin-right: 5rpx;
     align-items: center;
 }
+
 .my_attr_chunk_img {
     width: 100rpx;
     height: 100rpx;
     border-radius: 100%;
 }
+
 .my_attr_chunk_right {
     flex: 1;
     display: flex;
     flex-direction: column;
     margin-left: 10rpx;
 }
+
 .my_attr_chunk_right_name {
     margin-top: 10rpx;
     height: 42rpx;
@@ -157,12 +162,35 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
 }
+
 .my_attr_chunk_right_hot {
     height: 60rpx;
     display: flex;
     align-items: center;
 }
+
 .empty_gray {
     height: 20rpx;
     background: #eeeeee;
+}
+
+.plate_tab .van-tab--active {
+    font-size: 40rpx;
+}
+
+.plate_wrap {
+    padding: 20rpx;
+}
+
+.circle_item {
+    margin-top: 30rpx;
+}
+
+.circle_item:first-child {
+    margin-top: 20rpx;
+}
+
+
+.empty_btm {
+    height: 20rpx;
 }

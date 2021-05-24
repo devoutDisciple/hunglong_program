@@ -1,0 +1,6 @@
+<view class="btn_active" wx:if="{{!active}}" bindtap = "onTapBtn">
+    关注
+</view>
+<view class="btn_active btn_no" wx:else bindtap="onTapBtn">
+    已关注
+</view>
