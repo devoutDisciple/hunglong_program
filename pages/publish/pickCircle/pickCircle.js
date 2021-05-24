@@ -31,7 +31,7 @@ Page({
 		const user_id = wx.getStorageSync('user_id');
 		const newCircles = [];
 		const myPlate = { plate_id: -1, plate_name: '我的关注', selected: true, children: [] };
-		const myCircles = await get({ url: '/circle/getCirclesByUserId', data: { user_id } });
+		const myCircles = await get({ url: '/circle/allCirclesByUserId', data: { user_id } });
 		myCircles.forEach((item) => {
 			myPlate.children.push({
 				circle_id: item.id,

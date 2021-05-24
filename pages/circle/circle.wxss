@@ -117,6 +117,13 @@
     font-size: 28rpx;
     color: #fff;
     margin-top: 20rpx;
+    max-width: 190rpx;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
 }
 
 .my_attr {

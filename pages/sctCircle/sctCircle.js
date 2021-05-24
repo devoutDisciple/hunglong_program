@@ -28,7 +28,7 @@ Page({
 	onSearchMyCircle: function () {
 		loading.showLoading();
 		const user_id = wx.getStorageSync('user_id');
-		get({ url: '/circle/getCirclesByUserId', data: { user_id } }).then((res) => {
+		get({ url: '/circle/allCirclesByUserId', data: { user_id } }).then((res) => {
 			this.setData({ myCirCles: res });
 			loading.hideLoading();
 		});

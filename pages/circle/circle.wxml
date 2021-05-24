@@ -9,14 +9,14 @@
                 </view>
             </view>
             <scroll-view scroll-x="true" class="hot_circle" enable-flex="true">
-                <block wx:for="{{circleList}}" wx:key="item">
+                <block wx:for="{{hotList}}" wx:key="id">
                     <view class="hot_circle_chunk">
-                        <image class="hot_cicle_chunk_bg" src="/asserts/public/logo.png" />
+                        <image class="hot_cicle_chunk_bg" src="{{item.bg_url}}" />
                         <view class="hot_circle_chunk_modal"/>
                         <view class="hot_circle_chunk_con">
-                            <image class="hot_circle_chunk_photo" src="/asserts/public/logo.png" />
-                            <view class="hot_circle_chunk_name">圈子名称</view>
-                            <hot-circle />
+                            <image class="hot_circle_chunk_photo" src="{{item.logo}}" />
+                            <view class="hot_circle_chunk_name">{{item.name}}</view>
+                            <hot-circle hot="{{item.hot}}"/>
                         </view>
                     </view>
                 </block>
@@ -29,24 +29,29 @@
                     <view class="title_name">我关注的圈子</view>
                     <view class="title_desc">点击进入圈子</view>
                 </view>
-                 <view class="title_right">
+                 <view class="title_right" wx:if="{{myAttentions && myAttentions.length !== 0 && myAttentions.length > 5}}">
                     <view class="title_right_more">查看更多</view>
                     <image class="title_right_icon" src="/asserts/public/arrow_right.png" />
                 </view>
             </view>
-            <view class="my_attr">
-                <block wx:for="{{circleList}}" wx:key="item">
-                    <view class="my_attr_chunk">
-                        <image class="my_attr_chunk_img" src="/asserts/public/logo.png" />
-                        <view class="my_attr_chunk_right">
-                            <view class="my_attr_chunk_right_name">圈子名称</view>
-                            <view class="my_attr_chunk_right_hot">
-                                <hot-circle />
+            <block wx:if="{{myAttentions && myAttentions.length !== 0}}">
+                <view class="my_attr">
+                    <block wx:for="{{myAttentions}}" wx:key="item">
+                        <view class="my_attr_chunk">
+                            <image class="my_attr_chunk_img" src="{{item.logo}}" />
+                            <view class="my_attr_chunk_right">
+                                <view class="my_attr_chunk_right_name">{{item.name}}</view>
+                                <view class="my_attr_chunk_right_hot">
+                                    <hot-circle hot="{{item.hot}}"/>
+                                </view>
                             </view>
                         </view>
-                    </view>
-                </block>
-            </view>
+                    </block>
+                </view>
+            </block>
+            <block wx:else>
+                <empty-img />
+            </block>
         </view>
         <view class="empty_gray" />
         <view class="hot">
@@ -57,34 +62,23 @@
                 </view>
             </view>
             <view class="plate_tab">
-                <van-tabs active="{{ activeTab }}" bind:change="onChangeCircle" ellipsis="{{false}}">
+                <van-tabs active="{{ activeTab }}" bind:change="onChangeTab" ellipsis="{{false}}">
                     <block wx:key="id" wx:for="{{plates}}" >
                         <van-tab title="{{item.name}}"/>
                     </block>
                 </van-tabs>
             </view>
             <view class="plate_wrap">
-                <view class="circle_item">
-                    <circle-recommend-item />
-                </view>
-                <view class="circle_item">
-                    <circle-recommend-item />
-                </view>
-                <view class="circle_item">
-                    <circle-recommend-item />
-                </view>
-                <view class="circle_item">
-                    <circle-recommend-item />
-                </view>
-                <view class="circle_item">
-                    <circle-recommend-item />
-                </view>
-                <view class="circle_item">
-                    <circle-recommend-item />
-                </view>
-                <view class="circle_item">
-                    <circle-recommend-item />
-                </view>
+                <block wx:if="{{recommendCircles && recommendCircles.length !== 0}}">
+                    <block wx:for="{{recommendCircles}}" wx:key="id">
+                        <view class="circle_item">
+                            <circle-recommend-item detail="{{detail}}"/>
+                        </view>
+                    </block>
+                </block>
+                <block wx:else>
+                    <empty-img />
+                </block>
             </view>
         </view>
         <view class="empty_btm"/>

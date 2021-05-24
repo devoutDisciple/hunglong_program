@@ -2,7 +2,8 @@
   "usingComponents": {
     "header": "/component/navBar/navBar",
     "hot-circle": "/component/circleHot/circleHot",
-    "circle-recommend-item": "/component/circleRecommendItem/circleRecommendItem"
+    "circle-recommend-item": "/component/circleRecommendItem/circleRecommendItem",
+    "empty-img": "/component/emptyImg/emptyImg"
   },
   "navigationStyle": "custom"
 }
