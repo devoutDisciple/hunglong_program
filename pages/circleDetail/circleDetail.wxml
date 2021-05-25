@@ -1,0 +1,53 @@
+<view class="wrap">
+    <view class="bg">
+        <image class="bg_img" src="/asserts/temp/4.jpg"/>
+    </view>
+    <view class="header" style="{{'height: '+navHeight+'; top: '+ statusBarHeight+ '; line-height: '+navHeight}}">
+        个人主页
+        <image 
+            bindtap = "onGoback"
+            style="{{'height: '+backIconHeight+'; width: '+backIconHeight+'; top: '+backIconMarginTop+'; left: '+backIconMarginTop}}" 
+            class="head_img" src="/asserts/public/back_icon.png" />
+    </view>
+    <scroll-view class="con" style="{{'height:  calc(100vh - ' + headerHight + '); top:' + headerHight + ';' }}" scroll-y="{{true}}">
+        <view class="intro">
+            <view class="circle_logo">
+                <image class="circle_logo_img" src="/asserts/public/logo.png" />
+            </view>
+            <view class="desc">
+                <view class="name">
+                    <view class="circle_name">圈子名称圈子名称圈子名称圈子名称圈子名称圈子名称圈子名称</view>
+                    <view class="hot_icon">
+                        <hot-circle hot="10"/>
+                    </view>
+                </view>
+                <view class="sign">圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介</view>
+                <view class="data">
+                    <view class="data_chunk">关注 2.6w</view>
+                    <view class="data_chunk">关注 2.6w</view>
+                    <view class="data_chunk">关注 2.6w</view>
+                </view>
+            </view>
+            <view class="attention">
+                <attention-btn active="false" type="1" circleId="11"/>
+            </view>
+        </view>
+        <view class="msg">
+            <view class="msg_chunk">
+                <view class="msg_chunk_tag">置顶</view>
+                <image class="msg_chunk_icon" src="/asserts/public/trumpet.png" />
+                <view class="msg_chunk_con">
+                    这是公告工具啊这是公告工具啊这是公告工具啊这是公告工具啊这是公告工具啊这是公告工具啊这是公告工具啊
+                </view>
+            </view>
+            <view class="msg_chunk">
+                <view class="msg_chunk_tag">公告</view>
+                <image class="msg_chunk_icon" src="/asserts/public/trumpet.png" />
+                <view class="msg_chunk_con">
+                    这是公告工具啊这是公告工具啊这是公告工具啊这是公告工具啊这是公告工具啊这是公告工具啊这是公告工具啊
+                </view>
+            </view>
+        </view>
+        <view class="empty" />
+    </scroll-view>
+</view>

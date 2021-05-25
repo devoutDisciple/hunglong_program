@@ -11,6 +11,12 @@
     overflow: hidden;
 }
 
+.con ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
 .hot {
     background: #fff;
 }

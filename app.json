@@ -28,7 +28,8 @@
     "pages/my/myGoods/myGoods",
     "pages/message/chat/chat",
     "pages/person/person",
-    "pages/publish/video/video"
+    "pages/publish/video/video",
+    "pages/circleDetail/circleDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

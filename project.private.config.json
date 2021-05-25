@@ -203,6 +203,12 @@
           "pathName": "pages/circle/circle",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "圈子详情",
+          "pathName": "pages/circleDetail/circleDetail",
+          "query": "",
+          "scene": null
         }
       ]
     }

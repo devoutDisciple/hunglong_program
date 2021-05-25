@@ -1,0 +1,7 @@
+{
+	"usingComponents": {
+		"attention-btn": "/component/attentionBtn/attentionBtn",
+        "hot-circle": "/component/circleHot/circleHot"
+	},
+	"navigationStyle": "custom"
+}

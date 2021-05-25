@@ -1,0 +1,174 @@
+.wrap {
+    font-size: 26rpx;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: #fff;
+}
+
+.header {
+    width: 100vw;
+    text-align: center;
+    position: absolute;
+    color: #fff;
+    font-size: 30rpx;
+}
+
+.head_img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 20px;
+    height: 20px;
+}
+
+.bg {
+    width: 100vw;
+    height: 50vw;
+    overflow: hidden;
+}
+
+.bg_img {
+    width: 100%;
+    min-height: 50vw;
+}
+
+.con {
+    position: absolute;
+}
+
+.intro {
+    height: 220rpx;
+    display: flex;
+    padding: 20rpx;
+}
+
+.circle_logo {
+    width: 100rpx;
+}
+
+.circle_logo_img {
+    height: 90rpx;
+    width: 90rpx;
+    border-radius: 100%;
+}
+
+.desc {
+    flex: 1;
+}
+
+.name {
+    margin-top: 10rpx;
+    height: 40rpx;
+    display: flex;
+}
+
+.circle_name {
+    font-size: 30rpx;
+    color: #FFFFFF;
+    max-width: 320rpx;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.hot_icon {
+    margin-top: -5rpx;
+}
+
+.sign {
+    margin-top: 20rpx;
+    font-size: 22rpx;
+    color: #fff;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.data {
+    margin-top: 10rpx;
+    display: flex;
+    color: #fff;
+    font-size: 22rpx;
+}
+
+.data_chunk {
+    height: 22rpx;
+    line-height: 22rpx;
+    padding-right: 20rpx;
+    margin-left: 20rpx;
+    border-right: 1rpx solid #fff;
+}
+
+.data_chunk:first-child {
+    margin-left: 0;
+}
+
+.data_chunk:last-child {
+    border-right: none;
+}
+
+.attention {
+    margin-left: 10rpx;
+    padding-top: 15rpx;
+}
+
+.msg {
+    padding: 20rpx;
+    font-size: 24rpx;
+}
+
+.msg_chunk {
+    height: 40rpx;
+    display: flex;
+    margin-bottom: 15rpx;
+}
+
+.msg_chunk:last-child {
+    margin-bottom: 0;
+}
+
+.msg_chunk_tag {
+    height: 40rpx;
+    font-size: 22rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 75rpx;
+    background: #3366ea;
+    color: #fff;
+    border-radius: 50rpx;
+}
+
+.msg_chunk_icon {
+    height: 32rpx;
+    width: 32rpx;
+    margin: 5rpx 15rpx 0 14rpx;
+}
+
+.msg_chunk_con {
+    flex: 1;
+    line-height: 40rpx;
+    color: #333333;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+
+.empty {
+    height: 20rpx;
+    background: #eeeeee;
+}

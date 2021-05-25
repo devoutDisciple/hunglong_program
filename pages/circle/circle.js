@@ -55,7 +55,8 @@ Page({
 
 	// 获取模块下的所有圈子 circlesByPlateId
 	getCirclesByPlate: async function (plate_id) {
-		get({ url: '/circle/circlesByPlateId', data: { plate_id } })
+		const user_id = wx.getStorageSync('user_id');
+		get({ url: '/circle/circlesByPlateId', data: { plate_id, user_id } })
 			.then((res) => {
 				this.setData({ recommendCircles: res || [] });
 			})
