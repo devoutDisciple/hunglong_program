@@ -35,8 +35,7 @@ Component({
 	methods: {
 		onTapBtn: function () {
 			this.setData({ active: !this.data.active });
-			const { active, type, circleId, personId } = this.data;
-			console.log(active, type, circleId, personId);
+			const { type, circleId, personId } = this.data;
 			if (!login.isLogin()) return;
 			const user_id = wx.getStorageSync('user_id');
 			// 关注或取消关注圈子

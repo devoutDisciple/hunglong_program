@@ -41,7 +41,7 @@
         </view>
         <view class="footer_split" />
         <view class="footer_chunk">
-            <image src="/asserts/public/good.png"/>
+            <image class="footer_img" src="/asserts/public/good.png"/>
             赞
         </view>
     </view>

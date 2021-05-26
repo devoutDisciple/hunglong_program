@@ -1,7 +1,12 @@
 {
 	"usingComponents": {
-		"attention-btn": "/component/attentionBtn/attentionBtn",
-        "hot-circle": "/component/circleHot/circleHot"
+        "empty-img": "/component/emptyImg/emptyImg",
+        "hot-circle": "/component/circleHot/circleHot",
+        "home-post": "/component/content/posts/posts",
+        "home-battle": "/component/content/battle/battle",
+        "home-vote": "/component/content/vote/vote",
+        "home-video": "/component/content/video/video",
+		"attention-btn": "/component/attentionBtn/attentionBtn"
 	},
 	"navigationStyle": "custom"
 }

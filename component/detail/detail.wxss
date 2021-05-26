@@ -67,7 +67,7 @@
     align-items: center;
     border-top: 1rpx solid #f2f2f2;
 }
-.footer image {
+.footer .footer_img {
     width: 26rpx;
     height: 26rpx;
     margin-right: 10rpx;

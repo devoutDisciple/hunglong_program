@@ -1,9 +1,9 @@
 <view class="wrap">
     <view class="bg">
-        <image class="bg_img" src="/asserts/temp/4.jpg"/>
+        <image class="bg_img" src="{{circleDetail.bg_url}}"/>
     </view>
     <view class="header" style="{{'height: '+navHeight+'; top: '+ statusBarHeight+ '; line-height: '+navHeight}}">
-        个人主页
+        圈子详情
         <image 
             bindtap = "onGoback"
             style="{{'height: '+backIconHeight+'; width: '+backIconHeight+'; top: '+backIconMarginTop+'; left: '+backIconMarginTop}}" 
@@ -12,24 +12,24 @@
     <scroll-view class="con" style="{{'height:  calc(100vh - ' + headerHight + '); top:' + headerHight + ';' }}" scroll-y="{{true}}">
         <view class="intro">
             <view class="circle_logo">
-                <image class="circle_logo_img" src="/asserts/public/logo.png" />
+                <image class="circle_logo_img" src="{{circleDetail.logo}}" />
             </view>
             <view class="desc">
                 <view class="name">
-                    <view class="circle_name">圈子名称圈子名称圈子名称圈子名称圈子名称圈子名称圈子名称</view>
+                    <view class="circle_name">{{circleDetail.name || "-"}}</view>
                     <view class="hot_icon">
-                        <hot-circle hot="10"/>
+                        <hot-circle hot="{{circleDetail.hot}}"/>
                     </view>
                 </view>
-                <view class="sign">圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介圈子简介</view>
+                <view class="sign">{{circleDetail.desc}}</view>
                 <view class="data">
-                    <view class="data_chunk">关注 2.6w</view>
-                    <view class="data_chunk">关注 2.6w</view>
-                    <view class="data_chunk">关注 2.6w</view>
+                    <view class="data_chunk">关注 {{circleDetail.fellow}}</view>
+                    <view class="data_chunk">图文 {{circleDetail.txtNum}}</view>
+                    <view class="data_chunk">视频 {{circleDetail.videos}}</view>
                 </view>
             </view>
             <view class="attention">
-                <attention-btn active="false" type="1" circleId="11"/>
+                <attention-btn active="{{circleDetail.hadAttention}}" type="1" circleId="{{circleDetail.id}}"/>
             </view>
         </view>
         <view class="msg">
@@ -49,5 +49,31 @@
             </view>
         </view>
         <view class="empty" />
+        <view class="tab">
+            <view class="tab_wrap">
+                <van-tabs bind:change="onChangeTab" ellipsis="{{false}}" active="{{ activeIdx }}">
+                    <block wx:key="key" wx:for="{{tabList}}" >
+                        <van-tab title="{{item.value}}"/>
+                    </block>
+                </van-tabs>
+            </view>
+        </view>
+        <view class="posts">
+            <block wx:if="{{dataList && dataList.length !==0}}">
+                <block wx:for="{{dataList}}" wx:key="id">
+                    <home-post wx:if="{{item.type === 'posts'}}" detail="{{item}}"/>
+                    <home-post wx:if="{{item.type === 'blogs'}}" detail="{{item}}"/>
+                    <home-vote wx:if="{{item.type === 'vote'}}" detail="{{item}}" />
+                    <home-battle wx:if="{{item.type === 'battle'}}" detail="{{item}}" />
+                    <home-video wx:if="{{item.type === 'video'}}" detail="{{item}}" />
+                </block>
+            </block>
+            <block wx:else>
+                <view class="empty_img">
+                    <empty-img />
+                </view>
+            </block>
+        </view>
+        <view class="empty_btm" />
     </scroll-view>
 </view>

@@ -6,7 +6,6 @@
     display: flex;
     flex-direction: column;
     position: relative;
-    background: #fff;
 }
 
 .header {
@@ -171,4 +170,28 @@
 .empty {
     height: 20rpx;
     background: #eeeeee;
+}
+
+.tab {
+    border-bottom: 1rpx solid #eee;
+}
+
+.tab_wrap {
+    width: 500rpx;
+}
+
+.tab .van-tab--active {
+    font-size: 35rpx;
+}
+
+.posts {
+    background: #eee;
+}
+
+.empty_img {
+    background: #fff;
+}
+
+.empty_btm {
+    height: 40rpx;
 }
