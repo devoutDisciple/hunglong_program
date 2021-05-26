@@ -1,0 +1,7 @@
+<scroll-view class="wrap" scroll-y="{{true}}">
+    <view class="title">如果我把日本靖国神社炸了会怎样？</view>
+    <view class="con">
+        <text>{{content}}</text>
+    </view>
+    <view class="empty"/>
+</scroll-view>
