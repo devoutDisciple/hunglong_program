@@ -1,9 +1,16 @@
 .wrap {
     font-size: 26rpx;
-    height: calc(100vh - 40rpx);
+    height: calc(100vh - 20rpx);
     width: calc(100vw - 40rpx);
     padding: 20rpx;
+    padding-bottom: 0;
     color: #333333;
+}
+
+.wrap ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
 }
 
 .title {
@@ -15,6 +22,18 @@
 .con {
     font-size: 26rpx;
     line-height: 46rpx;
+}
+
+.con_item {
+    margin: 20rpx 0;
+    text-indent: 53rpx;
+}
+
+.time {
+    margin: 20rpx 0;
+    text-align: right;
+    font-size: 22rpx;
+    color: #8a8a8a;
 }
 
 .empty {

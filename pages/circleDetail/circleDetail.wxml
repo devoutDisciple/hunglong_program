@@ -33,20 +33,17 @@
             </view>
         </view>
         <view class="msg">
-            <view class="msg_chunk">
-                <view class="msg_chunk_tag">置顶</view>
-                <image class="msg_chunk_icon" src="/asserts/public/trumpet.png" />
-                <view class="msg_chunk_con">
-                    这是公告工具啊这是公告工具啊这是公告工具啊这是公告工具啊这是公告工具啊这是公告工具啊这是公告工具啊
-                </view>
-            </view>
-            <view class="msg_chunk">
-                <view class="msg_chunk_tag">公告</view>
-                <image class="msg_chunk_icon" src="/asserts/public/trumpet.png" />
-                <view class="msg_chunk_con">
-                    这是公告工具啊这是公告工具啊这是公告工具啊这是公告工具啊这是公告工具啊这是公告工具啊这是公告工具啊
-                </view>
-            </view>
+            <block wx:if="{{notices && notices.length !== 0}}">
+                <block wx:for="{{notices}}" wx:key="id">
+                    <view class="msg_chunk" data-noticeid="{{item.id}}" bind:tap="onTapNotice">
+                        <view class="msg_chunk_tag">{{item.tag}}</view>
+                        <image class="msg_chunk_icon" src="/asserts/public/trumpet.png" />
+                        <view class="msg_chunk_con">
+                            {{item.title}}
+                        </view>
+                    </view>
+                </block>
+            </block>
         </view>
         <view class="empty" />
         <view class="tab">

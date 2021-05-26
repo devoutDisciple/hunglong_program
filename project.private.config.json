@@ -213,7 +213,7 @@
         {
           "name": "公告详情",
           "pathName": "pages/notice/notice",
-          "query": "",
+          "query": "noticeId=1",
           "scene": null
         }
       ]

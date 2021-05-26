@@ -26,13 +26,13 @@
 
 .bg {
     width: 100vw;
-    height: 50vw;
+    height: 55vw;
     overflow: hidden;
 }
 
 .bg_img {
     width: 100%;
-    min-height: 50vw;
+    min-height: 55vw;
 }
 
 .con {
@@ -124,6 +124,7 @@
 .msg {
     padding: 20rpx;
     font-size: 24rpx;
+    background: #fff;
 }
 
 .msg_chunk {
@@ -174,6 +175,7 @@
 
 .tab {
     border-bottom: 1rpx solid #eee;
+    background: #fff;
 }
 
 .tab_wrap {

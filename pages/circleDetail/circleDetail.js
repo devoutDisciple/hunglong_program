@@ -34,6 +34,7 @@ Page({
 			},
 		],
 		dataList: [], // 数据
+		notices: [], // 公告列表
 	},
 
 	/**
@@ -45,6 +46,8 @@ Page({
 			return wx.navigateBack({});
 		}
 		this.setData({ circle_id: circleId }, () => {
+			// 获取公告
+			this.getNotice();
 			// 获取圈子详情
 			this.getCircleDetail();
 			// 获取内容
@@ -52,6 +55,29 @@ Page({
 		});
 		// 获取设备信息
 		this.getDeviceData();
+	},
+
+	// 获取公告
+	getNotice: function () {
+		const { circle_id } = this.data;
+		get({ url: '/notice/notices', data: { circle_id } }).then((res) => {
+			if (Array.isArray(res)) {
+				res.forEach((item) => {
+					item.tag = item.type === 1 ? '公告' : '置顶';
+				});
+				this.setData({ notices: res });
+			}
+		});
+	},
+
+	// 点击公告
+	onTapNotice: function (e) {
+		console.log(e);
+		const { noticeid } = e.currentTarget.dataset;
+		console.log(noticeid, 2342);
+		wx.navigateTo({
+			url: `/pages/notice/notice?noticeId=${noticeid}`,
+		});
 	},
 
 	/**
@@ -64,7 +90,6 @@ Page({
 		const user_id = wx.getStorageSync('user_id');
 		const { circle_id } = this.data;
 		get({ url: '/circle/circleDetailById', data: { circle_id, user_id } }).then((res) => {
-			console.log(res, 4345);
 			this.setData({ circleDetail: res || {} });
 		});
 	},
