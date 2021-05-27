@@ -1,0 +1,6 @@
+<view class="wrap">
+    <header />
+    <scroll-view scroll-y="{{true}}" bindscroll="onPageScroll" class="content" enhanced="{{true}}" show-scrollbar="{{false}}">
+        123123
+    </scroll-view>
+</view>

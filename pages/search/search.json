@@ -1,0 +1,11 @@
+{
+	"navigationStyle": "custom",
+	"usingComponents": {
+        "header": "/component/navBar/navBar",
+        "home-post": "/component/content/posts/posts",
+        "home-battle": "/component/content/battle/battle",
+        "home-vote": "/component/content/vote/vote",
+        "home-video": "/component/content/video/video",
+        "empty-img": "/component/emptyImg/emptyImg"
+    }
+}

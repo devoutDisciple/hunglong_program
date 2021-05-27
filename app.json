@@ -30,7 +30,8 @@
     "pages/person/person",
     "pages/publish/video/video",
     "pages/circleDetail/circleDetail",
-    "pages/notice/notice"
+    "pages/notice/notice",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",

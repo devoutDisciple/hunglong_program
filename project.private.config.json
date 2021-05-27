@@ -215,6 +215,12 @@
           "pathName": "pages/notice/notice",
           "query": "noticeId=1",
           "scene": null
+        },
+        {
+          "name": "搜索页面",
+          "pathName": "pages/search/search",
+          "query": "",
+          "scene": null
         }
       ]
     }

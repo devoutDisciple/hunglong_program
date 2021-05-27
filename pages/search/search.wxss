@@ -1,0 +1,20 @@
+.wrap {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-size: 26rpx;
+    position: relative;
+}
+
+.content {
+    flex: 1;
+    overflow: hidden;
+    background: #eeeeee;
+    position: relative;
+}
+
+.content ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
