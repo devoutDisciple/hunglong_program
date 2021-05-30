@@ -1,6 +1,56 @@
 <view class="wrap">
     <header />
     <scroll-view scroll-y="{{true}}" bindscroll="onPageScroll" class="content" enhanced="{{true}}" show-scrollbar="{{false}}">
-        123123
+        <view class="tab">
+            <van-tabs bind:change="onChangeTab" ellipsis="{{false}}" active="{{ activeIdx }}">
+                <block wx:key="key" wx:for="{{tabList}}" >
+                    <van-tab title="{{item.value}}"/>
+                </block>
+            </van-tabs>
+        </view>
+        <block wx:if="{{activeIdx === 0 }}">
+            <block wx:if="{{posts && posts.length !== 0}}">
+                <block wx:for="{{posts}}" wx:key="id">
+                    <home-post wx:if="{{item.type === 'posts'}}" detail="{{item}}"/>
+                    <home-post wx:if="{{item.type === 'blogs'}}" detail="{{item}}"/>
+                    <home-vote wx:if="{{item.type === 'vote'}}" detail="{{item}}" />
+                    <home-battle wx:if="{{item.type === 'battle'}}" detail="{{item}}" />
+                    <home-video wx:if="{{item.type === 'video'}}" detail="{{item}}" />
+                </block>
+            </block>
+            <block wx:else>
+                <view class="empty_img">
+                    <empty-img />
+                </view>
+            </block>
+        </block>
+        <block wx:if="{{activeIdx === 1 }}">
+            <block wx:if="{{posts && posts.length !== 0}}">
+                <block wx:for="{{posts}}" wx:key="id">
+                    <home-video wx:if="{{item.type === 'video'}}" detail="{{item}}" />
+                </block>
+            </block>
+            <block wx:else>
+                <view class="empty_img">
+                    <empty-img />
+                </view>
+            </block>
+        </block>
+        <block wx:if="{{activeIdx === 2 }}">
+            <block wx:if="{{circles && circles.length !== 0}}">
+                <view class="circle">
+                    <block wx:for="{{circles}}" wx:key="id">
+                        <view class="circle_item">
+                            <circle-recommend-item detail="{{item}}"/>
+                        </view>
+                    </block>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="empty_img">
+                    <empty-img />
+                </view>
+            </block>
+        </block>
     </scroll-view>
 </view>

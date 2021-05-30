@@ -11,8 +11,8 @@
                 <view class="comment_title_left">评论 {{detail.comment}}</view>
                 <view class="comment_title_right" bindtap="onChangeGoods">
                     {{detail.goods}}
-                    <image wx:if="{{detail.hadGoods}}" src="/asserts/public/good_select.png" />
-                    <image wx:else src="/asserts/public/good.png" />
+                    <image class="comment_title_right_img" wx:if="{{detail.hadGoods}}" src="/asserts/public/good_select.png" />
+                    <image class="comment_title_right_img" wx:else src="/asserts/public/good.png" />
                 </view>
             </view>
             <view class="comment_con">

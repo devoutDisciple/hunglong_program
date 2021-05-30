@@ -28,8 +28,5 @@ Component({
 	methods: {},
 
 	// 组件生命周期函数-在组件实例进入页面节点树时执行)
-	attached: function () {
-		const { detail } = this.data;
-		console.log(detail, 1231321);
-	},
+	attached: function () {},
 });

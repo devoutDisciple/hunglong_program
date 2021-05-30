@@ -196,11 +196,11 @@
 }
 
 .circle_item {
-    margin-top: 30rpx;
+    margin-top: 20rpx;
 }
 
 .circle_item:first-child {
-    margin-top: 20rpx;
+    margin-top: 10rpx;
 }
 
 

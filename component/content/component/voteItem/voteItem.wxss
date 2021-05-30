@@ -32,7 +32,7 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
 }
-.vote_con_img image {
+.vote_con_img_img {
     width: 25rpx;
     height: 25rpx;
     margin-left: 10rpx;
@@ -41,6 +41,5 @@
     width: 150rpx;
     line-height: 70rpx;
     text-align: right;
-    /* background: red; */
     padding-right: 20rpx;
 }

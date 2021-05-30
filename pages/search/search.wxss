@@ -6,10 +6,14 @@
     position: relative;
 }
 
+.tab {
+    border-bottom: 1rpx solid #f1f1f1;
+}
+
 .content {
     flex: 1;
     overflow: hidden;
-    background: #eeeeee;
+    background: #eee;
     position: relative;
 }
 
@@ -17,4 +21,21 @@
     width: 0;
     height: 0;
     color: transparent;
+}
+
+.circle {
+    background: #fff;
+    padding: 20rpx;
+}
+
+.circle_item {
+    margin-top: 20rpx;
+}
+
+.circle_item:first-child {
+    margin-top: 10rpx;
+}
+
+.empty_img {
+    margin-top: 300rpx;
 }

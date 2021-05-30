@@ -50,7 +50,7 @@
     align-items: center;
     color: #999999;
 }
-.comment_title_right image{
+.comment_title_right_img{
     width: 24rpx;
     height: 24rpx;
     margin-left: 10rpx;

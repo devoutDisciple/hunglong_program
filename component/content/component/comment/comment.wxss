@@ -5,7 +5,7 @@
 .header {
     width: 80rpx;
 }
-.header image{
+.header_img{
     width: 60rpx;
     height: 60rpx;
     border-radius: 100%;
@@ -34,7 +34,7 @@
     align-items: center;
     font-size: 22rpx;
 }
-.con_comment_num image{
+.con_comment_num_img{
     height: 22rpx;
     width: 22rpx;
 }
@@ -60,7 +60,7 @@
     justify-content: center;
     color: #b7b7b7;
 }
-.con_data_opt_chunk image {
+.con_data_opt_chunk_img {
     width: 30rpx;
     height: 30rpx;
     margin-right: 12rpx;

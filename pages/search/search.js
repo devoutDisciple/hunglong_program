@@ -1,66 +1,75 @@
-// pages/search/search.js
+import { get } from '../../utils/request';
+import loading from '../../utils/loading';
+import { filterContentTypeByNum } from '../../utils/filter';
+
 Page({
+	/**
+	 * 页面的初始数据
+	 */
+	data: {
+		activeIdx: 2,
+		tabList: [
+			{
+				key: 'posts',
+				value: '图文',
+			},
+			{
+				key: 'video',
+				value: '视频',
+			},
+			{
+				key: 'circle',
+				value: '圈子',
+			},
+			{
+				key: 'user',
+				value: '用户',
+			},
+		],
+		posts: [], // 图文或者视频
+		circles: [], // 圈子
+	},
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
+	/**
+	 * 生命周期函数--监听页面加载
+	 */
+	onLoad: function () {
+		// 获取图文
+		this.getContents();
+		// 获取圈子
+		this.getCirclesByKey();
+	},
 
-  },
+	// 查询数据
+	getContents: function () {
+		loading.showLoading();
+		const user_id = wx.getStorageSync('user_id');
+		get({ url: '/search/contents', data: { user_id } })
+			.then((res) => {
+				res.forEach((item) => {
+					item.type = filterContentTypeByNum(item.type);
+				});
+				console.log(res, 1111);
+				this.setData({ posts: res || [] });
+			})
+			.finally(() => loading.hideLoading());
+	},
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
+	// 根据关键字查询圈子
+	getCirclesByKey: function () {
+		loading.showLoading();
+		const user_id = wx.getStorageSync('user_id');
+		get({ url: '/search/circles', data: { user_id } })
+			.then((res) => {
+				console.log(res, 222);
+				this.setData({ circles: res || [] });
+			})
+			.finally(() => loading.hideLoading());
+	},
 
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
-})
+	// 改变tab
+	onChangeTab: function (e) {
+		const { index } = e.detail;
+		this.setData({ activeIdx: index });
+	},
+});

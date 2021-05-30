@@ -3,7 +3,7 @@
         <view class="vote_con_txt">{{detail.value}}</view>
         <view class="vote_con_select" wx:if="{{isSelect}}">（已选）</view>
         <view class="vote_con_img" wx:if="{{isSelect}}">
-            <image src="/asserts/public/select-radio.png" />
+            <image class="vote_con_img_img" src="/asserts/public/select-radio.png" />
         </view>
     </view>
     <view class="vote_num">{{detail.num}}</view>
