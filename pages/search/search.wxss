@@ -23,6 +23,10 @@
     color: transparent;
 }
 
+.content_other {
+    background: #fff;
+}
+
 .circle {
     background: #fff;
     padding: 20rpx;

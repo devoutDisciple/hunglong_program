@@ -1,0 +1,18 @@
+<view class="wrap">
+    <image class="photo" src="{{detail.photo}}" />
+    <view class="desc">
+        <view class="desc_name">
+            <view class="desc_name_txt">{{detail.username}}</view>
+            <view class="desc_school">{{detail.school}}</view>
+            <image class="desc_level" src="/asserts/public/vip1.png"/>
+        </view>
+        <view class="desc_num">
+            <view class="desc_num_chunk">原创 {{detail.publish}}</view>
+            <view class="desc_num_chunk">粉丝 {{detail.fans}}</view>
+            <view class="desc_num_chunk">关注 {{detail.fellow}}</view>
+        </view>
+    </view>
+    <view class="concern" bindtap="onTapAttention">
+        <attention-btn active="{{detail.hadAttention}}" type="1" circleId="{{detail.id}}"/>
+    </view>
+</view>

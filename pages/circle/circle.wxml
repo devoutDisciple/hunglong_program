@@ -72,7 +72,7 @@
                 <block wx:if="{{recommendCircles && recommendCircles.length !== 0}}">
                     <block wx:for="{{recommendCircles}}" wx:key="id">
                         <view class="circle_item">
-                            <circle-recommend-item detail="{{item}}"/>
+                            <circle-title detail="{{item}}"/>
                         </view>
                     </block>
                 </block>

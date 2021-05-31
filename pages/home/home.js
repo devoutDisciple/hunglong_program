@@ -9,7 +9,6 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		fixed: false, // 滚动的距离
 		plateList: [], // 板块列表
 		circleList: [], // 圈子列表
 		topicList: [], // 话题列表
@@ -18,7 +17,7 @@ Page({
 		userDetail: {}, // 用户基本信息
 		dataList: [], // 数据列表
 		topicClass: 'topic_origin',
-		headerHight: '60px',
+		headerHight: 60,
 		videoContext: {}, // 当前播放视频的上下文
 	},
 
@@ -28,7 +27,7 @@ Page({
 	onLoad: function () {
 		// 获取设备信息
 		util.getDeviceInfo().then((res) => {
-			this.setData({ headerHight: `${res.headerHight}px` });
+			this.setData({ headerHight: res.headerHight });
 		});
 		const user_id = wx.getStorageSync('user_id');
 		if (!user_id) {
@@ -39,18 +38,6 @@ Page({
 			this.getInitMsg();
 		}
 		this.getRecomment();
-	},
-
-	// 滚动时
-	onPageScroll: function (e) {
-		const { fixed } = this.data;
-		const { scrollTop } = e.detail;
-		if (scrollTop > 159 && !fixed) {
-			this.setData({ fixed: true });
-		}
-		if (scrollTop < 159 && fixed) {
-			this.setData({ fixed: false });
-		}
 	},
 
 	// 初始化需要获得的信息

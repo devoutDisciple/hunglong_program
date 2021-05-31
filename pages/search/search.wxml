@@ -1,13 +1,15 @@
 <view class="wrap">
     <header />
-    <scroll-view scroll-y="{{true}}" bindscroll="onPageScroll" class="content" enhanced="{{true}}" show-scrollbar="{{false}}">
-        <view class="tab">
-            <van-tabs bind:change="onChangeTab" ellipsis="{{false}}" active="{{ activeIdx }}">
-                <block wx:key="key" wx:for="{{tabList}}" >
-                    <van-tab title="{{item.value}}"/>
-                </block>
-            </van-tabs>
-        </view>
+    <scroll-view scroll-y="{{true}}" class="{{activeIdx === 0 ? 'content' : 'content content_other'}}" enhanced="{{true}}" show-scrollbar="{{false}}">
+        <van-sticky offset-top="{{ headerHight }}">
+            <view class="tab">
+                <van-tabs bind:change="onChangeTab" ellipsis="{{false}}" active="{{ activeIdx }}">
+                    <block wx:key="key" wx:for="{{tabList}}" >
+                        <van-tab title="{{item.value}}"/>
+                    </block>
+                </van-tabs>
+            </view>
+        </van-sticky>
         <block wx:if="{{activeIdx === 0 }}">
             <block wx:if="{{posts && posts.length !== 0}}">
                 <block wx:for="{{posts}}" wx:key="id">
@@ -41,7 +43,23 @@
                 <view class="circle">
                     <block wx:for="{{circles}}" wx:key="id">
                         <view class="circle_item">
-                            <circle-recommend-item detail="{{item}}"/>
+                            <circle-title detail="{{item}}"/>
+                        </view>
+                    </block>
+                </view>
+            </block>
+            <block wx:else>
+                <view class="empty_img">
+                    <empty-img />
+                </view>
+            </block>
+        </block>
+        <block wx:if="{{activeIdx === 3 }}">
+            <block wx:if="{{users && users.length !== 0}}">
+                <view class="circle">
+                    <block wx:for="{{users}}" wx:key="id">
+                        <view class="circle_item">
+                            <person-title detail="{{item}}"/>
                         </view>
                     </block>
                 </view>

@@ -56,13 +56,6 @@
     background: #fff;
 }
 
-.top_fixed {
-    position: fixed;
-    /* top: 101rpx; */
-    z-index: 10;
-    box-shadow: 0rpx 9rpx 14rpx 0rpx #eeeeee;
-}
-
 .tab_con {
     flex: 1;
     overflow: hidden;

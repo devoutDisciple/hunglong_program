@@ -13,7 +13,7 @@
             </view>
         </view>
         <!-- tab -->
-        <view class=" {{fixed ? 'top_fixed' : ''}}" style="{{'top: '+ headerHight}}">
+        <van-sticky offset-top="{{ headerHight }}">
             <view class="tab">
                 <view class="tab_con">
                     <van-tabs active="{{ activeTab }}" bind:change="onChangeCircle" ellipsis="{{false}}">
@@ -43,7 +43,7 @@
                     <image class="topic_icon_img" wx:else src="/asserts/public/arrow_btm.png" />
             </view>
             </view>
-        </view>
+        </van-sticky>
         <block wx:if="{{dataList && dataList.length !== 0}}">
             <block wx:for="{{dataList}}" wx:key="id">
                 <home-post wx:if="{{item.type === 'posts'}}" detail="{{item}}"/>

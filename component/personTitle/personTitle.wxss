@@ -1,0 +1,90 @@
+.wrap {
+    font-size: 26rpx;
+    display: flex;
+    height: 90rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 1rpx solid #f4f4f4;
+}
+
+.photo {
+    height: 90rpx;
+    width: 90rpx;
+    border-radius: 100%;
+}
+
+.desc {
+    flex: 1;
+    margin-left: 10rpx;
+}
+
+.desc_name {
+    margin-top: 5rpx;
+    height: 45rpx;
+    color: #333333;
+    font-size: 28rpx;
+    display: flex;
+    align-items: center;
+}
+
+.desc_name_txt {
+    margin-right: 10rpx;
+    font-size: 26rpx;
+    color: #333333;
+    max-width: 220rpx;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.desc_school {
+    margin-right: 10rpx;
+    font-size: 22rpx;
+    color: #999999;
+    max-width: 200rpx;
+    display: -webkit-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+}
+
+.desc_level {
+    height: 30rpx;
+    width: 30rpx;
+}
+
+.hot_icon {
+    margin-top: -5rpx;
+}
+
+.desc_num {
+    font-size: 22rpx;
+    height: 22rpx;
+    margin-top: 10rpx;
+    line-height: 22rpx;
+    color: #999999;
+    display: flex;
+}
+
+.desc_num_chunk {
+    margin-left: 20rpx;
+    padding-right: 20rpx;
+    border-right: 1rpx solid #DEDEDE;
+}
+
+.desc_num_chunk:first-child {
+    margin-left: 0;
+}
+
+.desc_num_chunk:last-child {
+    border: none;
+}
+
+.concern {
+    display: flex;
+    align-items: center;
+}

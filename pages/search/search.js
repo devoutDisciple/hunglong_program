@@ -1,3 +1,4 @@
+import util from '../../utils/util';
 import { get } from '../../utils/request';
 import loading from '../../utils/loading';
 import { filterContentTypeByNum } from '../../utils/filter';
@@ -7,7 +8,8 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		activeIdx: 2,
+		headerHight: 60,
+		activeIdx: 3,
 		tabList: [
 			{
 				key: 'posts',
@@ -28,16 +30,31 @@ Page({
 		],
 		posts: [], // 图文或者视频
 		circles: [], // 圈子
+		users: [], // 用户
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function () {
+		// 获取设备信息
+		this.getDeviceData();
 		// 获取图文
 		this.getContents();
 		// 获取圈子
 		this.getCirclesByKey();
+		// 获取用户
+		this.getUsersByKey();
+	},
+
+	// 获取设备信息
+	getDeviceData: function () {
+		// 获取设备信息
+		util.getDeviceInfo().then((res) => {
+			this.setData({
+				headerHight: res.headerHight,
+			});
+		});
 	},
 
 	// 查询数据
@@ -63,6 +80,18 @@ Page({
 			.then((res) => {
 				console.log(res, 222);
 				this.setData({ circles: res || [] });
+			})
+			.finally(() => loading.hideLoading());
+	},
+
+	// 根据关键字查询用户
+	getUsersByKey: function () {
+		loading.showLoading();
+		const user_id = wx.getStorageSync('user_id');
+		get({ url: '/search/users', data: { user_id } })
+			.then((res) => {
+				console.log(res, 333);
+				this.setData({ users: res || [] });
 			})
 			.finally(() => loading.hideLoading());
 	},
