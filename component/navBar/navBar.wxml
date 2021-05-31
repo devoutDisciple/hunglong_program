@@ -16,6 +16,7 @@
                     border="{{ false }}"
                     left-icon="search"
                     bind:change="onChange"
+                    bind:confirm="onConfirm"
                 />
             </view> 
         </view>

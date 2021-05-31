@@ -1,6 +1,9 @@
 <view class="wrap">
-    <header />
-    <scroll-view scroll-y="{{true}}" class="{{activeIdx === 0 ? 'content' : 'content content_other'}}" enhanced="{{true}}" show-scrollbar="{{false}}">
+    <header bindOnChange="onIptChange" bindOnConfirm="onIptConfirm"/>
+    <scroll-view scroll-y="{{true}}" 
+        class="{{(activeIdx === 0 && posts.length !== 0) || (activeIdx === 1 && votes.length !== 0)  || (activeIdx === 2 && battles.length !== 0) || (activeIdx === 3 && videos.length !== 0) ? 'content' : 'content content_other'}}" 
+        enhanced="{{true}}" 
+        show-scrollbar="{{false}}">
         <van-sticky offset-top="{{ headerHight }}">
             <view class="tab">
                 <van-tabs bind:change="onChangeTab" ellipsis="{{false}}" active="{{ activeIdx }}">
@@ -15,10 +18,8 @@
                 <block wx:for="{{posts}}" wx:key="id">
                     <home-post wx:if="{{item.type === 'posts'}}" detail="{{item}}"/>
                     <home-post wx:if="{{item.type === 'blogs'}}" detail="{{item}}"/>
-                    <home-vote wx:if="{{item.type === 'vote'}}" detail="{{item}}" />
-                    <home-battle wx:if="{{item.type === 'battle'}}" detail="{{item}}" />
-                    <home-video wx:if="{{item.type === 'video'}}" detail="{{item}}" />
                 </block>
+                <view class="btm">没有更多啦~</view>
             </block>
             <block wx:else>
                 <view class="empty_img">
@@ -27,10 +28,11 @@
             </block>
         </block>
         <block wx:if="{{activeIdx === 1 }}">
-            <block wx:if="{{posts && posts.length !== 0}}">
-                <block wx:for="{{posts}}" wx:key="id">
-                    <home-video wx:if="{{item.type === 'video'}}" detail="{{item}}" />
+            <block wx:if="{{votes && votes.length !== 0}}">
+                <block wx:for="{{votes}}" wx:key="id">
+                    <home-vote wx:if="{{item.type === 'vote'}}" detail="{{item}}" />
                 </block>
+                <view class="btm">没有更多啦~</view>
             </block>
             <block wx:else>
                 <view class="empty_img">
@@ -39,14 +41,11 @@
             </block>
         </block>
         <block wx:if="{{activeIdx === 2 }}">
-            <block wx:if="{{circles && circles.length !== 0}}">
-                <view class="circle">
-                    <block wx:for="{{circles}}" wx:key="id">
-                        <view class="circle_item">
-                            <circle-title detail="{{item}}"/>
-                        </view>
-                    </block>
-                </view>
+            <block wx:if="{{battles && battles.length !== 0}}">
+                <block wx:for="{{battles}}" wx:key="id">
+                    <home-battle wx:if="{{item.type === 'battle'}}" detail="{{item}}" />
+                </block>
+                <view class="btm">没有更多啦~</view>
             </block>
             <block wx:else>
                 <view class="empty_img">
@@ -55,6 +54,36 @@
             </block>
         </block>
         <block wx:if="{{activeIdx === 3 }}">
+            <block wx:if="{{videos && videos.length !== 0}}">
+                <block wx:for="{{videos}}" wx:key="id">
+                    <home-video wx:if="{{item.type === 'video'}}" detail="{{item}}" />
+                </block>
+                <view class="btm">没有更多啦~</view>
+            </block>
+            <block wx:else>
+                <view class="empty_img">
+                    <empty-img />
+                </view>
+            </block>
+        </block>
+        <block wx:if="{{activeIdx === 4 }}">
+            <block wx:if="{{circles && circles.length !== 0}}">
+                <view class="circle">
+                    <block wx:for="{{circles}}" wx:key="id">
+                        <view class="circle_item">
+                            <circle-title detail="{{item}}"/>
+                        </view>
+                    </block>
+                </view>
+                <view class="btm">没有更多啦~</view>
+            </block>
+            <block wx:else>
+                <view class="empty_img">
+                    <empty-img />
+                </view>
+            </block>
+        </block>
+        <block wx:if="{{activeIdx === 5 }}">
             <block wx:if="{{users && users.length !== 0}}">
                 <view class="circle">
                     <block wx:for="{{users}}" wx:key="id">
@@ -63,6 +92,7 @@
                         </view>
                     </block>
                 </view>
+                <view class="btm">没有更多啦~</view>
             </block>
             <block wx:else>
                 <view class="empty_img">

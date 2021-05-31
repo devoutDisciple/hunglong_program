@@ -43,3 +43,13 @@
 .empty_img {
     margin-top: 300rpx;
 }
+
+.btm {
+    padding-top: 20rpx;
+    padding-bottom: 50rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+    background: #fff;
+}

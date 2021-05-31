@@ -1,4 +1,4 @@
-import { getDeviceInfo } from '../../utils/util';
+import utils from '../../utils/util';
 
 Component({
 	properties: {
@@ -18,13 +18,26 @@ Component({
 		disWidth: 101, // 按钮占用的宽度
 		paddingLeft: 7, // 左边留白宽度
 		paddingTop: 4, // 上方留白高度
+		value: '', // 输入框的值
 	},
 
-	methods: {},
+	methods: {
+		// input输入改变
+		onChange: function (e) {
+			const value = e.detail;
+			this.setData({ value });
+			this.triggerEvent('OnChange', { value });
+		},
+		// 输入确定
+		onConfirm: function () {
+			this.triggerEvent('OnConfirm');
+		},
+	},
 
 	// 组件生命周期函数-在组件实例进入页面节点树时执行)
 	attached() {
-		getDeviceInfo().then((res) => {
+		// 获取设备相关信息
+		utils.getDeviceInfo().then((res) => {
 			const {
 				headerHight,
 				statusBarHeight: statusHeight,
