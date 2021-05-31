@@ -32,6 +32,16 @@ Component({
 		onConfirm: function () {
 			this.triggerEvent('OnConfirm');
 		},
+		// 点击输入框
+		onTapIpt: function () {
+			const pages = getCurrentPages();
+			const currentPage = pages[pages.length - 1];
+			if (currentPage.route !== 'pages/search/search') {
+				wx.navigateTo({
+					url: '/pages/search/search',
+				});
+			}
+		},
 	},
 
 	// 组件生命周期函数-在组件实例进入页面节点树时执行)

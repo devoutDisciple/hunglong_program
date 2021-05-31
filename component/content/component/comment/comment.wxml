@@ -18,11 +18,11 @@
                     <image class="con_data_opt_chunk_img" src="/asserts/public/share.png" />
                 </view>
                 <view wx:if="{{type === 'content'}}" class="con_data_opt_chunk" bindtap="searchReply">
-                    <image src="/asserts/public/message.png" />{{detail.comment}}
+                    <image class="con_data_opt_chunk_img" src="/asserts/public/message.png" />{{detail.comment}}
                 </view>
                 <view class="con_data_opt_chunk" bindtap="onChangeGoods">
-                    <image wx:if="{{detail.hadGoods}}" src="/asserts/public/good_select.png" />
-                    <image wx:else src="/asserts/public/good.png" />
+                    <image class="con_data_opt_chunk_img" wx:if="{{detail.hadGoods}}" src="/asserts/public/good_select.png" />
+                    <image class="con_data_opt_chunk_img" wx:else src="/asserts/public/good.png" />
                     {{detail.goods}}
                 </view>
              </view>

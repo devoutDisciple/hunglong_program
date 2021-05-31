@@ -31,12 +31,12 @@
     </scroll-view>
     <view class="footer">
         <view class="footer_chunk">
-            <image src="/asserts/public/share.png"/>
+            <image class="footer_img" src="/asserts/public/share.png"/>
             转发
         </view>
         <view class="footer_split" />
         <view class="footer_chunk" bindtap = "onShowIptDialog">
-            <image src="/asserts/public/message.png"/>
+            <image class="footer_img" src="/asserts/public/message.png"/>
             评论
         </view>
         <view class="footer_split" />

@@ -120,6 +120,7 @@ Page({
 				// tempFilePath可以作为img标签的src属性显示图片
 				const { tempFilePaths } = res;
 				self.setData({ imgUrls: [...imgUrls, ...tempFilePaths] });
+				loading.hideLoading();
 			},
 			fail: function () {
 				wx.showToast({

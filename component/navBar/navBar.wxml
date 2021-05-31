@@ -8,7 +8,7 @@
                     src="/asserts/public/navSearch.png" 
                     mode="heightFix"/>
             </view>
-            <view class="nav_ipt">
+            <view class="nav_ipt" bindtap="onTapIpt">
                 <van-field
                     value="{{ value }}"
                     placeholder="搜索"

@@ -13,12 +13,16 @@ Page({
 		circleList: [], // 圈子列表
 		topicList: [], // 话题列表
 		activeTab: 1, // 选中的tab
+		activeCircleId: 'recommend',
 		activeTopicId: '', // 选中的话题
 		userDetail: {}, // 用户基本信息
 		dataList: [], // 数据列表
 		topicClass: 'topic_origin',
 		headerHight: 60,
 		videoContext: {}, // 当前播放视频的上下文
+		isLoading: false, // 上拉加载的时候
+		current: 1, // 当前页码
+		lowerThreshold: 400, // 距离底部多远的时候触发上拉事件
 	},
 
 	/**
@@ -29,6 +33,10 @@ Page({
 		util.getDeviceInfo().then((res) => {
 			this.setData({ headerHight: res.headerHight });
 		});
+		this.initData();
+	},
+
+	initData: function () {
 		const user_id = wx.getStorageSync('user_id');
 		if (!user_id) {
 			login.getLogin().then(() => {
@@ -38,6 +46,19 @@ Page({
 			this.getInitMsg();
 		}
 		this.getRecomment();
+	},
+
+	/**
+	 * 滑动到底部的时候
+	 */
+	onScrollBtm: function () {
+		const { isLoading } = this.data;
+		if (!isLoading) {
+			this.setData({ isLoading: true }, async () => {
+				await this.getRecomment();
+				this.setData({ isLoading: false });
+			});
+		}
 	},
 
 	// 初始化需要获得的信息
@@ -80,13 +101,14 @@ Page({
 
 	// 获取推荐内容
 	getRecomment: async function () {
+		const { current, dataList, activeCircleId } = this.data;
 		const user_id = wx.getStorageSync('user_id');
-		const res = await get({ url: '/content/recomment', data: { user_id } });
-		console.log(res, '获取的内容');
+		const res = await get({ url: '/content/recomment', data: { user_id, current, activeCircleId } });
 		res.forEach((item) => {
 			item.type = filterContentTypeByNum(item.type);
 		});
-		this.setData({ dataList: res || [] });
+		const newList = [...dataList, ...res];
+		this.setData({ dataList: newList, current: current + 1 });
 	},
 
 	// 改变圈子
@@ -94,15 +116,19 @@ Page({
 		const { index } = e.detail;
 		const { circleList } = this.data;
 		const { id } = circleList[index];
-		// 选择关注或者广场 attention-关注 recommend-广场
-		if (id === 'attention' || id === 'recommend') {
-			console.log(`选择的tabid是: ${id}`);
-			this.setData({ topicList: [] });
-		} else {
-			this.getTopicByCircleId(id);
-		}
+		console.log(`选择的tabid是: ${id}`);
 		// 重置选择的话题id
-		this.setData({ activeTopicId: '' });
+		this.setData({ activeTopicId: '', topicList: [], activeCircleId: id, dataList: [], current: 1 }, () => {
+			// 选择关注或者广场 attention-关注 recommend-广场
+			if (id === 'attention') {
+				// 将话题列表置空
+			} else {
+				// 根据圈子id获取话题
+				this.getTopicByCircleId(id);
+			}
+			// 获取推荐内容
+			this.getRecomment();
+		});
 	},
 
 	// 改变话题

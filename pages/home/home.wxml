@@ -1,6 +1,13 @@
 <view class="wrap">
     <header />
-    <scroll-view scroll-y="{{true}}" bindscroll="onPageScroll" class="content" enhanced="{{true}}" show-scrollbar="{{false}}">
+    <scroll-view 
+        lower-threshold="{{lowerThreshold}}"
+        bindscrolltolower="onScrollBtm"
+        scroll-y="{{true}}" 
+        bindscroll="onPageScroll"
+        class="content" 
+        enhanced="{{true}}" 
+        show-scrollbar="{{false}}">
         <!-- 模块 -->
         <view class="icon_list">
             <view class="icon_chunk" wx:for="{{plateList}}" wx:key="id">
@@ -52,6 +59,7 @@
                 <home-battle wx:if="{{item.type === 'battle'}}" detail="{{item}}" />
                 <home-video wx:if="{{item.type === 'video'}}" detail="{{item}}" />
             </block>
+            <btm-tip />
         </block>
         <block wx:else>
             <empty-img />

@@ -113,14 +113,6 @@ Page({
 				loading.hideLoading();
 				if (res && res.errMsg === 'chooseMedia:ok' && Array.isArray(res.tempFiles)) {
 					const tempFile = res.tempFiles[0];
-					console.log(tempFile, 11111);
-					// duration: 6.166667
-					// fileType: "video"
-					// height: 960
-					// size: 966555
-					// tempFilePath: "http://tmp/o3yufPlxhrAw0e4914ef41e613e3ef590cf45a69493e.mp4"
-					// thumbTempFilePath: "http://tmp/I7kEPZcXhmZO9749cfc7faad2d62d17926bebcba8f77.jpg"
-					// width: 544
 					self.setData({
 						videoDetail: {
 							url: tempFile.tempFilePath,

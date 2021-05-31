@@ -129,7 +129,7 @@
         {
           "name": "pk对决详情",
           "pathName": "pages/detail/detail",
-          "query": "content_id=39&type=battle",
+          "query": "content_id=56&type=battle",
           "scene": null
         },
         {
