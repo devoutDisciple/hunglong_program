@@ -35,6 +35,9 @@ Page({
 		],
 		dataList: [], // 数据
 		notices: [], // 公告列表
+		isLoading: false, // 是否在加载中
+		current: 1, // 当前页码
+		lowerThreshold: 400, // 距离底部多远的时候触发上拉事件
 	},
 
 	/**
@@ -57,6 +60,16 @@ Page({
 		this.getDeviceData();
 	},
 
+	// 滑动到底部
+	onScrollBtm: function () {
+		const { isLoading } = this.data;
+		if (!isLoading) {
+			this.setData({ isLoading: true }, async () => {
+				await this.getContentsByCircleAndType(2);
+			});
+		}
+	},
+
 	// 获取公告
 	getNotice: function () {
 		const { circle_id } = this.data;
@@ -72,18 +85,11 @@ Page({
 
 	// 点击公告
 	onTapNotice: function (e) {
-		console.log(e);
 		const { noticeid } = e.currentTarget.dataset;
-		console.log(noticeid, 2342);
 		wx.navigateTo({
 			url: `/pages/notice/notice?noticeId=${noticeid}`,
 		});
 	},
-
-	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-	onReady: function () {},
 
 	// 获取圈子详情
 	getCircleDetail: function () {
@@ -97,7 +103,7 @@ Page({
 	// 选择tab的时候
 	onChangeTab: function (e) {
 		const { index } = e.detail;
-		this.setData({ dataList: [], activeIdx: index }, () => {
+		this.setData({ dataList: [], activeIdx: index, current: 1 }, () => {
 			this.getContentsByCircleAndType();
 		});
 	},
@@ -105,16 +111,24 @@ Page({
 	// 获取内容
 	getContentsByCircleAndType: function () {
 		loading.showLoading();
-		const { circle_id, activeIdx } = this.data;
+		const { circle_id, activeIdx, current, dataList } = this.data;
 		const user_id = wx.getStorageSync('user_id');
-		get({ url: '/content/contentsByCircleAndType', data: { user_id, circle_id, activeIdx } })
+		get({ url: '/content/contentsByCircleAndType', data: { user_id, circle_id, activeIdx, current } })
 			.then((res) => {
 				res.forEach((item) => {
 					item.type = filterContentTypeByNum(item.type);
 				});
-				this.setData({ dataList: res || [] });
+				const newData = [...dataList, ...res];
+				this.setData({ dataList: newData || [], current: current + 1, isLoading: false });
 			})
 			.finally(() => loading.hideLoading());
+	},
+
+	// 点击返回
+	onGoback: function () {
+		wx.navigateBack({
+			complete: () => {},
+		});
 	},
 
 	// 获取设备信息

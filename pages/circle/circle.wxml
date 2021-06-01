@@ -10,7 +10,7 @@
             </view>
             <scroll-view scroll-x="true" class="hot_circle" enable-flex="true">
                 <block wx:for="{{hotList}}" wx:key="id">
-                    <view class="hot_circle_chunk">
+                    <view class="hot_circle_chunk" data-circleid="{{item.id}}" bindtap = "onSearchCircleDetail">
                         <image class="hot_cicle_chunk_bg" src="{{item.bg_url}}" />
                         <view class="hot_circle_chunk_modal"/>
                         <view class="hot_circle_chunk_con">
@@ -37,7 +37,7 @@
             <block wx:if="{{myAttentions && myAttentions.length !== 0}}">
                 <view class="my_attr">
                     <block wx:for="{{myAttentions}}" wx:key="item">
-                        <view class="my_attr_chunk">
+                        <view class="my_attr_chunk" data-circleid="{{item.id}}" bindtap = "onSearchCircleDetail">
                             <image class="my_attr_chunk_img" src="{{item.logo}}" />
                             <view class="my_attr_chunk_right">
                                 <view class="my_attr_chunk_right_name">{{item.name}}</view>
@@ -71,7 +71,7 @@
             <view class="plate_wrap">
                 <block wx:if="{{recommendCircles && recommendCircles.length !== 0}}">
                     <block wx:for="{{recommendCircles}}" wx:key="id">
-                        <view class="circle_item">
+                        <view class="circle_item" data-circleid="{{item.id}}" bindtap = "onSearchCircleDetail">
                             <circle-title detail="{{item}}"/>
                         </view>
                     </block>

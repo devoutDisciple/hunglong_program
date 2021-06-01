@@ -191,6 +191,7 @@
 }
 
 .empty_img {
+    margin-top: 140rpx;
     background: #fff;
 }
 

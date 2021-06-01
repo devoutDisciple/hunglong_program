@@ -9,7 +9,12 @@
             style="{{'height: '+backIconHeight+'; width: '+backIconHeight+'; top: '+backIconMarginTop+'; left: '+backIconMarginTop}}" 
             class="head_img" src="/asserts/public/back_icon.png" />
     </view>
-    <scroll-view class="con" style="{{'height:  calc(100vh - ' + headerHight + '); top:' + headerHight + ';' }}" scroll-y="{{true}}">
+    <scroll-view 
+        lower-threshold="{{lowerThreshold}}" 
+        bindscrolltolower="onScrollBtm" 
+        class="con" 
+        style="{{'height:  calc(100vh - ' + headerHight + '); top:' + headerHight + ';' }}" 
+        scroll-y="{{true}}">
         <view class="intro">
             <view class="circle_logo">
                 <image class="circle_logo_img" src="{{circleDetail.logo}}" />
