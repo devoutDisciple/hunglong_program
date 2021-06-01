@@ -4,7 +4,6 @@
     flex-direction: row;
     padding-left: 10rpx;
     /* border-bottom: 1px solid #eee; */
-
 }
 .nav_con {
     flex: 1;

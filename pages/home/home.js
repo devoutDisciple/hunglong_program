@@ -45,8 +45,14 @@ Page({
 		} else {
 			this.getInitMsg();
 		}
-		// 默认获取推荐的内容
-		// this.getContentsByCircleId(1);
+	},
+
+	// 点击模块
+	onTapPlate: function (e) {
+		const { plateid } = e.currentTarget.dataset;
+		wx.navigateTo({
+			url: `/pages/circlePlate/circlePlate?plateid=${plateid}`,
+		});
 	},
 
 	/**

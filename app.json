@@ -31,7 +31,8 @@
     "pages/publish/video/video",
     "pages/circleDetail/circleDetail",
     "pages/notice/notice",
-    "pages/search/search"
+    "pages/search/search",
+    "pages/circlePlate/circlePlate"
   ],
   "window": {
     "backgroundTextStyle": "light",

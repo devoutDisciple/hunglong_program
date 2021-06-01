@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+      "header": "/component/navBar/navBar",
+      "hot-circle": "/component/circleHot/circleHot",
+      "circle-title": "/component/circleTitle/circleTitle",
+      "empty-img": "/component/emptyImg/emptyImg"
+    },
+    "navigationBarTitleText": "..."
+  }

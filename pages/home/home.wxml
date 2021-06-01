@@ -10,14 +10,16 @@
         show-scrollbar="{{false}}">
         <!-- 模块 -->
         <view class="icon_list">
-            <view class="icon_chunk" wx:for="{{plateList}}" wx:key="id">
-                <view class="icon_chunk_img">
-                    <image class="icon_chunk_img_con" src="{{item.url}}" />
+            <block wx:for="{{plateList}}" wx:key="id">
+                <view class="icon_chunk" data-plateid="{{item.id}}" bindtap="onTapPlate">
+                    <view class="icon_chunk_img">
+                        <image class="icon_chunk_img_con" src="{{item.url}}" />
+                    </view>
+                    <view class="icon_chunk_txt">
+                        {{item.name}}
+                    </view>
                 </view>
-                <view class="icon_chunk_txt">
-                    {{item.name}}
-                </view>
-            </view>
+            </block>
         </view>
         <!-- tab -->
         <van-sticky offset-top="{{ headerHight }}">

@@ -221,6 +221,12 @@
           "pathName": "pages/search/search",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "模块下圈子",
+          "pathName": "pages/circlePlate/circlePlate",
+          "query": "plateid=1",
+          "scene": null
         }
       ]
     }

@@ -37,7 +37,7 @@ Page({
 	// 查找所有模块和圈子
 	getAllCirclesByPlate: function () {
 		loading.showLoading();
-		get({ url: '/circle/getAllCirclesByPlate' }).then((res) => {
+		get({ url: '/circle/allCirclesByPlate' }).then((res) => {
 			this.setData({ plates: res });
 			loading.hideLoading();
 		});

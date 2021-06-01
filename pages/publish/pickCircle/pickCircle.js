@@ -40,7 +40,7 @@ Page({
 			});
 		});
 		newCircles.push(myPlate);
-		const plates = await get({ url: '/circle/getAllCirclesByPlate' });
+		const plates = await get({ url: '/circle/allCirclesByPlate' });
 		plates.forEach((item) => {
 			const obj = {
 				plate_id: item.plate_id,
