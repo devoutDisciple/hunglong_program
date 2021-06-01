@@ -151,13 +151,11 @@
         overflow: hidden;
     }
 }
-.empty {
-    width: 100%;
-    height: calc(100vw - 80rpx);
+
+.empty_img {
+    height: 800rpx;
+    background: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
-}
-.empty image {
-    width: calc(100vw - 80rpx);
 }

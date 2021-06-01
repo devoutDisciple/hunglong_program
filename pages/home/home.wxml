@@ -62,7 +62,9 @@
             <btm-tip />
         </block>
         <block wx:else>
-            <empty-img />
+            <view class="empty_img">
+                <empty-img />
+            </view>
         </block>
         
     </scroll-view>

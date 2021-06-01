@@ -45,7 +45,8 @@ Page({
 		} else {
 			this.getInitMsg();
 		}
-		this.getRecomment();
+		// 默认获取推荐的内容
+		// this.getContentsByCircleId(1);
 	},
 
 	/**
@@ -55,7 +56,13 @@ Page({
 		const { isLoading } = this.data;
 		if (!isLoading) {
 			this.setData({ isLoading: true }, async () => {
-				await this.getRecomment();
+				const { activeCircleId } = this.data;
+				if (activeCircleId === 'attention') {
+					await this.getAttentionContents(2);
+				} else {
+					// 获取圈子内容
+					await this.getContentsByCircleId(2);
+				}
 				this.setData({ isLoading: false });
 			});
 		}
@@ -93,14 +100,14 @@ Page({
 
 	// 获取话题
 	getTopicByCircleId: async function (circle_id) {
-		loading.showLoading();
 		const res = await get({ url: '/topic/getByCircleId', data: { circle_id } });
 		this.setData({ topicList: res || [] });
-		loading.hideLoading();
 	},
 
-	// 获取推荐内容
-	getRecomment: async function () {
+	// 获取圈子内容
+	getContentsByCircleId: async function (flag) {
+		// 1-需要loading 2-不需要
+		if (flag === 1) loading.showLoading();
 		const { current, dataList, activeCircleId } = this.data;
 		const user_id = wx.getStorageSync('user_id');
 		const res = await get({ url: '/content/recomment', data: { user_id, current, activeCircleId } });
@@ -108,7 +115,9 @@ Page({
 			item.type = filterContentTypeByNum(item.type);
 		});
 		const newList = [...dataList, ...res];
-		this.setData({ dataList: newList, current: current + 1 });
+		this.setData({ dataList: newList, current: current + 1 }, () => {
+			if (flag === 1) loading.hideLoading();
+		});
 	},
 
 	// 改变圈子
@@ -116,18 +125,34 @@ Page({
 		const { index } = e.detail;
 		const { circleList } = this.data;
 		const { id } = circleList[index];
-		console.log(`选择的tabid是: ${id}`);
 		// 重置选择的话题id
 		this.setData({ activeTopicId: '', topicList: [], activeCircleId: id, dataList: [], current: 1 }, () => {
+			// 根据圈子id获取话题
+			this.getTopicByCircleId(id);
 			// 选择关注或者广场 attention-关注 recommend-广场
 			if (id === 'attention') {
-				// 将话题列表置空
+				this.getAttentionContents(1);
 			} else {
-				// 根据圈子id获取话题
-				this.getTopicByCircleId(id);
+				// 获取圈子内容
+				this.getContentsByCircleId(1);
 			}
-			// 获取推荐内容
-			this.getRecomment();
+		});
+	},
+
+	// 获取关注的人发布的内容
+	getAttentionContents: async function (flag) {
+		// 1-需要loading 2-不需要
+		if (flag === 1) loading.showLoading();
+		const user_id = wx.getStorageSync('user_id');
+		if (!login.isLogin() || !user_id) return;
+		const { current, dataList } = this.data;
+		const res = await get({ url: '/content/userAttentionContents', data: { user_id } });
+		res.forEach((item) => {
+			item.type = filterContentTypeByNum(item.type);
+		});
+		const newList = [...dataList, ...res];
+		this.setData({ dataList: newList, current: current + 1 }, () => {
+			if (flag === 1) loading.hideLoading();
 		});
 	},
 
