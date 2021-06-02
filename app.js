@@ -1,5 +1,5 @@
 import { get } from './utils/request';
-import { formatTime } from './utils/util';
+import utils from './utils/util';
 
 App({
 	globalData: {
@@ -29,7 +29,6 @@ App({
 		get({ url: '/message/msgsByUserId', data: { user_id } }).then((res) => {
 			if (res && Array.isArray(res.data) && res.data.length !== 0) {
 				const { data, total } = res;
-				console.log(res, 111);
 				let msgData = wx.getStorageSync('msg_data') || '[]';
 				msgData = JSON.parse(msgData);
 				data.forEach((item) => {
@@ -83,7 +82,7 @@ App({
 	// 获取收到的点赞
 	getGoodsByUser: async function () {
 		const user_id = wx.getStorageSync('user_id');
-		const now = formatTime(new Date());
+		const now = utils.formatTime(new Date());
 		let search_goods_time = wx.getStorageSync('search_goods_time');
 		if (!user_id) return '';
 		if (!search_goods_time) {
@@ -100,7 +99,7 @@ App({
 	// 获取评论量
 	getCommentsNumByUser: async function () {
 		const user_id = wx.getStorageSync('user_id');
-		const now = formatTime(new Date());
+		const now = utils.formatTime(new Date());
 		let search_comment_time = wx.getStorageSync('search_comment_time');
 		if (!user_id) return '';
 		if (!search_comment_time) {
