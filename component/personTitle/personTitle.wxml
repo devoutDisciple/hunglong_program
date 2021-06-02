@@ -13,6 +13,6 @@
         </view>
     </view>
     <view class="concern" bindtap="onTapAttention">
-        <attention-btn-circle active="{{detail.hadAttention}}" type="1" circleId="{{detail.id}}"/>
+        <attention-btn-circle active="{{detail.hadAttention}}" circleId="{{detail.id}}"/>
     </view>
 </view>

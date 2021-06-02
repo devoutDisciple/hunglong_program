@@ -1,22 +1,26 @@
-<view class="content" bindtap="onSearchUserDetail">
-    <view class="img">
-        <image src="{{userDetail.photo}}" />
-    </view>
-    <view class="desc">
-        <view class="desc_top">
-            <view class="desc_top_name">{{userDetail.username}}</view>
-            <view class="desc_top_school">{{userDetail.school}}</view>
-            <view class="desc_top_level">
-                <image src="/asserts/public/vip1.png"/>
+<view class="content">
+    <block bindtap="onSearchUserDetail">
+        <view class="img">
+            <image src="{{userDetail.photo}}" />
+        </view>
+        <view class="desc">
+            <view class="desc_top">
+                <view class="desc_top_name">{{userDetail.username}}</view>
+                <view class="desc_top_school">{{userDetail.school}}</view>
+                <view class="desc_top_level">
+                    <image src="/asserts/public/vip1.png"/>
+                </view>
+            </view>
+            <view class="desc_btm">
+                <view class="desc_btm_time">{{createTime}}</view>
+                <view class="desc_btm_src">来自于{{typeTxt}}</view>
             </view>
         </view>
-        <view class="desc_btm">
-            <view class="desc_btm_time">{{createTime}}</view>
-            <view class="desc_btm_src">来自于{{typeTxt}}</view>
-        </view>
-    </view>
-    <view class="concern" bindtap="onAttentionUser" wx:if="{{showAttentionBtn}}">
+    </block>
+    
+    <!-- <view class="concern" bindtap="onAttentionUser" wx:if="{{showAttentionBtn}}">
         <view wx:if="{{userDetail.hadAttention}}" class="concern_btn concern_active_btn">已关注</view>
         <view wx:else class="concern_btn">关注</view>
-    </view>
+    </view> -->
+    <attention-btn-person active="{{userDetail.hadAttention}}" personId="{{userDetail.id}}"/>
 </view>

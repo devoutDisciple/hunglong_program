@@ -14,14 +14,6 @@ Component({
 			type: String,
 			value: '',
 		}, // 圈子id
-		personId: {
-			type: String,
-			value: '',
-		}, // 人物id
-		type: {
-			type: Number,
-			value: 1,
-		}, // 默认是圈子 1-圈子 2-个人
 	},
 
 	/**
@@ -35,13 +27,11 @@ Component({
 	methods: {
 		onTapBtn: function () {
 			this.setData({ active: !this.data.active });
-			const { type, circleId, personId } = this.data;
+			const { circleId } = this.data;
 			if (!login.isLogin()) return;
 			const user_id = wx.getStorageSync('user_id');
 			// 关注或取消关注圈子
-			if (type === 1) {
-				post({ url: '/circle/attentionCircleByUser', data: { user_id, circle_id: circleId } });
-			}
+			post({ url: '/circle/attentionCircleByUser', data: { user_id, circle_id: circleId } });
 			this.triggerEvent('OnTap');
 		},
 	},

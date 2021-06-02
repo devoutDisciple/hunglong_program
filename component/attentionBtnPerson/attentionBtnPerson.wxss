@@ -1,5 +1,8 @@
+.attention {
+    font-size: 22rpx;
+}
+
 .btn_active {
-    font-size: 23rpx;
     text-align: center;
     width: 110rpx;
     height: 54rpx;
