@@ -27,7 +27,7 @@ Component({
 		// 点击关注
 		onAttentionUser: function () {
 			const { detail } = this.data;
-			detail.hadAttenttion = !detail.hadAttenttion;
+			detail.hadAttention = !detail.hadAttention;
 			this.setData({ detail });
 		},
 	},

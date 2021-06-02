@@ -17,10 +17,5 @@
             </view>
         </view>
     </block>
-    
-    <!-- <view class="concern" bindtap="onAttentionUser" wx:if="{{showAttentionBtn}}">
-        <view wx:if="{{userDetail.hadAttention}}" class="concern_btn concern_active_btn">已关注</view>
-        <view wx:else class="concern_btn">关注</view>
-    </view> -->
     <attention-btn-person active="{{userDetail.hadAttention}}" personId="{{userDetail.id}}"/>
 </view>
