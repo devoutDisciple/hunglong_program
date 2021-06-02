@@ -1,3 +1,51 @@
 <scroll-view class="wrap" scroll-y="{{true}}">
-    1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
+    <view class="chunk">
+        <user-item hasAttention="false" showTime="{{true}}" detail="{{detail}}" showAttention="{{false}}"/>
+        <view class="con">
+            <view class="desc">评论：这是内容科技反倒是这是内容科技反倒是这是内容科技反倒是这是内容科技反倒是这是内容科技反倒是</view>
+        </view>
+        <view class="footer">
+            <view class="footer_chunk">
+                <image class="footer_chunk_img" src="/asserts/public/good.png" />
+                赞
+            </view>
+            <view class="footer_chunk">
+                <image class="footer_chunk_img" src="/asserts/public/delete.png" />
+                删除
+            </view>
+        </view>
+    </view>
+    <view class="chunk">
+        <user-item hasAttention="false" showTime="{{true}}" detail="{{detail}}" showAttention="{{false}}"/>
+        <view class="con">
+            <view class="desc">评论：这是内容科技反倒是这是内容科技反倒是这是内容科技反倒是这是内容科技反倒是这是内容科技反倒是</view>
+        </view>
+        <view class="footer">
+            <view class="footer_chunk">
+                <image class="footer_chunk_img" src="/asserts/public/good.png" />
+                赞
+            </view>
+            <view class="footer_chunk">
+                <image class="footer_chunk_img" src="/asserts/public/delete.png" />
+                删除
+            </view>
+        </view>
+    </view>
+    <view class="chunk">
+        <user-item hasAttention="false" showTime="{{true}}" detail="{{detail}}" showAttention="{{false}}"/>
+        <view class="con">
+            <view class="desc">评论：这是内容科技反倒是这是内容科技反倒是这是内容科技反倒是这是内容科技反倒是这是内容科技反倒是</view>
+        </view>
+        <view class="footer">
+            <view class="footer_chunk">
+                <image class="footer_chunk_img" src="/asserts/public/good.png" />
+                赞
+            </view>
+            <view class="footer_chunk">
+                <image class="footer_chunk_img" src="/asserts/public/delete.png" />
+                删除
+            </view>
+        </view>
+    </view>
+    <btm-tip />
 </scroll-view>

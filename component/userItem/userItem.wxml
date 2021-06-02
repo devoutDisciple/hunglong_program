@@ -8,11 +8,19 @@
             <view class="user_msg_order">
                 <image src="/asserts/public/vip1.png" />
             </view>
+            
             <view class="user_msg_level">
                 <view class="user_msg_level_txt">小白 1</view>
             </view>
         </view>
-        <view class="user_sign">{{detail.userDetail.sign}}</view>
+        <block wx:if="{{showTime}}">
+            <view class="user_sign">2020-01-93 点赞</view>
+        </block>
+        <block wx:else>
+            <view class="user_sign">{{detail.userDetail.sign || ""}}</view>
+        </block>
     </view>
-    <attention-btn-person active="{{detail.hadAttention}}" personId="{{detail.id}}"/>
+    <block wx:if="{{showAttention}}">
+        <attention-btn-person active="{{detail.hadAttention}}" personId="{{detail.userDetail.id}}"/>
+    </block>
 </view>

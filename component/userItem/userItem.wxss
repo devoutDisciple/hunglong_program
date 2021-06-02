@@ -1,8 +1,7 @@
 .user {
-    height: 100rpx;
-    padding: 20rpx 0;
+    height: 90rpx;
+    font-size: 26rpx;
     display: flex;
-    border-bottom: 1rpx solid #f0f0f0;
 }
 .user_photo {
     width: 90rpx;
@@ -10,7 +9,6 @@
 .user_photo image {
     width: 90rpx;
     height: 90rpx;
-    margin-top: 5rpx;
     border-radius: 100%;
 }
 .user_desc {
@@ -18,12 +16,14 @@
     margin-left: 15rpx;
 }
 .user_msg {
-    height: 50rpx;
+    height: 40rpx;
+    margin-top: 5rpx;
     display: flex;
+    align-items: center;
 }
 .user_msg_name {
     font-size: 28rpx;
-    line-height: 50rpx;
+    color: #333;
     max-width: 300rpx;
     margin-right: 10rpx;
     display: -webkit-box;
@@ -54,8 +54,8 @@
     padding: 0 5rpx;
 }
 .user_sign {
-    height: 50rpx;
-    line-height: 60rpx;
+    height: 30rpx;
+    margin-top: 10rpx;
     font-size: 22rpx;
     color: #999999;
     display: -webkit-box;

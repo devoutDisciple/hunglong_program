@@ -7,7 +7,7 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		userDetail: {},
+		detail: {},
 	},
 
 	/**
@@ -25,10 +25,13 @@ Page({
 		get({ url: '/user/userDetailByUserId', data: { user_id } })
 			.then((res) => {
 				console.log(res, 234);
-				this.setData({ userDetail: res || {} });
+				this.setData({ detail: { userDetail: res || {} } });
 			})
 			.finally(() => loading.hideLoading());
 	},
+
+	// 获取点赞的记录
+	getUserGoodsRecord: function () {},
 
 	/**
 	 * 生命周期函数--监听页面初次渲染完成

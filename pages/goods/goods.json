@@ -1,4 +1,7 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+      "user-item": "/component/userItem/userItem",
+      "btm-tip": "/component/btmTip/btmTip"
+  },
   "navigationBarTitleText": "点赞"
 }

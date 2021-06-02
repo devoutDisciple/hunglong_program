@@ -13,6 +13,14 @@ Component({
 				userDetail: {},
 			},
 		},
+		showAttention: {
+			type: Boolean,
+			value: false,
+		},
+		showTime: {
+			type: Boolean,
+			value: false,
+		},
 	},
 
 	/**
