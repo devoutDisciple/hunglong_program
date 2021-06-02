@@ -1,7 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-      "attention-btn": "/component/attentionBtn/attentionBtn",
+      "attention-btn-circle": "/component/attentionBtnCircle/attentionBtnCircle",
       "hot-circle": "/component/circleHot/circleHot"
   }
 }

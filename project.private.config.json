@@ -227,6 +227,12 @@
           "pathName": "pages/circlePlate/circlePlate",
           "query": "plateid=1",
           "scene": null
+        },
+        {
+          "name": "点赞",
+          "pathName": "pages/goods/goods",
+          "query": "",
+          "scene": null
         }
       ]
     }

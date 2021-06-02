@@ -1,0 +1,20 @@
+.btn_active {
+    font-size: 23rpx;
+    text-align: center;
+    width: 110rpx;
+    height: 54rpx;
+    line-height: 54rpx;
+    border-radius: 75rpx;
+    color: #333;
+    border: 1rpx solid #999999;
+}
+
+.btn_no {
+    width: 112rpx;
+    height: 56rpx;
+    line-height: 56rpx;
+    border-radius: 75rpx;
+    background: #ededed;
+    color: #969696;
+    border: none;
+}

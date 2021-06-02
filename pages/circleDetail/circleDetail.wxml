@@ -34,7 +34,7 @@
                 </view>
             </view>
             <view class="attention">
-                <attention-btn active="{{circleDetail.hadAttention}}" type="1" circleId="{{circleDetail.id}}"/>
+                <attention-btn-circle active="{{circleDetail.hadAttention}}" type="1" circleId="{{circleDetail.id}}"/>
             </view>
         </view>
         <view class="msg">

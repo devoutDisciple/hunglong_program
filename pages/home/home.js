@@ -29,6 +29,10 @@ Page({
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function () {
+		wx.showShareMenu({
+			withShareTicket: true,
+			menus: ['shareAppMessage', 'shareTimeline'],
+		});
 		// 获取设备信息
 		util.getDeviceInfo().then((res) => {
 			this.setData({ headerHight: res.headerHight });
@@ -49,7 +53,13 @@ Page({
 
 	// 点击模块
 	onTapPlate: function (e) {
-		const { plateid } = e.currentTarget.dataset;
+		const { plateid, link } = e.currentTarget.dataset;
+		if (link === 2) {
+			return wx.showToast({
+				icon: 'error',
+				title: '敬请期待',
+			});
+		}
 		wx.navigateTo({
 			url: `/pages/circlePlate/circlePlate?plateid=${plateid}`,
 		});

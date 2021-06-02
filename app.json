@@ -32,7 +32,8 @@
     "pages/circleDetail/circleDetail",
     "pages/notice/notice",
     "pages/search/search",
-    "pages/circlePlate/circlePlate"
+    "pages/circlePlate/circlePlate",
+    "pages/goods/goods"
   ],
   "window": {
     "backgroundTextStyle": "light",

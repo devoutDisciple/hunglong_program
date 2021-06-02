@@ -6,7 +6,7 @@
         "home-battle": "/component/content/battle/battle",
         "home-vote": "/component/content/vote/vote",
         "home-video": "/component/content/video/video",
-		"attention-btn": "/component/attentionBtn/attentionBtn"
+		"attention-btn-circle": "/component/attentionBtnCircle/attentionBtnCircle"
 	},
 	"navigationStyle": "custom"
 }

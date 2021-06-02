@@ -1,0 +1,8 @@
+.wrap {
+    font-size: 26rpx;
+    height: calc(100vh - 40rpx);
+    width: calc(100vw - 40rpx);
+    background: red;
+    padding: 20rpx;
+    overflow: hidden;
+}
