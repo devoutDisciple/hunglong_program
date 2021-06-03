@@ -1,7 +1,8 @@
 {
   "usingComponents": {
       "user-item": "/component/userItem/userItem",
-      "btm-tip": "/component/btmTip/btmTip"
+      "btm-tip": "/component/btmTip/btmTip",
+      "empty-img": "/component/emptyImg/emptyImg"
   },
-  "navigationBarTitleText": "点赞"
+  "navigationBarTitleText": "点赞记录"
 }

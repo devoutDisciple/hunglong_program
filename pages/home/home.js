@@ -79,7 +79,6 @@ Page({
 					// 获取圈子内容
 					await this.getContentsByCircleId(2);
 				}
-				this.setData({ isLoading: false });
 			});
 		}
 	},
@@ -131,7 +130,7 @@ Page({
 			item.type = filterContentTypeByNum(item.type);
 		});
 		const newList = [...dataList, ...res];
-		this.setData({ dataList: newList, current: current + 1 }, () => {
+		this.setData({ dataList: newList, current: current + 1, loading: false }, () => {
 			if (flag === 1) loading.hideLoading();
 		});
 	},
@@ -167,7 +166,7 @@ Page({
 			item.type = filterContentTypeByNum(item.type);
 		});
 		const newList = [...dataList, ...res];
-		this.setData({ dataList: newList, current: current + 1 }, () => {
+		this.setData({ dataList: newList, current: current + 1, isLoading: false }, () => {
 			if (flag === 1) loading.hideLoading();
 		});
 	},

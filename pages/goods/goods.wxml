@@ -1,51 +1,32 @@
-<scroll-view class="wrap" scroll-y="{{true}}">
-    <view class="chunk">
-        <user-item hasAttention="false" showTime="{{true}}" detail="{{detail}}" showAttention="{{false}}"/>
-        <view class="con">
-            <view class="desc">评论：这是内容科技反倒是这是内容科技反倒是这是内容科技反倒是这是内容科技反倒是这是内容科技反倒是</view>
-        </view>
-        <view class="footer">
-            <view class="footer_chunk">
-                <image class="footer_chunk_img" src="/asserts/public/good.png" />
-                赞
+<scroll-view class="wrap" scroll-y="{{true}}" lower-threshold="{{lowerThreshold}}" bindscrolltolower="onScrollBtm">
+    <block wx:if="{{dataList && dataList.length !== 0}}">
+        <block wx:for="{{dataList}}" wx:key="id">
+            <view class="chunk">
+                <user-item hasAttention="false" showTime="{{true}}" detail="{{detail}}" showAttention="{{false}}"/>
+                <view class="con" data-type="{{item.contentType}}" data-hascontent="{{item.hasContent}}" data-contentid="{{item.content_id}}" bindtap = "onSearchContentDetail">
+                    <view class="desc">{{item.title}}: {{item.desc}}</view>
+                </view>
+                <view class="footer">
+                    <view class="{{item.hadGoods ? 'footer_chunk footer_chunk_good' : 'footer_chunk'}}" data-index="{{index}}" data-item="{{item}}" bindtap="onTapGoods">
+                        <image wx:if="{{item.hadGoods}}" class="footer_chunk_img" src="/asserts/public/good_select.png" />
+                        <image wx:else class="footer_chunk_img" src="/asserts/public/good.png" />
+                        赞
+                    </view>
+                    <!--
+                   
+                    -->
+                    <view class="footer_chunk" data-index="{{index}}" data-item="{{item}}" bindtap="onDeleteGoods">
+                        <image class="footer_chunk_img" src="/asserts/public/delete.png" />
+                        删除
+                    </view>
+                </view>
             </view>
-            <view class="footer_chunk">
-                <image class="footer_chunk_img" src="/asserts/public/delete.png" />
-                删除
-            </view>
+        </block>
+        <btm-tip />
+    </block>
+    <block wx:else>
+        <view class="empty_img">
+            <empty-img />
         </view>
-    </view>
-    <view class="chunk">
-        <user-item hasAttention="false" showTime="{{true}}" detail="{{detail}}" showAttention="{{false}}"/>
-        <view class="con">
-            <view class="desc">评论：这是内容科技反倒是这是内容科技反倒是这是内容科技反倒是这是内容科技反倒是这是内容科技反倒是</view>
-        </view>
-        <view class="footer">
-            <view class="footer_chunk">
-                <image class="footer_chunk_img" src="/asserts/public/good.png" />
-                赞
-            </view>
-            <view class="footer_chunk">
-                <image class="footer_chunk_img" src="/asserts/public/delete.png" />
-                删除
-            </view>
-        </view>
-    </view>
-    <view class="chunk">
-        <user-item hasAttention="false" showTime="{{true}}" detail="{{detail}}" showAttention="{{false}}"/>
-        <view class="con">
-            <view class="desc">评论：这是内容科技反倒是这是内容科技反倒是这是内容科技反倒是这是内容科技反倒是这是内容科技反倒是</view>
-        </view>
-        <view class="footer">
-            <view class="footer_chunk">
-                <image class="footer_chunk_img" src="/asserts/public/good.png" />
-                赞
-            </view>
-            <view class="footer_chunk">
-                <image class="footer_chunk_img" src="/asserts/public/delete.png" />
-                删除
-            </view>
-        </view>
-    </view>
-    <btm-tip />
+    </block>
 </scroll-view>

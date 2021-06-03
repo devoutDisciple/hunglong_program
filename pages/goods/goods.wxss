@@ -20,6 +20,7 @@
 
 .desc {
     height: 30rpx;
+    color: #8a8a8a;
     line-height: 30rpx;
     font-size: 24rpx;
     display: -webkit-box;
@@ -45,8 +46,21 @@
     color: #999;
 }
 
+.footer_chunk_good {
+    color: #f66ba1;
+}
+
 .footer_chunk_img {
-    height: 30rpx;
-    width: 30rpx;
-    margin-right: 5rpx;
+    height: 28rpx;
+    width: 28rpx;
+    margin-right: 10rpx;
+}
+
+.empty_img {
+    background: #fff;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
