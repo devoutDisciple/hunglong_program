@@ -49,6 +49,11 @@ Component({
 					index: 2,
 				});
 			}
+			if (type === 'goods') {
+				wx.navigateTo({
+					url: '/pages/goodsRecord/goodsRecord',
+				});
+			}
 		},
 	},
 });
