@@ -19,7 +19,7 @@ Page({
 				height: 500,
 			},
 			{
-				url: '/asserts/temp/2.jpg',
+				url: '/asserts/temp/1.jpg',
 				width: 600,
 				height: 500,
 			},
@@ -29,7 +29,7 @@ Page({
 				height: 500,
 			},
 			{
-				url: '/asserts/temp/2.jpg',
+				url: '/asserts/temp/1.jpg',
 				width: 600,
 				height: 500,
 			},

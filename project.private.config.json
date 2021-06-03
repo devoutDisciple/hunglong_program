@@ -229,8 +229,14 @@
           "scene": null
         },
         {
-          "name": "点赞",
-          "pathName": "pages/goods/goods",
+          "name": "评论记录",
+          "pathName": "pages/commendRecord/commendRecord",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "点赞记录",
+          "pathName": "pages/goodsRecord/goodsRecord",
           "query": "",
           "scene": null
         }

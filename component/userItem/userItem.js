@@ -21,6 +21,14 @@ Component({
 			type: Boolean,
 			value: false,
 		},
+		time: {
+			type: String,
+			value: '',
+		},
+		type: {
+			type: Number,
+			value: 1,
+		},
 	},
 
 	/**

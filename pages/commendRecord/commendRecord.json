@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "user-item": "/component/userItem/userItem",
+        "btm-tip": "/component/btmTip/btmTip",
+        "empty-img": "/component/emptyImg/emptyImg"
+    },
+    "navigationBarTitleText": "评论记录"
+  }
