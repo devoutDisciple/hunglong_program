@@ -1,5 +1,3 @@
-import { postsUrl } from '../../../../config/config';
-
 Component({
 	/**
 	 * 组件的属性列表
@@ -18,9 +16,7 @@ Component({
 	/**
 	 * 组件的初始数据
 	 */
-	data: {
-		postsUrl,
-	},
+	data: {},
 
 	/**
 	 * 组件的方法列表

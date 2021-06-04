@@ -48,11 +48,12 @@ Component({
 		onChangeGoods: function () {
 			if (!login.isLogin()) return;
 			const user_id = wx.getStorageSync('user_id');
-			const { detail } = this.data;
+			const { detail, type } = this.data;
 			const flag = !detail.hadGoods;
 			detail.goods += flag ? 1 : -1;
 			detail.hadGoods = flag;
 			this.setData({ detail });
+			// type   content:给内容的评论点赞 reply：给评论的评论点赞
 			post({
 				url: '/goods/addReplyGoods',
 				data: {
@@ -60,6 +61,7 @@ Component({
 					content_id: detail.content_id,
 					comment_id: detail.id,
 					goods_type: flag,
+					type: type === 'content' ? 2 : 3,
 				},
 			});
 		},

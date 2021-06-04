@@ -1,4 +1,3 @@
-import { battleUrl } from '../../../../config/config';
 import { post } from '../../../../utils/request';
 
 Component({
@@ -23,9 +22,7 @@ Component({
 	/**
 	 * 组件的初始数据
 	 */
-	data: {
-		battleUrl,
-	},
+	data: {},
 
 	/**
 	 * 组件的方法列表

@@ -42,7 +42,7 @@ Page({
 		if (type === 1) loading.showLoading();
 		const { dataList, current } = this.data;
 		const user_id = wx.getStorageSync('user_id');
-		get({ url: '/goods/goodsDetailByUser', data: { user_id, current } }).then((res) => {
+		get({ url: '/goods/commentsDetailByUser', data: { user_id, current } }).then((res) => {
 			if (Array.isArray(res) && res.length !== 0) {
 				res.forEach((item) => {
 					if (item.contentType === '-1') return;
@@ -70,15 +70,23 @@ Page({
 
 	// 点击详情
 	onSearchContentDetail: function (e) {
-		const { contentid, hascontent, type } = e.currentTarget.dataset;
-		if (!hascontent) {
+		// 没有考虑到评论的情况
+		const { item } = e.currentTarget.dataset;
+		const { comment_id, content_id, hasContent, contentType, type } = item;
+		if (!hasContent) {
 			return wx.showToast({
 				title: '该内容已删除',
 				icon: 'error',
 			});
 		}
+		// 这是评论 1-给帖子评论 2-二级评论
+		if (String(type) === '2') {
+			return wx.navigateTo({
+				url: `/pages/reply/reply?commentId=${comment_id}&contentId=${content_id}`,
+			});
+		}
 		wx.navigateTo({
-			url: `/pages/detail/detail?content_id=${contentid}&type=${type}`,
+			url: `/pages/detail/detail?content_id=${content_id}&type=${contentType}`,
 		});
 	},
 
@@ -86,7 +94,7 @@ Page({
 	onTapGoods: function (e) {
 		const user_id = wx.getStorageSync('user_id');
 		const { item, index } = e.currentTarget.dataset;
-		const { type, content_id, comment_id, hadGoods } = item;
+		const { id, type, content_id, hadGoods } = item;
 		const { dataList } = this.data;
 		let flag = true;
 		if (dataList[index]) {
@@ -94,27 +102,26 @@ Page({
 			dataList[index].hadGoods = flag;
 			this.setData({ dataList });
 		}
-		// 给帖子的赞
-		if (type === 1) {
-			post({ url: '/goods/addPostsGoods', data: { user_id, content_id, goods_type: flag } });
-		}
-		if (type === 2) {
-			post({ url: '/goods/addReplyGoods', data: { user_id, content_id, goods_type: flag, comment_id } });
-		}
+		// 给评论的赞
+		post({
+			url: '/goods/addReplyGoods',
+			data: { user_id, content_id, goods_type: flag, comment_id: id, type: type === 1 ? 2 : 3 },
+		});
 	},
 
 	// 删除
 	onDeleteGoods: function (e) {
 		wx.showModal({
-			title: '是否确认删除该点赞？',
+			title: '是否确认删除该评论？',
 			success: (res) => {
 				const { confirm } = res;
 				if (confirm) {
 					const { item } = e.currentTarget.dataset;
+					const user_id = wx.getStorageSync('user_id');
 					const { dataList } = this.data;
 					const newList = dataList.filter((data) => data.id !== item.id);
 					this.setData({ dataList: newList });
-					post({ url: '/goods/deleteGoodsById', data: { id: item.id } });
+					post({ url: '/goods/deleteCommentById', data: { id: item.id, user_id } });
 				}
 			},
 		});

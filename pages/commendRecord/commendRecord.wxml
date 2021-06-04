@@ -3,14 +3,12 @@
         <block wx:for="{{dataList}}" wx:key="id">
             <view class="chunk">
                 <user-item hasAttention="false" showTime="{{true}}" time="{{item.create_time}}" type="2" detail="{{detail}}" showAttention="{{false}}"/>
-                <view class="comment_desc">这是评论评论这是评论评论这是评论评论这是评论评论这是评论评论这是评论评论这是评论评论这是评论评论</view>
+                <view class="comment_desc">{{item.desc}}</view>
                 <view 
                     class="con" 
-                    data-type="{{item.contentType}}" 
-                    data-hascontent="{{item.hasContent}}" 
-                    data-contentid="{{item.content_id}}" 
+                    data-item="{{item}}"
                     bindtap = "onSearchContentDetail">
-                    <view class="desc">{{item.title}}: {{item.desc}}</view>
+                    <view class="desc">{{item.title}}: {{item.contentDesc}}</view>
                 </view>
                 <view class="footer">
                     <view 
