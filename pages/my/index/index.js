@@ -72,6 +72,7 @@ Page({
 	// 点击用户头像
 	onGoUserDetail: function () {
 		const { userDetail } = this.data;
+		console.log(userDetail, 12312);
 		// 判断用户是否登录
 		if (!login.isLogin()) return;
 		wx.navigateTo({

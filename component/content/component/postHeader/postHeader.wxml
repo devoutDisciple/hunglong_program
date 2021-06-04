@@ -17,5 +17,7 @@
             </view>
         </view>
     </block>
-    <attention-btn-person active="{{userDetail.hadAttention}}" personId="{{userDetail.id}}"/>
+    <view class="attention">
+        <attention-btn-person active="{{userDetail.hadAttention}}" personId="{{userDetail.id}}"/>
+    </view>
 </view>

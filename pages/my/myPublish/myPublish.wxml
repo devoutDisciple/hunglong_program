@@ -1,5 +1,5 @@
 <block wx:if="{{dataList && dataList.length !== 0}}">
-    <scroll-view class="wrap" scroll-y="{{true}}">
+    <scroll-view class="wrap" scroll-y="{{true}}" lower-threshold="{{lowerThreshold}}" bindscrolltolower="onScrollBtm">
         <block wx:for="{{dataList}}" wx:key="id">
             <home-post wx:if="{{item.type === 'posts'}}" detail="{{item}}"/>
             <home-post wx:if="{{item.type === 'blogs'}}" detail="{{item}}"/>
@@ -7,6 +7,7 @@
             <home-battle wx:if="{{item.type === 'battle'}}" detail="{{item}}" />
             <home-video wx:if="{{item.type === 'video'}}" detail="{{item}}" />
         </block>
+        <btm-tip /> 
         <btm-empty />
     </scroll-view>
 </block>

@@ -5,7 +5,8 @@
     "home-vote": "/component/content/vote/vote",
     "home-video": "/component/content/video/video",
     "empty-img": "/component/emptyImg/emptyImg",
-    "btm-empty": "/component/btmEmpty/btmEmpty"
+    "btm-empty": "/component/btmEmpty/btmEmpty",
+    "btm-tip": "/component/btmTip/btmTip"
   },
   "navigationBarTitleText": "我的发布"
 }

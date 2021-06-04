@@ -4,12 +4,12 @@
         <view class="title_con" style="padding-top: {{headerHight}}px">
             <view class="person">
                 <view class="person_desc">
-                    <view class="person_img">
+                    <view class="person_img" bindtap="onGoUserDetail">
                         <block wx:if="{{showSelfImg}}" >
                             <open-data class="person_img_img" type="userAvatarUrl"></open-data>
                         </block>
                         <block wx:else>
-                            <image bindtap = "onGoUserDetail" class="person_img_img" src="{{userDetail.photo}}" />
+                            <image class="person_img_img" src="{{userDetail.photo}}" />
                         </block>
                     </view>
                     <view class="person_msg" bindtap = "onGoUserMsg">

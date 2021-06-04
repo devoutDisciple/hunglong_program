@@ -1,6 +1,6 @@
 import { get } from '../../../utils/request';
-import { filterContentTypeByNum } from '../../../utils/filter';
 import loading from '../../../utils/loading';
+import { filterContentTypeByNum } from '../../../utils/filter';
 
 Page({
 	/**
@@ -8,6 +8,9 @@ Page({
 	 */
 	data: {
 		dataList: [],
+		isLoading: false, // 上拉加载的时候
+		current: 1, // 当前页码
+		lowerThreshold: 400, // 距离底部多远的时候触发上拉事件
 	},
 
 	/**
@@ -15,7 +18,9 @@ Page({
 	 */
 	onLoad: function (options) {
 		const { user_id } = options;
-		this.getContentsByUserId(user_id);
+		this.setData({ user_id }, () => {
+			this.getContentsByUserId();
+		});
 	},
 
 	/**
@@ -29,20 +34,35 @@ Page({
 	onShow: function () {},
 
 	// 获取用户发过的内容
-	getContentsByUserId: function (user_id) {
+	getContentsByUserId: function () {
+		const { user_id } = this.data;
 		loading.showLoading();
 		if (!user_id) {
 			wx.switchTab({
 				url: '/pages/home/home',
 			});
 		}
-		get({ url: '/content/contentsByUserId', data: { user_id, current: 1 } })
+		const { current, dataList } = this.data;
+		get({ url: '/content/contentsByUserId', data: { user_id, current } })
 			.then((res) => {
 				res.forEach((item) => {
 					item.type = filterContentTypeByNum(item.type);
 				});
-				this.setData({ dataList: res });
+				const newList = [...dataList, ...res];
+				this.setData({ dataList: newList, current: current + 1, isLoading: false });
 			})
 			.finally(() => loading.hideLoading());
+	},
+
+	/**
+	 * 滑动到底部的时候
+	 */
+	onScrollBtm: function () {
+		const { isLoading } = this.data;
+		if (!isLoading) {
+			this.setData({ isLoading: true }, async () => {
+				this.getContentsByUserId();
+			});
+		}
 	},
 });

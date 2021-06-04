@@ -43,6 +43,9 @@ Page({
 			},
 		],
 		albumsList: [], // 相册列表
+		isLoading: false, // 上拉加载的时候
+		current: 1, // 当前页码
+		lowerThreshold: 400, // 距离底部多远的时候触发上拉事件
 	},
 
 	/**
@@ -143,6 +146,7 @@ Page({
 					longago: [], // 一月以前的数据
 				},
 				albumsList: [],
+				current: 1,
 			},
 			() => {
 				if (index === 2) {
@@ -199,11 +203,21 @@ Page({
 		});
 	},
 
+	// 滑动到底部
+	onScrollBtm: function () {
+		const { isLoading, activeIdx } = this.data;
+		if (!isLoading) {
+			this.setData({ isLoading: true }, () => {
+				this.getPostsByUserId(activeIdx);
+			});
+		}
+	},
+
 	// 获取帖子博客等相应内容
 	getPostsByUserId: function (activeIdx) {
 		loading.showLoading();
-		const { user_id, txtObj } = this.data;
-		get({ url: '/content/contentsByTypeAndUserId', data: { user_id, activeIdx } })
+		const { user_id, txtObj, current } = this.data;
+		get({ url: '/content/contentsByTypeAndUserId', data: { user_id, activeIdx, current } })
 			.then((res) => {
 				if (Array.isArray) {
 					const {
@@ -226,9 +240,9 @@ Page({
 						longago: txtObj.longago.concat(longago),
 					};
 					if (activeIdx === 0) {
-						this.setData({ txtObj: result || [] });
+						this.setData({ txtObj: result || [], current: current + 1, loading: false });
 					} else if (activeIdx === 1) {
-						this.setData({ videoObj: result || [] });
+						this.setData({ videoObj: result || [], current: current + 1, loading: false });
 					}
 				} else {
 					this.setData({

@@ -162,7 +162,7 @@
     font-size: 48rpx;
 }
 
-.today_imgupload{
+.today_imgupload {
     flex: 1;
     margin-left: 20rpx;
 }
@@ -250,4 +250,8 @@
     height: 30rpx;
     width: 30rpx;
     margin-right: 20rpx;
+}
+
+.btm_tip {
+    background: #fff;
 }
