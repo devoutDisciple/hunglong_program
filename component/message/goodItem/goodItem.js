@@ -53,6 +53,10 @@ Component({
 				wx.navigateTo({
 					url: '/pages/goodsRecord/goodsRecord',
 				});
+			} else {
+				wx.navigateTo({
+					url: '/pages/commendRecord/commendRecord',
+				});
 			}
 		},
 	},

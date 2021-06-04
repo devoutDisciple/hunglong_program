@@ -165,7 +165,7 @@
         {
           "name": "我关注的",
           "pathName": "pages/my/myAttention/myAttention",
-          "query": "user_id=10",
+          "query": "user_id=1",
           "scene": null
         },
         {
@@ -183,12 +183,6 @@
         {
           "name": "我的粉丝",
           "pathName": "pages/my/myFans/myFans",
-          "query": "user_id=10",
-          "scene": null
-        },
-        {
-          "name": "我的赞",
-          "pathName": "pages/my/myGoods/myGoods",
           "query": "user_id=10",
           "scene": null
         },

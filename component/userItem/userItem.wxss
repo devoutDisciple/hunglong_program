@@ -3,24 +3,29 @@
     font-size: 26rpx;
     display: flex;
 }
+
 .user_photo {
     width: 90rpx;
 }
+
 .user_photo image {
     width: 90rpx;
     height: 90rpx;
     border-radius: 100%;
 }
+
 .user_desc {
     flex: 1;
     margin-left: 15rpx;
 }
+
 .user_msg {
     height: 40rpx;
     margin-top: 5rpx;
     display: flex;
     align-items: center;
 }
+
 .user_msg_name {
     font-size: 28rpx;
     color: #333;
@@ -33,26 +38,31 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
 }
+
 .user_msg_order {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.user_msg_order image{
+
+.user_msg_order image {
     width: 30rpx;
     height: 30rpx;
 }
-.user_msg_level{
+
+.user_msg_level {
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 .user_msg_level_txt {
     background: #fef9e9;
     color: #f1a62e;
     font-size: 20rpx;
     padding: 0 5rpx;
 }
+
 .user_sign {
     height: 30rpx;
     margin-top: 10rpx;
@@ -65,21 +75,9 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
 }
-.user_attention {
-    margin-left: 20rpx;
+
+.attention {
     display: flex;
     align-items: center;
     justify-content: center;
-}
-.attention_btn {
-    padding: 8rpx 27rpx;
-    text-align: center;
-    border: 1rpx solid #999999;
-    border-radius: 50rpx;
-}
-.attention_not_btn {
-    padding: 10rpx 29rpx;
-    background: #ededed;
-    color: #969696;
-    border: none;
 }

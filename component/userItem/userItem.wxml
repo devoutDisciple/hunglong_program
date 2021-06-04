@@ -8,7 +8,6 @@
             <view class="user_msg_order">
                 <image src="/asserts/public/vip1.png" />
             </view>
-            
             <view class="user_msg_level">
                 <view class="user_msg_level_txt">小白 1</view>
             </view>
@@ -21,6 +20,8 @@
         </block>
     </view>
     <block wx:if="{{showAttention}}">
-        <attention-btn-person active="{{detail.hadAttention}}" personId="{{detail.userDetail.id}}"/>
+        <view class="attention">
+            <attention-btn-person active="{{detail.hadAttention}}" personId="{{detail.userDetail.id}}"/>
+        </view>
     </block>
 </view>
