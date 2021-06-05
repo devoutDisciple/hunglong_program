@@ -59,62 +59,26 @@
     </view>
     <scroll-view class="content" scroll-y="{{true}}">
         <view class="container">
-            <view class="viewer">
-                <view class="viewer_titile">谁看过我</view>
-                <view class="viewer_content" data-item="viewMe" bindtap="onTapChunk">
-                    <view class="viewer_left">
-                        <scroll-view scroll-x="{{true}}" class="viewer_scroll" enable-flex="{{true}}">
-                            <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/logo.png" />
-                                <view class="viewer_name">刘亦菲</view>
-                            </view>
-                            <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/logo.png" />
-                                <view class="viewer_name">刘亦菲</view>
-                            </view>
-                            <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/logo.png" />
-                                <view class="viewer_name">刘亦菲</view>
-                            </view>
-                            <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/logo.png" />
-                                <view class="viewer_name">刘亦菲</view>
-                            </view>
-                            <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/logo.png" />
-                                <view class="viewer_name">刘亦菲</view>
-                            </view>
-                            <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/logo.png" />
-                                <view class="viewer_name">刘亦菲</view>
-                            </view>
-                            <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/logo.png" />
-                                <view class="viewer_name">刘亦菲</view>
-                            </view>
-                            <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/logo.png" />
-                                <view class="viewer_name">刘亦菲</view>
-                            </view>
-                            <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/logo.png" />
-                                <view class="viewer_name">刘亦菲</view>
-                            </view>
-                            <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/logo.png" />
-                                <view class="viewer_name">刘亦菲</view>
-                            </view>
-                            <view class="viewer_chunk">
-                                <image class="viewer_header" src="/asserts/public/logo.png" />
-                                <view class="viewer_name">刘亦菲</view>
-                            </view>
-                        </scroll-view>
-                    </view>
-                    <view class="viewer_right">
-                        <image src="/asserts/public/arrow_right.png" />
+            <block wx:if="{{viewRecords && viewRecords.length !== 0}}">
+                <view class="viewer">
+                    <view class="viewer_titile">谁看过我</view>
+                    <view class="viewer_content">
+                        <view class="viewer_left">
+                            <scroll-view scroll-x="{{true}}" class="viewer_scroll" enable-flex="{{true}}">
+                                <block wx:for="{{viewRecords}}" wx:key="id">
+                                    <view class="viewer_chunk" data-userid="{{item.userDetail.id}}" bindtap="onSearchUserDetail">
+                                        <image class="viewer_header" src="{{item.userDetail.photo}}" />
+                                        <view class="viewer_name">{{item.userDetail.username}}</view>
+                                    </view>
+                                </block>
+                            </scroll-view>
+                        </view>
+                        <view class="viewer_right" data-item="viewMe" bindtap="onTapChunk">
+                            <image src="/asserts/public/arrow_right.png" />
+                        </view>
                     </view>
                 </view>
-            </view>
+            </block>
             <view class="setting">
                 <message-item label="账户资料" value="" key="account" bindclick="itemClick" type="txt"/>
                 <message-item label="修改密码" value="" key="password" bindclick="itemClick" type="txt"/>

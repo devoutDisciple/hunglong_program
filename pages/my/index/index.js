@@ -19,6 +19,7 @@ Page({
 			goodsNum: 0,
 			publishNum: 0,
 		},
+		viewRecords: [], // 浏览历史记录
 	},
 
 	/**
@@ -27,6 +28,8 @@ Page({
 	onLoad() {
 		// 获取统计数据
 		this.getUserData();
+		// 获取用户浏览记录
+		this.getUserViewRecord();
 	},
 
 	/**
@@ -35,10 +38,6 @@ Page({
 	onShow: function () {
 		// 判断用户是否登录
 		if (!login.isLogin()) return;
-		// if (!this.data.hasGetUserInfo) {
-		// 	this.setData({ hasGetUserInfo: true });
-		// 	this.getUserMsg();
-		// }
 		this.getUserMsg();
 	},
 
@@ -60,6 +59,23 @@ Page({
 		});
 	},
 
+	// 获取用户浏览历史
+	getUserViewRecord: function () {
+		const user_id = wx.getStorageSync('user_id');
+		if (!user_id) return;
+		get({ url: '/viewRecord/recordsByUserId', data: { user_id } }).then((res) => {
+			this.setData({ viewRecords: res });
+		});
+	},
+
+	// 点击浏览记录某一条
+	onSearchUserDetail: function (e) {
+		const { userid } = e.currentTarget.dataset;
+		wx.navigateTo({
+			url: `/pages/person/person?user_id=${userid}`,
+		});
+	},
+
 	/**
 	 * 页面相关事件处理函数--监听用户下拉动作
 	 */
@@ -72,7 +88,6 @@ Page({
 	// 点击用户头像
 	onGoUserDetail: function () {
 		const { userDetail } = this.data;
-		console.log(userDetail, 12312);
 		// 判断用户是否登录
 		if (!login.isLogin()) return;
 		wx.navigateTo({
@@ -94,27 +109,25 @@ Page({
 	getUserMsg: function () {
 		loading.showLoading();
 		const user_id = wx.getStorageSync('user_id');
+		if (!user_id) return;
 		get({ url: '/user/userDetailByUserId', data: { user_id: user_id } })
 			.then((res) => {
 				const flag = res.photo.includes('https://thirdwx.qlogo.cn');
 				this.setData({ userDetail: res, showSelfImg: flag });
 			})
-			.finally(() => {
-				loading.hideLoading();
-			});
+			.finally(() => loading.hideLoading());
 	},
 
 	// 获取用户数据
 	getUserData: function () {
 		loading.showLoading();
 		const user_id = wx.getStorageSync('user_id');
+		if (!user_id) return;
 		get({ url: '/user/userData', data: { user_id } })
 			.then((res) => {
 				this.setData({ userData: res });
 			})
-			.finally(() => {
-				loading.hideLoading();
-			});
+			.finally(() => loading.hideLoading());
 	},
 
 	// 点击 发布 我的赞 粉丝 关注
@@ -126,7 +139,7 @@ Page({
 			fans: `/pages/my/myFans/myFans?user_id=${user_id}`,
 			goods: `/pages/goodsRecord/goodsRecord`,
 			attention: `/pages/my/myAttention/myAttention?user_id=${user_id}`,
-			viewMe: `/pages/my/viewMe/viewMe?user_id=${user_id}`, // 谁看过我
+			viewMe: '/pages/my/viewMe/viewMe', // 谁看过我
 		};
 		wx.navigateTo({
 			url: urls[item],

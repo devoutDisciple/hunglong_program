@@ -1,4 +1,5 @@
 import { filterContentTypeByField } from '../../../../utils/filter';
+import { post } from '../../../../utils/request';
 
 Component({
 	/**

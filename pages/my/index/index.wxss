@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     font-size: 26rpx;
+    color: #333;
 }
 .title {
     height: 480rpx;
@@ -212,6 +213,7 @@
 .viewer_name {
     margin-top: 14rpx;
     font-size: 24rpx;
+    color: #333;
 }
 .setting {
     font-size: 28rpx;

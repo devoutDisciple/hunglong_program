@@ -1,5 +1,5 @@
 <view class="content">
-    <block bindtap="onSearchUserDetail">
+    <view class="user_con" bindtap="onSearchUserDetail">
         <view class="img">
             <image src="{{userDetail.photo}}" />
         </view>
@@ -16,7 +16,7 @@
                 <view class="desc_btm_src">来自于{{typeTxt}}</view>
             </view>
         </view>
-    </block>
+    </view>
     <view class="attention">
         <attention-btn-person active="{{userDetail.hadAttention}}" personId="{{userDetail.id}}"/>
     </view>

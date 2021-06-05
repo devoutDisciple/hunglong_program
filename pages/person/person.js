@@ -63,6 +63,8 @@ Page({
 			this.getMyAttentionUsersNum();
 			// 获取帖子博客等内容
 			this.getPostsByUserId(0);
+			// 添加浏览历史
+			this.addViewRecord();
 		});
 	},
 
@@ -71,6 +73,14 @@ Page({
 		wx.navigateBack({
 			complete: () => {},
 		});
+	},
+
+	// 添加浏览历史
+	addViewRecord: function () {
+		const { user_id, current_user_id } = this.data;
+		if (user_id && current_user_id && String(user_id) !== String(current_user_id)) {
+			post({ url: '/viewRecord/addRecord', data: { user_id: current_user_id, other_id: user_id } });
+		}
 	},
 
 	// 获取设备信息

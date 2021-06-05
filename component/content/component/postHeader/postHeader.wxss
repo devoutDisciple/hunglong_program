@@ -5,6 +5,11 @@
     font-size: 26rpx;
 }
 
+.user_con {
+    flex: 1;
+    display: flex;
+}
+
 .img {
     width: 80rpx;
     padding-top: 10rpx;
