@@ -10,7 +10,7 @@
                     type="reply" 
                     detail="{{item}}" 
                     wx:for="{{replyList}}" 
-                    imgList="{{replyImgList}}"/>
+                    imgList="{{item.img_urls || []}}" />
             </block>
             <block wx:else>
                 <empty-img />

@@ -28,7 +28,7 @@
         </view>
         <scroll-view scroll-y="{{true}}" enable-flex wx:if="{{showEmoji}}" class="emoji">
             <block wx:for="{{emojis}}" wx:key="index">
-                <view bindtap = "onClickEmoji" data-item="{{item}}" class="emoji_chunk">{{item}}</view>
+                <view bindtap="onClickEmoji" data-item="{{item}}" class="emoji_chunk">{{item}}</view>
             </block>
         </scroll-view>
     </view>

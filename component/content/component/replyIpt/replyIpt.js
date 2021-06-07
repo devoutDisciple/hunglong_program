@@ -1,4 +1,5 @@
 import { post, uploadFile } from '../../../../utils/request';
+import emoji from '../../../../config/emoji';
 import loading from '../../../../utils/loading';
 
 Component({
@@ -43,13 +44,25 @@ Component({
 	 */
 	data: {
 		replyValue: '',
-		tempFilePaths: [], // 图片路径
+		tempUrlPaths: [], // 图片路径
+		showEmoji: false,
+		emojis: emoji.emoji,
 	},
 
 	/**
 	 * 组件的方法列表
 	 */
 	methods: {
+		// 展示emoji
+		onShowEmoji: function () {
+			this.setData({ showEmoji: !this.data.showEmoji });
+		},
+		// 点击emoji
+		onClickEmoji: function (e) {
+			const { replyValue } = this.data;
+			const { item } = e.currentTarget.dataset;
+			this.setData({ replyValue: `${replyValue} ${item} ` });
+		},
 		// 关闭的时候
 		onClose: function () {
 			this.triggerEvent('OnClose');
@@ -62,7 +75,7 @@ Component({
 		onSendMsg: async function () {
 			loading.showLoading();
 			// type: 1-给帖子评论 2-二级评论
-			const { replyValue, type, contentId, commentId, tempFilePaths } = this.data;
+			const { replyValue, type, contentId, commentId, tempUrlPaths } = this.data;
 			if (!String(replyValue).trim()) {
 				return wx.showToast({
 					title: '请输入评论',
@@ -80,13 +93,13 @@ Component({
 			}
 			// 上传图片
 			const uploadImgUrls = [];
-			if (tempFilePaths && tempFilePaths.length !== 0) {
-				let len = tempFilePaths.length;
+			if (tempUrlPaths && tempUrlPaths.length !== 0) {
+				let len = tempUrlPaths.length;
 				loading.showLoading();
 				while (len > 0) {
 					len -= 1;
 					// eslint-disable-next-line no-await-in-loop
-					const fileDetail = await uploadFile({ url: '/reply/uploadImg', data: tempFilePaths[len] });
+					const fileDetail = await uploadFile({ url: '/reply/uploadImg', data: tempUrlPaths[len] });
 					uploadImgUrls.push(fileDetail);
 				}
 			}
@@ -122,9 +135,17 @@ Component({
 				sizeType: ['original', 'compressed'],
 				sourceType: ['album', 'camera'],
 				success(res) {
+					const { tempUrlPaths } = self.data;
 					// tempFilePath可以作为img标签的src属性显示图片
 					const { tempFilePaths } = res;
-					self.setData({ tempFilePaths });
+					const len = tempFilePaths.length + tempUrlPaths.length;
+					if (len > 9) {
+						return wx.showToast({
+							title: '最多9张图片',
+							icon: 'error',
+						});
+					}
+					self.setData({ tempUrlPaths: [...tempUrlPaths, ...tempFilePaths] });
 				},
 				fail: function () {
 					wx.showToast({
@@ -138,9 +159,9 @@ Component({
 		// 移除图片
 		onRemoveImg: function (e) {
 			const { idx } = e.currentTarget.dataset;
-			const { tempFilePaths } = this.data;
-			tempFilePaths.splice(idx, 1);
-			this.setData({ tempFilePaths });
+			const { tempUrlPaths } = this.data;
+			tempUrlPaths.splice(idx, 1);
+			this.setData({ tempUrlPaths });
 		},
 	},
 

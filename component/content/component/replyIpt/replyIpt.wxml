@@ -3,9 +3,9 @@
     show="{{ visible }}"
     bind:close="onClose">
     <view class="content">
-        <block wx:if="{{tempFilePaths && tempFilePaths.length !== 0}}">
+        <block wx:if="{{tempUrlPaths && tempUrlPaths.length !== 0}}">
             <view class="img_con">
-                <block wx:for="{{tempFilePaths}}" wx:key="index">
+                <block wx:for="{{tempUrlPaths}}" wx:key="index">
                     <view class="img_chunk">
                         <image class="img" src="{{item}}" />
                         <image class="img_close" data-idx="{{index}}" bindtap="onRemoveImg" src="/asserts/public/close.png" />
@@ -18,6 +18,7 @@
                 focus="{{focus}}" 
                 cursor-spacing="180" 
                 class="ipt" 
+                value="{{replyValue}}"
                 bindinput="onChangeValue"
                 placeholder="好话一句句，让人心情变美丽" 
                 maxlength="200" 
@@ -26,7 +27,12 @@
         </view>
         <view class="icon">
             <image class="icon_img" bindtap="onChooseImg" src="/asserts/public/img.png" />
-            <image class="icon_img" src="/asserts/public/emoji.png" />
+            <image class="icon_img" bindtap="onShowEmoji" src="/asserts/public/emoji.png" />
         </view>
+        <scroll-view scroll-y="{{true}}" enable-flex wx:if="{{showEmoji}}" class="emoji">
+            <block wx:for="{{emojis}}" wx:key="index">
+                <view bindtap="onClickEmoji" data-item="{{item}}" class="emoji_chunk">{{item}}</view>
+            </block>
+        </scroll-view>
     </view>
 </van-action-sheet>
