@@ -12,28 +12,6 @@ Page({
 		replyList: [],
 		commentId: '', // 评论的id
 		contentId: '', // 内容的id
-		replyImgList: [
-			{
-				url: '/asserts/temp/1.jpg',
-				width: 600,
-				height: 500,
-			},
-			{
-				url: '/asserts/temp/1.jpg',
-				width: 600,
-				height: 500,
-			},
-			{
-				url: '/asserts/temp/1.jpg',
-				width: 600,
-				height: 500,
-			},
-			{
-				url: '/asserts/temp/1.jpg',
-				width: 600,
-				height: 500,
-			},
-		],
 	},
 
 	/**

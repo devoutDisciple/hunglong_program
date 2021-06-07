@@ -17,10 +17,10 @@
     line-height: 40rpx;
     font-size: 24rpx;
     color: #333;
+    margin-bottom: 10rpx;
 }
 
 .con {
-    margin-top: 20rpx;
     background: #f8f8f8;
     padding: 20rpx 10rpx;
 }
@@ -70,4 +70,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.img_con {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.img_chunk {
+    width: calc((100vw - 80rpx) / 3);
+    height: calc((100vw - 80rpx) / 3);
+    margin-bottom: 20rpx;
+}
+
+.img_chunk:nth-child(3n + 2) {
+    margin: 0 20rpx;
 }

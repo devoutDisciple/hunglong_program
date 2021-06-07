@@ -20,6 +20,12 @@ Component({
 	 */
 	data: {},
 
+	lifetimes: {
+		attached: function () {
+			console.log(this.data, 122);
+		},
+	},
+
 	/**
 	 * 组件的方法列表
 	 */

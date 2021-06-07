@@ -31,7 +31,7 @@ Component({
 	 */
 	data: {
 		comments: [], // 评论的列表
-		iptVisible: true, // 输入框是否可见
+		iptVisible: false, // 输入框是否可见
 	},
 
 	lifetimes: {

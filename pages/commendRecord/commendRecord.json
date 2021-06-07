@@ -2,7 +2,9 @@
     "usingComponents": {
         "user-item": "/component/userItem/userItem",
         "btm-tip": "/component/btmTip/btmTip",
-        "empty-img": "/component/emptyImg/emptyImg"
+        "empty-img": "/component/emptyImg/emptyImg",
+        "comment-img": "/component/content/component/commentImg/commentImg",
+        "img": "/component/img/img"
     },
     "navigationBarTitleText": "评论记录"
   }
