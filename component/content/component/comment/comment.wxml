@@ -5,7 +5,11 @@
    <view class="content">
         <view class="con_name">{{detail.username}}</view>
         <view class="con_desc" bindtap="searchReply">{{detail.desc}}</view>
-        <comment-img imgList="{{imgList}}"/>
+        <block wx:if="{{imgList && imgList.length !== 0}}">
+            <view class="con_img">
+                <comment-img imgList="{{imgList}}"/>
+            </view>
+        </block>
         <view 
             wx:if="{{detail.comment > 0 && type === 'content'}}" 
             class="con_comment_num" 

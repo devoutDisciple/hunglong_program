@@ -59,5 +59,13 @@ Component({
 			detail.hadAttention = !detail.hadAttention;
 			this.setData({ detail });
 		},
+		// 前往个人中心页面
+		goUserDetail: function () {
+			const { detail } = this.data;
+			const { userDetail } = detail;
+			wx.navigateTo({
+				url: `/pages/person/person?user_id=${userDetail.id}`,
+			});
+		},
 	},
 });

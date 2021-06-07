@@ -3,6 +3,16 @@
     show="{{ visible }}"
     bind:close="onClose">
     <view class="content">
+        <block wx:if="{{tempFilePaths && tempFilePaths.length !== 0}}">
+            <view class="img_con">
+                <block wx:for="{{tempFilePaths}}" wx:key="index">
+                    <view class="img_chunk">
+                        <image class="img" src="{{item}}" />
+                        <image class="img_close" data-idx="{{index}}" bindtap="onRemoveImg" src="/asserts/public/close.png" />
+                    </view>
+                </block>
+            </view>
+        </block>
         <view class="desc">
             <input 
                 focus="{{focus}}" 
@@ -15,7 +25,7 @@
             <view class="send" bindtap = "onSendMsg">发送</view>
         </view>
         <view class="icon">
-            <image class="icon_img" src="/asserts/public/img.png" />
+            <image class="icon_img" bindtap="onChooseImg" src="/asserts/public/img.png" />
             <image class="icon_img" src="/asserts/public/emoji.png" />
         </view>
     </view>

@@ -1,5 +1,5 @@
 <view class="user">
-    <view class="user_photo">
+    <view class="user_photo" bindtap = "goUserDetail">
         <image src="{{detail.userDetail.photo}}" />
     </view>
     <view class="user_desc">

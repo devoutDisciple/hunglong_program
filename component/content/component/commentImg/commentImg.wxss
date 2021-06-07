@@ -1,52 +1,60 @@
 .wrap {
     width: 100%;
 }
+
 .img {
     margin-top: 10rpx;
 }
-.wrap1 .img .fix_height{
+
+.wrap1 .img .fix_height {
     height: calc(100vw - 160rpx);
 }
-.wrap1 .img .fix_width{
+
+.wrap1 .img .fix_width {
     width: calc(100vw - 140rpx);
 }
+
 .wrap2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.wrap2 .img{
+
+.wrap2 .img {
     width: calc((100vw - 150rpx)/ 2);
     height: calc((100vw - 150rpx)/ 2);
     display: flex;
     align-items: center;
     overflow: hidden;
- }
+}
+
 .wrap2 .img .fix_height {
     height: calc((100vw - 150rpx)/ 2);
 }
+
 .wrap2 .img .fix_width {
     width: calc((100vw - 150rpx)/ 2);
 }
+
 .wrap3 {
     display: flex;
     flex-wrap: wrap;
     overflow: hidden;
     justify-content: space-between;
 }
-.wrap3_ellipsis {
-    max-height: calc((100vw - 160rpx) / 3 * 2 + 20rpx);
+
+.wrap3 .img {
+    width: calc((100vw - 160rpx)/ 3);
+    height: calc((100vw - 160rpx)/ 3);
+    display: flex;
+    align-items: center;
+    overflow: hidden;
 }
-.wrap3 .img{
-   width: calc((100vw - 160rpx)/ 3);
-   height: calc((100vw - 160rpx)/ 3);
-   display: flex;
-   align-items: center;
-   overflow: hidden;
-}
+
 .wrap3 .img .fix_height {
     height: calc((100vw - 160rpx)/ 3);
 }
+
 .wrap3 .img .fix_width {
     width: calc((100vw - 160rpx)/ 3);
 }

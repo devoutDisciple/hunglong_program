@@ -23,7 +23,7 @@
                         detail="{{item}}"
                         wx:for="{{comments}}"
                         contentId="{{detail.id}}"
-                        imgList="{{replyImgList}}"/>
+                        imgList="{{item.img_urls || []}}"/>
                 </block>
             </view>
         </view>
