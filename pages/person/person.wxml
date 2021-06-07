@@ -16,7 +16,7 @@
             <view bindtap = "onAttentionUser" wx:else class="concern_btn">关注</view>
         </block>
         <block wx:if="{{current_user_id != user_id}}">
-            <image class="intro_msg" src="/asserts/public/personMsg.png" />
+            <image class="intro_msg" bindtap="onTapMsg" src="/asserts/public/personMsg.png" />
         </block>
     </view>
     <view class="user">

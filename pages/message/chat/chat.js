@@ -33,7 +33,6 @@ Page({
 		orginData = JSON.parse(orginData);
 		if (Array.isArray(orginData)) {
 			const nowData = orginData.filter((item) => String(item.person_id) === String(person_id))[0];
-			console.log(nowData, 234);
 			if (!nowData) return;
 			const { msg } = nowData;
 			wx.setNavigationBarTitle({

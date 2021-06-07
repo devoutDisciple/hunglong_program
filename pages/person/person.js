@@ -68,6 +68,48 @@ Page({
 		});
 	},
 
+	// 点击发送消息
+	onTapMsg: function () {
+		const { userDetail } = this.data;
+		let msgData = wx.getStorageSync('msg_data');
+		let data = [
+			{
+				person_id: userDetail.id,
+				person_name: userDetail.username,
+				person_photo: userDetail.photo,
+				unread: 0,
+				msg: [],
+			},
+		];
+		if (msgData) {
+			msgData = JSON.parse(msgData);
+			if (Array.isArray(msgData)) {
+				let flag = true;
+				let curUser = {};
+				let curIdx = 0;
+				// 应当判断是否已经给该用户发过消息
+				msgData.forEach((item, index) => {
+					if (item.person_id === userDetail.id) {
+						flag = false;
+						curUser = item;
+						curIdx = index;
+					}
+				});
+				if (flag) {
+					data = [...data, ...msgData];
+				} else {
+					msgData.splice(curIdx, 1);
+					msgData.unshift(curUser);
+					data = msgData;
+				}
+			}
+		}
+		wx.setStorageSync('msg_data', JSON.stringify(data));
+		wx.navigateTo({
+			url: `/pages/message/chat/chat?person_id=${userDetail.id}`,
+		});
+	},
+
 	// 点击返回
 	onGoback: function () {
 		wx.navigateBack({
