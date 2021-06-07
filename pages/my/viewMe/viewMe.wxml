@@ -1,15 +1,16 @@
-<scroll-view class="content" scroll-y="{{true}}">
-    <view class="title">今天</view>
-    <view class="chunk">
-        <user-item hasAttention="{{false}}"  showAttention="{{true}}"/>
+<block wx:if="{{viewRecords && viewRecords.length !== 0}}">
+    <scroll-view scroll-y="{{true}}" class="content">
+        <block wx:for="{{viewRecords}}" wx:key="id">
+            <view class="chunk">
+                <user-item detail="{{item}}" type="3" time="{{item.create_time}}" showTime="true" showAttention="{{true}}"/>
+            </view>
+        </block>
+        <btm-tip />
+    </scroll-view>
+</block>
+<block wx:else>
+     <view class="empty">
+        <empty-img />
     </view>
-    <view class="title">近三天</view>
-    <view class="chunk">
-        <user-item  showAttention="{{true}}"/>
-    </view>
-    <view class="title">三天以前</view>
-    <view class="chunk">
-        <user-item hasAttention="{{false}}" showAttention="{{true}}"/>
-    </view>
-    <btm-empty />
-</scroll-view>
+</block>
+    

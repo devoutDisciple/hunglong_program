@@ -34,7 +34,20 @@ Component({
 	/**
 	 * 组件的初始数据
 	 */
-	data: {},
+	data: {
+		showType: '',
+	},
+
+	lifetimes: {
+		attached: function () {
+			const { type } = this.data;
+			let showType = '点赞';
+			if (type === 1) showType = '点赞';
+			if (type === 2) showType = '评论';
+			if (type === 3) showType = '浏览';
+			this.setData({ showType });
+		},
+	},
 
 	/**
 	 * 组件的方法列表

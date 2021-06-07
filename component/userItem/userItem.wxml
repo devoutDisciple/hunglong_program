@@ -13,7 +13,7 @@
             </view>
         </view>
         <block wx:if="{{showTime}}">
-            <view class="user_sign">{{time}} {{type === 1 ? "点赞": "评论"}}</view>
+            <view class="user_sign">{{time}} {{showType}}</view>
         </block>
         <block wx:else>
             <view class="user_sign">{{detail.userDetail.sign || ""}}</view>

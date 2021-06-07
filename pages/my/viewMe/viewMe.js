@@ -1,14 +1,32 @@
-// pages/viewMe/viewMe.js
+import { get } from '../../../utils/request';
+import loading from '../../../utils/loading';
+
 Page({
 	/**
 	 * 页面的初始数据
 	 */
-	data: {},
+	data: {
+		viewRecords: [], // 浏览历史记录
+	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function (options) {},
+	onLoad: function () {
+		this.getRecordHistoryDetail();
+	},
+
+	// 查询被浏览历史详情
+	getRecordHistoryDetail: function () {
+		loading.showLoading();
+		const user_id = wx.getStorageSync('user_id');
+		get({ url: '/viewRecord/recordsDetailByUserId', data: { user_id } })
+			.then((res) => {
+				console.log(res, 111);
+				this.setData({ viewRecords: res });
+			})
+			.finally(() => loading.hideLoading());
+	},
 
 	/**
 	 * 生命周期函数--监听页面初次渲染完成

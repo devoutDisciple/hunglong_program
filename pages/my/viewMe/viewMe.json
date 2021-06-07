@@ -1,7 +1,9 @@
 {
   "usingComponents": {
     "user-item": "/component/userItem/userItem",
-    "btm-empty": "/component/btmEmpty/btmEmpty"
+    "empty-img": "/component/emptyImg/emptyImg",
+    "btm-empty": "/component/btmEmpty/btmEmpty",
+    "btm-tip": "/component/btmTip/btmTip"
   },
   "navigationBarTitleText": "谁看过我"
 }
