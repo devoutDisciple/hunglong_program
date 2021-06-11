@@ -151,9 +151,10 @@ Page({
 	 */
 	itemClick: function (e) {
 		const { detail } = e;
+		const user_id = wx.getStorageSync('user_id');
 		if (detail === 'account') {
 			wx.navigateTo({
-				url: '/pages/my/accountMsg/accountMsg',
+				url: `/pages/my/personMsg/personMsg?user_id=${user_id}`,
 			});
 		}
 		if (detail === 'password') {
