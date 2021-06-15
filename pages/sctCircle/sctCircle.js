@@ -52,6 +52,12 @@ Page({
 	onAddCircle: function (e) {
 		const { data } = e.detail;
 		const { myCirCles } = this.data;
+		if (myCirCles.length === 5) {
+			return wx.showToast({
+				title: '可选五个圈子',
+				icon: 'error',
+			});
+		}
 		const hasCircle = myCirCles.filter((item) => item.id === data.id)[0];
 		if (hasCircle) {
 			return wx.showToast({
@@ -59,6 +65,7 @@ Page({
 				icon: 'error',
 			});
 		}
+
 		myCirCles.push(data);
 		this.setData({ myCirCles });
 	},
@@ -67,6 +74,12 @@ Page({
 	removeCircle: function (e) {
 		const { data } = e.detail;
 		const { myCirCles } = this.data;
+		if (myCirCles.length === 1) {
+			return wx.showToast({
+				title: '请勿删除',
+				icon: 'error',
+			});
+		}
 		const newCircles = myCirCles.filter((item) => item.id !== data.id);
 		this.setData({ myCirCles: newCircles });
 	},

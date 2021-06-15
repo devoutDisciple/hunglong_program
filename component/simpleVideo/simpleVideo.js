@@ -79,7 +79,7 @@ Component({
 				.in(this)
 				.select(`#${this.data.videoId}`)
 				.boundingClientRect(function (rect) {
-					const { top, height } = rect;
+					const { top } = rect;
 					if (top < -30 || top > windowHeight) {
 						self.videoContext.pause();
 					}

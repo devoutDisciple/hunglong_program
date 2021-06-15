@@ -17,8 +17,8 @@
         </view>
     </view>
     <view class="content">
-        <block wx:if="{{data}}">
-            <block wx:for="{{data}}" wx:key="index">
+        <block wx:if="{{showCircles && showCircles.length !== 0}}">
+            <block wx:for="{{showCircles}}" wx:key="index">
                 <view class="{{type === 'circle' ? 'con_item' : 'con_item con_my_item'}}">
                     {{item.name}}
                     <block wx:if="{{status === 'edit' && type === 'my' && item.self_school !== 1}}">

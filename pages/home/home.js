@@ -37,6 +37,10 @@ Page({
 		util.getDeviceInfo().then((res) => {
 			this.setData({ headerHight: res.headerHight });
 		});
+		// this.initData();
+	},
+
+	onShow: function () {
 		this.initData();
 	},
 
@@ -108,9 +112,16 @@ Page({
 	// 获取圈子列表
 	getCircleList: async function (user_id) {
 		const res = await get({ url: '/circle/allByUserId', data: { user_id } });
-		this.setData({
-			circleList: [{ id: 'attention', name: '关注' }, { id: 'recommend', name: '广场' }, ...res],
-		});
+		this.setData(
+			{
+				circleList: [{ id: 'attention', name: '关注' }, { id: 'recommend', name: '广场' }, ...res],
+			},
+			() => {
+				setTimeout(() => {
+					this.setData({ activeTab: 1 });
+				}, 100);
+			},
+		);
 	},
 
 	// 获取话题

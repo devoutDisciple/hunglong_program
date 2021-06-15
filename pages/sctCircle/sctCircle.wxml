@@ -12,6 +12,7 @@
                 <circle-item 
                     status="{{status}}"
                     data="{{item.circles}}" 
+                    myCirCles="{{myCirCles}}"
                     plateId="{{item.plate_id}}"
                     title="{{item.plate_name}}" 
                     bindaddCircle="onAddCircle" 

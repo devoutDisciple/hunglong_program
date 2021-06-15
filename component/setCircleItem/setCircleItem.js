@@ -26,6 +26,10 @@ Component({
 			type: String,
 			value: '',
 		},
+		myCirCles: {
+			type: Object,
+			value: [],
+		},
 	},
 
 	/**
@@ -33,6 +37,7 @@ Component({
 	 */
 	data: {
 		iptDialogVisible: false, // 反馈弹框
+		showCircles: [], // 应该展示的圈子
 	},
 
 	lifetimes: {
@@ -47,6 +52,15 @@ Component({
 		show: function () {},
 		hide: function () {},
 		resize: function () {},
+	},
+
+	observers: {
+		'myCirCles, data': function (myCirCles, data) {
+			if (!myCirCles || !data) return;
+			const circleIds = myCirCles.map((item) => item.id);
+			const newCircle = data.filter((item) => !circleIds.includes(item.id));
+			this.setData({ showCircles: newCircle });
+		},
 	},
 
 	/**
