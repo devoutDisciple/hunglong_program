@@ -52,7 +52,7 @@ Page({
 					backgroundTmpUrl: bg_url,
 					username,
 					sex: sex - 1,
-					activeDate: birthday || '2010-01-01',
+					activeDate: birthday || '2000-01-01',
 					address,
 					schoolName: school || '',
 					levelName: level,

@@ -16,12 +16,17 @@
         <view class="desc">
             <input 
                 focus="{{focus}}" 
-                cursor-spacing="180" 
+                bindblur="onBlur"
+                bindfocus="onFocus"
+                cursor-spacing="20" 
+                adjust-position="true"
+                 readonly="readonly"
                 class="ipt" 
                 value="{{replyValue}}"
                 bindinput="onChangeValue"
                 placeholder="好话一句句，让人心情变美丽" 
                 maxlength="200" 
+                bindkeyboardheightchange="keyboardheightchange"
                 confirm-type="send"/>
             <view class="send" bindtap = "onSendMsg">发送</view>
         </view>
@@ -29,10 +34,12 @@
             <image class="icon_img" bindtap="onChooseImg" src="/asserts/public/img.png" />
             <image class="icon_img" bindtap="onShowEmoji" src="/asserts/public/emoji.png" />
         </view>
-        <scroll-view scroll-y="{{true}}" enable-flex wx:if="{{showEmoji}}" class="emoji">
-            <block wx:for="{{emojis}}" wx:key="index">
-                <view bindtap="onClickEmoji" data-item="{{item}}" class="emoji_chunk">{{item}}</view>
-            </block>
-        </scroll-view>
+        <block wx:if="{{showEmoji && !focus}}">
+            <scroll-view scroll-y="{{true}}" enable-flex class="emoji">
+                <block wx:for="{{emojis}}" wx:key="index">
+                    <view bindtap="onClickEmoji" data-item="{{item}}" class="emoji_chunk">{{item}}</view>
+                </block>
+            </scroll-view>
+        </block>
     </view>
 </van-action-sheet>

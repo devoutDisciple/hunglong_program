@@ -63,6 +63,19 @@ Component({
 			const { item } = e.currentTarget.dataset;
 			this.setData({ replyValue: `${replyValue} ${item} ` });
 		},
+		// 失去焦点
+		onBlur: function () {
+			this.setData({ focus: false });
+		},
+		// 聚焦的时候
+		onFocus: function (e) {
+			console.log(e, 1111);
+			this.setData({ focus: true });
+		},
+		// 键盘高度发生改变
+		keyboardheightchange: function (e) {
+			console.log(e, 1111);
+		},
 		// 关闭的时候
 		onClose: function () {
 			this.triggerEvent('OnClose');
@@ -71,6 +84,7 @@ Component({
 		onChangeValue: function (e) {
 			this.setData({ replyValue: e.detail.value });
 		},
+
 		// 点击发送
 		onSendMsg: async function () {
 			loading.showLoading();

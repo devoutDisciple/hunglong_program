@@ -48,9 +48,9 @@ Component({
 		onShowIptDialog: function () {
 			if (!login.isLogin()) return;
 			this.setData({ iptVisible: true });
-			setTimeout(() => {
-				this.setData({ iptFocus: true });
-			}, 100);
+			// setTimeout(() => {
+			// 	this.setData({ iptFocus: true });
+			// }, 100);
 		},
 
 		// 评论输入框关闭

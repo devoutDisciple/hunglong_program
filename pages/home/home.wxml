@@ -67,8 +67,7 @@
             <view class="empty_img">
                 <empty-img />
             </view>
-        </block>
-        
+        </block> 
     </scroll-view>
     <publish bindOnTap="onPublish"/>
 </view>
