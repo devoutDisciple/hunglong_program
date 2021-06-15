@@ -22,6 +22,6 @@
         </scroll-view>
     </view>
     <view class="circle_btm">
-        <van-button bindtap="onSave" custom-class="circle_btm_btn" type="default">下一步</van-button>
+        <van-button bindtap="onSave" custom-class="circle_btm_btn" type="default">保存</van-button>
     </view>
 </view>

@@ -188,6 +188,13 @@ Page({
 		this.setData({ activeTopicId: topic_id });
 	},
 
+	// 点击加号
+	onTapAddCircle: function () {
+		wx.navigateTo({
+			url: '/pages/sctCircle/sctCircle',
+		});
+	},
+
 	// 点击发布
 	onPublish: function (e) {
 		const { itemid } = e.detail;

@@ -31,7 +31,7 @@
                         </block>
                     </van-tabs>
                 </view>
-                <view class="tab_add" bindtap = "onSelectCicle">
+                <view class="tab_add" bindtap="onTapAddCircle">
                     <image class="tab_add_img" src="/asserts/public/tabAdd.png" />
                 </view>
             </view>
