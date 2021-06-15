@@ -137,7 +137,7 @@ Page({
 		const urls = {
 			publish: `/pages/my/myPublish/myPublish?user_id=${user_id}`,
 			fans: `/pages/my/myFans/myFans?user_id=${user_id}`,
-			goods: `/pages/goodsRecord/goodsRecord`,
+			goods: `/pages/myGoodsRecord/myGoodsRecord`,
 			attention: `/pages/my/myAttention/myAttention?user_id=${user_id}`,
 			viewMe: '/pages/my/viewMe/viewMe', // 谁看过我
 		};

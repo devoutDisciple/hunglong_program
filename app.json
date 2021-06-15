@@ -32,7 +32,7 @@
     "pages/notice/notice",
     "pages/search/search",
     "pages/circlePlate/circlePlate",
-    "pages/goodsRecord/goodsRecord",
+    "pages/myGoodsRecord/myGoodsRecord",
     "pages/commendRecord/commendRecord"
   ],
   "window": {

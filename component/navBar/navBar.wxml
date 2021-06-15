@@ -9,7 +9,7 @@
                     mode="heightFix"/>
             </view>
             <view class="nav_ipt" bindtap="onTapIpt">
-                <van-field
+                <!-- <van-field
                     value="{{ value }}"
                     placeholder="搜索"
                     custom-style="height: {{conHegiht-2}}px; padding: {{paddingTop}}px 0px;"
@@ -17,7 +17,9 @@
                     left-icon="search"
                     bind:change="onChange"
                     bind:confirm="onConfirm"
-                />
+                /> -->
+                <image class="nav_ipt_search" src="/asserts/public/search.png" style="height: {{conHegiht / 2}}px; width: {{conHegiht / 2}}px"/>
+                <input class="nav_ipt_container" style="height: {{conHegiht - 2}}px"/>
             </view> 
         </view>
         <view class="nav_empty" style="width:{{disWidth}}px"></view>     

@@ -51,7 +51,7 @@ Component({
 			}
 			if (type === 'goods') {
 				wx.navigateTo({
-					url: '/pages/goodsRecord/goodsRecord',
+					url: '/pages/myGoodsRecord/myGoodsRecord',
 				});
 			} else {
 				wx.navigateTo({

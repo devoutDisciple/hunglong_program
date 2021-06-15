@@ -230,7 +230,7 @@
         },
         {
           "name": "点赞记录",
-          "pathName": "pages/goodsRecord/goodsRecord",
+          "pathName": "pages/myGoodsRecord/myGoodsRecord",
           "query": "",
           "scene": null
         }

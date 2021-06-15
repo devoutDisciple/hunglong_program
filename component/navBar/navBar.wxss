@@ -1,18 +1,26 @@
-
 .nav {
     display: flex;
     flex-direction: row;
     padding-left: 10rpx;
     /* border-bottom: 1px solid #eee; */
 }
+
 .nav_con {
     flex: 1;
     display: flex;
     flex-direction: row;
 }
-.nav_ipt{
+
+.nav_ipt {
     flex: 1;
-    padding: 0 30rpx;
+    padding-left: 10rpx;
+    padding-right: 30rpx;
     border: 1rpx solid #eeeeee;
     border-radius: 100rpx;
+    display: flex;
+    align-items: center;
+}
+
+.nav_ipt_search {
+    margin-right: 10rpx;
 }
