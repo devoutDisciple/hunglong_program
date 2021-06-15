@@ -29,7 +29,7 @@ Component({
 			imgList.forEach((item) => {
 				if (item.url) urls.push(item.url);
 			});
-			wx.previewImage({ urls, current: String(index) });
+			wx.previewImage({ urls, current: urls[index], showmenu: true });
 		},
 	},
 
