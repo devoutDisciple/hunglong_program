@@ -127,7 +127,7 @@
     </view>
 
     <view class="posts" wx:if="{{activeIdx === 2}}">
-        <view class="today_img" wx:if="{{current_user_id != user_id}}">
+        <view class="today_img" wx:if="{{current_user_id === user_id}}">
             <view class="today_img_date">今天</view>
             <view class="today_imgupload" bindtap="onUploadImg">
                 <view class="camera_container">
@@ -136,7 +136,7 @@
                 </view>
             </view>
         </view>
-        <view class="empty" wx:if="{{current_user_id != user_id}}"/>
+        <view class="empty" wx:if="{{current_user_id === user_id}}"/>
         <view class="img_title">全部照片</view>
         <block wx:if="{{albumsList && albumsList.lenght !== 0}}">
             <block wx:for="{{albumsList}}" wx:key="time">

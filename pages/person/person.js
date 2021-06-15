@@ -54,7 +54,7 @@ Page({
 	onLoad: function (options) {
 		const current_user_id = wx.getStorageSync('user_id');
 		const { user_id } = options;
-		this.setData({ user_id, current_user_id }, () => {
+		this.setData({ user_id: String(user_id), current_user_id: String(current_user_id) }, () => {
 			// 获取设备信息
 			this.getDeviceData();
 			// 获取用户基本信息
