@@ -9,12 +9,14 @@
         controls="{{true}}"
         show-progress="{{true}}"
         show-play-btn="{{false}}"
-        enable-progress-gesture="{{true}}"
+        enable-progress-gesture="{{false}}"
         show-center-play-btn='{{false}}'
         picture-in-picture-show-progress="{{true}}" 
-        bindtap = "onTapVideo"
-        bindended="onVideoEnd"
+        bindplay="onVideoPlay"
         bindpause="onVideoPause"
+        bindended="onVideoEnd"
+        bindtimeupdate="onTimeUpdate"
+        bindcontrolstoggle="onControlStoggle"
         binderror="videoErrorCallback"  />
         <!--
             controls: 是否显示默认播放控件（播放/暂停按钮、播放进度、时间）
@@ -28,9 +30,22 @@
             enable-play-gesture: 是否开启播放手势，即双击切换播放/暂停
             picture-in-picture-show-progress: 是否在小窗模式下显示播放进度
             enable-auto-rotation: 是否开启手机横屏时自动全屏，当系统设置开启自动旋转时生效
+            bindcontrolstoggle: 切换 controls 显示隐藏时触发
+            bindplay: 当开始/继续播放时触发play事件
+            bindpause: 当暂停播放时触发 pause 事件
+            waiting-视频还没有播放 process-视频播放中 pause-视频暂停 end-视频播放结束
         -->
-    <image class="video_cover_img" wx:if="{{videoDetail.photo && !hasPlay && !active}}" src="{{videoDetail.photo}}" bindtap="onTapVideo"/>
-    <view bindtap="onTapVideo" wx:if="{{!active}}" class="video_play_container">
+    <image class="video_cover_img" wx:if="{{videoDetail.photo && activeState === 'waiting'}}" src="{{videoDetail.photo}}" bindtap="onTapModalImg"/>
+    <!-- 视频刚开始加载的时候 -->
+    <view wx:if="{{activeState === 'waiting'}}" bindtap="onTapModalImg" class="video_play_container">
+        <image class="video_play_img" src="/asserts/public/play.png" />
+    </view>
+    <!-- 控制条显示的时候 -->
+    <view wx:if="{{controllerShow && activeState === 'process'}}" bindtap="onTapPauseBtn" class="video_play_container">
+        <image class="video_pause_img" src="/asserts/public/pause.png" />
+    </view>
+    <!-- 视频暂停或者播放结束的时候 -->
+    <view wx:if="{{activeState === 'pause' || activeState === 'end'}}" bindtap="onTapStartBtn" class="video_play_container">
         <image class="video_play_img" src="/asserts/public/play.png" />
     </view>
 </view>

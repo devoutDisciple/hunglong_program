@@ -3,9 +3,11 @@
     font-size: 26rpx;
     position: relative;
 }
+
 .video {
     width: 100%;
 }
+
 .video_cover_img {
     position: absolute;
     height: 100%;
@@ -13,6 +15,7 @@
     top: 0;
     left: 0;
 }
+
 .video_play_container {
     position: absolute;
     height: 80rpx;
@@ -26,7 +29,13 @@
     justify-content: center;
     align-items: center;
 }
+
 .video_play_img {
-    height: 35rpx;
-    width: 35rpx;
+    height: 60rpx;
+    width: 60rpx;
+}
+
+.video_pause_img {
+    height: 40rpx;
+    width: 40rpx;
 }
