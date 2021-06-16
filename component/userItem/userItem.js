@@ -27,7 +27,7 @@ Component({
 		},
 		type: {
 			type: Number,
-			value: 1,
+			value: 1, // 1-点赞 2-评论 3-浏览
 		},
 	},
 

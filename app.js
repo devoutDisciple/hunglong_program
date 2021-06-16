@@ -1,5 +1,6 @@
 import { get } from './utils/request';
 import utils from './utils/util';
+import config from './config/config';
 
 App({
 	globalData: {
@@ -13,13 +14,13 @@ App({
 	},
 
 	onLaunch: async function () {
-		// if (config.env !== 'dev') {
-		// 统计各种信息
-		// setInterval(() => {
-		this.getTotalMsg();
-		this.getMyMessage();
-		// }, 5000);
-		// }
+		if (config.env !== 'dev') {
+			// 统计各种信息
+			setInterval(() => {
+				this.getTotalMsg();
+				this.getMyMessage();
+			}, 5000);
+		}
 	},
 
 	// 获取消息
