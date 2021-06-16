@@ -91,23 +91,24 @@ Page({
 	},
 
 	// 点赞
-	onTapGoods: function (e) {
-		const user_id = wx.getStorageSync('user_id');
-		const { item, index } = e.currentTarget.dataset;
-		const { id, type, content_id, hadGoods } = item;
-		const { dataList } = this.data;
-		let flag = true;
-		if (dataList[index]) {
-			flag = !hadGoods;
-			dataList[index].hadGoods = flag;
-			this.setData({ dataList });
-		}
-		// 给评论的赞
-		post({
-			url: '/goods/addReplyGoods',
-			data: { user_id, content_id, goods_type: flag, comment_id: id, type: type === 1 ? 2 : 3 },
-		});
-	},
+	// onTapGoods: function (e) {
+	// 	const user_id = wx.getStorageSync('user_id');
+	// 	const { item, index } = e.currentTarget.dataset;
+	// 	const { id, type, content_id, hadGoods } = item;
+	// 	const { dataList } = this.data;
+	// 	let flag = true;
+	// 	if (dataList[index]) {
+	// 		flag = !hadGoods;
+	// 		dataList[index].hadGoods = flag;
+	// 		this.setData({ dataList });
+	// 	}
+	// 	console.log(dataList[index], 88899);
+	// 	// 给评论的赞
+	// 	post({
+	// 		url: '/goods/addReplyGoods',
+	// 		data: { user_id, content_id, goods_type: flag, comment_id: id, type: type === 1 ? 2 : 3 },
+	// 	});
+	// },
 
 	// 删除
 	onDeleteGoods: function (e) {

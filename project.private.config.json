@@ -230,6 +230,12 @@
         },
         {
           "name": "点赞记录",
+          "pathName": "pages/goodsRecord/goodsRecord",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "我的赞",
           "pathName": "pages/myGoodsRecord/myGoodsRecord",
           "query": "",
           "scene": null

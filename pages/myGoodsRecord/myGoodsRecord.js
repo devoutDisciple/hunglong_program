@@ -89,17 +89,22 @@ Page({
 		const { type, content_id, comment_id, hadGoods } = item;
 		const { dataList } = this.data;
 		let flag = true;
-		if (dataList[index]) {
+		const currentData = dataList[index];
+		if (currentData) {
 			flag = !hadGoods;
-			dataList[index].hadGoods = flag;
+			currentData.hadGoods = flag;
 			this.setData({ dataList });
 		}
+		const { other_id } = currentData;
 		// 给帖子的赞
 		if (type === 1) {
-			post({ url: '/goods/addPostsGoods', data: { user_id, content_id, goods_type: flag } });
+			post({ url: '/goods/addPostsGoods', data: { user_id, other_id, content_id, goods_type: flag } });
 		}
 		if (type === 2) {
-			post({ url: '/goods/addReplyGoods', data: { user_id, content_id, goods_type: flag, comment_id } });
+			post({
+				url: '/goods/addReplyGoods',
+				data: { user_id, other_id, content_id, comment_id, goods_type: flag },
+			});
 		}
 	},
 

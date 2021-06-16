@@ -33,7 +33,8 @@
     "pages/search/search",
     "pages/circlePlate/circlePlate",
     "pages/myGoodsRecord/myGoodsRecord",
-    "pages/commendRecord/commendRecord"
+    "pages/commendRecord/commendRecord",
+    "pages/goodsRecord/goodsRecord"
   ],
   "window": {
     "backgroundTextStyle": "light",

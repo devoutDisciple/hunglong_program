@@ -44,10 +44,14 @@ Component({
 			detail.goods = Number(detail.goods) + (flag ? 1 : -1);
 			if (detail.goods < 0) detail.goods = 0;
 			this.setData({ detail });
+			let other_id = '';
+			if (detail && detail.userDetail) {
+				other_id = detail.userDetail.id;
+			}
 			const user_id = wx.getStorageSync('user_id');
 			post({
 				url: '/goods/addPostsGoods',
-				data: { user_id, content_id: detail.id, goods_type: flag },
+				data: { user_id, other_id, content_id: detail.id, goods_type: flag },
 			});
 		},
 	},

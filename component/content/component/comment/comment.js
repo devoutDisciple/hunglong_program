@@ -53,11 +53,13 @@ Component({
 			detail.goods += flag ? 1 : -1;
 			detail.hadGoods = flag;
 			this.setData({ detail });
+			const { userId } = detail;
 			// type   content:给内容的评论点赞 reply：给评论的评论点赞
 			post({
 				url: '/goods/addReplyGoods',
 				data: {
 					user_id,
+					other_id: userId,
 					content_id: detail.content_id,
 					comment_id: detail.id,
 					goods_type: flag,

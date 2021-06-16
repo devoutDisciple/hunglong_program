@@ -78,11 +78,15 @@ Component({
 			const flag = !detail.hadGoods;
 			detail.goods += flag ? 1 : -1;
 			detail.hadGoods = flag;
-
 			this.setData({ detail });
+			console.log(detail, 1112);
+			let other_id = '';
+			if (detail && detail.userDetail) {
+				other_id = detail.userDetail.id;
+			}
 			post({
 				url: '/goods/addPostsGoods',
-				data: { user_id, content_id: detail.id, goods_type: flag },
+				data: { user_id, other_id, content_id: detail.id, goods_type: flag },
 			});
 		},
 	},

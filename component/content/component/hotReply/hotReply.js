@@ -38,13 +38,16 @@ Component({
 			replyDetail.goods += flag ? 1 : -1;
 			replyDetail.hadGoods = flag;
 			this.setData({ replyDetail });
+			const { userId } = replyDetail;
 			post({
 				url: '/goods/addReplyGoods',
 				data: {
 					user_id,
+					other_id: userId,
 					content_id: replyDetail.content_id,
 					comment_id: replyDetail.id,
 					goods_type: flag,
+					type: 2,
 				},
 			});
 		},

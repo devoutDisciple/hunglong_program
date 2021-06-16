@@ -21,7 +21,7 @@
                     <view class="desc">{{item.title}}: {{item.contentDesc}}</view>
                 </view>
                 <view class="footer">
-                    <view 
+                    <!-- <view 
                         class="{{item.hadGoods ? 'footer_chunk footer_chunk_good' : 'footer_chunk'}}" 
                         data-index="{{index}}" 
                         data-item="{{item}}" 
@@ -29,7 +29,7 @@
                         <image wx:if="{{item.hadGoods}}" class="footer_chunk_img" src="/asserts/public/good_select.png" />
                         <image wx:else class="footer_chunk_img" src="/asserts/public/good.png" />
                         赞
-                    </view>
+                    </view> -->
                     <view class="footer_chunk" data-index="{{index}}" data-item="{{item}}" bindtap="onDeleteGoods">
                         <image class="footer_chunk_img" src="/asserts/public/delete.png" />
                         删除
