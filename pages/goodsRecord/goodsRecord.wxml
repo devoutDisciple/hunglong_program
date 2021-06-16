@@ -2,11 +2,11 @@
     <block wx:if="{{dataList && dataList.length !== 0}}">
         <block wx:for="{{dataList}}" wx:key="id">
             <view class="chunk">
-                <user-item hasAttention="false" showTime="{{true}}" time="{{item.create_time}}" type="1" detail="{{detail}}" showAttention="{{false}}"/>
+                <user-item hasAttention="false" showTime="{{true}}" time="{{item.create_time}}" type="1" detail="{{item}}" showAttention="{{false}}"/>
                 <view class="con" data-type="{{item.contentType}}" data-hascontent="{{item.hasContent}}" data-contentid="{{item.content_id}}" bindtap = "onSearchContentDetail">
                     <view class="desc">{{item.title}}: {{item.desc}}</view>
                 </view>
-                <view class="footer">
+                <!-- <view class="footer">
                     <view class="{{item.hadGoods ? 'footer_chunk footer_chunk_good' : 'footer_chunk'}}" data-index="{{index}}" data-item="{{item}}" bindtap="onTapGoods">
                         <image wx:if="{{item.hadGoods}}" class="footer_chunk_img" src="/asserts/public/good_select.png" />
                         <image wx:else class="footer_chunk_img" src="/asserts/public/good.png" />
@@ -16,7 +16,7 @@
                         <image class="footer_chunk_img" src="/asserts/public/delete.png" />
                         删除
                     </view>
-                </view>
+                </view> -->
             </view>
         </block>
         <btm-tip />

@@ -7,7 +7,6 @@
 
 .chunk {
     padding: 20rpx;
-    padding-bottom: 0;
     background: #fff;
     margin-bottom: 20rpx;
 }

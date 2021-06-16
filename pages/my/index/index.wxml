@@ -39,19 +39,19 @@
                 <view class="person_data">
                     <view class="person_data_chunk" data-item="publish" bindtap="onTapChunk">
                         <view class="person_data_chunk_label">发布</view>
-                        <view class="person_data_chunk_num">{{userData.publishNum}}</view>
+                        <view class="person_data_chunk_num">{{userData.publish}}</view>
                     </view>
                     <view class="person_data_chunk" data-item="fans" bindtap="onTapChunk">
                         <view class="person_data_chunk_label">粉丝</view>
-                        <view class="person_data_chunk_num">{{userData.fansNum}}</view>
+                        <view class="person_data_chunk_num">{{userData.fans}}</view>
                     </view>
                     <view class="person_data_chunk" data-item="goods" bindtap="onTapChunk">
                         <view class="person_data_chunk_label">我的赞</view>
-                        <view class="person_data_chunk_num">{{userData.goodsNum}}</view>
+                        <view class="person_data_chunk_num">{{userData.goods}}</view>
                     </view>
                     <view class="person_data_chunk" data-item="attention" bindtap="onTapChunk">
                         <view class="person_data_chunk_label">关注</view>
-                        <view class="person_data_chunk_num">{{userData.attentionNum}}</view>
+                        <view class="person_data_chunk_num">{{userData.fellow}}</view>
                     </view>
                 </view>
             </view>

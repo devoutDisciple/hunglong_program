@@ -14,10 +14,11 @@ Page({
 			photo: '',
 		}, // 用户基本信息
 		userData: {
-			attentionNum: 0,
-			fansNum: 0,
-			goodsNum: 0,
-			publishNum: 0,
+			publish: 0,
+			fans: 0,
+			goods: 0,
+			fellow: 0,
+			integral: 0,
 		},
 		viewRecords: [], // 浏览历史记录
 	},

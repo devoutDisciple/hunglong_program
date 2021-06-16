@@ -42,7 +42,7 @@ Page({
 		if (type === 1) loading.showLoading();
 		const { dataList, current } = this.data;
 		const user_id = wx.getStorageSync('user_id');
-		get({ url: '/goods/goodsDetailByUser', data: { user_id, current } }).then((res) => {
+		get({ url: '/goods/commentsDetailByOther', data: { user_id, current } }).then((res) => {
 			if (Array.isArray(res) && res.length !== 0) {
 				res.forEach((item) => {
 					if (item.contentType === '-1') return;
