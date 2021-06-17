@@ -16,7 +16,7 @@ App({
 
 	onLaunch: async function () {
 		// 统计各种信息
-		if (config.env !== 'dev') {
+		if (config.env === 'dev') {
 			this.getTotalMsg();
 		} else {
 			setInterval(() => {

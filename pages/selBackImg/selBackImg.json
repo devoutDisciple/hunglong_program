@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "btm-empty": "/component/btmEmpty/btmEmpty"
+      "btm-empty": "/component/btmEmpty/btmEmpty",
+      "img": "/component/img/img"
   },
   "navigationBarTitleText": "选择背景图"
 }
