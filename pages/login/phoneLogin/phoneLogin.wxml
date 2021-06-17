@@ -39,7 +39,9 @@
             </view>
             <block>
                 <view wx:if="{{success}}" class="active_btn"> 
-                    <login-btn bindOnClick="onLogin" label="绑定"></login-btn>
+                    <view class="active_btn_con">
+                        <login-btn bindOnClick="onLogin" label="绑定"></login-btn>
+                    </view>
                 </view>
                 <view wx:else class="bottom">
                     <van-button bindtap="onLogin" type="default" round>绑定</van-button>

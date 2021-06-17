@@ -2,12 +2,14 @@
     <view class="content">
         <scroll-view class="content_scroll" scroll-y="{{true}}">
             <view class="title">登录</view>
-            <view class="ipt">
+            <view class="ipt ipt_first">
                  <van-field
                     value="{{ value }}"
                     placeholder="请输入手机号"
                     border="{{ false }}"
                     bind:change="onChange"
+                    placeholder-style="font-size: 28rpx; color: #AAA;"
+                    custom-style="font-size: 28rpx;color: #333;"
                 />
             </view>
             <view class="ipt">
@@ -17,6 +19,8 @@
                     placeholder="请输入密码（字母，数字）"
                     border="{{ false }}"
                     bind:change="onChange"
+                    placeholder-style="font-size: 28rpx; color: #AAA;"
+                    custom-style="font-size: 28rpx;color: #333;"
                 />
             </view>
             <view class="reset_pwd">忘记密码？</view>

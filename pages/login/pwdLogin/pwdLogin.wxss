@@ -4,62 +4,82 @@
     display: flex;
     flex-direction: column;
 }
+
 .content {
     flex: 1;
     padding-top: 150rpx;
 }
+
 .content_scroll {
     height: 100%;
     width: calc(100% - 80rpx);
     margin-left: 40rpx;
 }
+
 .title {
-    font-size: 50rpx;   
+    font-size: 66rpx;
     padding-left: 30rpx;
+    color: #333;
 }
+
 .ipt {
     margin-top: 50rpx;
     border-bottom: 1px solid #f6f6f6;
 }
+
+.ipt_first {
+    margin-top: 100rpx;
+}
+
 .ipt_btn {
-    border: none!important;
+    border: none !important;
 }
+
 .ipt_btn .van-button__text {
-    color: red;
+    font-size: 30rpx;
+    color: #FE406D;
 }
+
 .bottom {
     margin-top: 100rpx;
 }
+
 .bottom button {
     width: 100%;
     background: #cccccc;
     color: #fff;
 }
+
 .bottom2 {
     margin-top: 30rpx;
 }
+
 .bottom2 button {
     background: #fff;
     border: none;
     color: #cccccc;
 }
-.footer {
-    height: 100rpx;
-    line-height: 100rpx;
-    text-align: center;
-    font-size: 34rpx;
-    color: #a6a6a6;
-}
+
 .reset_pwd {
     color: #46afff;
     text-align: right;
     font-size: 34rpx;
     margin-top: 20rpx;
 }
+
+.footer {
+    height: 100rpx;
+    line-height: 100rpx;
+    text-align: center;
+    font-size: 24rpx;
+    color: #999;
+}
+
 .privacry {
     color: #46afff;
 }
-.active_btn{
-    margin-top: 60rpx;
+
+.active_btn {
+    margin-top: 100rpx;
     height: 90rpx;
 }
