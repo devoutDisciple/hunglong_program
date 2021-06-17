@@ -31,7 +31,7 @@
         </view>
         <view class="data_split"/>
         <view class="data_chunk">
-            <text class="data_num">{{attentionNum || 0}}</text>
+            <text class="data_num">{{userDetail.fellow || 0}}</text>
             <text class="data_txt">关注</text>
         </view>
         <view class="data_split"/>

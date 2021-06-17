@@ -13,7 +13,6 @@ Page({
 		backIconHeight: '20px',
 		backIconMarginTop: '10px',
 		activeIdx: 0, // 当前选择的tab
-		attentionNum: 0, // 关注量
 		user_id: '', // 当前主页的用户id
 		userDetail: {}, // 当前用户的数据
 		current_user_id: '', // 当前登录账户
@@ -59,8 +58,6 @@ Page({
 			this.getDeviceData();
 			// 获取用户基本信息
 			this.getUserDetail();
-			// 获取关注数量
-			this.getMyAttentionUsersNum();
 			// 获取帖子博客等内容
 			this.getPostsByUserId(0);
 			// 添加浏览历史
@@ -146,14 +143,6 @@ Page({
 				// 获取是否已经关注该用户
 				this.getHadAttentionUser();
 			});
-		});
-	},
-
-	// 获取关注数量
-	getMyAttentionUsersNum: function () {
-		const { user_id } = this.data;
-		get({ url: '/attention/myAttentionUsersNum', data: { user_id } }).then((res) => {
-			this.setData({ attentionNum: res.num });
 		});
 	},
 
