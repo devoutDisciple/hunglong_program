@@ -3,15 +3,19 @@
     width: 100vw;
     background: #eeeeee;
 }
-.next_btn{
-    color: red!important;
+
+.next_btn {
+    font-size: 30rpx;
+    color: #FE406D !important;
     margin-top: 100rpx;
 }
-.sign{
+
+.sign {
     width: 100%;
     overflow: hidden;
     text-align: right;
 }
+
 .sign_content {
     width: 400rpx;
     display: inline-block;

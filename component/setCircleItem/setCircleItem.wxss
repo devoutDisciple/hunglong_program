@@ -2,23 +2,28 @@
     min-height: 90rpx;
     padding: 0 20rpx;
 }
+
 .title {
     display: flex;
     height: 50rpx;
     margin-top: 20rpx;
 }
+
 .title_name {
     flex: 1;
 }
-.title_name .title_name_desc{
-    font-size: 34rpx;
+
+.title_name .title_name_desc {
+    font-size: 30rpx;
     color: #3e3e3e;
 }
-.title_name .title_name_add{
-    font-size: 34rpx;
-    color: #bababa;
+
+.title_name .title_name_add {
+    font-size: 28rpx;
+    color: #aaa;
     margin-left: 4rpx;
 }
+
 .title_manager {
     width: 400rpx;
     font-size: 24rpx;
@@ -27,28 +32,43 @@
     align-items: center;
     justify-content: flex-end;
 }
-.title_manager  .title_mg_desc{
-    color: #b9b9b9;
+
+.title_manager .title_mg_desc {
+    color: #aaa;
+    font-size: 20rpx;
 }
+
 .title_manager .title_mg_back {
-    color: #fa507a;  
+    font-size: 20rpx;
+    color: #FE406D;
 }
+
+.title_mg_back_all {
+    font-size: 24rpx;
+    color: #FE406D;
+}
+
 .title_manager .title_mg_img {
     height: 20rpx;
 }
-.content{
+
+.content {
     display: flex;
     flex-wrap: wrap;
 }
-.con_item{
+
+.con_item {
     padding: 15rpx 30rpx;
     border: 1rpx dashed #e5e5e5;
     border-radius: 70rpx;
     margin-top: 20rpx;
     margin-right: 15rpx;
     position: relative;
+    font-size: 28rpx;
+    color: #333333;
 }
-.con_item_icon{
+
+.con_item_icon {
     position: absolute;
     width: 30rpx;
     height: 30rpx;
@@ -60,12 +80,14 @@
     background: #ededed;
     border: none;
 }
+
 .empty_con {
     display: flex;
     justify-content: center;
     width: 100%;
     margin: 20rpx 0;
 }
+
 .empty {
     height: 250rpx;
     width: 250rpx;

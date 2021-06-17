@@ -2,6 +2,7 @@
   use-slot
   title="{{title}}"
   show="{{ show }}"
+  class-name="test"
   show-cancel-button
   bind:close="onClose"
   bind:confirm="onOk"

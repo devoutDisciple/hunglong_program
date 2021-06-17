@@ -11,8 +11,8 @@
                 <image class="title_mg_img" src="/asserts/public/arrow_right.png"  mode="heightFix"/>
             </block>
             <block wx:else>
-                <text wx:if="{{status === 'new'}}" class="title_mg_back" bindtap="onClickManage" data-item="{{item}}">点击管理</text>
-                <text wx:else class="title_mg_back" bindtap="onClickManage" data-item="{{item}}">保存</text>
+                <text wx:if="{{status === 'new'}}" class="title_mg_back_all" bindtap="onClickManage" data-item="{{item}}">点击管理</text>
+                <text wx:else class="title_mg_back_all" bindtap="onClickManage" data-item="{{item}}">保存</text>
             </block>
         </view>
     </view>

@@ -1,4 +1,4 @@
-.msg_item{
+.msg_item {
     height: 100rpx;
     background: #fff;
     line-height: 100rpx;
@@ -6,31 +6,40 @@
     flex-direction: row;
     padding: 0 20rpx;
     border-bottom: 1rpx solid #f8f8f8;
+    font-size: 30rpx;
 }
+
 .msg_label {
     width: 200rpx;
-    color: #3f3f3f; 
+    font-size: 30rpx;
+    color: #333333;
 }
+
 .msg_value {
     flex: 1;
     text-align: right;
-    color: #acacac;
+    font-size: 30rpx;
+    color: #AAAAAA;
 }
+
 .msg_value image {
-    height: 70rpx;
-    width: 70rpx;
+    height: 80rpx;
+    width: 80rpx;
     margin-top: 15rpx;
-    border-radius: 70rpx;
+    border-radius: 80rpx;
 }
+
 .msg_bg image {
     border-radius: 0;
     width: 140rpx;
 }
+
 .msg_icon {
     width: 50rpx;
     text-align: right;
     color: #acacac;
 }
-.msg_icon image{
+
+.msg_icon image {
     height: 22rpx;
 }

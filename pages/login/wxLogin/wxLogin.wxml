@@ -1,18 +1,18 @@
 <view class="container">
     <view class="content">
         <view class="logo">
-            <image mode="heightFix" src="/asserts/public/logo.png"/>
+            <image class="logo_img" src="/asserts/public/logo.png"/>
         </view>
         <view class="welcome">
-            <text>欢迎登录</text>
+            欢迎登录
         </view>
         <view class="req">
-            <text>申请获取你的微信绑定账号</text>
+            申请获取你的微信绑定账号
         </view>
         <view class="btn">
             <image src="/asserts/public/login_btn.png"  />
             <view class="btn_txt">
-                <text>微信授权快捷登录</text>
+               微信授权快捷登录
             </view>
             <button open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="btn_vx"></button>
         </view>
