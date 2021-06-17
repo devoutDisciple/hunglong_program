@@ -1,7 +1,7 @@
 <view class="content">
     <view class="user_con" bindtap="onSearchUserDetail">
         <view class="img">
-            <image src="{{userDetail.photo}}" />
+            <image class="img_con" src="{{userDetail.photo}}" />
         </view>
         <view class="desc">
             <view class="desc_top">

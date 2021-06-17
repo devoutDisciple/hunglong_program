@@ -12,9 +12,7 @@
         <view class="icon_list">
             <block wx:for="{{plateList}}" wx:key="id">
                 <view class="icon_chunk" data-plateid="{{item.id}}" data-link="{{item.link}}" bindtap="onTapPlate">
-                    <view class="icon_chunk_img">
-                        <image class="icon_chunk_img_con" src="{{item.url}}" />
-                    </view>
+                    <image class="icon_chunk_img" src="{{item.url}}" />
                     <view class="icon_chunk_txt">
                         {{item.name}}
                     </view>

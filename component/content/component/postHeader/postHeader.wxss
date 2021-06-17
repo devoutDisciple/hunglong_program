@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
     height: 90rpx;
-    font-size: 26rpx;
+    font-size: 34rpx;
 }
 
 .user_con {
@@ -11,14 +11,14 @@
 }
 
 .img {
-    width: 80rpx;
-    padding-top: 10rpx;
+    width: 100rpx;
+    padding-top: 6rpx;
 }
 
-.img image {
-    width: 80rpx;
-    height: 80rpx;
-    border-radius: 80rpx;
+.img_con {
+    width: 85rpx;
+    height: 85rpx;
+    border-radius: 100%;
 }
 
 .desc {
@@ -35,7 +35,8 @@
 }
 
 .desc_top_name {
-    font-size: 26rpx;
+    font-size: 30rpx;
+    color: #333;
     max-width: 250rpx;
     display: -webkit-box;
     overflow: hidden;
@@ -46,10 +47,10 @@
 }
 
 .desc_top_school {
-    font-size: 22rpx;
     margin-left: 5rpx;
     max-width: 220rpx;
     margin-top: 2rpx;
+    font-size: 12px;
     color: #999999;
     display: -webkit-box;
     overflow: hidden;
@@ -74,7 +75,7 @@
     height: 50rpx;
     line-height: 50rpx;
     display: flex;
-    font-size: 22rpx;
+    font-size: 24rpx;
     color: #999999;
 }
 

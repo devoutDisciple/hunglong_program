@@ -1,5 +1,6 @@
 .attention {
-    font-size: 22rpx;
+    font-size: 26rpx;
+    color: #333;
 }
 
 .btn_active {

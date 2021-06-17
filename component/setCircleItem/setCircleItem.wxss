@@ -15,7 +15,7 @@
     color: #3e3e3e;
 }
 .title_name .title_name_add{
-    font-size: 26rpx;
+    font-size: 34rpx;
     color: #bababa;
     margin-left: 4rpx;
 }

@@ -1,7 +1,8 @@
 .txt{
-    margin-top: 10rpx;
-    font-size: 26rpx;
+    margin-top: 20rpx;
+    font-size: 34rpx;
     color: #151515;
+    font-family: PingFangSC-Regular;
 }
 .ellipsis {
     display: -webkit-box;

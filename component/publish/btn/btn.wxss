@@ -5,7 +5,7 @@
     z-index: 21;
     height: 80rpx;
     width: 80rpx;
-    font-size: 26rpx;
+    font-size: 34rpx;
 }
 
 .publish_con {
@@ -16,7 +16,7 @@
     border-radius: 20rpx;
     color: #ffffff;
     padding: 28rpx 20rpx;
-    font-size: 26rpx;
+    font-size: 34rpx;
 }
 
 .publish_active {

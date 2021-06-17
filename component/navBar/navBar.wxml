@@ -4,6 +4,7 @@
         <view class="nav_con" style="padding: {{paddingTop}}px 0px;">
             <view class="nav_icon" style="width: {{conHegiht + paddingLeft}}px">
                 <image 
+                    class="nav_img"
                     style="width: {{conHegiht}}px; height: {{conHegiht}}px" 
                     src="/asserts/public/navSearch.png" 
                     mode="heightFix"/>
@@ -18,8 +19,8 @@
                     bind:change="onChange"
                     bind:confirm="onConfirm"
                 /> -->
-                <image class="nav_ipt_search" src="/asserts/public/search.png" style="height: {{conHegiht / 2}}px; width: {{conHegiht / 2}}px"/>
-                <input class="nav_ipt_container" style="height: {{conHegiht - 2}}px"/>
+                <image class="nav_ipt_search" src="/asserts/public/search.png" style="height: {{conHegiht / 2 - 2}}px; width: {{conHegiht / 2 - 2}}px"/>
+                <input placeholder-style="font-size: 24rpx;" class="nav_ipt_container" placeholder="搜索" style="height: {{conHegiht - 2}}px"/>
             </view> 
         </view>
         <view class="nav_empty" style="width:{{disWidth}}px"></view>     
