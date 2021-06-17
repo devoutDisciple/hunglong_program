@@ -38,7 +38,9 @@ Component({
 				app.globalData.myReceiveCommentsNum = 0;
 			}
 			const totalNum =
-				Number(getApp().globalData.myReceiveGoodsNum) + Number(getApp().globalData.myReceiveCommentsNum);
+				Number(getApp().globalData.myReceiveGoodsNum) +
+				Number(getApp().globalData.myReceiveCommentsNum) +
+				Number(getApp().globalData.msgsNum);
 			if (totalNum) {
 				wx.setTabBarBadge({
 					index: 2,

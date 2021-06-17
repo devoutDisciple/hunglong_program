@@ -15,7 +15,6 @@ Page({
 	 */
 	onShow: function () {
 		this.getTotalNum();
-
 		// this.setStoreageMsg();
 		this.getStorageMsg();
 	},
@@ -24,11 +23,11 @@ Page({
 	setStoreageMsg: function () {
 		const data = [];
 		data.push({
-			person_id: 9,
-			person_name: '张振',
-			person_photo: 'http://localhost:8888/photo/6LPH9ZEBX891R5J5-1618900313345.png',
-			unread: 0,
-			msg: [],
+			person_id: 9, // 发送信息的人
+			person_name: '张振', // 发送信息人的名字
+			person_photo: 'http://localhost:8888/photo/6LPH9ZEBX891R5J5-1618900313345.png', // 发送信息人的头像
+			unread: 0, // 未读信息数量
+			msg: [], // 具体信息
 		});
 		wx.setStorageSync('msg_data', JSON.stringify(data));
 	},
@@ -44,6 +43,7 @@ Page({
 						const lastMsg = item.msg[item.msg.length - 1];
 						item.lastMsgTxt = lastMsg.content || '';
 						item.lastMsgTime = util.getMsgShowTime(lastMsg.time);
+						item.lastMsgRelTime = lastMsg.time;
 					}
 				});
 			}
@@ -57,6 +57,8 @@ Page({
 		this.setData({ myReceiveGoodsNum: getApp().globalData.myReceiveGoodsNum });
 		// 评论数量
 		this.setData({ myReceiveCommentsNum: getApp().globalData.myReceiveCommentsNum });
+		// 消息数量
+
 		setInterval(() => {
 			this.setData({ myReceiveGoodsNum: getApp().globalData.myReceiveGoodsNum });
 			// 设置点赞数量

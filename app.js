@@ -7,6 +7,7 @@ App({
 		userInfo: null,
 		myReceiveGoodsNum: 0, // 我收到的点赞量
 		myReceiveCommentsNum: 0, // 我收到的评论数
+		msgsNum: 0, // 消息数量
 	},
 
 	data: {
@@ -14,54 +15,14 @@ App({
 	},
 
 	onLaunch: async function () {
+		// 统计各种信息
 		if (config.env !== 'dev') {
-			// 统计各种信息
+			this.getTotalMsg();
+		} else {
 			setInterval(() => {
 				this.getTotalMsg();
-				this.getMyMessage();
 			}, 5000);
 		}
-	},
-
-	// 获取消息
-	getMyMessage: function () {
-		const user_id = wx.getStorageSync('user_id');
-		if (!user_id) return;
-		get({ url: '/message/msgsByUserId', data: { user_id } }).then((res) => {
-			if (res && Array.isArray(res.data) && res.data.length !== 0) {
-				const { data, total } = res;
-				let msgData = wx.getStorageSync('msg_data') || '[]';
-				msgData = JSON.parse(msgData);
-				data.forEach((item) => {
-					const currentMsg = msgData.filter((msg) => item.user_id === msg.person_id)[0];
-					if (currentMsg) {
-						currentMsg.noread = Number(currentMsg.noread) + Number(total);
-						currentMsg.msg.push({
-							content: item.content,
-							from: 2,
-							time: item.create_time,
-							type: 1,
-						});
-					} else {
-						msgData.push({
-							person_id: item.user_id,
-							person_name: item.username,
-							person_photo: item.user_photo,
-							noread: total,
-							msg: [
-								{
-									content: item.content,
-									from: 2,
-									time: item.create_time,
-									type: 1,
-								},
-							],
-						});
-					}
-				});
-				wx.setStorageSync('msg_data', JSON.stringify(msgData));
-			}
-		});
 	},
 
 	// 各种统计信息
@@ -70,19 +31,74 @@ App({
 		const goodsNum = await this.getGoodsByUser();
 		// 获取收到评论的数量
 		const commnsNum = await this.getCommentsNumByUser();
-		let totalNum = Number(goodsNum) + Number(commnsNum);
+		// 获取消息
+		const msgsNum = await this.getMyMessage();
+		let totalNum = (Number(goodsNum) + Number(commnsNum) + Number(msgsNum)).toFixed(0);
 		totalNum = totalNum > 99 ? '99+' : totalNum;
 		if (String(totalNum) !== '0') {
 			wx.setTabBarBadge({
 				index: 2,
 				text: String(totalNum),
 			});
+		} else {
+			wx.removeTabBarBadge({
+				index: 2,
+			});
 		}
+	},
+
+	// 获取消息
+	getMyMessage: async function () {
+		const user_id = wx.getStorageSync('user_id');
+		if (!user_id) return 0;
+		const res = await get({ url: '/message/msgsByUserId', data: { user_id } });
+		let msgData = wx.getStorageSync('msg_data') || '[]';
+		msgData = JSON.parse(msgData);
+		if (res && Array.isArray(res.data) && res.data.length !== 0) {
+			const { data } = res;
+			data.forEach((item) => {
+				const currentMsg = msgData.filter((msg) => item.user_id === msg.person_id)[0];
+				if (currentMsg) {
+					currentMsg.noread = Number(currentMsg.noread) + 1;
+					currentMsg.msg.push({
+						content: item.content,
+						from: 2,
+						time: item.create_time,
+						type: 1,
+					});
+				} else {
+					msgData.push({
+						person_id: item.user_id,
+						person_name: item.username,
+						person_photo: item.user_photo,
+						noread: 1,
+						msg: [
+							{
+								content: item.content,
+								from: 2,
+								time: item.create_time,
+								type: 1,
+							},
+						],
+					});
+				}
+			});
+			wx.setStorageSync('msg_data', JSON.stringify(msgData));
+		}
+		let num = 0;
+		if (msgData && msgData.length !== 0) {
+			msgData.forEach((item) => {
+				num += Number(item.noread) || 0;
+			});
+		}
+		this.globalData.msgsNum = num > 99 ? '99+' : num;
+		return num;
 	},
 
 	// 获取收到的点赞
 	getGoodsByUser: async function () {
 		const user_id = wx.getStorageSync('user_id');
+		if (!user_id) return 0;
 		const now = utils.formatTime(new Date());
 		let search_goods_time = wx.getStorageSync('search_goods_time');
 		if (!user_id) return '';
@@ -91,15 +107,15 @@ App({
 			search_goods_time = now;
 		}
 		const res = await get({ url: '/goods/goodsMyNumByUser', data: { user_id, time: search_goods_time } });
-		let { goodsNum } = res;
-		goodsNum = goodsNum > 99 ? '99+' : goodsNum;
-		this.globalData.myReceiveGoodsNum = res.goodsNum || 0;
+		const { goodsNum } = res;
+		this.globalData.myReceiveGoodsNum = goodsNum > 99 ? '99+' : goodsNum;
 		return goodsNum || 0;
 	},
 
 	// 获取评论量
 	getCommentsNumByUser: async function () {
 		const user_id = wx.getStorageSync('user_id');
+		if (!user_id) return 0;
 		const now = utils.formatTime(new Date());
 		let search_comment_time = wx.getStorageSync('search_comment_time');
 		if (!user_id) return '';
@@ -108,9 +124,8 @@ App({
 			search_comment_time = now;
 		}
 		const res = await get({ url: '/goods/commentsNumByUser', data: { user_id, time: search_comment_time } });
-		let { commentsNum } = res;
-		commentsNum = commentsNum > 99 ? '99+' : commentsNum;
-		this.globalData.myReceiveCommentsNum = res.commentsNum || 0;
+		const { commentsNum } = res;
+		this.globalData.myReceiveCommentsNum = commentsNum > 99 ? '99+' : commentsNum;
 		return commentsNum || 0;
 	},
 });
