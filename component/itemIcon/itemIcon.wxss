@@ -9,15 +9,22 @@
     border-bottom: 1rpx solid #f6f6f6;
 
 }
+
 .item_left {
     flex: 1;
     line-height: 90rpx;
+    font-size: 30rpx;
+    color: #333;
 }
+
 .item_right {
     width: 100rpx;
-    line-height: 90rpx;
-    text-align: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-.item_right image{
-    height: 22rpx;
+
+.item_right_img {
+    height: 30rpx;
+    width: 30rpx;
 }

@@ -10,10 +10,12 @@
     width: 30%;
     display: flex;
     justify-content: center;
+    align-items: center;
+    font-size: 30rpx;
+    color: #999;
 }
 .chunk image {
     height: 30rpx;
     width: 30rpx;
-    margin-top: 5rpx;
-    margin-right: 10rpx;
+    margin-right: 15rpx;
 }

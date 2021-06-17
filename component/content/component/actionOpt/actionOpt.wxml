@@ -1,9 +1,9 @@
 <view class="wrap">
-    <view class="chunk" bindtap = "onTapShare">
+    <view class="chunk" bindtap="onTapShare">
         <image src="/asserts/public/share.png" />
         {{detail.share}}
     </view>
-    <view class="chunk" bindtap = "onTapMsg">
+    <view class="chunk" bindtap="onTapMsg">
         <image src="/asserts/public/message.png" />
         {{detail.comment}}
     </view>

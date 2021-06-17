@@ -5,32 +5,38 @@
     flex-direction: column;
     font-size: 34rpx;
 }
+
 .content {
     flex: 1;
     overflow: hidden;
     background: #eeeeee;
 }
+
 .content ::-webkit-scrollbar {
     width: 0;
     height: 0;
     color: transparent;
 }
+
 .title {
     background: #fff;
-    padding: 0 20rpx 0 30rpx;
-    font-size: 36rpx;
+    padding: 0 20rpx 20rpx 30rpx;
+    font-size: 40rpx;
     color: #333333;
 }
+
 .detail {
     padding: 20rpx;
     padding-top: 0;
     width: calc(100vw - 40rpx);
     background: #fff;
 }
+
 .comment {
     margin-top: 20rpx;
     background: #fff;
 }
+
 .comment_title {
     height: 80rpx;
     background: #fff;
@@ -38,23 +44,29 @@
     padding: 0 20rpx;
     border-bottom: 1rpx solid #f2f2f2;
 }
+
 .comment_title_left {
     flex: 1;
     line-height: 80rpx;
     color: #666666;
+    font-size: 28rpx;
 }
+
 .comment_title_right {
     width: 200rpx;
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    color: #999999;
+    color: #999;
+    font-size: 24rpx;
 }
-.comment_title_right_img{
-    width: 24rpx;
-    height: 24rpx;
+
+.comment_title_right_img {
+    width: 30rpx;
+    height: 30rpx;
     margin-left: 10rpx;
 }
+
 .comment_con {
     padding: 0 30rpx;
 }
@@ -67,24 +79,27 @@
     align-items: center;
     border-top: 1rpx solid #f2f2f2;
 }
+
 .footer .footer_img {
     width: 26rpx;
     height: 26rpx;
     margin-right: 10rpx;
 }
+
 .footer_split {
     width: 1rpx;
     background: #e9e9e9;
     height: 30rpx;
 }
+
 .footer_chunk {
-    width: calc((100vw / 3)  - 15rpx);
+    width: calc((100vw / 3) - 15rpx);
     height: 50rpx;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 34rpx;
-    color: #9f9f9f;
+    font-size: 30rpx;
+    color: #999;
 }
 
 .footer_chunk_img {

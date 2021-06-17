@@ -1,6 +1,6 @@
 <view class="item">
     <view class="item_left">{{label}}</view>
     <view class="item_right">
-        <image src="/asserts/public/arrow_right.png" mode="heightFix"/>
+        <image class="item_right_img" src="/asserts/public/arrow_right.png"/>
     </view>
 </view>

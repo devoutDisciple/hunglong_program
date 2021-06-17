@@ -35,7 +35,7 @@
             转发
         </view>
         <view class="footer_split" />
-        <view class="footer_chunk" bindtap = "onShowIptDialog">
+        <view class="footer_chunk" bindtap="onShowIptDialog">
             <image class="footer_img" src="/asserts/public/message.png"/>
             评论
         </view>
