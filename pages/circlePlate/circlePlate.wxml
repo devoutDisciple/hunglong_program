@@ -10,7 +10,7 @@
         <block wx:if="{{hotList && hotList.length !== 0}}"> 
             <scroll-view scroll-x="true" class="hot_circle" enable-flex="true">
                 <block wx:for="{{hotList}}" wx:key="id">
-                    <view class="hot_circle_chunk" data-circleid="{{item.id}}" bindtap = "onSearchCircleDetail">
+                    <view class="hot_circle_chunk" data-circleid="{{item.id}}" bindtap="onSearchCircleDetail">
                         <image class="hot_cicle_chunk_bg" src="{{item.bg_url}}" />
                         <view class="hot_circle_chunk_modal"/>
                         <view class="hot_circle_chunk_con">
@@ -68,7 +68,7 @@
         <view class="plate_wrap">
             <block wx:if="{{recommendCircles && recommendCircles.length !== 0}}">
                 <block wx:for="{{recommendCircles}}" wx:key="id">
-                    <view class="circle_item" data-circleid="{{item.id}}" bindtap = "onSearchCircleDetail">
+                    <view class="circle_item" data-circleid="{{item.id}}">
                         <circle-title detail="{{item}}"/>
                     </view>
                 </block>

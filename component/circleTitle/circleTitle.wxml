@@ -1,19 +1,21 @@
 <view class="wrap">
-    <image class="photo" src="{{detail.logo}}" />
-    <view class="desc">
-        <view class="desc_name">
-            <view class="desc_name_txt">{{detail.name}}</view>
-            <view class="hot_icon">
-                <hot-circle hot="{{detail.hot}}"/>
+    <view class="con" bindtap="onSearchCircleDetail">
+        <image class="photo" src="{{detail.logo}}" />
+        <view class="desc">
+            <view class="desc_name">
+                <view class="desc_name_txt">{{detail.name}}</view>
+                <view class="hot_icon">
+                    <hot-circle hot="{{detail.hot}}"/>
+                </view>
+            </view>
+            <view class="desc_num">
+                <view class="desc_num_chunk">关注 {{detail.fellow}}</view>
+                <view class="desc_num_chunk">图文 {{detail.txtNum}}</view>
+                <view class="desc_num_chunk">视频 {{detail.videos}}</view>
             </view>
         </view>
-        <view class="desc_num">
-            <view class="desc_num_chunk">关注 {{detail.fellow}}</view>
-            <view class="desc_num_chunk">图文 {{detail.txtNum}}</view>
-            <view class="desc_num_chunk">视频 {{detail.videos}}</view>
-        </view>
     </view>
-    <view class="concern" bindtap="onTapAttention">
+    <view class="concern">
         <attention-btn-circle active="{{detail.hadAttention}}" circleId="{{detail.id}}"/>
     </view>
 </view>

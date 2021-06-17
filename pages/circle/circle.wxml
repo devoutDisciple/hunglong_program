@@ -71,7 +71,7 @@
             <view class="plate_wrap">
                 <block wx:if="{{recommendCircles && recommendCircles.length !== 0}}">
                     <block wx:for="{{recommendCircles}}" wx:key="id">
-                        <view class="circle_item" data-circleid="{{item.id}}" bindtap = "onSearchCircleDetail">
+                        <view class="circle_item" data-circleid="{{item.id}}">
                             <circle-title detail="{{item}}"/>
                         </view>
                     </block>

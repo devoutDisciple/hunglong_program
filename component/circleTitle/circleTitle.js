@@ -22,6 +22,11 @@ Component({
 	 * 组件的方法列表
 	 */
 	methods: {
-		onTapAttention: function () {},
+		onSearchCircleDetail: function () {
+			const { detail } = this.data;
+			wx.navigateTo({
+				url: `/pages/circleDetail/circleDetail?circleId=${detail.id}`,
+			});
+		},
 	},
 });
