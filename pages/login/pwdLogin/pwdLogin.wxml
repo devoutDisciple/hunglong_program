@@ -25,7 +25,9 @@
             </view>
             <view class="reset_pwd">忘记密码？</view>
             <view class="active_btn"> 
-                <login-btn bindOnClick="onLogin" label="登录"></login-btn>
+                <view class="active_btn_con">
+                    <login-btn bindOnClick="onLogin" label="绑定"></login-btn>
+                </view>
             </view>
         </scroll-view>
     </view>
