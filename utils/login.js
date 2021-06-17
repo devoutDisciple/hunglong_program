@@ -15,22 +15,20 @@ module.exports = {
 						const { code } = res;
 						post({ url: '/login/loginByWxOpenid', data: { code, ...userinfo } })
 							.then((data) => {
+								console.log(data, 111);
 								app.globalData.userInfo = data;
 								const { wx_openid, id } = data;
 								wx.setStorageSync('user_id', id);
 								wx.setStorageSync('wx_openid', wx_openid);
 								resolve(data);
 							})
-							.catch(() => {
-								reject();
-							})
-							.finally(() => {
-								loading.hideLoading();
-							});
+							.catch(() => reject())
+							.finally(() => loading.hideLoading());
 					} else {
 						loading.hideLoading();
 						wx.showToast({
 							title: '登录失败',
+							icon: 'error',
 						});
 					}
 				},

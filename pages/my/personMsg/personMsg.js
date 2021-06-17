@@ -124,7 +124,6 @@ Page({
 		countryRes.forEach((item) => {
 			countryList.push(item.name);
 		});
-		console.log(provinceList, cityList, countryList, 1232);
 		this.setData({ areaList: [provinceList, cityList, countryList], provinceIdx, cityIdx });
 	},
 
@@ -213,6 +212,7 @@ Page({
 						success: function (result) {
 							wx.showToast({
 								title: '上传成功',
+								icon: 'success',
 							});
 							const filename = JSON.parse(result.data).data;
 							self.setData({ photoTmpUrl: filename });
@@ -292,14 +292,9 @@ Page({
 				});
 				setTimeout(() => {
 					if (from === 'my') {
-						return wx.navigateBack({
-							complete: () => {},
-						});
+						return wx.navigateBack({ complete: () => {} });
 					}
-
-					wx.navigateTo({
-						url: '/pages/sctCircle/sctCircle',
-					});
+					wx.navigateTo({ url: '/pages/sctCircle/sctCircle' });
 				}, 500);
 			});
 		}

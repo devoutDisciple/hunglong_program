@@ -39,7 +39,25 @@ Page({
 	onShow: function () {
 		// 判断用户是否登录
 		if (!login.isLogin()) return;
+		this.getInitData();
+	},
+
+	// 获取初始数据
+	getInitData: function () {
+		// 获取用户基本信息
 		this.getUserMsg();
+		// 获取统计数据
+		this.getUserData();
+		// 获取用户浏览记录
+		this.getUserViewRecord();
+	},
+
+	/**
+	 * 页面相关事件处理函数--监听用户下拉动作
+	 */
+	onPullDownRefresh: function () {
+		wx.stopPullDownRefresh();
+		this.getInitData();
 	},
 
 	/**
@@ -75,15 +93,6 @@ Page({
 		wx.navigateTo({
 			url: `/pages/person/person?user_id=${userid}`,
 		});
-	},
-
-	/**
-	 * 页面相关事件处理函数--监听用户下拉动作
-	 */
-	onPullDownRefresh: function () {
-		wx.stopPullDownRefresh();
-		this.getUserMsg();
-		this.getUserData();
 	},
 
 	// 点击用户头像
