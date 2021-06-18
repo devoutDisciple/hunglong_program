@@ -5,10 +5,14 @@
     display: flex;
     position: relative;
     overflow: hidden;
+    font-size: 24rpx;
+    color: #333;
 }
+
 .vote_select {
     border: 1rpx solid #f9406d;
 }
+
 .vote_modal {
     position: absolute;
     left: 0;
@@ -17,12 +21,14 @@
     background: #f9406d;
     opacity: 0.2;
 }
+
 .vote_con {
     flex: 1;
     display: flex;
     align-items: center;
     padding-left: 20rpx;
 }
+
 .vote_con_txt {
     max-width: 370rpx;
     display: -webkit-box;
@@ -32,11 +38,13 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
 }
+
 .vote_con_img_img {
     width: 25rpx;
     height: 25rpx;
     margin-left: 10rpx;
 }
+
 .vote_num {
     width: 150rpx;
     line-height: 70rpx;

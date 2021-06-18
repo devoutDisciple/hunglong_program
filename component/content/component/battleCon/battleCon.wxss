@@ -1,9 +1,11 @@
 .wrap {
     font-size: 34rpx;
+    color: #151515;
 }
 
 .title {
-    margin-top: 10rpx;
+    margin-top: 20rpx;
+    margin-bottom: 6rpx;
     padding-left: 10rpx;
 }
 
@@ -75,8 +77,8 @@
     display: flex;
     /* margin-top: 5rpx; */
     padding: 0 10rpx;
-    font-size: 22rpx;
-    color: #404040;
+    font-size: 24rpx;
+    color: #333;
 }
 
 .red_name {
@@ -107,19 +109,23 @@
 }
 
 .btn_select {
-    height: 50rpx;
-    line-height: 50rpx;
-    padding: 0 20rpx;
+    padding: 6rpx 36rpx;
+    font-size: 26rpx;
     background: linear-gradient(to right, #ec3d6c, #fdb9e2);
     color: #fff;
     border-radius: 50rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn_noSe {
-    height: 50rpx;
-    line-height: 50rpx;
-    padding: 0 20rpx;
+    padding: 6rpx 36rpx;
+    font-size: 26rpx;
     background: #ededed;
-    color: #4a4a4a;
+    color: #333;
     border-radius: 50rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

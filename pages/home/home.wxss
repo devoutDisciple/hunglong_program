@@ -91,7 +91,7 @@
 }
 
 .topic_origin {
-    height: 98rpx;
+    height: 92rpx;
     overflow: hidden;
 }
 
@@ -161,7 +161,7 @@
     }
 
     100% {
-        height: 98rpx;
+        height: 92rpx;
         overflow: hidden;
     }
 }

@@ -5,7 +5,6 @@
     z-index: 21;
     height: 80rpx;
     width: 80rpx;
-    font-size: 34rpx;
 }
 
 .publish_con {
@@ -16,7 +15,7 @@
     border-radius: 20rpx;
     color: #ffffff;
     padding: 28rpx 20rpx;
-    font-size: 34rpx;
+    font-size: 26rpx;
 }
 
 .publish_active {
@@ -29,7 +28,7 @@
 
 .publish_item {
     height: 93rpx;
-    width: 180rpx;
+    width: 160rpx;
     display: flex;
     align-items: center;
 }

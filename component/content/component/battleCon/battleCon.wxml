@@ -1,5 +1,5 @@
 <view class="wrap">
-    <view class="title" bindtap = "onGoDetail" >{{detail.title}}</view>
+    <view class="title" bindtap="onGoDetail" >{{detail.title}}</view>
     <view class="battle">
         <view class="battle_chunk">
             <img data="{{detail.red_url}}"/>
@@ -41,7 +41,7 @@
                 bindtap="onSelectItem"
                 data-item="1"
                 class="{{detail.selectItem == 1 ? 'btn_select' : 'btn_noSe'}}">
-                {{detail.selectItem == 1 ? '已选择' : '选择'}}
+                {{detail.selectItem == 1 ? '已选中' : '选择'}}
             </view>
         </view>
         <view class="btn_right">
