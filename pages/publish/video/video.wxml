@@ -38,7 +38,7 @@
         -->
         <view class="empty" />
         <view class="topic">
-            <view class="topic_title">请选择话题：</view>
+            <view class="topic_title">请选择话题:</view>
             <view class="topic_con">
                 <block wx:for="{{topicList}}" wx:for-item="circle" wx:key="circle_id">
                     <block wx:for="{{circle.topics}}" wx:for-item="topic" wx:key="topic_id">

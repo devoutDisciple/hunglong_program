@@ -165,7 +165,7 @@
         {
           "name": "我关注的",
           "pathName": "pages/my/myAttention/myAttention",
-          "query": "user_id=1",
+          "query": "user_id=22",
           "scene": null
         },
         {

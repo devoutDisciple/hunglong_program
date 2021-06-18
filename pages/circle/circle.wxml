@@ -62,7 +62,7 @@
                 </view>
             </view>
             <view class="plate_tab">
-                <van-tabs active="{{ activeTab }}" bind:change="onChangeTab" ellipsis="{{false}}">
+                <van-tabs line-width="20" active="{{ activeTab }}" bind:change="onChangeTab" ellipsis="{{false}}">
                     <block wx:key="id" wx:for="{{plates}}" >
                         <van-tab title="{{item.name}}"/>
                     </block>

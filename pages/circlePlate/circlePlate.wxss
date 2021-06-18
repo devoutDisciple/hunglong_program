@@ -1,7 +1,14 @@
-.con {
-    font-size: 34rpx;
+.wrap {
+    font-size: 30rpx;
+    color: #333;
     width: 100vw;
     height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.con {
+    flex: 1;
     overflow: hidden;
 }
 
@@ -19,10 +26,6 @@
     display: flex;
     padding: 20rpx;
     margin-top: 10rpx;
-}
-
-.top_title {
-    margin-top: 0;
 }
 
 .title_left {
@@ -118,7 +121,7 @@
 }
 
 .hot_circle_chunk_name {
-    font-size: 28rpx;
+    font-size: 30rpx;
     color: #fff;
     margin-top: 20rpx;
     max-width: 190rpx;
@@ -160,7 +163,6 @@
 }
 
 .my_attr_chunk_right_name {
-    margin-top: 10rpx;
     height: 42rpx;
     font-size: 28rpx;
     color: #333333;
@@ -175,7 +177,7 @@
 }
 
 .my_attr_chunk_right_hot {
-    height: 60rpx;
+    height: 40rpx;
     display: flex;
     align-items: center;
 }
@@ -185,8 +187,15 @@
     background: #eeeeee;
 }
 
+.plate_tab .van-tab {
+    font-size: 28rpx;
+    color: #666;
+}
+
 .plate_tab .van-tab--active {
-    font-size: 40rpx;
+    font-size: 36rpx;
+    font-weight: 800;
+    color: #333;
 }
 
 .plate_wrap {

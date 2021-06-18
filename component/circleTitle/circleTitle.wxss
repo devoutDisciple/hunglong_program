@@ -1,5 +1,6 @@
 .wrap {
-    font-size: 34rpx;
+    font-size: 30rpx;
+    color: #333;
     display: flex;
     height: 90rpx;
     padding-bottom: 20rpx;
@@ -26,7 +27,7 @@
     margin-top: 5rpx;
     height: 45rpx;
     color: #333333;
-    font-size: 28rpx;
+    font-size: 30rpx;
     display: flex;
 }
 
@@ -46,7 +47,7 @@
 }
 
 .desc_num {
-    font-size: 22rpx;
+    font-size: 24rpx;
     height: 22rpx;
     margin-top: 10rpx;
     line-height: 22rpx;
