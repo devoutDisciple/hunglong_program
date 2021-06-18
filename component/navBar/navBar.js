@@ -9,6 +9,10 @@ Component({
 		// 	type: Boolean,
 		// 	value: false,
 		// },
+		showBack: {
+			type: Boolean,
+			value: false,
+		},
 	},
 	data: {
 		headerHight: 60, // 导航总高度
@@ -42,6 +46,14 @@ Component({
 				});
 			}
 		},
+
+		// 返回
+		onGoback: function () {
+			console.log(111);
+			wx.navigateBack({
+				complete: () => {},
+			});
+		},
 	},
 
 	// 组件生命周期函数-在组件实例进入页面节点树时执行)
@@ -61,7 +73,7 @@ Component({
 				headerHight,
 				statusHeight,
 				navHeight,
-				conHegiht,
+				conHegiht: conHegiht - 2,
 				disWidth,
 				paddingLeft,
 				paddingTop,

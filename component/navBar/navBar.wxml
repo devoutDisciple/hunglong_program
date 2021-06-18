@@ -3,11 +3,19 @@
     <view class='nav' style="height:{{navHeight}}px">
         <view class="nav_con" style="padding: {{paddingTop}}px 0px;">
             <view class="nav_icon" style="width: {{conHegiht + paddingLeft}}px">
-                <image 
-                    class="nav_img"
-                    style="width: {{conHegiht}}px; height: {{conHegiht}}px" 
-                    src="/asserts/public/navSearch.png" 
-                    mode="heightFix"/>
+                <block wx:if="{{showBack}}">
+                    <image 
+                        class="nav_img"
+                        bindtap="onGoback"
+                        style="width: {{conHegiht * 2 / 3}}px; height: {{conHegiht * 2 / 3}}px" 
+                        src="/asserts/public/back.png" />
+                </block>
+                <block wx:else>
+                    <image 
+                        class="nav_img"
+                        style="width: {{conHegiht}}px; height: {{conHegiht}}px" 
+                        src="/asserts/public/search_logo.png" />
+                </block>
             </view>
             <view class="nav_ipt" bindtap="onTapIpt">
                 <!-- <van-field

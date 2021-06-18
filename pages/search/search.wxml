@@ -1,5 +1,5 @@
 <view class="wrap">
-    <header bindOnChange="onIptChange" bindOnConfirm="onIptConfirm"/>
+    <header bindOnChange="onIptChange" bindOnConfirm="onIptConfirm" showBack/>
     <scroll-view scroll-y="{{true}}" 
         class="{{(activeIdx === 0 && posts.length !== 0) || (activeIdx === 1 && votes.length !== 0)  || (activeIdx === 2 && battles.length !== 0) || (activeIdx === 3 && videos.length !== 0) ? 'content' : 'content content_other'}}" 
         enhanced="{{true}}" 
