@@ -20,11 +20,12 @@
                 bindfocus="onFocus"
                 cursor-spacing="20" 
                 adjust-position="true"
-                 readonly="readonly"
+                readonly="readonly"
                 class="ipt" 
                 value="{{replyValue}}"
                 bindinput="onChangeValue"
                 placeholder="好话一句句，让人心情变美丽" 
+                placeholder-style="font-size: 28rpx; color: #AAA;"
                 maxlength="200" 
                 bindkeyboardheightchange="keyboardheightchange"
                 confirm-type="send"/>

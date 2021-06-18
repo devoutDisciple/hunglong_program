@@ -23,14 +23,13 @@
     height: 40rpx;
     line-height: 40rpx;
     color: #666666;
-    font-size: 22rpx;
+    font-size: 24rpx;
 }
 
 .con_desc {
     color: #333333;
-    font-size: 28rpx;
+    font-size: 24rpx;
     line-height: 40rpx;
-    margin: 5rpx 0;
 }
 
 .con_img {
@@ -53,7 +52,8 @@
 .con_data {
     display: flex;
     font-size: 24rpx;
-    padding: 5rpx 0 20rpx 0;
+    color: #AAA;
+    padding: 15rpx 0 20rpx 0;
     border-bottom: 1rpx solid #f2f2f2;
 }
 
@@ -71,13 +71,14 @@
 .con_data_opt_chunk {
     padding: 0 15rpx;
     display: flex;
+    font-size: 24rpx;
+    color: #AAA;
     align-items: center;
     justify-content: center;
-    color: #b7b7b7;
 }
 
 .con_data_opt_chunk_img {
-    width: 30rpx;
-    height: 30rpx;
+    width: 28rpx;
+    height: 28rpx;
     margin-right: 12rpx;
 }

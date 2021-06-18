@@ -1,7 +1,7 @@
 .wrap {
     height: 100vh; 
     display: flex;
-    font-size: 34rpx;
+    font-size: 28rpx;
     flex-direction: column;
     background: #fff;
 }
@@ -36,5 +36,5 @@
     background: #f8f8f8;
     padding: 0 20rpx;
     border-radius: 70rpx;
-    color: #b1b1b1;
+    color: #AAA;
 }

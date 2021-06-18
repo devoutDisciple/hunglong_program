@@ -19,6 +19,7 @@ Page({
 	 */
 	onLoad: function (options) {
 		const { commentId, contentId } = options;
+		console.log(commentId, contentId, 111);
 		if (!commentId) {
 			return wx.switchTab({
 				url: '/pages/home/home',

@@ -2,7 +2,7 @@
     <view class="bg">
         <image class="bg_img" src="{{userDetail.bg_url}}"/>
     </view>
-    <view class="header" style="{{'height: '+navHeight+'; top: '+ statusBarHeight+ '; line-height: '+navHeight}}">
+    <view class="header" style="{{'height: '+ navHeight + '; top: '+ statusBarHeight + '; line-height: '+ lineHeight}}">
         个人主页
         <image 
             bindtap = "onGoback"
@@ -43,7 +43,7 @@
     <view class="empty" />
     <view class="tab">
         <view class="tab_wrap">
-            <van-tabs bind:change="onChangeTab" ellipsis="{{false}}" active="{{ activeIdx }}">
+            <van-tabs line-width="20" bind:change="onChangeTab" ellipsis="{{false}}" active="{{ activeIdx }}">
                 <block wx:key="key" wx:for="{{tabList}}" >
                     <van-tab title="{{item.value}}"/>
                 </block>

@@ -1,21 +1,25 @@
-
 .content {
     height: calc(100vh - 40rpx);
     width: calc(100vw - 40rpx);
     overflow: hidden;
     padding: 20rpx;
 }
+
 .ipt {
     margin-top: 50rpx;
     border-bottom: 1px solid #f6f6f6;
 }
+
 .ipt_btn {
-    border: none!important;
+    border: none !important;
 }
+
 .ipt_btn .van-button__text {
-    color: red;
+    color: #FE406D;
+    font-size: 30rpx;
 }
-.active_btn{
+
+.active_btn {
     margin-top: 100rpx;
     height: 90rpx;
     width: calc(80vw - 40rpx);

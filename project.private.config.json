@@ -87,7 +87,7 @@
         {
           "name": "个人主页",
           "pathName": "pages/person/person",
-          "query": "user_id=1",
+          "query": "user_id=21",
           "scene": null
         },
         {
@@ -111,13 +111,13 @@
         {
           "name": "评论详情",
           "pathName": "pages/reply/reply",
-          "query": "id=3",
+          "query": "commentId=66&contentId=97",
           "scene": null
         },
         {
           "name": "投票详情",
           "pathName": "pages/detail/detail",
-          "query": "content_id=37&type=vote",
+          "query": "content_id=11&type=vote",
           "scene": null
         },
         {

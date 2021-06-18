@@ -1,6 +1,6 @@
 .content {
     padding: 30rpx 20rpx;
-    font-size: 34rpx;
+    font-size: 30rpx;
 }
 
 .desc {

@@ -9,10 +9,11 @@ Page({
 	 */
 	data: {
 		navHeight: '40px',
+		lineHeight: '47px',
 		statusBarHeight: '20px',
 		backIconHeight: '20px',
 		backIconMarginTop: '10px',
-		activeIdx: 0, // 当前选择的tab
+		activeIdx: 2, // 当前选择的tab
 		user_id: '', // 当前主页的用户id
 		userDetail: {}, // 当前用户的数据
 		current_user_id: '', // 当前登录账户
@@ -128,6 +129,7 @@ Page({
 		util.getDeviceInfo().then((res) => {
 			this.setData({
 				navHeight: `${res.navHeight}px`,
+				lineHeight: `${res.navHeight + 7}px`,
 				statusBarHeight: `${res.statusBarHeight}px`,
 				backIconHeight: `${res.navHeight / 2}px`,
 				backIconMarginTop: `${res.navHeight / 4}px`,
