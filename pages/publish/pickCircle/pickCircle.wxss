@@ -1,4 +1,4 @@
-.wrap{
+.wrap {
     width: 100vw;
     height: 100vh;
     font-size: 34rpx;
@@ -6,24 +6,29 @@
     display: flex;
     flex-direction: column;
 }
+
 .con {
     flex: 1;
     overflow: hidden;
     width: calc(100vw - 40rpx);
     padding: 0 20rpx;
 }
+
 .chunk {
     border-bottom: 1rpx solid #f8f8f8;
 }
+
 .title {
     height: 95rpx;
     display: flex;
     align-items: center;
 }
+
 .title_name {
     width: 200rpx;
     color: #373737;
 }
+
 .title_tap {
     flex: 1;
     display: flex;
@@ -31,43 +36,53 @@
     align-items: center;
     color: #aaaaaa;
 }
+
 .title_tap image {
     width: 26rpx;
     height: 26rpx;
 }
+
 .circle {
     display: flex;
     flex-wrap: wrap;
 }
+
 .circle_chunk {
+    font-size: 28rpx;
+    color: #333;
     padding: 12rpx 25rpx;
     border: 1rpx dashed #ececec;
     border-radius: 30rpx;
     margin-right: 15rpx;
     margin-bottom: 20rpx;
 }
+
 .circle_chunk_select {
     background: #ededed;
-    color: #f54572;
+    color: #FE406D;
     border: none;
 }
+
 .circle_empty {
     width: 100%;
     display: flex;
     justify-content: center;
     padding: 40rpx 0;
 }
+
 .circle_empty image {
     width: 200rpx;
     height: 200rpx;
 }
+
 .btm {
     height: 90rpx;
 }
+
 .btm button {
     width: 100vw;
     height: 90rpx;
-    color: #f5406f;
+    color: #FE406D;
     border: none;
     border-top: 1rpx solid #f6f6f6;
 }

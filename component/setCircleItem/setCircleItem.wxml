@@ -8,7 +8,7 @@
             <block wx:if="{{type === 'circle'}}">
                 <text class="title_mg_desc">找不到感兴趣的圈子?</text>
                 <text class="title_mg_back" bindtap="onFeedbackClick" data-item="{{item}}">我要反馈</text>
-                <image class="title_mg_img" src="/asserts/public/arrow_right.png"  mode="heightFix"/>
+                <image class="title_mg_img" src="/asserts/public/arrow_right.png" />
             </block>
             <block wx:else>
                 <text wx:if="{{status === 'new'}}" class="title_mg_back_all" bindtap="onClickManage" data-item="{{item}}">点击管理</text>

@@ -20,9 +20,11 @@
 
 .title {
     background: #fff;
-    padding: 0 20rpx 20rpx 30rpx;
+    padding: 20rpx;
+    padding-left: 30rpx;
     font-size: 40rpx;
     color: #333333;
+    font-weight: 600;
 }
 
 .detail {

@@ -1,7 +1,8 @@
 .wrap {
     height: 100vh;
     width: 100vw;
-    font-size: 34rpx;
+    font-size: 30rpx;
+    color: #333;
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -99,7 +100,7 @@
 }
 
 .topic_title {
-    width: 160rpx;
+    width: 164rpx;
     line-height: 67rpx;
 }
 
@@ -110,13 +111,14 @@
 }
 
 .topic_chunk {
-    padding: 14rpx 25rpx;
-    color: #484848;
-    border: 1rpx dashed #eaeaea;
+    padding: 14rpx 28rpx;
+    font-size: 28rpx;
+    color: #333;
+    border: 1rpx dashed #D5D5D5;
     margin: 0 15rpx;
     border-radius: 35rpx;
     position: relative;
-    margin-bottom: 10rpx;
+    margin-bottom: 20rpx;
 }
 
 .topic_select {
@@ -132,12 +134,14 @@
 
 .btm {
     height: 150rpx;
+    display: flex;
+    justify-content: center;
 }
 
 .btm_btn {
-    width: 90vw;
+    width: 70vw;
     margin-left: 5vw;
     margin-top: 30rpx;
-    height: 100rpx;
+    height: 85rpx;
     font-size: 34rpx;
 }

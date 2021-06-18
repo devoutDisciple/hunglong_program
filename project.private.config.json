@@ -117,19 +117,19 @@
         {
           "name": "投票详情",
           "pathName": "pages/detail/detail",
-          "query": "content_id=11&type=vote",
+          "query": "content_id=96&type=vote",
           "scene": null
         },
         {
           "name": "帖子详情",
           "pathName": "pages/detail/detail",
-          "query": "content_id=86&type=posts",
+          "query": "content_id=94&type=posts",
           "scene": null
         },
         {
           "name": "pk对决详情",
           "pathName": "pages/detail/detail",
-          "query": "content_id=56&type=battle",
+          "query": "content_id=97&type=battle",
           "scene": null
         },
         {

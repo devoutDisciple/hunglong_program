@@ -19,7 +19,7 @@
 }
 
 .title_name .title_name_add {
-    font-size: 28rpx;
+    font-size: 30rpx;
     color: #aaa;
     margin-left: 4rpx;
 }
@@ -49,7 +49,9 @@
 }
 
 .title_manager .title_mg_img {
-    height: 20rpx;
+    height: 28rpx;
+    width: 28rpx;
+    margin-left: 12rpx;
 }
 
 .content {

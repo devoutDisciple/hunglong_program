@@ -1,25 +1,45 @@
 .wrap {
     height: 100vh;
     width: 100vw;
-    font-size: 34rpx;
+    font-size: 30rpx;
     display: flex;
     flex-direction: column;
 }
+
 .con {
     flex: 1;
     overflow: hidden;
 }
+
+.tab .van-tabs__wrap {
+    border-bottom: 1rpx solid #EDEDED;
+}
+
+.tab .van-tab {
+    font-size: 30rpx;
+    color: #666;
+}
+
+.tab .van-tab--active {
+    font-weight: 600;
+    color: #333;
+}
+
 .empty {
     height: 20rpx;
     background: #eeeeee;
 }
-.btm{
+
+.btm {
     height: 150rpx;
+    display: flex;
+    justify-content: center;
 }
+
 .btm_btn {
-    width: 90vw;
+    width: 70vw;
     margin-left: 5vw;
     margin-top: 30rpx;
-    height: 100rpx;
+    height: 85rpx;
     font-size: 34rpx;
 }

@@ -1,5 +1,5 @@
 <view class="circle">
-    <view class="circle_title">发布到：</view>
+    <view class="circle_title">发布到:</view>
     <view class="circle_con">
         <view class="circle_chunk" wx:for="{{selectCircles}}" wx:key="circle_id">
             {{item.circle_name}}

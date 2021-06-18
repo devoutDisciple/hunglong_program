@@ -6,17 +6,20 @@
                 placeholder="请输入标题(1-40字)"
                 border="{{ false }}"
                 bind:change="onChangeTitle"
+                placeholder-style="font-size: 28rpx; color: #AAA;"
+                custom-style="font-size: 28rpx;color: #333;"
             />
         </view>
         <view class="vote_chunk" wx:for="{{itemList}}" wx:key="index">
             <van-field
                 maxlength="40"
-                custom-style="background: #f5f5f5"
                 placeholder="{{'选项 ' + (index + 1) + ' (1-40字)'}}"
                 value="{{item.value}}"
                 border="{{ false }}"
                 data-idx="{{index}}"
                 bind:change="onChangeItem"
+                placeholder-style="font-size: 28rpx; color: #AAA;"
+                custom-style="background: #f5f5f5;font-size: 28rpx;color: #333;"
             />
             <view 
                 class="vote_chunk_close"  

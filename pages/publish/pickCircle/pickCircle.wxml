@@ -32,6 +32,4 @@
     <view class="btm">
         <van-button bindtap="onSave">确定</van-button>
     </view>
-    
-
 </view>
