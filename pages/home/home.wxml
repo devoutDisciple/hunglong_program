@@ -34,10 +34,21 @@
                 <view class="tab_add" bindtap="onTapAddCircle">
                     <image class="tab_add_img" src="/asserts/public/tabAdd.png" />
                 </view>
+                <block wx:if="{{topicClass !== 'topic_open'}}">
+                    <view class="tab_add" bindtap="cntOpen">
+                        <image class="tab_topic_img" src="/asserts/public/arrow_top.png" />
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="tab_add" bindtap="cntOpen">
+                        <image class="tab_topic_img" src="/asserts/public/arrow_btm.png" />
+                    </view>
+                </block>
+                
             </view>
             <!-- 话题 -->
-            <view wx:if="{{topicList && topicList.length !== 0}}" class="topic {{topicClass}}">
-            <view class="topic_con">
+            <view wx:if="{{topicList && topicList.length !== 0 && topicClass === 'topic_open'}}" class="topic {{topicClass}}">
+                <scroll-view paging-enabled="true" scroll-x="true" enable-flex="true" class="topic_con">
                     <block wx:key="id" wx:for="{{topicList}}" >
                         <view 
                             class="topic_item {{activeTopicId === item.id ? 'topic_active_item' : ''}}" 
@@ -46,11 +57,11 @@
                             {{item.name}}
                         </view>
                     </block>
-            </view>
-            <view class="topic_icon" bindtap="cntOpen">
+                </scroll-view>
+                <!-- <view class="topic_icon" bindtap="cntOpen">
                     <image class="topic_icon_img" wx:if="{{topicClass !== 'topic_open'}}" src="/asserts/public/arrow_top.png" />
                     <image class="topic_icon_img" wx:else src="/asserts/public/arrow_btm.png" />
-            </view>
+                </view> -->
             </view>
         </van-sticky>
         <block wx:if="{{dataList && dataList.length !== 0}}">

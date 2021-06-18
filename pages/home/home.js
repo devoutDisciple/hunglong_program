@@ -12,7 +12,7 @@ Page({
 		plateList: [], // 板块列表
 		circleList: [], // 圈子列表
 		topicList: [], // 话题列表
-		activeTab: 1, // 选中的tab
+		activeTab: 2, // 选中的tab
 		activeCircleId: 'recommend',
 		activeTopicId: '', // 选中的话题
 		userDetail: {}, // 用户基本信息
@@ -119,7 +119,7 @@ Page({
 			},
 			() => {
 				setTimeout(() => {
-					this.setData({ activeTab: 1 });
+					this.setData({ activeTab: 2 });
 				}, 100);
 			},
 		);

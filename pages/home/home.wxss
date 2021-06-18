@@ -48,10 +48,10 @@
 
 .tab {
     display: flex;
-    flex-direction: row;
     overflow: hidden;
     height: 90rpx;
     background: #fff;
+    align-items: center;
 }
 
 .tab_con {
@@ -66,21 +66,34 @@
 .tab_con .van-tab {
     overflow: hidden;
     font-size: 28rpx;
-    color: #666666;
+    color: #666;
 }
 
 .tab_con .van-tab--active {
     font-size: 40rpx;
     color: #333;
+    font-weight: 600;
 }
 
 .tab_add {
     width: 90rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.tab_add .tab_add_img {
+.tab_add_img {
     height: 90rpx;
     width: 90rpx;
+}
+
+.tab_topic {
+    width: 90rpx;
+}
+
+.tab_topic_img {
+    height: 40rpx;
+    width: 40rpx;
 }
 
 .topic {
@@ -102,26 +115,30 @@
 
 .topic_open {
     animation: an_open .1s ease forwards;
-    padding-bottom: 14rpx;
 }
 
 .topic_con {
     flex: 1;
+    overflow: hidden;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
 }
 
 .topic_item {
-    padding: 0 30rpx;
+    white-space: nowrap;
     height: 70rpx;
     line-height: 70rpx;
+    width: auto;
+    padding: 0 30rpx;
     background: #fff;
     border-radius: 40rpx;
     color: #333;
     font-size: 28rpx;
-    margin-top: 14rpx;
-    margin-right: 14rpx;
+    margin-top: 12rpx;
+    margin-right: 20rpx;
+}
+
+.topic_item:last-child {
+    margin-right: 20rpx;
 }
 
 .topic_active_item {
@@ -147,21 +164,21 @@
 
 @keyframes an_open {
     0% {
-        height: 88rpx;
+        height: 0rpx;
     }
-
+    
     100% {
-        height: auto;
+        height: 92rpx;
     }
 }
 
 @keyframes an_close {
     0% {
-        height: auto;
+        height: 92rpx;
     }
 
     100% {
-        height: 92rpx;
+        height: 0;
         overflow: hidden;
     }
 }

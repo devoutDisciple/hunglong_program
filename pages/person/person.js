@@ -10,8 +10,8 @@ Page({
 	data: {
 		navHeight: '40px',
 		lineHeight: '47px',
-		statusBarHeight: '20px',
-		backIconHeight: '20px',
+		statusBarHeight: '26px',
+		backIconHeight: '26px',
 		backIconMarginTop: '10px',
 		activeIdx: 2, // 当前选择的tab
 		user_id: '', // 当前主页的用户id
@@ -131,7 +131,7 @@ Page({
 				navHeight: `${res.navHeight}px`,
 				lineHeight: `${res.navHeight + 7}px`,
 				statusBarHeight: `${res.statusBarHeight}px`,
-				backIconHeight: `${res.navHeight / 2}px`,
+				backIconHeight: `${(res.navHeight * 2) / 3}px`,
 				backIconMarginTop: `${res.navHeight / 4}px`,
 			});
 		});

@@ -7,7 +7,7 @@
         <image 
             bindtap = "onGoback"
             style="{{'height: '+backIconHeight+'; width: '+backIconHeight+'; top: '+backIconMarginTop+'; left: '+backIconMarginTop}}" 
-            class="head_img" src="/asserts/public/back_icon.png" />
+            class="head_img" src="/asserts/public/back.png" />
     </view>
     <view class="introduce">
         <image class="intro_img" src="{{userDetail.photo}}"/>
