@@ -41,5 +41,6 @@
 }
 
 .msg_icon image {
-    height: 22rpx;
+    height: 30rpx;
+    width: 30rpx;
 }

@@ -20,7 +20,7 @@
                             <block wx:else>
                                 <view class="person_msg_name_user">{{userDetail.username}}</view>
                             </block>
-                            <view class="person_msg_name_address">{{userDetail.address || "去完善学校信息"}}</view>
+                            <view class="person_msg_name_address">{{userDetail.school || "去完善学校信息"}}</view>
                             <view class="person_msg_name_level">
                                 <image class="person_msg_name_level_img" src="/asserts/public/vip1.png"/>
                                 <text class="person_msg_name_level_txt">1级</text>
@@ -41,14 +41,17 @@
                         <view class="person_data_chunk_label">发布</view>
                         <view class="person_data_chunk_num">{{userData.publish}}</view>
                     </view>
+                    <view class="split" />
                     <view class="person_data_chunk" data-item="fans" bindtap="onTapChunk">
                         <view class="person_data_chunk_label">粉丝</view>
                         <view class="person_data_chunk_num">{{userData.fans}}</view>
                     </view>
+                    <view class="split" />
                     <view class="person_data_chunk" data-item="goods" bindtap="onTapChunk">
                         <view class="person_data_chunk_label">我的赞</view>
                         <view class="person_data_chunk_num">{{userData.goods}}</view>
                     </view>
+                    <view class="split" />
                     <view class="person_data_chunk" data-item="attention" bindtap="onTapChunk">
                         <view class="person_data_chunk_label">关注</view>
                         <view class="person_data_chunk_num">{{userData.fellow}}</view>

@@ -2,13 +2,15 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    font-size: 34rpx;
+    font-size: 30rpx;
     color: #333;
 }
+
 .title {
-    height: 480rpx;
+    height: 440rpx;
     position: relative;
 }
+
 .title_bg {
     position: absolute;
     left: 0;
@@ -17,12 +19,13 @@
     width: 100vw;
     z-index: 1;
 }
+
 .title_con {
     position: absolute;
     left: 0;
-    top: 0; 
+    top: 0;
     height: calc(100% - 60px);
-    width: 100vw; 
+    width: 100vw;
     z-index: 10;
 }
 
@@ -34,29 +37,36 @@
     margin-left: 3vw;
     border-radius: 20rpx;
     padding: 20rpx;
+    padding-bottom: 14rpx;
 }
+
 .person_desc {
     height: 120rpx;
     display: flex;
 }
+
 .person_img {
     width: 120rpx;
     border-radius: 100%;
     overflow: hidden;
 }
-.person_img .person_img_img{
+
+.person_img .person_img_img {
     width: 120rpx;
     height: 120rpx;
 }
+
 .person_msg {
     flex: 1;
     margin-left: 10rpx;
 }
+
 .person_msg_name {
     height: 60rpx;
     display: flex;
     line-height: 60rpx;
 }
+
 .person_msg_name_user {
     max-width: 200rpx;
     display: -webkit-box;
@@ -65,44 +75,48 @@
     word-break: break-all;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
-    font-size: 28rpx;
-    color: #333333;
+    color: #333;
 }
+
 .person_msg_name_address {
     flex: 1;
     margin: 0 10rpx;
-    /* margin-top: 2rpx; */
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
     word-break: break-all;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
-    font-size: 22rpx;
-    color: #363636;
+    font-size: 24rpx;
+    color: #333;
 }
+
 .person_msg_name_level {
     width: 80rpx;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.person_msg_name_level_img{
+
+.person_msg_name_level_img {
     width: 30rpx;
     height: 30rpx;
 }
+
 .person_msg_name_level_txt {
     font-size: 18rpx;
     color: #EF9A14;
     margin-left: 10rpx;
 }
+
 .person_msg_sign {
     height: 60rpx;
     display: flex;
     align-items: center;
 }
+
 .person_msg_sign_txt {
-    font-size: 22rpx;
+    font-size: 24rpx;
     color: #9b9b9b;
     display: -webkit-box;
     overflow: hidden;
@@ -111,69 +125,88 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
 }
+
 .person_arrow {
-    width: 40rpx;
+    width: 60rpx;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 }
-.person_arrow image{
+
+.person_arrow image {
     width: 26rpx;
     height: 26rpx;
 }
-.person_data{
+
+.person_data {
     height: 100rpx;
     margin-top: 30rpx;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
+
 .person_data_chunk {
     width: 20%;
 }
+
 .person_data_chunk_label {
-    height: 60rpx;
-    line-height: 60rpx;
+    height: 34rpx;
     text-align: center;
-    font-size: 24rpx;
+    font-size: 20rpx;
     color: #9d9d9e;
 }
+
 .person_data_chunk_num {
-    height: 40rpx;
-    line-height: 40rpx;
     text-align: center;
-    font-size: 30rpx;
+    font-size: 32rpx;
     color: #333;
+    font-weight: 600;
 }
+
+.split {
+    height: 20rpx;
+    width: 1rpx;
+    background: #ededed;
+}
+
 .content {
     flex: 1;
     background: #eee;
 }
+
 .container {
     padding: 0 20rpx;
-    padding-top: 30rpx;
+    padding-top: 10rpx;
     background: #fff;
 }
+
 .viewer {
     height: 180rpx;
 }
+
 .viewer_titile {
     height: 40rpx;
     line-height: 40rpx;
     color: #333;
     font-size: 24rpx;
-    padding-left: 10rpx;
+    padding-left: 14rpx;
+    margin-bottom: 12rpx;
 }
+
 .viewer_content {
     height: 140rpx;
     overflow: hidden;
     position: relative;
     padding-left: 10rpx;
 }
+
 .viewer_left {
     overflow: hidden;
     width: 100%;
     height: 100%;
 }
+
 .viewer_right {
     width: 100rpx;
     height: 140rpx;
@@ -187,15 +220,18 @@
     justify-content: center;
     align-items: center;
 }
+
 .viewer_right image {
     width: 30rpx;
     height: 30rpx;
 }
+
 .viewer_scroll {
     width: 100%;
     height: 100%;
     display: flex;
 }
+
 .viewer_chunk {
     height: 140rpx;
     padding: 0 6rpx;
@@ -205,16 +241,19 @@
     align-items: center;
     margin-right: 30rpx;
 }
+
 .viewer_header {
     height: 80rpx;
     width: 80rpx;
     border-radius: 100%;
 }
+
 .viewer_name {
     margin-top: 14rpx;
     font-size: 24rpx;
     color: #333;
 }
+
 .setting {
     font-size: 28rpx;
     margin-top: 40rpx;
