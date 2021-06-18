@@ -23,11 +23,13 @@
         <van-sticky offset-top="{{ headerHight }}">
             <view class="tab">
                 <view class="tab_con">
-                    <van-tabs active="{{ activeTab }}" bind:change="onChangeCircle" ellipsis="{{false}}">
-                        <block wx:key="id" wx:for="{{circleList}}" >
-                            <van-tab title="{{item.name}}"/>
-                        </block>
-                    </van-tabs>
+                    <view class="tab_container">
+                        <van-tabs line-width="20" active="{{ activeTab }}" bind:change="onChangeCircle" ellipsis="{{false}}">
+                            <block wx:key="id" wx:for="{{circleList}}" >
+                                <van-tab title="{{item.name}}"/>
+                            </block>
+                        </van-tabs>
+                    </view>
                 </view>
                 <view class="tab_add" bindtap="onTapAddCircle">
                     <image class="tab_add_img" src="/asserts/public/tabAdd.png" />

@@ -54,8 +54,16 @@
     background: #fff;
 }
 
-.tab_con .van-tab {
+.tab_con {
     flex: 1;
+    overflow: hidden;
+}
+
+.tab_container {
+    max-width: 100%;
+}
+
+.tab_con .van-tab {
     overflow: hidden;
     font-size: 28rpx;
     color: #666666;

@@ -1,6 +1,6 @@
 <view class="list" bindtap="onTapMsg">
     <view class="photo">
-        <image src="{{msg.person_photo}}" />
+        <image class="photo_img" src="{{msg.person_photo}}" />
     </view>
     <view class="chunk">
         <view class="chunk_title">

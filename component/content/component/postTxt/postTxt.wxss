@@ -1,9 +1,11 @@
-.txt{
+.txt {
     margin-top: 20rpx;
+    margin-bottom: 6rpx;
     font-size: 34rpx;
     color: #151515;
     font-family: PingFangSC-Regular;
 }
+
 .ellipsis {
     display: -webkit-box;
     overflow: hidden;
@@ -12,6 +14,7 @@
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 5;
 }
+
 .link {
     color: #0091FF;
 }

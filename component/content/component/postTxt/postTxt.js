@@ -12,6 +12,10 @@ Component({
 			type: Boolean,
 			value: false,
 		},
+		type: {
+			type: String,
+			value: '',
+		},
 		detail: {
 			type: Object,
 			value: {},
@@ -28,7 +32,9 @@ Component({
 	data: {},
 
 	lifetimes: {
-		attached: function () {},
+		attached: function () {
+			console.log(this.data.detail, 1222);
+		},
 	},
 
 	/**

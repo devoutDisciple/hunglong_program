@@ -28,8 +28,8 @@
 }
 
 .publish_item {
-    height: 80rpx;
-    width: 160rpx;
+    height: 93rpx;
+    width: 180rpx;
     display: flex;
     align-items: center;
 }
