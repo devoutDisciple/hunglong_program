@@ -32,9 +32,7 @@ Component({
 	data: {},
 
 	lifetimes: {
-		attached: function () {
-			console.log(this.data.detail, 1222);
-		},
+		attached: function () {},
 	},
 
 	/**

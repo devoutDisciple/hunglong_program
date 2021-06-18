@@ -35,7 +35,12 @@
             bindpause: 当暂停播放时触发 pause 事件
             waiting-视频还没有播放 process-视频播放中 pause-视频暂停 end-视频播放结束
         -->
-    <image class="video_cover_img" wx:if="{{videoDetail.photo && activeState === 'waiting'}}" src="{{videoDetail.photo}}" bindtap="onTapModalImg"/>
+    <view class="video_cover_con" wx:if="{{showCoverImg && videoDetail.photo && activeState === 'waiting'}}" bindtap="onTapModalImg">
+        <!-- <image class="video_cover_img" wx:if="{{videoDetail.photo && activeState === 'waiting'}}" src="{{videoDetail.photo.url}}" bindtap="onTapModalImg"/> -->
+        <simple-img data="{{videoDetail.photo}}"/>
+    </view>
+    <!-- <image class="video_cover_img" wx:if="{{videoDetail.photo && activeState === 'waiting'}}" src="{{videoDetail.photo.url}}" bindtap="onTapModalImg"/> -->
+
     <!-- 视频刚开始加载的时候 -->
     <view wx:if="{{activeState === 'waiting'}}" bindtap="onTapModalImg" class="video_play_container">
         <image class="video_play_img" src="/asserts/public/play.png" />

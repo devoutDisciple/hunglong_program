@@ -154,7 +154,6 @@ Page({
 		if (!videoDetail.url) return this.showErrorToast('请上传视频');
 		// 上传视频封面
 		const coverImgName = await uploadFile({ url: '/videoCover/upload', data: videoDetail.photo });
-
 		// 选择的圈子id
 		const selectCirIds = [];
 		const selectCirNames = [];
@@ -180,7 +179,7 @@ Page({
 		if (topicIds.length > 2) return this.showErrorToast('最多两个话题');
 		const user_id = wx.getStorageSync('user_id');
 		const formData = {
-			photo: coverImgName,
+			photo: JSON.stringify(coverImgName),
 			width: videoDetail.width,
 			height: videoDetail.height,
 			duration: videoDetail.duration,

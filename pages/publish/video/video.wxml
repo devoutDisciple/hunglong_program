@@ -25,17 +25,10 @@
         </block>
         <block wx:else>
             <view class="video">
-                <simple-video videoId="my_video" wx:if="{{videoDetail.url && videoDetail.photo}}" videoDetail="{{videoDetail}}"/>
+                <simple-video showCoverImg="{{false}}" videoId="my_video" wx:if="{{videoDetail.url && videoDetail.photo}}" videoDetail="{{videoDetail}}"/>
                 <image class="video_close" src="/asserts/public/close.png" bindtap = "onRemoveVideo"/>
             </view>
         </block>
-
-        <!--
-        <view class="video">
-                <simple-video videoId="my_video" videoDetail="{{videoDetail}}"/>
-                <image class="video_close" src="/asserts/public/close.png" bindtap = "onRemoveVideo"/>
-            </view>
-        -->
         <view class="empty" />
         <view class="topic">
             <view class="topic_title">请选择话题:</view>

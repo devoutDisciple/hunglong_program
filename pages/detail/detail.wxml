@@ -14,6 +14,7 @@
             <post-txt showAll="{{true}}" detail="{{detail.videoDetail}}" type="{{detail.type}}"/>
             <view class="video">
                 <simple-video 
+                    showCoverImg="{{true}}"
                     videoId="{{'detail_video_' + detail.videoDetail.id}}" 
                     wx:if="{{detail.videoDetail && detail.videoDetail.url}}" 
                     videoDetail="{{detail.videoDetail}}"/>

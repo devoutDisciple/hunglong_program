@@ -1,6 +1,7 @@
 .container {
     width: 100%;
     font-size: 34rpx;
+    display: flex;
     position: relative;
 }
 
@@ -8,7 +9,7 @@
     width: 100%;
 }
 
-.video_cover_img {
+.video_cover_con {
     position: absolute;
     height: 100%;
     width: 100%;

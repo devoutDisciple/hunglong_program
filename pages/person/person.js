@@ -13,7 +13,7 @@ Page({
 		statusBarHeight: '26px',
 		backIconHeight: '26px',
 		backIconMarginTop: '10px',
-		activeIdx: 2, // 当前选择的tab
+		activeIdx: 1, // 当前选择的tab
 		user_id: '', // 当前主页的用户id
 		userDetail: {}, // 当前用户的数据
 		current_user_id: '', // 当前登录账户

@@ -12,7 +12,7 @@ Page({
 		plateList: [], // 板块列表
 		circleList: [], // 圈子列表
 		topicList: [], // 话题列表
-		activeTab: 2, // 选中的tab
+		activeTab: 1, // 选中的tab
 		activeCircleId: 'recommend',
 		activeTopicId: '', // 选中的话题
 		userDetail: {}, // 用户基本信息
@@ -55,6 +55,14 @@ Page({
 		}
 	},
 
+	// 初始化需要获得的信息
+	getInitMsg: async function () {
+		const user_id = wx.getStorageSync('user_id');
+		await this.getPlateMsg(); // 获取板块信息
+		await this.getCircleList(user_id); // 获取圈子列表
+		await this.getUserDetailByUserId(user_id); // 获取用户信息
+	},
+
 	// 点击模块
 	onTapPlate: function (e) {
 		const { plateid, link } = e.currentTarget.dataset;
@@ -87,16 +95,6 @@ Page({
 		}
 	},
 
-	// 初始化需要获得的信息
-	getInitMsg: async function () {
-		const user_id = wx.getStorageSync('user_id');
-		loading.showLoading();
-		await this.getPlateMsg(); // 获取板块信息
-		await this.getCircleList(user_id); // 获取圈子列表
-		await this.getUserDetailByUserId(user_id); // 获取用户信息
-		loading.hideLoading();
-	},
-
 	// 获取用户信息
 	getUserDetailByUserId: async function (user_id) {
 		if (!user_id) return;
@@ -119,7 +117,7 @@ Page({
 			},
 			() => {
 				setTimeout(() => {
-					this.setData({ activeTab: 2 });
+					this.setData({ activeTab: 1 });
 				}, 100);
 			},
 		);

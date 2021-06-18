@@ -7,7 +7,7 @@
 }
 
 .title {
-    height: 440rpx;
+    height: 65vw;
     position: relative;
 }
 
@@ -24,13 +24,13 @@
     position: absolute;
     left: 0;
     top: 0;
-    height: calc(100% - 60px);
+    height: calc(60vw - 60px);
     width: 100vw;
     z-index: 10;
 }
 
 .person {
-    height: 250rpx;
+    height: 75%;
     background: #fff;
     margin-top: 20rpx;
     width: calc(94vw - 40rpx);

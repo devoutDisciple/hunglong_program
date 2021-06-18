@@ -2,7 +2,8 @@
     <post-header type="{{detail.type}}" createTime="{{detail.create_time}}" userDetail="{{detail.userDetail}}"/>
     <post-txt type="{{detail.type}}" detail="{{detail.videoDetail}}" contentDetail="{{detail}}"/>
     <view class="video">
-        <simple-video 
+        <simple-video
+            showCoverImg="{{true}}"
             videoId="{{'home_video_' + detail.videoDetail.id}}" 
             wx:if="{{detail.videoDetail && detail.videoDetail.url}}" 
             videoDetail="{{detail.videoDetail}}"/>

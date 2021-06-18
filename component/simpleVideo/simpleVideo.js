@@ -11,6 +11,11 @@ Component({
 			type: String,
 			value: '',
 		},
+		// 是否显示视频封面，上传视频时候不显示
+		showCoverImg: {
+			type: Boolean,
+			value: true,
+		},
 	},
 
 	/**
@@ -106,8 +111,7 @@ Component({
 
 	lifetimes: {
 		attached: function () {
-			// const query = wx.createSelectorQuery();
-			// this.videoContext = wx.createVideoContext('myVideo');
+			console.log(this.data.videoDetail, 2222);
 		},
 	},
 });

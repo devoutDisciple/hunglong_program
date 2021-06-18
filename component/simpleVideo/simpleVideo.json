@@ -1,4 +1,6 @@
 {
-  "component": true,
-  "usingComponents": {}
+	"component": true,
+	"usingComponents": {
+		"simple-img": "/component/simpleImg/simpleImg"
+	}
 }
