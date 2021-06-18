@@ -1,10 +1,10 @@
 .wrap {
-    font-size: 34rpx;
+    font-size: 30rpx;
+    color: #333;
     height: calc(100vh - 20rpx);
     width: calc(100vw - 40rpx);
     padding: 20rpx;
     padding-bottom: 0;
-    color: #333333;
 }
 
 .wrap ::-webkit-scrollbar {
@@ -14,14 +14,14 @@
 }
 
 .title {
-    font-size: 34rpx;
-    margin-bottom: 20rpx;
+    font-size: 36rpx;
+    margin-top: 10rpx;
+    margin-bottom: 30rpx;
     font-weight: 600;
 }
 
 .con {
-    font-size: 34rpx;
-    line-height: 46rpx;
+    line-height: 52rpx;
 }
 
 .con_item {

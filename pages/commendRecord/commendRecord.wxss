@@ -1,5 +1,6 @@
 .wrap {
-    font-size: 34rpx;
+    font-size: 30rpx;
+    color: #333;
     height: 100vh;
     width: 100vw;
     background: #eee;
@@ -15,21 +16,20 @@
 .comment_desc {
     margin-top: 20rpx;
     line-height: 40rpx;
-    font-size: 24rpx;
     color: #333;
     margin-bottom: 10rpx;
 }
 
 .con {
     background: #f8f8f8;
-    padding: 20rpx 10rpx;
+    padding: 20rpx;
 }
 
 .desc {
     height: 30rpx;
-    color: #8a8a8a;
+    color: #999;
     line-height: 30rpx;
-    font-size: 24rpx;
+    font-size: 26rpx;
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -40,9 +40,8 @@
 
 .footer {
     display: flex;
-    margin-top: 10rpx;
+    margin-top: 20rpx;
     padding-bottom: 20rpx;
-    padding-top: 10rpx;
 }
 
 .footer_chunk {

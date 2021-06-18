@@ -3,7 +3,7 @@
         <image class="bg_img" src="{{circleDetail.bg_url}}"/>
     </view>
     <view class="header" style="{{'height: '+navHeight+'; top: '+ statusBarHeight+ '; line-height: '+navHeight}}">
-        圈子详情
+        {{circleDetail.name || "-"}}
         <image 
             bindtap = "onGoback"
             style="{{'height: '+backIconHeight+'; width: '+backIconHeight+'; top: '+backIconMarginTop+'; left: '+backIconMarginTop}}" 
@@ -29,7 +29,9 @@
                 <view class="sign">{{circleDetail.desc}}</view>
                 <view class="data">
                     <view class="data_chunk">关注 {{circleDetail.fellow}}</view>
+                    <view class="split" />
                     <view class="data_chunk">图文 {{circleDetail.txtNum}}</view>
+                    <view class="split" />
                     <view class="data_chunk">视频 {{circleDetail.videos}}</view>
                 </view>
             </view>
@@ -53,7 +55,7 @@
         <view class="empty" />
         <view class="tab">
             <view class="tab_wrap">
-                <van-tabs bind:change="onChangeTab" ellipsis="{{false}}" active="{{ activeIdx }}">
+                <van-tabs line-width="20" bind:change="onChangeTab" ellipsis="{{false}}" active="{{ activeIdx }}">
                     <block wx:key="key" wx:for="{{tabList}}" >
                         <van-tab title="{{item.value}}"/>
                     </block>

@@ -6,7 +6,7 @@
         show-scrollbar="{{false}}">
         <van-sticky offset-top="{{ headerHight }}">
             <view class="tab">
-                <van-tabs bind:change="onChangeTab" ellipsis="{{false}}" active="{{ activeIdx }}">
+                <van-tabs line-width="20" bind:change="onChangeTab" ellipsis="{{false}}" active="{{ activeIdx }}">
                     <block wx:key="key" wx:for="{{tabList}}" >
                         <van-tab title="{{item.value}}"/>
                     </block>

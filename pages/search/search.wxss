@@ -10,6 +10,16 @@
     border-bottom: 1rpx solid #f1f1f1;
 }
 
+.tab .van-tab {
+    font-size: 28rpx;
+    color: #666;
+}
+
+.tab .van-tab--active {
+    font-size: 30rpx;
+    color: #333;
+}
+
 .content {
     flex: 1;
     overflow: hidden;

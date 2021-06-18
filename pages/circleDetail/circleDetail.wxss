@@ -82,30 +82,35 @@
 }
 
 .sign {
-    margin-top: 20rpx;
-    font-size: 22rpx;
+    margin: 20rpx 0;
+    font-size: 24rpx;
     color: #fff;
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
     word-break: break-all;
     -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
 }
 
 .data {
     margin-top: 10rpx;
-    display: flex;
     color: #fff;
-    font-size: 22rpx;
+    font-size: 24rpx;
+    height: 30rpx;
+    display: flex;
+    align-items: center;
 }
 
 .data_chunk {
-    height: 22rpx;
-    line-height: 22rpx;
     padding-right: 20rpx;
     margin-left: 20rpx;
-    border-right: 1rpx solid #fff;
+}
+
+.split {
+    height: 20rpx;
+    width: 2rpx;
+    background: #fff;
 }
 
 .data_chunk:first-child {
@@ -122,7 +127,7 @@
 }
 
 .msg {
-    padding: 20rpx;
+    padding: 30rpx 20rpx;
     font-size: 24rpx;
     background: #fff;
 }
@@ -131,6 +136,7 @@
     height: 40rpx;
     display: flex;
     margin-bottom: 15rpx;
+    align-items: center;
 }
 
 .msg_chunk:last-child {
@@ -138,27 +144,27 @@
 }
 
 .msg_chunk_tag {
-    height: 40rpx;
-    font-size: 22rpx;
+    font-size: 20rpx;
+    font-weight: 600;
+    padding: 3rpx 13rpx;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 75rpx;
     background: #3366ea;
     color: #fff;
     border-radius: 50rpx;
 }
 
 .msg_chunk_icon {
-    height: 32rpx;
-    width: 32rpx;
-    margin: 5rpx 15rpx 0 14rpx;
+    height: 30rpx;
+    width: 30rpx;
+    margin: 0rpx 15rpx 0 14rpx;
 }
 
 .msg_chunk_con {
     flex: 1;
-    line-height: 40rpx;
-    color: #333333;
+    font-size: 24rpx;
+    color: #333;
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -182,8 +188,14 @@
     width: 500rpx;
 }
 
+.tab .van-tab {
+    font-size: 28rpx;
+    color: #666;
+}
+
 .tab .van-tab--active {
-    font-size: 35rpx;
+    font-size: 36rpx;
+    color: #333;
 }
 
 .posts {

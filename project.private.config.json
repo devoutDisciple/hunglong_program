@@ -201,7 +201,7 @@
         {
           "name": "圈子详情",
           "pathName": "pages/circleDetail/circleDetail",
-          "query": "circleId=7",
+          "query": "circleId=3",
           "scene": null
         },
         {

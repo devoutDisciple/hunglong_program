@@ -1,5 +1,5 @@
 .wrap {
-    font-size: 34rpx;
+    font-size: 30rpx;
     height: 100vh;
     width: 100vw;
     background: #eee;
@@ -14,12 +14,12 @@
 .con {
     margin-top: 20rpx;
     background: #f8f8f8;
-    padding: 20rpx 10rpx;
+    padding: 20rpx;
 }
 
 .desc {
     height: 30rpx;
-    color: #8a8a8a;
+    color: #999;
     line-height: 30rpx;
     font-size: 24rpx;
     display: -webkit-box;
