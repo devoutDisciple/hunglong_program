@@ -1,4 +1,3 @@
-const app = getApp();
 const config = require('../config/config');
 
 const { baseUrl } = config;
