@@ -12,6 +12,14 @@ Component({
 			type: Array,
 			value: [],
 		},
+		topicids: {
+			type: Array,
+			value: [],
+		},
+		circleids: {
+			type: String,
+			value: '',
+		},
 	},
 
 	/**
@@ -22,7 +30,22 @@ Component({
 	/**
 	 * 组件的方法列表
 	 */
-	methods: {},
+	methods: {
+		// 点击圈子icon
+		onGoCircleDetail: function (e) {
+			const { idx } = e.currentTarget.dataset;
+			const { circleids } = this.data;
+			let ids = [];
+			if (circleids) {
+				ids = circleids.split(',');
+				const currentCircleid = ids[idx];
+				// 进入详情页面
+				wx.navigateTo({
+					url: `/pages/circleDetail/circleDetail?circleId=${currentCircleid}`,
+				});
+			}
+		},
+	},
 
 	lifetimes: {
 		attached: function () {},

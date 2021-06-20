@@ -90,7 +90,8 @@ Component({
 			loading.showLoading();
 			// type: 1-给帖子评论 2-二级评论
 			const { replyValue, type, contentId, commentId, tempUrlPaths } = this.data;
-			if (!String(replyValue).trim()) {
+			const desc = String(replyValue).trim();
+			if (!desc && (!tempUrlPaths || tempUrlPaths.length === 0)) {
 				return wx.showToast({
 					title: '请输入评论',
 					icon: 'error',
@@ -124,7 +125,7 @@ Component({
 					content_id: contentId,
 					comment_id: commentId,
 					type,
-					desc: replyValue,
+					desc,
 					img_urls: uploadImgUrls,
 				},
 			})

@@ -110,7 +110,7 @@
 
 .btn_select {
     padding: 6rpx 36rpx;
-    font-size: 26rpx;
+    font-size: 30rpx;
     background: linear-gradient(to right, #ec3d6c, #fdb9e2);
     color: #fff;
     border-radius: 50rpx;
@@ -121,7 +121,7 @@
 
 .btn_noSe {
     padding: 6rpx 36rpx;
-    font-size: 26rpx;
+    font-size: 30rpx;
     background: #ededed;
     color: #333;
     border-radius: 50rpx;

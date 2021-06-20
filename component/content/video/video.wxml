@@ -8,7 +8,7 @@
             wx:if="{{detail.videoDetail && detail.videoDetail.url}}" 
             videoDetail="{{detail.videoDetail}}"/>
     </view>
-    <post-topic topics="{{detail.topic_names}}" circles="{{detail.circle_names}}"/>
+    <post-topic topicids="{{detail.topic_ids}}" topics="{{detail.topic_names}}" circleids="{{detail.circle_ids}}" circles="{{detail.circle_names}}"/>
     <view class="reply">
         <hot-reply 
             type="{{detail.type}}"

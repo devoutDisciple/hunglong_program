@@ -1,17 +1,12 @@
 <view class="topic">
-    <view class="topic_left">
-        <block wx:if="{{topics && topics.length !== 0}}">
-            <view class="topic_item" wx:for="{{topics}}" wx:key="item">
-                <topic-btn title="{{item}}"/>
-            </view>
-        </block>
+    <view class="topic_left" wx:if="{{topics && topics.length !== 0}}">
+        <view class="topic_item" wx:for="{{topics}}" wx:key="item">
+            <topic-btn title="{{item}}"/>
+        </view>
     </view>
-    <view class="topic_right">
-        <block wx:if="{{circles && circles.length !== 0}}">
-            <view class="circle_item" wx:for="{{circles}}" wx:key="item" >
-                <circle-btn title="{{item}}"/>
-            </view>
-        </block>
-        
+    <view class="topic_right" wx:if="{{circles && circles.length !== 0 && circleids && circleids.length !== 0}}">
+        <view class="circle_item" wx:for="{{circles}}" wx:key="item" data-idx="{{index}}" bindtap="onGoCircleDetail">
+            <circle-btn title="{{item}}"/>
+        </view>
     </view>
 </view>

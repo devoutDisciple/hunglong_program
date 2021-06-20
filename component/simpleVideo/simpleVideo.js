@@ -110,8 +110,6 @@ Component({
 	},
 
 	lifetimes: {
-		attached: function () {
-			console.log(this.data.videoDetail, 2222);
-		},
+		attached: function () {},
 	},
 });

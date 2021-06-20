@@ -13,7 +13,7 @@ Page({
 		statusBarHeight: '26px',
 		backIconHeight: '26px',
 		backIconMarginTop: '10px',
-		activeIdx: 1, // 当前选择的tab
+		activeIdx: 0, // 当前选择的tab
 		user_id: '', // 当前主页的用户id
 		userDetail: {}, // 当前用户的数据
 		current_user_id: '', // 当前登录账户
@@ -259,7 +259,7 @@ Page({
 	// 获取帖子博客等相应内容
 	getPostsByUserId: function (activeIdx) {
 		loading.showLoading();
-		const { user_id, txtObj, current } = this.data;
+		const { user_id, txtObj, videoObj, current } = this.data;
 		get({ url: '/content/contentsByTypeAndUserId', data: { user_id, activeIdx, current } })
 			.then((res) => {
 				if (Array.isArray) {
@@ -277,15 +277,37 @@ Page({
 					longago.forEach((item) => {
 						item.type = filterContentTypeByNum(item.type);
 					});
-					const result = {
-						threeDays: txtObj.threeDays.concat(threeDays),
-						monthDays: txtObj.monthDays.concat(monthDays),
-						longago: txtObj.longago.concat(longago),
+					let result = [];
+					const initObj = {
+						threeDays: [], // 三天内的数据
+						monthDays: [], // 一个月内的数据
+						longago: [],
 					};
 					if (activeIdx === 0) {
-						this.setData({ txtObj: result || [], current: current + 1, loading: false });
-					} else if (activeIdx === 1) {
-						this.setData({ videoObj: result || [], current: current + 1, loading: false });
+						result = {
+							threeDays: txtObj.threeDays.concat(threeDays),
+							monthDays: txtObj.monthDays.concat(monthDays),
+							longago: txtObj.longago.concat(longago),
+						};
+						this.setData({
+							txtObj: result || initObj,
+							videoObj: initObj,
+							current: current + 1,
+							loading: false,
+						});
+					}
+					if (activeIdx === 1) {
+						result = {
+							threeDays: videoObj.threeDays.concat(threeDays),
+							monthDays: videoObj.monthDays.concat(monthDays),
+							longago: videoObj.longago.concat(longago),
+						};
+						this.setData({
+							txtObj: initObj,
+							videoObj: result || initObj,
+							current: current + 1,
+							loading: false,
+						});
 					}
 				} else {
 					this.setData({

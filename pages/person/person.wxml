@@ -42,13 +42,11 @@
     </view>
     <view class="empty" />
     <view class="tab">
-        <view class="tab_wrap">
-            <van-tabs line-width="20" bind:change="onChangeTab" ellipsis="{{false}}" active="{{ activeIdx }}">
-                <block wx:key="key" wx:for="{{tabList}}" >
-                    <van-tab title="{{item.value}}"/>
-                </block>
-            </van-tabs>
-        </view>
+        <van-tabs line-width="20" bind:change="onChangeTab" ellipsis="{{false}}" active="{{ activeIdx }}">
+            <block wx:key="key" wx:for="{{tabList}}" >
+                <van-tab title="{{item.value}}"/>
+            </block>
+        </van-tabs>
     </view>
     <block wx:if="{{activeIdx === 0}}">
         <view class="posts">
