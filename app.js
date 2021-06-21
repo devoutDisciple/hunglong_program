@@ -14,7 +14,8 @@ App({
 		goodsTimer: null, // 刷新点赞的记录
 	},
 
-	onLaunch: async function () {
+	onLaunch: async function (e) {
+		console.log(e, 111);
 		// 统计各种信息
 		if (config.env === 'dev') {
 			this.getTotalMsg();

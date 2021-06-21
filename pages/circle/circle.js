@@ -17,7 +17,7 @@ Page({
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function () {
+	onShow: function () {
 		// 获取所有板块
 		this.getPlates();
 		// 获取热度最高的十个圈子
@@ -38,6 +38,15 @@ Page({
 		const user_id = wx.getStorageSync('user_id');
 		if (!user_id) return;
 		get({ url: '/circle/myAttentionCircles', data: { user_id, num: 6 } }).then((res) => {
+			this.setData({ myAttentions: res || [] });
+		});
+	},
+
+	// 获取更多我关注的圈子
+	onSearchMoreCircle: async function () {
+		const user_id = wx.getStorageSync('user_id');
+		if (!user_id) return;
+		get({ url: '/circle/myAttentionCircles', data: { user_id } }).then((res) => {
 			this.setData({ myAttentions: res || [] });
 		});
 	},

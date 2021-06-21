@@ -63,8 +63,8 @@
         {
           "name": "首页",
           "pathName": "pages/home/home",
-          "query": "",
-          "scene": null
+          "query": "pages=home&userid=18",
+          "scene": 1007
         },
         {
           "name": "消息",

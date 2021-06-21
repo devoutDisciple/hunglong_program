@@ -29,8 +29,12 @@
                     <view class="title_name">我关注的圈子</view>
                     <view class="title_desc">点击进入圈子</view>
                 </view>
-                 <view class="title_right" wx:if="{{myAttentions && myAttentions.length !== 0 && myAttentions.length > 5}}">
+                <view class="title_right" bindtap="onSearchMoreCircle" wx:if="{{myAttentions && myAttentions.length === 6}}">
                     <view class="title_right_more">查看更多</view>
+                    <image class="title_right_icon" src="/asserts/public/arrow_right.png" />
+                </view>
+                <view class="title_right" bindtap="getMyAttention" wx:if="{{myAttentions && myAttentions.length > 6}}">
+                    <view class="title_right_more">收起</view>
                     <image class="title_right_icon" src="/asserts/public/arrow_right.png" />
                 </view>
             </view>

@@ -31,7 +31,7 @@ Page({
 	onLoad: function () {
 		wx.showShareMenu({
 			withShareTicket: true,
-			menus: ['shareAppMessage', 'shareTimeline'],
+			menus: ['shareAppMessage'],
 		});
 		// 获取设备信息
 		util.getDeviceInfo().then((res) => {
@@ -42,6 +42,17 @@ Page({
 
 	onShow: function () {
 		this.initData();
+	},
+
+	onShareAppMessage: function (res) {
+		console.log(res, 5678);
+		const user_id = wx.getStorageSync('user_id');
+		// 页面转发
+		if (res.from === 'menu') {
+			return {
+				path: `/pages/home/home?pages=home&userid=${user_id}`,
+			};
+		}
 	},
 
 	initData: function () {
