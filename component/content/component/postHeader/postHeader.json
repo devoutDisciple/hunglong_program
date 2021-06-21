@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-      "attention-btn-person": "/component/attentionBtnPerson/attentionBtnPerson"
+      "attention-btn-person": "/component/attentionBtnPerson/attentionBtnPerson",
+      "user-level": "/component/userLevel/userLevel"
   }
 }

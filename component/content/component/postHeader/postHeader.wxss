@@ -31,7 +31,7 @@
     display: flex;
     flex-direction: row;
     height: 50rpx;
-    line-height: 50rpx;
+    align-items: center;
 }
 
 .desc_top_name {
@@ -49,9 +49,8 @@
 .desc_top_school {
     margin-left: 5rpx;
     max-width: 220rpx;
-    margin-top: 2rpx;
-    font-size: 12px;
-    color: #999999;
+    font-size: 24rpx;
+    color: #999;
     display: -webkit-box;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -61,14 +60,17 @@
 }
 
 .desc_top_level {
-    width: 50rpx;
+    display: flex;
+    align-items: center;
+    font-size: 20rpx;
+    color: #EF9A14;
 }
 
-.desc_top_level image {
-    width: 35rpx;
-    height: 35rpx;
-    margin-top: 4rpx;
+.level_img {
+    width: 36rpx;
+    height: 36rpx;
     margin-left: 5rpx;
+    margin-right: 5rpx;
 }
 
 .desc_btm {

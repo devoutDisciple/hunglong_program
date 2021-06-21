@@ -16,7 +16,7 @@
                 <image class="battle_team_title" src="/asserts/public/battle_red.png"/>
                 <view class="battle_img_con" data-team="red" bindtap="onChooseImg">
                     <image wx:if="{{redImgUrl}}" class="battle_img_temp" src="{{redImgUrl}}" />
-                    <image wx:else class="battle_img_icon" src="/asserts/public/plus2.png" />
+                    <image wx:else class="battle_img_icon" src="/asserts/public/plus_white.png" />
                 </view>
                 <view class="battle_name">
                     <van-field
@@ -38,7 +38,7 @@
                 <image class="battle_team_title" src="/asserts/public/battle_blue.png"/>
                 <view class="battle_img_con" data-team="blue" bindtap="onChooseImg">
                     <image wx:if="{{blueImgUrl}}" class="battle_img_temp" src="{{blueImgUrl}}" />
-                    <image wx:else class="battle_img_icon" src="/asserts/public/plus2.png" />
+                    <image wx:else class="battle_img_icon" src="/asserts/public/plus_white.png" />
                 </view>
                 <view class="battle_name">
                     <van-field

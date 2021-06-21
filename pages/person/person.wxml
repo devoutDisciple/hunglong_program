@@ -21,7 +21,8 @@
     </view>
     <view class="user">
         <view class="user_name">{{userDetail.username}}</view>
-        <image class="user_level" src="/asserts/public/vip1.png" />
+        <user-level userDetail="{{userDetail}}"/>
+        
     </view>
     <view class="sign">{{userDetail.sign}}</view>
     <view class="data">

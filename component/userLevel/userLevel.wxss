@@ -1,0 +1,14 @@
+.level {
+    display: flex;
+    align-items: center;
+    font-size: 20rpx;
+    color: #EF9A14;
+}
+
+.level_img {
+    height: 30rpx;
+    width: 30rpx;
+    margin-right: 3rpx;
+    margin-left: 5rpx;
+}
+

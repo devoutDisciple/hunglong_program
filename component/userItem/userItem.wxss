@@ -39,30 +39,6 @@
     -webkit-line-clamp: 1;
 }
 
-.user_msg_order {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.user_msg_order image {
-    width: 30rpx;
-    height: 30rpx;
-}
-
-.user_msg_level {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.user_msg_level_txt {
-    background: #fef9e9;
-    color: #f1a62e;
-    font-size: 20rpx;
-    padding: 0 5rpx;
-}
-
 .user_sign {
     height: 30rpx;
     margin-top: 10rpx;

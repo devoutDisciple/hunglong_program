@@ -7,7 +7,8 @@
 		"empty-img": "/component/emptyImg/emptyImg",
 		"my-img": "/component/img/img",
         "btm-tip": "/component/btmTip/btmTip",
-		"btm-empty": "/component/btmEmpty/btmEmpty"
+		"btm-empty": "/component/btmEmpty/btmEmpty",
+        "user-level": "/component/userLevel/userLevel"
 	},
 	"navigationStyle": "custom"
 }

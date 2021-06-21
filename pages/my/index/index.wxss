@@ -91,24 +91,6 @@
     color: #333;
 }
 
-.person_msg_name_level {
-    width: 80rpx;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.person_msg_name_level_img {
-    width: 30rpx;
-    height: 30rpx;
-}
-
-.person_msg_name_level_txt {
-    font-size: 18rpx;
-    color: #EF9A14;
-    margin-left: 10rpx;
-}
-
 .person_msg_sign {
     height: 60rpx;
     display: flex;

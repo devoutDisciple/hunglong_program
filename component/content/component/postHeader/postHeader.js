@@ -1,5 +1,5 @@
 import { filterContentTypeByField } from '../../../../utils/filter';
-import { post } from '../../../../utils/request';
+import getLevel from '../../../../utils/level';
 
 Component({
 	/**
@@ -28,6 +28,10 @@ Component({
 		user_id: '',
 		hadAttention: false, // 是否已经关注
 		routerUrl: '',
+		levelDetail: {
+			level: '小白 Ⅰ',
+			url: '/asserts/public/level1.png',
+		},
 	},
 
 	/**
@@ -49,10 +53,12 @@ Component({
 	lifetimes: {
 		attached: function () {
 			const txt = filterContentTypeByField(this.data.type);
+			const { integral } = this.data.userDetail;
+			const levelDetail = getLevel(integral);
 			const user_id = wx.getStorageSync('user_id');
 			const pages = getCurrentPages();
 			const currentPage = pages[pages.length - 1];
-			this.setData({ typeTxt: txt, user_id, routerUrl: currentPage.route });
+			this.setData({ typeTxt: txt, user_id, routerUrl: currentPage.route, levelDetail });
 		},
 	},
 });

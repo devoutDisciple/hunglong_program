@@ -21,10 +21,7 @@
                                 <view class="person_msg_name_user">{{userDetail.username}}</view>
                             </block>
                             <view class="person_msg_name_address">{{userDetail.school || "去完善学校信息"}}</view>
-                            <view class="person_msg_name_level">
-                                <image class="person_msg_name_level_img" src="/asserts/public/vip1.png"/>
-                                <text class="person_msg_name_level_txt">1级</text>
-                            </view>
+                            <user-level userDetail="{{userDetail}}"/>
                         </view>
                         <view class="person_msg_sign">
                             <view class="person_msg_sign_txt">

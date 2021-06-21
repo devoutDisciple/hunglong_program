@@ -1,0 +1,4 @@
+<view class="level">
+    <image class="level_img" src="{{levelDetail.url}}"  />
+    {{levelDetail.level}}
+</view>
