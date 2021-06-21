@@ -15,7 +15,16 @@ App({
 	},
 
 	onLaunch: async function (e) {
-		console.log(e, 111);
+		// 查看是否被转发进来的
+		if (e && e.query) {
+			const { from } = e.query;
+			if (String(from) === '2' || String(from) === '3' || String(from) === '4' || String(from) === '5') {
+				const { content_id, type } = e.query;
+				wx.navigateTo({
+					url: `/pages/detail/detail?content_id=${content_id}&type=${type}`,
+				});
+			}
+		}
 		// 统计各种信息
 		if (config.env === 'dev') {
 			this.getTotalMsg();

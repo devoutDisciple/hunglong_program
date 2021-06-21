@@ -1,8 +1,7 @@
 {
 	"navigationStyle": "custom",
 	"usingComponents": {
-        "message-item": "/component/personMsgItem/personMsgItem",
-        "user-level": "/component/userLevel/userLevel"
+        "message-item": "/component/personMsgItem/personMsgItem"
     },
     "enablePullDownRefresh": true
 }

@@ -23,7 +23,7 @@
                 <view class="hot_empty"></view>
             </scroll-view>
         </view>
-        <view class="hot">
+        <!-- <view class="hot">
             <view class="title title_btm">
                 <view class="title_left">
                     <view class="title_name">我关注的圈子</view>
@@ -56,7 +56,7 @@
             <block wx:else>
                 <empty-img />
             </block>
-        </view>
+        </view> -->
         <view class="empty_gray" />
         <view class="hot">
             <view class="title title_btm">
@@ -72,6 +72,18 @@
                     </block>
                 </van-tabs>
             </view>
+            <block wx:if="{{activeTab == 0}}">
+                <scroll-view class="tag" scroll-x="{{true}}" enable-flex="true">
+                    <block wx:for="{{schoolAddressList}}" wx:key="index">
+                        <view 
+                            bindtap="onSelectAddressTag"
+                            data-index="{{index}}"
+                            class="{{index === activeTagIdx ? 'tag_chunk tag_active_chunk' : 'tag_chunk'}}">
+                            {{item.city}}
+                        </view>
+                    </block>
+                </scroll-view>
+            </block>
             <view class="plate_wrap">
                 <block wx:if="{{recommendCircles && recommendCircles.length !== 0}}">
                     <block wx:for="{{recommendCircles}}" wx:key="id">

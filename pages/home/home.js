@@ -45,12 +45,19 @@ Page({
 	},
 
 	onShareAppMessage: function (res) {
-		console.log(res, 5678);
 		const user_id = wx.getStorageSync('user_id');
+		if (!login.isLogin() || !user_id) return;
 		// 页面转发
 		if (res.from === 'menu') {
 			return {
-				path: `/pages/home/home?pages=home&userid=${user_id}`,
+				path: `/pages/home/home?from=1&userid=${user_id}`,
+			};
+		}
+		// 按钮转发
+		if (res === 'button') {
+			const { contentid, type } = res.target.dataset;
+			return {
+				path: `/pages/home/home?from=2&userid=${user_id}&content_id=${contentid}&type=${type}`,
 			};
 		}
 	},

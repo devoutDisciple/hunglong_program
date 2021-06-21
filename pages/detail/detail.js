@@ -1,5 +1,6 @@
 import { get } from '../../utils/request';
 import loading from '../../utils/loading';
+import login from '../../utils/login';
 import { filterContentTypeByNum } from '../../utils/filter';
 
 Page({
@@ -8,15 +9,47 @@ Page({
 	 */
 	data: {
 		content_id: '',
+		type: 'posts',
 		detail: {
 			userDetail: {},
 		},
+	},
+
+	onShareAppMessage: function (res) {
+		const user_id = wx.getStorageSync('user_id');
+		if (!login.isLogin() || !user_id) return;
+		// 页面转发
+		if (res.from === 'menu') {
+			const { content_id, type } = this.data;
+			return {
+				path: `/pages/detail/detail?from=3&userid=${user_id}&content_id=${content_id}&type=${type}`,
+			};
+		}
+		const { name } = res.target.dataset;
+		// 帖子详情转发
+		if (name === 'CONTENT_SHARE') {
+			const { contentid, type } = res.target.dataset;
+			return {
+				path: `/pages/detail/detail?from=4&userid=${user_id}&content_id=${contentid}&type=${type}`,
+			};
+		}
+		// 评论转发
+		if (name === 'CONTENT_COMMENT') {
+			const { contentid, type } = res.target.dataset;
+			return {
+				path: `/pages/detail/detail?from=5&userid=${user_id}&content_id=${contentid}&type=${type}`,
+			};
+		}
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
 	onLoad: function (options) {
+		wx.showShareMenu({
+			withShareTicket: true,
+			menus: ['shareAppMessage'],
+		});
 		const { content_id, type } = options;
 		if (!content_id || !type) {
 			return wx.switchTab({

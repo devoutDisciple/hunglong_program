@@ -17,6 +17,10 @@ Component({
 	 */
 	data: {},
 
+	lifetimes: {
+		attached: function () {},
+	},
+
 	/**
 	 * 组件的方法列表
 	 */
@@ -24,6 +28,7 @@ Component({
 		// 点击转发
 		onTapShare: function () {
 			if (!login.isLogin()) return;
+			console.log(888);
 			this.triggerEvent('OnTapShare');
 		},
 		// 点击消息
@@ -54,9 +59,5 @@ Component({
 				data: { user_id, other_id, content_id: detail.id, goods_type: flag },
 			});
 		},
-	},
-
-	lifetimes: {
-		attached: function () {},
 	},
 });

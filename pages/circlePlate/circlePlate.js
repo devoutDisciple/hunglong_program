@@ -10,6 +10,8 @@ Page({
 		hotList: [], // 选取十个热度最高的圈子
 		myAttentions: [], // 我关注的圈子
 		recommendCircles: [], // 推荐圈子
+		schoolAddressList: [{ city: '全部' }],
+		activeTagIdx: 0, // 当前点击的tag
 	},
 
 	/**
@@ -26,6 +28,8 @@ Page({
 			this.getMyAttention();
 			// 获取当前模块下的所有圈子
 			this.getCirclesByPlate();
+			// 获取学校下的所有地区
+			this.getSchoolAddressList();
 		});
 	},
 
@@ -65,15 +69,36 @@ Page({
 	},
 
 	// 获取模块下的所有圈子 circlesByPlateId
-	getCirclesByPlate: async function () {
+	getCirclesByPlate: async function (city) {
 		loading.showLoading();
 		const user_id = wx.getStorageSync('user_id');
 		const { plate_id } = this.data;
-		get({ url: '/circle/circlesByPlateId', data: { plate_id, user_id } })
+		const data = { plate_id, user_id };
+		if (city) data.city = city;
+		get({ url: '/circle/circlesByPlateId', data: data })
 			.then((res) => {
 				this.setData({ recommendCircles: res || [] });
 			})
 			.finally(() => loading.hideLoading());
+	},
+
+	// 获取学校的所有地区
+	getSchoolAddressList: function () {
+		loading.showLoading();
+		get({ url: '/circle/circleAddressByCity' })
+			.then((res) => this.setData({ schoolAddressList: [{ city: '全部' }, ...res] || [{ city: '全部' }] }))
+			.finally(() => loading.hideLoading());
+	},
+
+	// 选择学校地区
+	onSelectAddressTag: function (e) {
+		loading.showLoading();
+		const { schoolAddressList } = this.data;
+		const { index } = e.currentTarget.dataset;
+		const { city } = schoolAddressList[index];
+		this.setData({ activeTagIdx: index }, () => {
+			this.getCirclesByPlate(city);
+		});
 	},
 
 	// 点击进入圈子详情

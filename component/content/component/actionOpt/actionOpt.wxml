@@ -2,6 +2,7 @@
     <view class="chunk" bindtap="onTapShare">
         <image src="/asserts/public/share.png" />
         {{detail.share}}
+        <button class="share_btn" data-contentid="{{detail.id}}" data-type="{{detail.type}}" open-type="share" />
     </view>
     <view class="chunk" bindtap="onTapMsg">
         <image src="/asserts/public/message.png" />

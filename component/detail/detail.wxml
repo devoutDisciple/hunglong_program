@@ -33,6 +33,7 @@
         <view class="footer_chunk">
             <image class="footer_img" src="/asserts/public/share.png"/>
             转发
+            <button class="share_btn" data-contentid="{{detail.id}}" data-type="{{detail.type}}" data-name="CONTENT_SHARE" open-type="share" />
         </view>
         <view class="footer_split" />
         <view class="footer_chunk" bindtap="onShowIptDialog">

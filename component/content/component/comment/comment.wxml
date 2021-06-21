@@ -20,6 +20,7 @@
              <view class="con_data_opt">
                 <view wx:if="{{type === 'content'}}" class="con_data_opt_chunk">
                     <image class="con_data_opt_chunk_img" src="/asserts/public/share.png" />
+                    <button class="share_btn" data-contentid="{{contentId}}" data-type="{{type}}" data-name="CONTENT_COMMENT" open-type="share" />
                 </view>
                 <view wx:if="{{type === 'content'}}" class="con_data_opt_chunk" bindtap="searchReply">
                     <image class="con_data_opt_chunk_img" src="/asserts/public/message.png" />{{detail.comment}}

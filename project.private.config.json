@@ -63,7 +63,7 @@
         {
           "name": "首页",
           "pathName": "pages/home/home",
-          "query": "pages=home&userid=18",
+          "query": "",
           "scene": 1007
         },
         {

@@ -65,6 +65,18 @@
                 <view class="title_desc">点击进入圈子</view>
             </view>
         </view>
+        <block wx:if="{{plate_id == 1}}">
+            <scroll-view class="tag" scroll-x="{{true}}" enable-flex="true">
+                <block wx:for="{{schoolAddressList}}" wx:key="index">
+                    <view 
+                        bindtap="onSelectAddressTag"
+                        data-index="{{index}}"
+                        class="{{index === activeTagIdx ? 'tag_chunk tag_active_chunk' : 'tag_chunk'}}">
+                        {{item.city}}
+                    </view>
+                </block>
+            </scroll-view>
+        </block>
         <view class="plate_wrap">
             <block wx:if="{{recommendCircles && recommendCircles.length !== 0}}">
                 <block wx:for="{{recommendCircles}}" wx:key="id">

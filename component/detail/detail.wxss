@@ -102,6 +102,16 @@
     align-items: center;
     font-size: 30rpx;
     color: #999;
+    position: relative;
+}
+
+.share_btn {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
 }
 
 .footer_chunk_img {

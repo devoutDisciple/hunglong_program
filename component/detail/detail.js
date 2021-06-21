@@ -79,7 +79,6 @@ Component({
 			detail.goods += flag ? 1 : -1;
 			detail.hadGoods = flag;
 			this.setData({ detail });
-			console.log(detail, 1112);
 			let other_id = '';
 			if (detail && detail.userDetail) {
 				other_id = detail.userDetail.id;
