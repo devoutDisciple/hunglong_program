@@ -127,11 +127,12 @@ Page({
 	getDeviceData: function () {
 		// 获取设备信息
 		util.getDeviceInfo().then((res) => {
+			console.log(res, 12312);
 			this.setData({
+				headerHight: `${res.headerHight}px`,
 				navHeight: `${res.navHeight}px`,
-				lineHeight: `${res.navHeight + 7}px`,
 				statusBarHeight: `${res.statusBarHeight}px`,
-				backIconHeight: `${(res.navHeight * 2) / 3}px`,
+				backIconHeight: `${res.navHeight / 2}px`,
 				backIconMarginTop: `${res.navHeight / 4}px`,
 			});
 		});

@@ -58,10 +58,6 @@
                         </view>
                     </block>
                 </scroll-view>
-                <!-- <view class="topic_icon" bindtap="cntOpen">
-                    <image class="topic_icon_img" wx:if="{{topicClass !== 'topic_open'}}" src="/asserts/public/arrow_top.png" />
-                    <image class="topic_icon_img" wx:else src="/asserts/public/arrow_btm.png" />
-                </view> -->
             </view>
         </van-sticky>
         <block wx:if="{{dataList && dataList.length !== 0}}">
@@ -71,6 +67,7 @@
                 <home-vote wx:if="{{item.type === 'vote'}}" detail="{{item}}" />
                 <home-battle wx:if="{{item.type === 'battle'}}" detail="{{item}}" />
                 <home-video wx:if="{{item.type === 'video'}}" detail="{{item}}" />
+                <home-post wx:if="{{item.type === 'img'}}" detail="{{item}}" />
             </block>
             <btm-tip />
         </block>

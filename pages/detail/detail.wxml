@@ -1,6 +1,6 @@
 <view class="wrap">
     <detail wx:if="{{detail.type}}" type="{{detail.type}}" detail="{{detail}}">
-        <block wx:if="{{detail.type === 'posts' || detail.type === 'blogs'}}">
+        <block wx:if="{{detail.type === 'posts' || detail.type === 'blogs' || detail.type === 'img'}}">
             <post-txt showAll="{{true}}" detail="{{detail.postsDetail}}" contentDetail="{{detail}}" type="{{detail.type}}"/>
             <post-img imgList="{{detail.postsDetail.img_urls}}" showAll="{{true}}"/>
         </block>

@@ -1,84 +1,121 @@
-<scroll-view scroll-y="{{true}}" class="wrap" lower-threshold="{{lowerThreshold}}" bindscrolltolower="onScrollBtm" >
+<view class="wrap">
     <view class="bg">
         <image class="bg_img" src="{{userDetail.bg_url}}"/>
     </view>
     <view class="header" style="{{'height: '+ navHeight + '; top: '+ statusBarHeight + '; line-height: '+ lineHeight}}">
         个人主页
         <image 
-            bindtap = "onGoback"
+            bindtap="onGoback"
             style="{{'height: '+backIconHeight+'; width: '+backIconHeight+'; top: '+backIconMarginTop+'; left: '+backIconMarginTop}}" 
             class="head_img" src="/asserts/public/back.png" />
     </view>
-    <view class="introduce">
-        <image class="intro_img" src="{{userDetail.photo}}"/>
-        <block wx:if="{{current_user_id != user_id}}">
-            <view bindtap = "onAttentionUser" wx:if="{{userDetail.hadAttention}}" class="concern_btn concern_active_btn">已关注</view>
-            <view bindtap = "onAttentionUser" wx:else class="concern_btn">关注</view>
-        </block>
-        <block wx:if="{{current_user_id != user_id}}">
-            <image class="intro_msg" bindtap="onTapMsg" src="/asserts/public/personMsg.png" />
-        </block>
-    </view>
-    <view class="user">
-        <view class="user_name">{{userDetail.username}}</view>
-        <user-level userDetail="{{userDetail}}"/>
+    <scroll-view 
+        lower-threshold="{{lowerThreshold}}" 
+        bindscrolltolower="onScrollBtm" 
+        class="con" 
+        style="{{'height:  calc(100vh - ' + headerHight + '); top:' + headerHight + ';' }}" 
+        scroll-y="{{true}}">
+        <view class="person_con">
+            <view class="introduce">
+                <image class="intro_img" src="{{userDetail.photo}}"/>
+                <block wx:if="{{current_user_id != user_id}}">
+                    <view bindtap = "onAttentionUser" wx:if="{{userDetail.hadAttention}}" class="concern_btn concern_active_btn">已关注</view>
+                    <view bindtap = "onAttentionUser" wx:else class="concern_btn">关注</view>
+                </block>
+                <block wx:if="{{current_user_id != user_id}}">
+                    <image class="intro_msg" bindtap="onTapMsg" src="/asserts/public/personMsg.png" />
+                </block>
+            </view>
+            <view class="user">
+                <view class="user_name">{{userDetail.username}}</view>
+                <user-level userDetail="{{userDetail}}"/>
+            </view>
+            <view class="sign">{{userDetail.sign}}</view>
+            <view class="data">
+                <view class="data_chunk">
+                    <text class="data_num">{{userDetail.goods || 0}}</text>
+                    <text class="data_txt">被赞</text>
+                </view>
+                <view class="data_split"/>
+                <view class="data_chunk">
+                    <text class="data_num">{{userDetail.fellow || 0}}</text>
+                    <text class="data_txt">关注</text>
+                </view>
+                <view class="data_split"/>
+                <view class="data_chunk">
+                    <text class="data_num">{{userDetail.fans || 0}}</text>
+                    <text class="data_txt">粉丝</text>
+                </view>
+            </view>
+        </view>
         
-    </view>
-    <view class="sign">{{userDetail.sign}}</view>
-    <view class="data">
-        <view class="data_chunk">
-            <text class="data_num">{{userDetail.goods || 0}}</text>
-            <text class="data_txt">被赞</text>
+        <view class="empty" />
+        <view class="tab">
+            <van-tabs line-width="20" bind:change="onChangeTab" ellipsis="{{false}}" active="{{ activeIdx }}">
+                <block wx:key="key" wx:for="{{tabList}}" >
+                    <van-tab title="{{item.value}}"/>
+                </block>
+            </van-tabs>
         </view>
-        <view class="data_split"/>
-        <view class="data_chunk">
-            <text class="data_num">{{userDetail.fellow || 0}}</text>
-            <text class="data_txt">关注</text>
-        </view>
-        <view class="data_split"/>
-        <view class="data_chunk">
-            <text class="data_num">{{userDetail.fans || 0}}</text>
-            <text class="data_txt">粉丝</text>
-        </view>
-    </view>
-    <view class="empty" />
-    <view class="tab">
-        <van-tabs line-width="20" bind:change="onChangeTab" ellipsis="{{false}}" active="{{ activeIdx }}">
-            <block wx:key="key" wx:for="{{tabList}}" >
-                <van-tab title="{{item.value}}"/>
-            </block>
-        </van-tabs>
-    </view>
-    <block wx:if="{{activeIdx === 0}}">
-        <view class="posts">
-            <block wx:if="{{txtObj && (txtObj.threeDays.length !== 0 || txtObj.monthDays.length !== 0 || txtObj.longago.length !== 0)}}">
-                <block wx:if="{{txtObj.threeDays && txtObj.threeDays.length !== 0}}">
+        <block wx:if="{{activeIdx === 0}}">
+            <view class="posts">
+                <block wx:if="{{txtObj && (txtObj.threeDays.length !== 0 || txtObj.monthDays.length !== 0 || txtObj.longago.length !== 0)}}">
+                    <block wx:if="{{txtObj.threeDays && txtObj.threeDays.length !== 0}}">
+                        <view class="time_split">三天内</view>
+                        <block wx:for="{{txtObj.threeDays}}" wx:key="id">
+                            <home-post wx:if="{{item.type === 'posts' || item.type === 'img' || item.type === 'blogs'}}" detail="{{item}}"/>
+                            <home-vote wx:if="{{item.type === 'vote'}}" detail="{{item}}" />
+                            <home-battle wx:if="{{item.type === 'battle'}}" detail="{{item}}" />
+                            <home-video wx:if="{{item.type === 'video'}}" detail="{{item}}" />
+                        </block>
+                    </block>
+                    <block wx:if="{{txtObj.monthDays && txtObj.monthDays.length !== 0}}">
+                        <view class="time_split">一月内</view>
+                        <block wx:for="{{txtObj.monthDays}}" wx:key="id">
+                            <home-post wx:if="{{item.type === 'posts' || item.type === 'img' || item.type === 'blogs'}}" detail="{{item}}"/>
+                            <home-vote wx:if="{{item.type === 'vote'}}" detail="{{item}}" />
+                            <home-battle wx:if="{{item.type === 'battle'}}" detail="{{item}}" />
+                            <home-video wx:if="{{item.type === 'video'}}" detail="{{item}}" />
+                        </block>
+                    </block>
+                    <block wx:if="{{txtObj.longago && txtObj.longago.length !== 0}}">
+                        <view class="time_split">一月以前</view>
+                        <block wx:for="{{txtObj.longago}}" wx:key="id">
+                            <home-post wx:if="{{item.type === 'posts' || item.type === 'img' || item.type === 'blogs'}}" detail="{{item}}"/>
+                            <home-vote wx:if="{{item.type === 'vote'}}" detail="{{item}}" />
+                            <home-battle wx:if="{{item.type === 'battle'}}" detail="{{item}}" />
+                            <home-video wx:if="{{item.type === 'video'}}" detail="{{item}}" />
+                        </block>
+                    </block>
+                    <view class="btm_tip">
+                        <btm-tip />
+                    </view>
+                </block>
+                <block wx:else>
+                    <view class="empty_img">
+                        <empty-img />
+                    </view>
+                </block>
+            </view>
+        </block>
+        
+        <view class="posts" wx:if="{{activeIdx === 1}}">
+            <block wx:if="{{videoObj && (videoObj.threeDays.length !== 0 || videoObj.monthDays.length !== 0 || videoObj.longago.length !== 0)}}">
+                <block wx:if="{{videoObj.threeDays && videoObj.threeDays.length !== 0}}">
                     <view class="time_split">三天内</view>
-                    <block wx:for="{{txtObj.threeDays}}" wx:key="id">
-                        <home-post wx:if="{{item.type === 'posts'}}" detail="{{item}}"/>
-                        <home-post wx:if="{{item.type === 'blogs'}}" detail="{{item}}"/>
-                        <home-vote wx:if="{{item.type === 'vote'}}" detail="{{item}}" />
-                        <home-battle wx:if="{{item.type === 'battle'}}" detail="{{item}}" />
+                    <block wx:for="{{videoObj.threeDays}}" wx:key="id">
                         <home-video wx:if="{{item.type === 'video'}}" detail="{{item}}" />
                     </block>
                 </block>
-                <block wx:if="{{txtObj.monthDays && txtObj.monthDays.length !== 0}}">
+                <block wx:if="{{videoObj.monthDays && videoObj.monthDays.length !== 0}}">
                     <view class="time_split">一月内</view>
-                    <block wx:for="{{txtObj.monthDays}}" wx:key="id">
-                        <home-post wx:if="{{item.type === 'posts'}}" detail="{{item}}"/>
-                        <home-post wx:if="{{item.type === 'blogs'}}" detail="{{item}}"/>
-                        <home-vote wx:if="{{item.type === 'vote'}}" detail="{{item}}" />
-                        <home-battle wx:if="{{item.type === 'battle'}}" detail="{{item}}" />
+                    <block wx:for="{{videoObj.monthDays}}" wx:key="id">
                         <home-video wx:if="{{item.type === 'video'}}" detail="{{item}}" />
                     </block>
                 </block>
-                <block wx:if="{{txtObj.longago && txtObj.longago.length !== 0}}">
+                <block wx:if="{{videoObj.longago && videoObj.longago.length !== 0}}">
                     <view class="time_split">一月以前</view>
-                    <block wx:for="{{txtObj.longago}}" wx:key="id">
-                        <home-post wx:if="{{item.type === 'posts'}}" detail="{{item}}"/>
-                        <home-post wx:if="{{item.type === 'blogs'}}" detail="{{item}}"/>
-                        <home-vote wx:if="{{item.type === 'vote'}}" detail="{{item}}" />
-                        <home-battle wx:if="{{item.type === 'battle'}}" detail="{{item}}" />
+                    <block wx:for="{{videoObj.longago}}" wx:key="id">
                         <home-video wx:if="{{item.type === 'video'}}" detail="{{item}}" />
                     </block>
                 </block>
@@ -92,78 +129,47 @@
                 </view>
             </block>
         </view>
-    </block>
-    
-    <view class="posts" wx:if="{{activeIdx === 1}}">
-        <block wx:if="{{videoObj && (videoObj.threeDays.length !== 0 || videoObj.monthDays.length !== 0 || videoObj.longago.length !== 0)}}">
-            <block wx:if="{{videoObj.threeDays && videoObj.threeDays.length !== 0}}">
-                <view class="time_split">三天内</view>
-                <block wx:for="{{videoObj.threeDays}}" wx:key="id">
-                    <home-video wx:if="{{item.type === 'video'}}" detail="{{item}}" />
-                </block>
-            </block>
-            <block wx:if="{{videoObj.monthDays && videoObj.monthDays.length !== 0}}">
-                <view class="time_split">一月内</view>
-                <block wx:for="{{videoObj.monthDays}}" wx:key="id">
-                    <home-video wx:if="{{item.type === 'video'}}" detail="{{item}}" />
-                </block>
-            </block>
-            <block wx:if="{{videoObj.longago && videoObj.longago.length !== 0}}">
-                <view class="time_split">一月以前</view>
-                <block wx:for="{{videoObj.longago}}" wx:key="id">
-                    <home-video wx:if="{{item.type === 'video'}}" detail="{{item}}" />
-                </block>
-            </block>
-            <view class="btm_tip">
-                <btm-tip />
-            </view>
-        </block>
-        <block wx:else>
-            <view class="empty_img">
-                <empty-img />
-            </view>
-        </block>
-    </view>
 
-    <view class="posts" wx:if="{{activeIdx === 2}}">
-        <view class="today_img" wx:if="{{current_user_id === user_id}}">
-            <view class="today_img_date">今天</view>
-            <view class="today_imgupload" bindtap="onUploadImg">
-                <view class="camera_container">
-                    <image class="camera_img" src="/asserts/public/camera.png" />
-                    <view class="camera_txt">上传图片</view>
+        <view class="posts" wx:if="{{activeIdx === 2}}">
+            <view class="today_img" wx:if="{{current_user_id === user_id}}">
+                <view class="today_img_date">今天</view>
+                <view class="today_imgupload" bindtap="onUploadImg">
+                    <view class="camera_container">
+                        <image class="camera_img" src="/asserts/public/camera.png" />
+                        <view class="camera_txt">上传图片</view>
+                    </view>
                 </view>
             </view>
-        </view>
-        <view class="empty" wx:if="{{current_user_id === user_id}}"/>
-        <view class="img_title">全部照片</view>
-        <block wx:if="{{albumsList && albumsList.lenght !== 0}}">
-            <block wx:for="{{albumsList}}" wx:key="time">
-                <view class="img_chunk">
-                    <view class="img_date">
-                        <view class="img_date_month">{{item.showMonth}}</view>
-                        <view class="img_date_year">{{item.showYear}}</view>
-                    </view>
-                    <view class="img_wrap">
-                        <block wx:if="{{item.imgs && item.imgs.length !== 0}}">
-                            <block wx:for="{{item.imgs}}" wx:for-item="img" wx:for-index="idx" wx:key="idx">
-                                <view class="img_item">
-                                    <my-img data="{{img}}"/>
-                                </view>
+            <view class="empty" wx:if="{{current_user_id === user_id}}"/>
+            <view class="img_title">全部照片</view>
+            <block wx:if="{{albumsList && albumsList.lenght !== 0}}">
+                <block wx:for="{{albumsList}}" wx:key="time">
+                    <view class="img_chunk">
+                        <view class="img_date">
+                            <view class="img_date_month">{{item.showMonth}}</view>
+                            <view class="img_date_year">{{item.showYear}}</view>
+                        </view>
+                        <view class="img_wrap">
+                            <block wx:if="{{item.imgs && item.imgs.length !== 0}}">
+                                <block wx:for="{{item.imgs}}" wx:for-item="img" wx:for-index="idx" wx:key="idx">
+                                    <view class="img_item">
+                                        <my-img data="{{img}}"/>
+                                    </view>
+                                </block>
                             </block>
-                        </block>
+                        </view>
                     </view>
+                </block>
+                <view class="btm_tip">
+                    <btm-tip />
                 </view>
             </block>
-            <view class="btm_tip">
-                <btm-tip />
-            </view>
-        </block>
-        <block wx:else>
-            <view class="empty_img">
-                <empty-img />
-            </view>
-        </block>
-    </view>
-    <btm-empty />
-</scroll-view>
+            <block wx:else>
+                <view class="empty_img">
+                    <empty-img />
+                </view>
+            </block>
+        </view>
+        <btm-empty />
+    </scroll-view>
+</view>

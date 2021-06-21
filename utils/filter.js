@@ -16,6 +16,9 @@ const filterContentTypeByTxt = (type) => {
 		case 5:
 			txt = '视频';
 			break;
+		case 6:
+			txt = '图片';
+			break;
 		default:
 			break;
 	}
@@ -40,6 +43,9 @@ const filterContentTypeByField = (type) => {
 		case 'video':
 			txt = '视频';
 			break;
+		case 'img':
+			txt = '图片';
+			break;
 		default:
 			break;
 	}
@@ -63,6 +69,9 @@ const filterContentTypeByNum = (type) => {
 			break;
 		case 5:
 			txt = 'video';
+			break;
+		case 6:
+			txt = 'img';
 			break;
 		default:
 			break;

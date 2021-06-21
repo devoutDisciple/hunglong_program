@@ -65,8 +65,7 @@
         <view class="posts">
             <block wx:if="{{dataList && dataList.length !==0}}">
                 <block wx:for="{{dataList}}" wx:key="id">
-                    <home-post wx:if="{{item.type === 'posts'}}" detail="{{item}}"/>
-                    <home-post wx:if="{{item.type === 'blogs'}}" detail="{{item}}"/>
+                    <home-post wx:if="{{item.type === 'posts' || item.type === 'img' || item.type === 'blogs'}}" detail="{{item}}"/>
                     <home-vote wx:if="{{item.type === 'vote'}}" detail="{{item}}" />
                     <home-battle wx:if="{{item.type === 'battle'}}" detail="{{item}}" />
                     <home-video wx:if="{{item.type === 'video'}}" detail="{{item}}" />

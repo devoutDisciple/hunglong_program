@@ -30,6 +30,11 @@ Page({
 					title: '发布博客',
 				});
 			}
+			if (options.type === 'img') {
+				wx.setNavigationBarTitle({
+					title: '发布图片',
+				});
+			}
 		}
 		this.setData({ type: options.type });
 		// 获取学校圈子
@@ -185,6 +190,10 @@ Page({
 		if (selectCirIds.length > 2) return this.showErrorToast('最多两个圈子');
 		if (topicIds.length > 2) return this.showErrorToast('最多两个话题');
 		const user_id = wx.getStorageSync('user_id');
+		let postType = 1;
+		if (type === 'posts') postType = 1;
+		if (type === 'blogs') postType = 2;
+		if (type === 'img') postType = 6;
 		post({
 			url: '/posts/addPostsOrBlogs',
 			data: {
@@ -196,7 +205,7 @@ Page({
 				circle_names: selectCirNames,
 				topic_ids: topicIds,
 				topic_names: topicNames,
-				type: type === 'posts' ? 1 : 2,
+				type: postType,
 			},
 		})
 			.then((res) => {
@@ -205,11 +214,11 @@ Page({
 						title: '发布成功',
 						icon: 'success',
 					});
-					setTimeout(() => {
-						wx.navigateBack({
-							complete: () => {},
-						});
-					}, 500);
+					// setTimeout(() => {
+					// 	wx.navigateBack({
+					// 		complete: () => {},
+					// 	});
+					// }, 500);
 				}
 			})
 			.finally(() => loading.hideLoading());
