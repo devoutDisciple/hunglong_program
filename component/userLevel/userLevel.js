@@ -24,6 +24,8 @@ Component({
 	lifetimes: {
 		attached: function () {
 			const { userDetail } = this.data;
+			console.log(userDetail, 333);
+
 			if (userDetail && userDetail.integral) {
 				const levelDetail = getLevel(userDetail.integral);
 				this.setData({ levelDetail });

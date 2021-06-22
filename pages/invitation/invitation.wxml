@@ -1,0 +1,63 @@
+<view class="wrap">
+    <view class="header" style="{{'height: '+ navHeight + '; top: '+ statusBarHeight + '; line-height: '+ lineHeight}}">
+        <image 
+            bindtap="onGoback"
+            style="{{'height: '+backIconHeight+'; width: '+backIconHeight+'; top: '+backIconMarginTop+'; left: '+backIconMarginTop}}" 
+            class="head_img" src="/asserts/public/back.png" />
+    </view>
+    <scroll-view 
+        class="con" 
+        enable-flex
+        scroll-y="{{true}}">
+        <image class="bg_img" src="/asserts/public/invitation.png" />
+        <view class="container" style="margin-top: {{headerHight}}">
+            <view class="title">封神榜</view>
+            <view class="sort">
+                <view class="sort_chunk">
+                    <image class="photo photo_1" src="/asserts/public/logo.png" />
+                    <image class="sort_chunk_img" src="/asserts/public/invitation_two.png" mode="widthFix"/>
+                    <view class="sort_desc1">
+                        <view class="sort_name">第二名</view>
+                        <view class="sort_level">
+                            <user-level userDetail="{{userDetail}}"/>
+                        </view>
+                    </view>
+                </view>
+                <view class="sort_chunk">
+                    <image class="photo photo_2" src="/asserts/public/logo.png" />
+                    <image class="sort_chunk_img" src="/asserts/public/invitation_one.png" mode="widthFix"/>
+                    <view class="sort_desc2">
+                        <view class="sort_name">第一名</view>
+                        <view class="sort_level">
+                            <user-level userDetail="{{userDetail}}"/>
+                        </view>
+                    </view>
+                </view>
+                <view class="sort_chunk">
+                    <image class="photo photo_3" src="/asserts/public/logo.png" />
+                    <image class="sort_chunk_img" src="/asserts/public/invitation_three.png" mode="widthFix"/>
+                    <view class="sort_desc3">
+                        <view class="sort_name">第三名</view>
+                        <view class="sort_level">
+                            <user-level userDetail="{{userDetail}}"/>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="progress">
+                <view class="progress_dot">
+                    <view class="progress_dot_chunk" />
+                    <view class="progress_dot_chunk" />
+                    <view class="progress_dot_chunk" />
+                    <view class="progress_dot_chunk" />
+                    <view class="progress_dot_chunk" />
+                    <view class="progress_dot_chunk" />
+                </view>
+                <view class="process_level">
+                    <view class="process_modal"></view>
+                </view>
+            </view>
+        </view>
+        <view class="footer">32131</view>
+    </scroll-view>
+</view>

@@ -245,6 +245,12 @@
           "pathName": "pages/selCircle/selCircle",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "邀请榜",
+          "pathName": "pages/invitation/invitation",
+          "query": "",
+          "scene": null
         }
       ]
     }

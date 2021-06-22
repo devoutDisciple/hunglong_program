@@ -1,0 +1,6 @@
+{
+	"usingComponents": {
+        "user-level": "/component/userLevel/userLevel"
+    },
+	"navigationStyle": "custom"
+}

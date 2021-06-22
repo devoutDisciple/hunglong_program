@@ -7,7 +7,7 @@
             <view class="desc_top">
                 <view class="desc_top_name">{{userDetail.username}}</view>
                 <view class="desc_top_school">{{userDetail.school}}</view>
-                <user-level />
+                <user-level userDetail="{{userDetail}}"/>
             </view>
             <view class="desc_btm">
                 <view class="desc_btm_time">{{createTime}}</view>

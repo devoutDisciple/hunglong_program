@@ -5,7 +5,7 @@
     <view class="user_desc">
         <view class="user_msg">
             <view class="user_msg_name">{{detail.userDetail.username}}</view>
-            <user-level userDetail="{{userDetail.level}}"/>
+            <user-level userDetail="{{userDetail}}"/>
         </view>
         <block wx:if="{{showTime}}">
             <view class="user_sign">{{time}} {{showType}}</view>

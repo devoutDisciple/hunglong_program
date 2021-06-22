@@ -35,7 +35,8 @@
     "pages/myGoodsRecord/myGoodsRecord",
     "pages/commendRecord/commendRecord",
     "pages/goodsRecord/goodsRecord",
-    "pages/selCircle/selCircle"
+    "pages/selCircle/selCircle",
+    "pages/invitation/invitation"
   ],
   "window": {
     "backgroundTextStyle": "light",
