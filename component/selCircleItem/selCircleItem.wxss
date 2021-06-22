@@ -1,0 +1,86 @@
+.circle {
+    min-height: 90rpx;
+    padding: 0 20rpx;
+}
+
+.title {
+    display: flex;
+    height: 50rpx;
+    margin-top: 20rpx;
+}
+
+.title_name {
+    flex: 1;
+}
+
+.title_name .title_name_desc {
+    font-size: 30rpx;
+    color: #3e3e3e;
+}
+
+.title_name_add {
+    font-size: 24rpx;
+    color: #aaa;
+    margin-left: 20rpx;
+}
+
+.title_manager {
+    width: 200rpx;
+    font-size: 24rpx;
+    padding-left: 20rpx;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+
+.title_manager .title_mg_back {
+    font-size: 20rpx;
+    color: #FE406D;
+}
+
+.title_mg_back_all {
+    font-size: 24rpx;
+    color: #FE406D;
+}
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.con_item {
+    padding: 15rpx 30rpx;
+    border: 1rpx dashed #e5e5e5;
+    border-radius: 70rpx;
+    margin-top: 20rpx;
+    margin-right: 15rpx;
+    position: relative;
+    font-size: 28rpx;
+    color: #333333;
+}
+
+.con_item_icon {
+    position: absolute;
+    width: 30rpx;
+    height: 30rpx;
+    top: -13rpx;
+    right: -4rpx;
+}
+
+.con_my_item {
+    background: #ededed;
+    border: none;
+}
+
+.empty_con {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 20rpx 0;
+}
+
+.empty {
+    height: 250rpx;
+    width: 250rpx;
+}

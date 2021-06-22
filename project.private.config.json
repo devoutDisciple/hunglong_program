@@ -239,6 +239,12 @@
           "pathName": "pages/myGoodsRecord/myGoodsRecord",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "选择展示圈子",
+          "pathName": "pages/selCircle/selCircle",
+          "query": "",
+          "scene": null
         }
       ]
     }

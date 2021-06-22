@@ -1,0 +1,23 @@
+<view class="container">
+    <view class="circle" >
+        <scroll-view class="circle_scroll" scroll-y>
+            <circle-item 
+                type="my" 
+                title="快捷栏" 
+                status="{{status}}" 
+                data="{{showCircles}}" 
+                bindremoveCircle="removeCircle"
+                bindtapManage="onClickManage"/>
+            <circle-item 
+                type="circle"
+                title="我关注的圈子" 
+                data="{{myCircles}}" 
+                status="{{status}}"
+                bindaddCircle="onAddCircle" />
+            <btm-empty></btm-empty>
+        </scroll-view>
+    </view>
+    <view class="circle_btm">
+        <van-button bindtap="onSave" custom-class="circle_btm_btn" type="default">保存</van-button>
+    </view>
+</view>

@@ -1,0 +1,39 @@
+<view class="circle">
+    <view class="title">
+        <view class="title_name">
+            <text class="title_name_desc">{{title}}</text>
+            <block wx:if="{{type === 'my'}}">
+                <text class="title_name_add">最多选择6个</text>
+            </block>
+            <block wx:else>
+                <text class="title_name_add">点击添加</text>
+            </block>
+        </view>
+        <view class="title_manager">
+            <block wx:if="{{type === 'my'}}">
+                <text wx:if="{{status === 'new'}}" class="title_mg_back_all" bindtap="onClickManage" data-item="{{item}}">点击管理</text>
+                <text wx:else class="title_mg_back_all" bindtap="onClickManage" data-item="{{item}}">取消</text>
+            </block>
+        </view>
+    </view>
+    <view class="content">
+        <block wx:if="{{showCircles && showCircles.length !== 0}}">
+            <block wx:for="{{showCircles}}" wx:key="index">
+                <view class="{{type === 'circle' ? 'con_item' : 'con_item con_my_item'}}">
+                    {{item.name}}
+                    <block wx:if="{{status === 'edit' && type === 'my' && item.self_school !== 1}}">
+                        <image bindtap="onRemoveCircle" data-circle="{{item}}" class="con_item_icon" src="/asserts/public/close.png"/>
+                    </block>
+                    <block wx:if="{{status === 'edit' && type === 'circle'}}">
+                        <image bindtap="onAddCircle" data-circle="{{item}}" class="con_item_icon" src="/asserts/public/add.png"/>
+                    </block>
+                </view>
+            </block>
+        </block>
+        <block wx:else>
+            <view class="empty_con">
+                <image class="empty" src="/asserts/public/empty.png" />
+            </view>
+        </block>
+    </view>
+</view>

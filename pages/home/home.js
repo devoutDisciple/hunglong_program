@@ -136,7 +136,7 @@ Page({
 			() => {
 				setTimeout(() => {
 					this.setData({ activeTab: 1 });
-				}, 100);
+				}, 1000);
 			},
 		);
 	},
@@ -238,7 +238,7 @@ Page({
 	// 点击加号
 	onTapAddCircle: function () {
 		wx.navigateTo({
-			url: '/pages/sctCircle/sctCircle',
+			url: '/pages/selCircle/selCircle',
 		});
 	},
 

@@ -1,0 +1,7 @@
+{
+    "usingComponents": {
+        "circle-item": "/component/selCircleItem/selCircleItem",
+        "btm-empty": "/component/btmEmpty/btmEmpty"
+    },
+    "navigationBarTitleText": "选择圈子"
+  }
