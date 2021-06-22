@@ -214,11 +214,11 @@ Page({
 						title: '发布成功',
 						icon: 'success',
 					});
-					// setTimeout(() => {
-					// 	wx.navigateBack({
-					// 		complete: () => {},
-					// 	});
-					// }, 500);
+					setTimeout(() => {
+						wx.navigateBack({
+							complete: () => {},
+						});
+					}, 500);
 				}
 			})
 			.finally(() => loading.hideLoading());

@@ -61,12 +61,14 @@
     width: 140rpx;
     border-radius: 140rpx;
     position: absolute;
-    left: 20rpx;
+    left: 0;
     top: -50rpx;
 }
 
 .concern_btn {
-    padding: 8rpx 27rpx;
+    padding: 0 27rpx;
+    height: 66rpx;
+    line-height: 66rpx;
     text-align: center;
     border: 1rpx solid #999999;
     border-radius: 50rpx;
@@ -74,15 +76,19 @@
 }
 
 .concern_active_btn {
-    padding: 10rpx 29rpx;
+    padding: 0 29rpx;
+    height: 68rpx;
+    line-height: 68rpx;
     background: #ededed;
     color: #969696;
     border: none;
 }
 
 .intro_msg {
-    width: 60rpx;
-    height: 60rpx;
+    width: 68rpx;
+    height: 68rpx;
+    border: 1rpx solid #999;
+    border-radius: 100%;
     margin-right: 20rpx;
 }
 

@@ -23,8 +23,8 @@
             <view class="send" bindtap = "onSendMsg">发送</view>
         </view>
         <view wx:if="{{focus}}" class="icon">
-            <image class="icon_img" src="/asserts/public/img.png" />
-            <image bindtap = "onShowEmoji" class="icon_img" src="/asserts/public/emoji.png" />
+            <image bindtap="onSelectImg" class="icon_img" src="/asserts/public/img.png" />
+            <image bindtap="onShowEmoji" class="icon_img" src="/asserts/public/emoji.png" />
         </view>
         <scroll-view scroll-y="{{true}}" enable-flex wx:if="{{showEmoji}}" class="emoji">
             <block wx:for="{{emojis}}" wx:key="index">

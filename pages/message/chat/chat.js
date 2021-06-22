@@ -1,5 +1,7 @@
 import emoji from '../../../config/emoji';
-import { post, get } from '../../../utils/request';
+import { post, get, uploadFile } from '../../../utils/request';
+import loading from '../../../utils/loading';
+// eslint-disable-next-line import/named
 import { formatTime, getMsgShowTime, getDiffTime } from '../../../utils/util';
 
 Page({
@@ -83,6 +85,44 @@ Page({
 	// 键盘失焦事件
 	onInputBlur: function () {
 		this.setData({ focus: false });
+	},
+
+	// 选择图片
+	onSelectImg: function () {
+		const self = this;
+		wx.chooseImage({
+			count: 9,
+			sizeType: ['original', 'compressed'],
+			sourceType: ['album', 'camera'],
+			success: async (res) => {
+				// tempFilePath可以作为img标签的src属性显示图片
+				if (res.errMsg === 'chooseImage:ok') {
+					const { tempFilePaths } = res;
+					if (tempFilePaths && tempFilePaths.length !== 0) {
+						let len = tempFilePaths.length;
+						loading.showLoading();
+						const result = [];
+						while (len > 0) {
+							len -= 1;
+							// eslint-disable-next-line no-await-in-loop
+							const imgDetail = await uploadFile({
+								url: '/message/uploadImg',
+								data: tempFilePaths[len],
+							});
+							result.push(imgDetail);
+						}
+						console.log(result, 34322);
+						loading.hideLoading();
+					}
+				}
+			},
+			fail: function () {
+				wx.showToast({
+					title: '请重新选择',
+					icon: 'error',
+				});
+			},
+		});
 	},
 
 	// 展示emoji
