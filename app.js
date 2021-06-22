@@ -68,13 +68,17 @@ App({
 			const { data } = res;
 			data.forEach((item) => {
 				const currentMsg = msgData.filter((msg) => item.user_id === msg.person_id)[0];
+				let { content } = item;
+				if (item.type === 2) {
+					content = JSON.parse(item.content);
+				}
 				if (currentMsg) {
 					currentMsg.noread = Number(currentMsg.noread) + 1;
 					currentMsg.msg.push({
-						content: item.content,
+						content: content,
 						from: 2,
 						time: item.create_time,
-						type: 1,
+						type: item.type,
 					});
 				} else {
 					msgData.push({
@@ -84,10 +88,10 @@ App({
 						noread: 1,
 						msg: [
 							{
-								content: item.content,
+								content: content,
 								from: 2,
 								time: item.create_time,
-								type: 1,
+								type: item.type,
 							},
 						],
 					});

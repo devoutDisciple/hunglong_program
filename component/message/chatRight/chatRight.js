@@ -23,5 +23,7 @@ Component({
 	 */
 	methods: {},
 
-	lifetimes: {},
+	lifetimes: {
+		attached: function () {},
+	},
 });

@@ -9,7 +9,7 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
-		orginData: [], // 全部的消息记录
+		originData: [], // 全部的消息记录
 		user_detail: {}, // 当前用户的基本信息
 		person_detail: {}, // 当前聊天的用户信息
 		msg: [], // 消息记录
@@ -31,10 +31,10 @@ Page({
 			});
 		}
 		this.getUserMsg();
-		let orginData = wx.getStorageSync('msg_data');
-		orginData = JSON.parse(orginData);
-		if (Array.isArray(orginData)) {
-			const nowData = orginData.filter((item) => String(item.person_id) === String(person_id))[0];
+		let originData = wx.getStorageSync('msg_data');
+		originData = JSON.parse(originData);
+		if (Array.isArray(originData)) {
+			const nowData = originData.filter((item) => String(item.person_id) === String(person_id))[0];
 			if (!nowData) return;
 			const { msg } = nowData;
 			wx.setNavigationBarTitle({
@@ -43,6 +43,7 @@ Page({
 			if (Array.isArray(msg)) {
 				let time = formatTime(new Date());
 				msg.forEach((item) => {
+					// 如果是图片
 					// 如果时间间隔大于30分钟
 					if (getDiffTime(time, item.time) > 30) {
 						item.showTime = getMsgShowTime(item.time);
@@ -52,7 +53,7 @@ Page({
 			}
 			this.setData(
 				{
-					orginData,
+					originData,
 					msg: msg || [],
 					person_detail: {
 						person_id: nowData.person_id,
@@ -111,7 +112,38 @@ Page({
 							});
 							result.push(imgDetail);
 						}
-						console.log(result, 34322);
+						const { originData, msg } = self.data;
+						result.forEach((item) => {
+							const newMsg = {
+								content: item,
+								from: 1,
+								time: formatTime(new Date()),
+								type: 2,
+							};
+							if (Array.isArray(msg)) {
+								msg.push(newMsg);
+								let time = formatTime(new Date());
+								msg.forEach((ms) => {
+									// 如果时间间隔大于30分钟
+									if (getDiffTime(time, ms.time) > 30) {
+										ms.showTime = getMsgShowTime(ms.time);
+										time = ms.time;
+									}
+								});
+							}
+							self.setData({ msg, msgTxt: '' }, () => {
+								// 滚动到底部
+								self.setData({ scrollBtmId: `item_${msg.length}` });
+								// 存储消息
+								wx.setStorage({
+									data: JSON.stringify(originData),
+									key: 'msg_data',
+								});
+								// 文字
+								self.postMessage(JSON.stringify(item), 2);
+							});
+						});
+
 						loading.hideLoading();
 					}
 				}
@@ -144,26 +176,28 @@ Page({
 	},
 
 	// 保存消息到服务端
-	postMessage: function (msgTxt) {
+	postMessage: function (msgTxt, type) {
 		const user_id = wx.getStorageSync('user_id');
 		const { person_detail, user_detail } = this.data;
 		const { person_id } = person_detail;
-		console.log(user_detail, 1123);
 		const { username, photo } = user_detail;
-		post({ url: '/message/addMsg', data: { user_id, person_id, username, user_photo: photo, content: msgTxt } });
+		post({
+			url: '/message/addMsg',
+			data: { user_id, person_id, username, user_photo: photo, content: msgTxt, type },
+		});
 	},
 
 	// 点击发送
 	onSendMsg: function () {
-		const { orginData, msgTxt, msg } = this.data;
+		const { originData, msgTxt, msg } = this.data;
 		const newMsg = {
 			content: msgTxt,
 			from: 1,
 			time: formatTime(new Date()),
 			type: 1,
 		};
-		msg.push(newMsg);
 		if (Array.isArray(msg)) {
+			msg.push(newMsg);
 			let time = formatTime(new Date());
 			msg.forEach((item) => {
 				// 如果时间间隔大于30分钟
@@ -178,10 +212,11 @@ Page({
 			this.setData({ scrollBtmId: `item_${msg.length}` });
 			// 存储消息
 			wx.setStorage({
-				data: JSON.stringify(orginData),
+				data: JSON.stringify(originData),
 				key: 'msg_data',
 			});
-			this.postMessage(msgTxt);
+			// 文字
+			this.postMessage(msgTxt, 1);
 		});
 	},
 });

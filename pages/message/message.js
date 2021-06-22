@@ -23,9 +23,9 @@ Page({
 	setStoreageMsg: function () {
 		const data = [];
 		data.push({
-			person_id: 9, // 发送信息的人
-			person_name: '张振', // 发送信息人的名字
-			person_photo: 'http://localhost:8888/photo/6LPH9ZEBX891R5J5-1618900313345.png', // 发送信息人的头像
+			person_id: 17, // 发送信息的人
+			person_name: '测试账号2', // 发送信息人的名字
+			person_photo: 'http://localhost:8888/photo/D9SXV44EL168JNDW-1623772814994.png', // 发送信息人的头像
 			unread: 0, // 未读信息数量
 			msg: [], // 具体信息
 		});
@@ -41,7 +41,11 @@ Page({
 				msgData.forEach((item) => {
 					if (Array.isArray(item.msg) && item.msg.length !== 0) {
 						const lastMsg = item.msg[item.msg.length - 1];
-						item.lastMsgTxt = lastMsg.content || '';
+						if (typeof lastMsg.content === 'string') {
+							item.lastMsgTxt = lastMsg.content || '';
+						} else {
+							item.lastMsgTxt = '[图片]';
+						}
 						item.lastMsgTime = util.getMsgShowTime(lastMsg.time);
 						item.lastMsgRelTime = lastMsg.time;
 					}

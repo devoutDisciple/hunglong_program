@@ -1,4 +1,6 @@
 {
   "component": true,
-  "usingComponents": {}
+  "usingComponents": {
+      "msg-img": "/component/message/msgImg/msgImg"
+  }
 }
