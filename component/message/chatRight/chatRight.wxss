@@ -43,3 +43,7 @@
     border-radius: 15rpx 0rpx 15rpx 15rpx;
     background: linear-gradient(to right, #fa5484, #fba5d2);
 }
+
+.my_img {
+    margin-right: 20rpx;
+}

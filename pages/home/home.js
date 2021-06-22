@@ -156,6 +156,21 @@ Page({
 		const res = await get({ url: '/content/recomment', data: { user_id, current, activeCircleId } });
 		res.forEach((item) => {
 			item.type = filterContentTypeByNum(item.type);
+			if (item.type === 'posts' || item.type === 'blogs' || item.type === 'img') {
+				if (item.postsDetail && Array.isArray(item.postsDetail.img_urls)) {
+					const imgList = item.postsDetail.img_urls;
+					const len = imgList.length;
+					const remain = len % 3;
+					let newImgList = imgList;
+					if (remain === 1) {
+						newImgList = imgList.concat([{ empty: true }, { empty: true }]);
+					}
+					if (remain === 2) {
+						newImgList = imgList.concat([{ empty: true }]);
+					}
+					item.postsDetail.img_urls = newImgList;
+				}
+			}
 		});
 		const newList = [...dataList, ...res];
 		this.setData({ dataList: newList, current: current + 1, loading: false }, () => {
@@ -192,6 +207,21 @@ Page({
 		const res = await get({ url: '/content/userAttentionContents', data: { user_id } });
 		res.forEach((item) => {
 			item.type = filterContentTypeByNum(item.type);
+			if (item.type === 'posts' || item.type === 'blogs' || item.type === 'img') {
+				if (item.postsDetail && Array.isArray(item.postsDetail.img_urls)) {
+					const imgList = item.postsDetail.img_urls;
+					const len = imgList.length;
+					const remain = len % 3;
+					let newImgList = imgList;
+					if (remain === 1) {
+						newImgList = imgList.concat([{ empty: true }, { empty: true }]);
+					}
+					if (remain === 2) {
+						newImgList = imgList.concat([{ empty: true }]);
+					}
+					item.postsDetail.img_urls = newImgList;
+				}
+			}
 		});
 		const newList = [...dataList, ...res];
 		this.setData({ dataList: newList, current: current + 1, isLoading: false }, () => {

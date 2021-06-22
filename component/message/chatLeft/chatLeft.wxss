@@ -35,3 +35,7 @@
     color: #333;
     border-radius: 0rpx 15rpx 15rpx 15rpx;
 }
+
+.my_img {
+    margin-left: 20rpx;
+}

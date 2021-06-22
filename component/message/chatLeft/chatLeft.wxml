@@ -8,7 +8,7 @@
             <view class="con_txt">{{msg.content}}</view>
         </block>
         <block wx:if="{{msg.type === 2}}">
-            <msg-img data="{{msg.content}}"/>
+            <msg-img class="my_img" data="{{msg.content}}"/>
         </block>
     </view>
 </view>
