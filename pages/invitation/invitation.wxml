@@ -14,7 +14,7 @@
             <view class="title"><image class="title_img" src="/asserts/public/invi_top_title.png" /></view>
             <view class="sort">
                 <view class="sort_chunk">
-                    <image class="photo photo_1" src="/asserts/public/logo.png" />
+                    <image class="photo photo_1" src="{{users[1].photo}}" />
                     <image class="sort_chunk_img" src="/asserts/public/invitation_two.png" mode="widthFix"/>
                     <view class="sort_desc1">
                         <view class="sort_name">第二名</view>
@@ -24,7 +24,7 @@
                     </view>
                 </view>
                 <view class="sort_chunk">
-                    <image class="photo photo_2" src="/asserts/public/logo.png" />
+                    <image class="photo photo_2" src="{{users[0].photo}}" />
                     <image class="sort_chunk_img" src="/asserts/public/invitation_one.png" mode="widthFix"/>
                     <view class="sort_desc2">
                         <view class="sort_name">第一名</view>
@@ -34,7 +34,7 @@
                     </view>
                 </view>
                 <view class="sort_chunk">
-                    <image class="photo photo_3" src="/asserts/public/logo.png" />
+                    <image class="photo photo_3" src="{{users[2].photo}}" />
                     <image class="sort_chunk_img" src="/asserts/public/invitation_three.png" mode="widthFix"/>
                     <view class="sort_desc3">
                         <view class="sort_name">第三名</view>

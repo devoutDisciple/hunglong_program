@@ -1,10 +1,12 @@
 import util from '../../utils/util';
+import { get } from '../../utils/request';
 
 Page({
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
+		users: [],
 		navHeight: '40px',
 		lineHeight: '47px',
 		statusBarHeight: '26px',
@@ -19,6 +21,10 @@ Page({
 	onLoad: function () {
 		// 获取设备信息
 		this.getDeviceData();
+		get({ url: '/user/mostIntegral' }).then((res) => {
+			console.log(res, 1111);
+			this.setData({ users: res || [] });
+		});
 	},
 
 	// 获取设备信息
@@ -63,7 +69,6 @@ Page({
 	},
 
 	onGoback: function () {
-		console.log(1111);
 		wx.navigateBack({
 			complete: () => {},
 		});
