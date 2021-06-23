@@ -155,6 +155,9 @@ Page({
 		wx.showToast({
 			title: '提交成功',
 		});
+		wx.navigateBack({
+			complete: (res) => {},
+		});
 	},
 
 	/**

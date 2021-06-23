@@ -12,9 +12,7 @@
         </picker>
     </message-item>
     <message-item label="教师资格证" value="{{credential}}" key="credential" bindclick="itemClick" type="txt"/>
-    <view class="img">
-        <image class="img_credent" wx:if="{{credentialImg}}" src="{{credentialImg}}" mode="widthFix"/>
-    </view>
+    <image class="img_credent" wx:if="{{credentialImg}}" src="{{credentialImg}}" mode="widthFix"/>
     <van-button custom-class="next_btn" type="primary" bind:click="onClickNext" block color="#fff">
         提交审核
     </van-button>
