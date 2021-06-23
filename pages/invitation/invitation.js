@@ -16,7 +16,7 @@ Page({
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function (options) {
+	onLoad: function () {
 		// 获取设备信息
 		this.getDeviceData();
 	},
@@ -35,6 +35,33 @@ Page({
 		});
 	},
 
+	// 点击去完成
+	onTapBtn: function (e) {
+		const { key } = e.currentTarget.dataset;
+		const user_id = wx.getStorageSync('user_id');
+		if (!user_id) return;
+		if (key === 'content') {
+			wx.navigateTo({
+				url: '/pages/publish/posts/posts',
+			});
+		}
+		if (key === 'photo') {
+			wx.navigateTo({
+				url: `/pages/person/person?user_id=${user_id}`,
+			});
+		}
+		if (key === 'home') {
+			wx.navigateTo({
+				url: `/pages/my/personMsg/personMsg?user_id=${user_id}`,
+			});
+		}
+		if (key === 'interact') {
+			wx.navigateTo({
+				url: `/pages/home/home`,
+			});
+		}
+	},
+
 	/**
 	 * 页面相关事件处理函数--监听用户下拉动作
 	 */
@@ -48,5 +75,10 @@ Page({
 	/**
 	 * 用户点击右上角分享
 	 */
-	onShareAppMessage: function () {},
+	onShareAppMessage: function () {
+		const user_id = wx.getStorageSync('user_id');
+		return {
+			path: `/pages/invitation/invitation?from=6&userid=${user_id}`,
+		};
+	},
 });

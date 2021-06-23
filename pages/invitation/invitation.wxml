@@ -75,55 +75,56 @@
                         <view class="invi_chunk_con_desc">这里是内容</view>
                     </view>
                     <view class="invi_chunk_btn">
-                        <view class="invi_chunk_btn_con">去完成</view>
+                        <button class="share_btn" open-type="share" />
+                        <view class="invi_chunk_btn_con" data-key="user" bindtap="onTapBtn">去完成</view>
                     </view>
                 </view>
                 <view class="invi_chunk">
                     <view class="invi_chunk_icon">
-                        <image class="invi_chunk_icon_img" src="/asserts/public/invi_user.png" />
+                        <image class="invi_chunk_icon_img" src="/asserts/public/invi_con.png" />
                     </view>
                     <view class="invi_chunk_con">
-                        <view class="invi_chunk_con_title">邀请好友</view>
+                        <view class="invi_chunk_con_title">上传内容</view>
                         <view class="invi_chunk_con_desc">这里是内容</view>
                     </view>
                     <view class="invi_chunk_btn">
-                        <view class="invi_chunk_btn_con">去完成</view>
+                        <view class="invi_chunk_btn_con" data-key="content" bindtap="onTapBtn">去完成</view>
                     </view>
                 </view>
                 <view class="invi_chunk">
                     <view class="invi_chunk_icon">
-                        <image class="invi_chunk_icon_img" src="/asserts/public/invi_user.png" />
+                        <image class="invi_chunk_icon_img" src="/asserts/public/invi_photo.png" />
                     </view>
                     <view class="invi_chunk_con">
-                        <view class="invi_chunk_con_title">邀请好友</view>
+                        <view class="invi_chunk_con_title">相册照片</view>
                         <view class="invi_chunk_con_desc">这里是内容</view>
                     </view>
                     <view class="invi_chunk_btn">
-                        <view class="invi_chunk_btn_con">去完成</view>
+                        <view class="invi_chunk_btn_con" data-key="photo" bindtap="onTapBtn">去完成</view>
                     </view>
                 </view>
                 <view class="invi_chunk">
                     <view class="invi_chunk_icon">
-                        <image class="invi_chunk_icon_img" src="/asserts/public/invi_user.png" />
+                        <image class="invi_chunk_icon_img" src="/asserts/public/invi_home.png" />
                     </view>
                     <view class="invi_chunk_con">
-                        <view class="invi_chunk_con_title">邀请好友</view>
+                        <view class="invi_chunk_con_title">更换主页</view>
                         <view class="invi_chunk_con_desc">这里是内容</view>
                     </view>
                     <view class="invi_chunk_btn">
-                        <view class="invi_chunk_btn_con">去完成</view>
+                        <view class="invi_chunk_btn_con" data-key="home" bindtap="onTapBtn">去完成</view>
                     </view>
                 </view>
                 <view class="invi_chunk">
                     <view class="invi_chunk_icon">
-                        <image class="invi_chunk_icon_img" src="/asserts/public/invi_user.png" />
+                        <image class="invi_chunk_icon_img" src="/asserts/public/invi_msg.png" />
                     </view>
                     <view class="invi_chunk_con">
-                        <view class="invi_chunk_con_title">邀请好友</view>
+                        <view class="invi_chunk_con_title">互动数</view>
                         <view class="invi_chunk_con_desc">这里是内容</view>
                     </view>
                     <view class="invi_chunk_btn">
-                        <view class="invi_chunk_btn_con">去完成</view>
+                        <view class="invi_chunk_btn_con" data-key="interact" bindtap="onTapBtn">去完成</view>
                     </view>
                 </view>
             </view>
