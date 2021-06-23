@@ -54,7 +54,6 @@ Component({
 	methods: {
 		click: function (e) {
 			const { key } = e.currentTarget.dataset;
-			console.log(key, 111);
 			this.triggerEvent('click', key);
 		},
 	},

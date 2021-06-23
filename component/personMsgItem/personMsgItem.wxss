@@ -36,8 +36,10 @@
 
 .msg_icon {
     width: 50rpx;
-    text-align: right;
     color: #acacac;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 
 .msg_icon image {

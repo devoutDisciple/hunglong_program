@@ -251,6 +251,12 @@
           "pathName": "pages/invitation/invitation",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "实名认证",
+          "pathName": "pages/approve/appreove",
+          "query": "",
+          "scene": null
         }
       ]
     }

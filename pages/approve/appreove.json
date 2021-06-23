@@ -1,0 +1,7 @@
+{
+	"usingComponents": {
+		"message-item": "/component/personMsgItem/personMsgItem",
+		"ipt-dialog": "/component/iptDialog/iptDialog"
+	},
+	"navigationBarTitleText": "教师实名认证"
+}

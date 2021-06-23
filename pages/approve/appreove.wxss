@@ -1,0 +1,32 @@
+.container {
+    height: 100vh;
+    width: 100vw;
+    background: #eeeeee;
+    padding-bottom: 50rpx;
+}
+
+.next_btn {
+    font-size: 30rpx;
+    color: #FE406D !important;
+    margin-top: 80rpx;
+}
+
+.sign {
+    width: 100%;
+    overflow: hidden;
+    text-align: right;
+}
+
+.sign_content {
+    width: 400rpx;
+    display: inline-block;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.img_credent {
+    width: 100%;
+    margin-top: 40rpx;
+}
