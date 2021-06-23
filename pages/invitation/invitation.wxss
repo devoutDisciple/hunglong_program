@@ -37,6 +37,7 @@
     min-height: 100vh;
     position: relative;
     display: flex;
+    z-index: -1;
     flex-direction: column;
 }
 

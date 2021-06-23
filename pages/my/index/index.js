@@ -167,6 +167,16 @@ Page({
 				url: `/pages/my/personMsg/personMsg?user_id=${user_id}`,
 			});
 		}
+		if (detail === 'invitation') {
+			wx.navigateTo({
+				url: `/pages/invitation/invitation`,
+			});
+		}
+		if (detail === 'approve') {
+			wx.navigateTo({
+				url: `/pages/approve/approve`,
+			});
+		}
 		if (detail === 'password') {
 			wx.navigateTo({
 				url: '/pages/login/updatePass/updatePass',

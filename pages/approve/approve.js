@@ -1,4 +1,4 @@
-// pages/approve/appreove.js
+// pages/approve/approve.js
 Page({
 	/**
 	 * 页面的初始数据

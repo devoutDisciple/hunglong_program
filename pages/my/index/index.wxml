@@ -82,6 +82,8 @@
             <view class="setting">
                 <message-item label="账户资料" value="" key="account" bindclick="itemClick" type="txt"/>
                 <message-item label="修改密码" value="" key="password" bindclick="itemClick" type="txt"/>
+                <message-item label="分享排行" value="" key="invitation" bindclick="itemClick" type="txt"/>
+                <message-item label="教师实名认证" value="" key="approve" bindclick="itemClick" type="txt"/>
                 <message-item label="反馈信息" value="" key="msg" bindclick="itemClick" type="txt"/>
                 <message-item label="关于我们" value="" key="about" bindclick="itemClick" type="txt"/>
             </view>
