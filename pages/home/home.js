@@ -134,9 +134,9 @@ Page({
 				circleList: [{ id: 'attention', name: '关注' }, { id: 'recommend', name: '广场' }, ...res],
 			},
 			() => {
-				setTimeout(() => {
+				this.setData({ activeTab: 0 }, () => {
 					this.setData({ activeTab: 1 });
-				}, 1000);
+				});
 			},
 		);
 	},
@@ -237,6 +237,7 @@ Page({
 
 	// 点击加号
 	onTapAddCircle: function () {
+		if (!login.isLogin()) return;
 		wx.navigateTo({
 			url: '/pages/selCircle/selCircle',
 		});
