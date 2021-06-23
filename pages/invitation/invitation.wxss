@@ -40,6 +40,12 @@
     flex-direction: column;
 }
 
+.con ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
 .container {
     padding: 20rpx;
     padding-top: 10rpx;
@@ -57,6 +63,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.title_img {
+    width: 318rpx;
+    height: 96rpx;
 }
 
 .sort {
@@ -139,6 +150,7 @@
 }
 
 .progress_dot {
+    padding: 0 10rpx;
     height: 20rpx;
     display: flex;
     justify-content: space-between;
@@ -152,10 +164,10 @@
 }
 
 .process_level {
-    height: 20rpx;
+    height: 10rpx;
     margin-top: 10rpx;
     background-image: linear-gradient(90deg, rgba(255,255,255,0.14) 45%, rgba(255,255,255,0.32) 100%);
-    border-radius: 20rpx;
+    border-radius: 10rpx;
     position: relative;
 }
 
@@ -166,5 +178,114 @@
     height: 100%;
     left: 0;
     top: 0;
+    border-radius: 10rpx;
+}
+
+.level {
+    margin-top: 15rpx;
+    height: 30rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.level_chunk {
+    font-size: 22rpx;
+    color: #fff;
+}
+
+.invitation {
+    margin-top: 30rpx;
+    padding: 40rpx;
+    background: #fff;
     border-radius: 20rpx;
+}
+
+.invi_chunk {
+    height: 80rpx;
+    display: flex;
+    margin-bottom: 50rpx;
+}
+
+.invi_chunk:last-child {
+    margin-bottom: 0;
+}
+
+.invi_chunk_icon {
+    width: 80rpx;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.invi_chunk_icon_img {
+    height: 66rpx;
+    width: 59rpx;
+}
+
+.invi_chunk_con {
+    flex: 1;
+}
+
+.invi_chunk_con_title {
+    height: 40rpx;
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+    color: #333;
+}
+
+.invi_chunk_con_desc {
+    height: 40rpx;
+    display: flex;
+    align-items: center;
+    font-size: 24rpx;
+    color: #999;
+}
+
+.invi_chunk_btn {
+    width: 130rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.invi_chunk_btn_con {
+    width: 130rpx;
+    height: 66rpx;
+    font-size: 28rpx;
+    background: #f66497;
+    color: #fff;
+    border-radius: 66rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.intro {
+    background: #f65f93;
+    padding: 20rpx;
+    padding-top: 10rpx;
+}
+
+.intro_con {
+    background: #fff;
+    border-radius: 20rpx;
+    padding: 30rpx 20rpx;
+}
+
+.intro_title {
+    font-size: 30rpx;
+    color: #333;
+    margin-bottom: 10rpx;
+}
+
+.intro_desc {
+    font-size: 24rpx;
+    color: #999;
+    margin-bottom: 5rpx;
+}
+
+.intro_desc:last-child {
+    margin-bottom: 0;
 }
