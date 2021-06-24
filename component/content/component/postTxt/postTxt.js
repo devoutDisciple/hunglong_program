@@ -31,17 +31,26 @@ Component({
 	 */
 	data: {
 		topicTxt: '',
+		isDetail: false, // 是否是详情页
+		type: 'posts', // 默认是帖子页面
 	},
 
 	lifetimes: {
 		attached: function () {
-			const { contentDetail } = this.data;
+			const pages = getCurrentPages();
+			const currentPage = pages[pages.length - 1];
+			let flag = false;
+			if (currentPage.route === 'pages/detail/detail') {
+				flag = true;
+			}
+			console.log(flag, 5678);
+			const { contentDetail, type } = this.data;
 			let topicTxt = '';
 			if (contentDetail && contentDetail.topic_names && Array.isArray(contentDetail.topic_names)) {
 				const { topic_names } = contentDetail;
 				topicTxt = topic_names.join(' ');
 			}
-			this.setData({ topicTxt });
+			this.setData({ topicTxt, type, isDetail: flag });
 		},
 	},
 

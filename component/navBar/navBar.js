@@ -28,7 +28,8 @@ Component({
 	methods: {
 		// input输入改变
 		onChange: function (e) {
-			const value = e.detail;
+			const { value } = e.detail;
+			console.log(value, 900);
 			this.setData({ value });
 			this.triggerEvent('OnChange', { value });
 		},
@@ -49,7 +50,6 @@ Component({
 
 		// 返回
 		onGoback: function () {
-			console.log(111);
 			wx.navigateBack({
 				complete: () => {},
 			});

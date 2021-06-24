@@ -80,6 +80,7 @@ Page({
 		loading.showLoading();
 		const user_id = wx.getStorageSync('user_id');
 		const { keywords } = this.data;
+		console.log(keywords, 3333);
 		get({ url: '/search/txtContents', data: { keywords, user_id } })
 			.then((res) => {
 				res.forEach((item) => {
@@ -165,6 +166,7 @@ Page({
 		if (!keywords) return;
 		// 帖子博客
 		if (index === 0) {
+			console.log(2222);
 			this.getTxtContents(index);
 		}
 		// 投票

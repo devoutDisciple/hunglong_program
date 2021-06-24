@@ -28,7 +28,14 @@
                     bind:confirm="onConfirm"
                 /> -->
                 <image class="nav_ipt_search" src="/asserts/public/search.png" style="height: {{conHegiht / 2 - 2}}px; width: {{conHegiht / 2 - 2}}px"/>
-                <input placeholder-style="font-size: 24rpx;" class="nav_ipt_container" placeholder="搜索" style="height: {{conHegiht - 2}}px"/>
+                <input 
+                    value="{{ value }}"
+                    placeholder-style="font-size: 24rpx;" 
+                    bindconfirm="onConfirm" 
+                    class="nav_ipt_container" 
+                    placeholder="搜索" 
+                    bindinput="onChange"
+                    style="height: {{conHegiht - 2}}px"/>
             </view> 
         </view>
         <view class="nav_empty" style="width:{{disWidth}}px"></view>     
