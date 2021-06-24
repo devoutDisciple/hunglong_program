@@ -18,6 +18,7 @@
         <view class="person_con">
             <view class="introduce">
                 <image class="intro_img" src="{{userDetail.photo}}"/>
+                <view class="school"></view>
                 <block wx:if="{{current_user_id != user_id}}">
                     <view bindtap = "onAttentionUser" wx:if="{{userDetail.hadAttention}}" class="concern_btn concern_active_btn">已关注</view>
                     <view bindtap = "onAttentionUser" wx:else class="concern_btn">关注</view>

@@ -25,13 +25,14 @@ Component({
 	 * 组件的方法列表
 	 */
 	methods: {
-		onTapBtn: function () {
+		onTapBtn: async function () {
 			this.setData({ active: !this.data.active });
 			const { circleId } = this.data;
 			if (!login.isLogin()) return;
 			const user_id = wx.getStorageSync('user_id');
 			// 关注或取消关注圈子
-			post({ url: '/circle/attentionCircleByUser', data: { user_id, circle_id: circleId } });
+			const res = await post({ url: '/circle/attentionCircleByUser', data: { user_id, circle_id: circleId } });
+			if (!res) return;
 			this.triggerEvent('OnTap');
 		},
 	},

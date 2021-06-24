@@ -14,8 +14,8 @@
     bottom: 40rpx;
     border-radius: 20rpx;
     color: #ffffff;
-    padding: 28rpx 20rpx;
-    font-size: 26rpx;
+    padding: 40rpx;
+    font-size: 30rpx;
 }
 
 .publish_active {
@@ -28,7 +28,7 @@
 
 .publish_item {
     height: 93rpx;
-    width: 160rpx;
+    width: 175rpx;
     display: flex;
     align-items: center;
 }

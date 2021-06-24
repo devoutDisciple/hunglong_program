@@ -1,4 +1,5 @@
 {
+    "component": true,
 	"usingComponents": {
 		"posts-detail": "/component/detail/detail",
 		"post-txt": "/component/content/component/postTxt/postTxt",

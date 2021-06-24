@@ -1,4 +1,4 @@
-<view class="my">
+<scroll-view scroll-y="{{true}}" enable-flex class="my">
     <view class="title">
         <image class="title_bg" src="/asserts/public/my_bg.png" />
         <view class="title_con" style="padding-top: {{headerHight}}px">
@@ -57,7 +57,7 @@
             </view>
         </view>
     </view>
-    <scroll-view class="content" scroll-y="{{true}}">
+    <view class="content">
         <view class="container">
             <block wx:if="{{viewRecords && viewRecords.length !== 0}}">
                 <view class="viewer">
@@ -88,6 +88,6 @@
                 <message-item label="关于我们" value="" key="about" bindclick="itemClick" type="txt"/>
             </view>
         </view>
-        
-    </scroll-view>
-</view>
+    </view>
+    <view class="empty"/>
+</scroll-view>

@@ -134,8 +134,10 @@ Page({
 				circleList: [{ id: 'attention', name: '关注' }, { id: 'recommend', name: '广场' }, ...res],
 			},
 			() => {
-				this.setData({ activeTab: 0 }, () => {
-					this.setData({ activeTab: 1 });
+				this.setData({ activeTab: 0, current: -1 }, () => {
+					setTimeout(() => {
+						this.setData({ activeTab: 1, current: 1 });
+					}, 0);
 				});
 			},
 		);
@@ -152,23 +154,27 @@ Page({
 		// 1-需要loading 2-不需要
 		if (flag === 1) loading.showLoading();
 		const { current, dataList, activeCircleId } = this.data;
+		if (current === -1) return;
 		const user_id = wx.getStorageSync('user_id');
 		const res = await get({ url: '/content/recomment', data: { user_id, current, activeCircleId } });
 		res.forEach((item) => {
 			item.type = filterContentTypeByNum(item.type);
 			if (item.type === 'posts' || item.type === 'blogs' || item.type === 'img') {
-				if (item.postsDetail && Array.isArray(item.postsDetail.img_urls)) {
-					const imgList = item.postsDetail.img_urls;
-					const len = imgList.length;
-					const remain = len % 3;
-					let newImgList = imgList;
-					if (remain === 1) {
-						newImgList = imgList.concat([{ empty: true }, { empty: true }]);
+				if (item.postsDetail) {
+					const { img_urls } = item.postsDetail;
+					if (Array.isArray(img_urls) && img_urls.length > 2) {
+						const imgList = item.postsDetail.img_urls;
+						const len = imgList.length;
+						const remain = len % 3;
+						let newImgList = imgList;
+						if (remain === 1) {
+							newImgList = imgList.concat([{ empty: true }, { empty: true }]);
+						}
+						if (remain === 2) {
+							newImgList = imgList.concat([{ empty: true }]);
+						}
+						item.postsDetail.img_urls = newImgList;
 					}
-					if (remain === 2) {
-						newImgList = imgList.concat([{ empty: true }]);
-					}
-					item.postsDetail.img_urls = newImgList;
 				}
 			}
 		});
@@ -184,17 +190,20 @@ Page({
 		const { circleList } = this.data;
 		const { id } = circleList[index];
 		// 重置选择的话题id
-		this.setData({ activeTopicId: '', topicList: [], activeCircleId: id, dataList: [], current: 1 }, () => {
-			// 根据圈子id获取话题
-			this.getTopicByCircleId(id);
-			// 选择关注或者广场 attention-关注 recommend-广场
-			if (id === 'attention') {
-				this.getAttentionContents(1);
-			} else {
-				// 获取圈子内容
-				this.getContentsByCircleId(1);
-			}
-		});
+		this.setData(
+			{ activeTab: index, activeTopicId: '', topicList: [], activeCircleId: id, dataList: [], current: 1 },
+			() => {
+				// 根据圈子id获取话题
+				this.getTopicByCircleId(id);
+				// 选择关注或者广场 attention-关注 recommend-广场
+				if (id === 'attention') {
+					this.getAttentionContents(1);
+				} else {
+					// 获取圈子内容
+					this.getContentsByCircleId(1);
+				}
+			},
+		);
 	},
 
 	// 获取关注的人发布的内容
@@ -204,22 +213,25 @@ Page({
 		const user_id = wx.getStorageSync('user_id');
 		if (!login.isLogin() || !user_id) return;
 		const { current, dataList } = this.data;
-		const res = await get({ url: '/content/userAttentionContents', data: { user_id } });
+		const res = await get({ url: '/content/userAttentionContents', data: { user_id, current } });
 		res.forEach((item) => {
 			item.type = filterContentTypeByNum(item.type);
 			if (item.type === 'posts' || item.type === 'blogs' || item.type === 'img') {
-				if (item.postsDetail && Array.isArray(item.postsDetail.img_urls)) {
-					const imgList = item.postsDetail.img_urls;
-					const len = imgList.length;
-					const remain = len % 3;
-					let newImgList = imgList;
-					if (remain === 1) {
-						newImgList = imgList.concat([{ empty: true }, { empty: true }]);
+				if (item.postsDetail) {
+					const { img_urls } = item.postsDetail;
+					if (Array.isArray(img_urls) && img_urls.length > 2) {
+						const imgList = item.postsDetail.img_urls;
+						const len = imgList.length;
+						const remain = len % 3;
+						let newImgList = imgList;
+						if (remain === 1) {
+							newImgList = imgList.concat([{ empty: true }, { empty: true }]);
+						}
+						if (remain === 2) {
+							newImgList = imgList.concat([{ empty: true }]);
+						}
+						item.postsDetail.img_urls = newImgList;
 					}
-					if (remain === 2) {
-						newImgList = imgList.concat([{ empty: true }]);
-					}
-					item.postsDetail.img_urls = newImgList;
 				}
 			}
 		});

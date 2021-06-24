@@ -1,13 +1,17 @@
 .my {
     height: 100vh;
-    display: flex;
-    flex-direction: column;
     font-size: 30rpx;
     color: #333;
 }
 
+.my ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+}
+
 .title {
-    height: 65vw;
+    height: 70vw;
     position: relative;
 }
 
@@ -153,7 +157,6 @@
 }
 
 .content {
-    flex: 1;
     background: #eee;
 }
 
@@ -240,4 +243,8 @@
     font-size: 28rpx;
     margin-top: 40rpx;
     width: calc(100vw - 40rpx);
+}
+
+.empty {
+    height: 50rpx;
 }

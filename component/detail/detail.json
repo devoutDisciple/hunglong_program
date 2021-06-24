@@ -1,12 +1,13 @@
 {
-  "usingComponents": {
-    "post-header": "/component/content/component/postHeader/postHeader",
-    "post-txt": "/component/content/component/postTxt/postTxt",
-    "post-img": "/component/content/component/postImg/postImg",
-    "btm-empty": "/component/btmEmpty/btmEmpty",
-    "comment": "/component/content/component/comment/comment",
-    "reply-ipt": "/component/content/component/replyIpt/replyIpt",
-    "post-topic": "/component/content/component/postTopic/postTopic",
-    "empty-image": "/component/emptyImg/emptyImg"
-  }
+	"component": true,
+	"usingComponents": {
+		"post-header": "/component/content/component/postHeader/postHeader",
+		"post-txt": "/component/content/component/postTxt/postTxt",
+		"post-img": "/component/content/component/postImg/postImg",
+		"btm-empty": "/component/btmEmpty/btmEmpty",
+		"comment": "/component/content/component/comment/comment",
+		"reply-ipt": "/component/content/component/replyIpt/replyIpt",
+		"post-topic": "/component/content/component/postTopic/postTopic",
+		"empty-image": "/component/emptyImg/emptyImg"
+	}
 }

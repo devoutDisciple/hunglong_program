@@ -45,14 +45,22 @@ App({
 		const msgsNum = await this.getMyMessage();
 		let totalNum = (Number(goodsNum) + Number(commnsNum) + Number(msgsNum)).toFixed(0);
 		totalNum = totalNum > 99 ? '99+' : totalNum;
+		// const pages = getCurrentPages();
+		// const currentPage = pages[pages.length - 1];
 		if (String(totalNum) !== '0') {
 			wx.setTabBarBadge({
 				index: 2,
 				text: String(totalNum),
+				fail: (err) => {
+					console.log(err);
+				},
 			});
 		} else {
 			wx.removeTabBarBadge({
 				index: 2,
+				fail: (err) => {
+					console.log(err);
+				},
 			});
 		}
 	},

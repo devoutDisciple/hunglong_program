@@ -55,7 +55,12 @@ Component({
 	methods: {
 		// 展示emoji
 		onShowEmoji: function () {
-			this.setData({ showEmoji: !this.data.showEmoji });
+			const { showEmoji } = this.data;
+			if (!showEmoji) {
+				this.setData({ showEmoji: true, focus: true });
+			} else {
+				this.setData({ showEmoji: false, focus: false });
+			}
 		},
 		// 点击emoji
 		onClickEmoji: function (e) {
@@ -68,14 +73,15 @@ Component({
 			this.setData({ focus: false });
 		},
 		// 聚焦的时候
-		onFocus: function (e) {
-			console.log(e, 1111);
-			this.setData({ focus: true });
+		onFocus: function () {
+			this.setData({ focus: true, showEmoji: false });
+		},
+		// 点击输入框
+		onTapIpt: function () {
+			this.setData({ focus: true, showEmoji: false });
 		},
 		// 键盘高度发生改变
-		keyboardheightchange: function (e) {
-			console.log(e, 1111);
-		},
+		keyboardheightchange: function () {},
 		// 关闭的时候
 		onClose: function () {
 			this.triggerEvent('OnClose');
