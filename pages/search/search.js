@@ -80,7 +80,6 @@ Page({
 		loading.showLoading();
 		const user_id = wx.getStorageSync('user_id');
 		const { keywords } = this.data;
-		console.log(keywords, 3333);
 		get({ url: '/search/txtContents', data: { keywords, user_id } })
 			.then((res) => {
 				res.forEach((item) => {

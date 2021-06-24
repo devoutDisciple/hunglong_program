@@ -43,7 +43,6 @@ Component({
 			if (currentPage.route === 'pages/detail/detail') {
 				flag = true;
 			}
-			console.log(flag, 5678);
 			const { contentDetail, type } = this.data;
 			let topicTxt = '';
 			if (contentDetail && contentDetail.topic_names && Array.isArray(contentDetail.topic_names)) {
