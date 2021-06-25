@@ -27,8 +27,6 @@ Component({
 	methods: {},
 
 	lifetimes: {
-		attached: function () {
-			console.log(this.data.detail, 2333);
-		},
+		attached: function () {},
 	},
 });

@@ -1,5 +1,6 @@
 /* eslint-disable no-await-in-loop */
 import loading from '../../../utils/loading';
+import util from '../../../utils/util';
 import { get, post, uploadFile } from '../../../utils/request';
 
 Page({
@@ -214,6 +215,7 @@ Page({
 						title: '发布成功',
 						icon: 'success',
 					});
+					util.reloadHomePage();
 					setTimeout(() => {
 						wx.navigateBack({
 							complete: () => {},

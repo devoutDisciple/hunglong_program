@@ -1,5 +1,6 @@
 import { get, post } from '../../utils/request';
 import loading from '../../utils/loading';
+import util from '../../utils/util';
 
 Page({
 	/**
@@ -98,6 +99,7 @@ Page({
 				icon: 'success',
 			});
 			loading.hideLoading();
+			util.reloadHomePage();
 			setTimeout(() => {
 				wx.switchTab({
 					url: '/pages/home/home',

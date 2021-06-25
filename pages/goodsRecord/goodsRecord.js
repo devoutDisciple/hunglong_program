@@ -84,7 +84,6 @@ Page({
 
 	// 点赞
 	onTapGoods: function (e) {
-		console.log(e, 32333);
 		const user_id = wx.getStorageSync('user_id');
 		const { item, index } = e.currentTarget.dataset;
 		const { type, content_id, comment_id, hadGoods } = item;

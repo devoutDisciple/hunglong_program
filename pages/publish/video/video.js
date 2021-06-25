@@ -1,6 +1,7 @@
 /* eslint-disable no-await-in-loop */
 import loading from '../../../utils/loading';
-import { get, post, uploadFile } from '../../../utils/request';
+import util from '../../../utils/util';
+import { get, uploadFile } from '../../../utils/request';
 
 Page({
 	/**
@@ -21,9 +22,7 @@ Page({
 		this.getPersonSchoolCircle();
 	},
 
-	onPause: function () {
-		console.log(this.videoContext, 232);
-	},
+	onPause: function () {},
 
 	onReady() {
 		this.videoContext = wx.createVideoContext('myVideo');
@@ -201,6 +200,7 @@ Page({
 			title: '发布成功',
 			icon: 'success',
 		});
+		util.reloadHomePage();
 		setTimeout(() => {
 			wx.navigateBack({
 				complete: () => {},

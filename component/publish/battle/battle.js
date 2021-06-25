@@ -1,3 +1,4 @@
+import util from '../../../utils/util';
 import loading from '../../../utils/loading';
 import { post, uploadFile } from '../../../utils/request';
 
@@ -102,6 +103,7 @@ Component({
 							title: '发布成功',
 							icon: 'success',
 						});
+						util.reloadHomePage();
 						setTimeout(() => {
 							wx.navigateBack({
 								complete: () => {},

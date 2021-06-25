@@ -37,11 +37,13 @@ Page({
 		util.getDeviceInfo().then((res) => {
 			this.setData({ headerHight: res.headerHight });
 		});
-		// this.initData();
+		this.initData();
 	},
 
-	onShow: function () {
-		this.initData();
+	// 重新加载
+	onReloadData: function () {
+		const user_id = wx.getStorageSync('user_id');
+		this.reGetCircleList(user_id); // 获取圈子列表
 	},
 
 	onShareAppMessage: function (res) {
@@ -127,7 +129,7 @@ Page({
 	},
 
 	// 获取圈子列表
-	getCircleList: async function (user_id) {
+	reGetCircleList: async function (user_id) {
 		const res = await get({ url: '/circle/allByUserId', data: { user_id } });
 		this.setData(
 			{
@@ -140,6 +142,17 @@ Page({
 					}, 0);
 				});
 			},
+		);
+	},
+
+	// 获取圈子列表
+	getCircleList: async function (user_id) {
+		const res = await get({ url: '/circle/allByUserId', data: { user_id } });
+		this.setData(
+			{
+				circleList: [{ id: 'attention', name: '关注' }, { id: 'recommend', name: '广场' }, ...res],
+			},
+			() => this.setData({ activeTab: 1, current: 1 }),
 		);
 	},
 

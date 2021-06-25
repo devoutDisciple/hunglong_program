@@ -27,6 +27,12 @@ const getDiffTime = (d1, d2) => {
 	return diffDays;
 };
 
+const reloadHomePage = () => {
+	const pages = getCurrentPages();
+	const prePages = pages[pages.length - 2];
+	prePages.onReloadData();
+};
+
 const getDeviceInfo = () => {
 	return new Promise((resolve) => {
 		// 菜单按钮的布局信息
@@ -61,4 +67,5 @@ module.exports = {
 	getMsgShowTime,
 	getDiffTime,
 	getDeviceInfo,
+	reloadHomePage,
 };
