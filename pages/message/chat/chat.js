@@ -13,11 +13,11 @@ Page({
 		user_detail: {}, // 当前用户的基本信息
 		person_detail: {}, // 当前聊天的用户信息
 		msg: [], // 消息记录
-		focus: true, // input是否聚焦
-		showEmoji: true, // 是否展示emoji
 		emojis: emoji.emoji,
 		msgTxt: '', // 输入的内容
 		scrollBtmId: '',
+		focus: true, // input是否聚焦
+		showEmoji: false, // 是否展示emoji
 	},
 
 	/**
@@ -76,16 +76,6 @@ Page({
 		get({ url: '/user/userDetailByUserId', data: { user_id } }).then((res) => {
 			this.setData({ user_detail: res });
 		});
-	},
-
-	// 键盘聚焦的事件
-	onInputFocus: function () {
-		this.setData({ focus: true });
-	},
-
-	// 键盘失焦事件
-	onInputBlur: function () {
-		this.setData({ focus: false });
 	},
 
 	// 选择图片
@@ -157,22 +147,44 @@ Page({
 		});
 	},
 
-	// 展示emoji
-	onShowEmoji: function () {
-		this.setData({ showEmoji: !this.data.showEmoji });
+	// 输入框输入的时候
+	onChangeValue: function (e) {
+		const { value } = e.detail;
+		this.setData({ msgTxt: value });
 	},
 
+	// 展示emoji
+	onShowEmoji: function () {
+		const { showEmoji } = this.data;
+		if (!showEmoji) {
+			this.setData({ showEmoji: true, focus: true });
+		} else {
+			this.setData({ showEmoji: false, focus: false });
+		}
+	},
 	// 点击emoji
 	onClickEmoji: function (e) {
 		const { msgTxt } = this.data;
 		const { item } = e.currentTarget.dataset;
 		this.setData({ msgTxt: `${msgTxt} ${item} ` });
 	},
-
-	// 输入框输入的时候
-	onChangeValue: function (e) {
-		const { value } = e.detail;
-		this.setData({ msgTxt: value });
+	// 失去焦点
+	onBlur: function () {
+		this.setData({ focus: false });
+	},
+	// 聚焦的时候
+	onFocus: function () {
+		this.setData({ focus: true, showEmoji: false });
+	},
+	// 点击输入框
+	onTapIpt: function () {
+		this.setData({ focus: true, showEmoji: false });
+	},
+	// 键盘高度发生改变
+	keyboardheightchange: function () {},
+	// 关闭的时候
+	onCloseIptDialog: function () {
+		this.setData({ visible: false, focus: false });
 	},
 
 	// 保存消息到服务端
@@ -190,6 +202,7 @@ Page({
 	// 点击发送
 	onSendMsg: function () {
 		const { originData, msgTxt, msg } = this.data;
+		if (!String(msgTxt).trim()) return;
 		const newMsg = {
 			content: msgTxt,
 			from: 1,
@@ -207,7 +220,7 @@ Page({
 				}
 			});
 		}
-		this.setData({ msg, msgTxt: '' }, () => {
+		this.setData({ msg, msgTxt: '', focus: true }, () => {
 			// 滚动到底部
 			this.setData({ scrollBtmId: `item_${msg.length}` });
 			// 存储消息

@@ -11,7 +11,7 @@
     </scroll-view>
     <view class="footer">
         <view class="desc">
-            <input 
+            <!-- <input 
                 class="ipt" 
                 maxlength="200"
                 value="{{msgTxt}}"
@@ -19,10 +19,26 @@
                 cursor-spacing="180" 
                 bindfocus="onInputFocus"
                 bindinput="onChangeValue"
+                confirm-type="send"/> -->
+            <input 
+                class="ipt" 
+                focus="{{focus}}" 
+                bindblur="onBlur"
+                bindfocus="onFocus"
+                cursor-spacing="40" 
+                adjust-position="false"
+                value="{{msgTxt}}"
+                bindinput="onChangeValue"
+                placeholder="请输入" 
+                placeholder-style="font-size: 28rpx; color: #AAA;"
+                maxlength="200"
+                bindtap="onTapIpt"
+                bindkeyboardheightchange="keyboardheightchange"
+                bindconfirm="onSendMsg"
                 confirm-type="send"/>
-            <view class="send" bindtap = "onSendMsg">发送</view>
+            <view class="send" bindtap="onSendMsg">发送</view>
         </view>
-        <view wx:if="{{focus}}" class="icon">
+        <view class="icon">
             <image bindtap="onSelectImg" class="icon_img" src="/asserts/public/img.png" />
             <image bindtap="onShowEmoji" class="icon_img" src="/asserts/public/emoji.png" />
         </view>

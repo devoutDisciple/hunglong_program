@@ -7,7 +7,7 @@ Page({
 	 */
 	data: {
 		visible: false,
-		focus: false,
+		focus: true,
 		currentReply: {},
 		replyList: [],
 		commentId: '', // 评论的id
@@ -19,7 +19,6 @@ Page({
 	 */
 	onLoad: function (options) {
 		const { commentId, contentId } = options;
-		console.log(commentId, contentId, 111);
 		if (!commentId) {
 			return wx.switchTab({
 				url: '/pages/home/home',
@@ -69,7 +68,7 @@ Page({
 		this.setData({ visible: true });
 		setTimeout(() => {
 			this.setData({ focus: true });
-		}, 100);
+		}, 200);
 	},
 
 	onCloseIptDialog: function () {

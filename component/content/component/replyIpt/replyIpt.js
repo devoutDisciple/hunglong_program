@@ -43,6 +43,7 @@ Component({
 	 * 组件的初始数据
 	 */
 	data: {
+		focus: true,
 		replyValue: '',
 		tempUrlPaths: [], // 图片路径
 		showEmoji: false,
@@ -84,6 +85,7 @@ Component({
 		keyboardheightchange: function () {},
 		// 关闭的时候
 		onClose: function () {
+			this.setData({ replyValue: '', tempUrlPaths: [], showEmoji: false, focus: false });
 			this.triggerEvent('OnClose');
 		},
 		// 输入框改变
