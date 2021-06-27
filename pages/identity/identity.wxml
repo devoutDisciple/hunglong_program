@@ -1,2 +1,19 @@
-<!--pages/identity/identity.wxml-->
-<text>pages/identity/identity.wxml</text>
+<view class="wrap">
+    <scroll-view scroll-y="{{true}}" class="con">
+        <view class="title">请选择你的身份</view>
+        <view class="desc">你好，欢迎进入APP!</view>
+        <view class="{{activeIdx == 1 ? 'chunk chunk_active' : 'chunk'}}" data-idx="1" bindtap="onTapChunk">
+            <view class="chunk_type">个人</view>
+            <image class="chunk_logo" src="/asserts/public/id_person.png" />
+        </view>
+        <view class="{{activeIdx == 2 ? 'chunk chunk_active' : 'chunk'}}" data-idx="2" bindtap="onTapChunk">
+            <view class="chunk_type">学校教师</view>
+            <image class="chunk_logo" src="/asserts/public/id_gov.png" />
+        </view>
+        <view class="{{activeIdx == 3 ? 'chunk chunk_active' : 'chunk'}}" data-idx="3" bindtap="onTapChunk">
+            <view class="chunk_type">机构教师</view>
+            <image class="chunk_logo" src="/asserts/public/id_teacher.png" />
+        </view>
+    </scroll-view>
+    <view class="btm" bindtap="onTapNext">下一步</view>
+</view>

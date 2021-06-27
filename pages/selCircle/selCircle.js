@@ -93,6 +93,12 @@ Page({
 		loading.showLoading();
 		const user_id = wx.getStorageSync('user_id');
 		const { circles } = this.data;
+		if (circles) {
+			circles.forEach((item, index) => {
+				item.type = 2;
+				item.sort = index;
+			});
+		}
 		post({ url: '/circle/saveMyShowCircle', data: { circles: circles, user_id } }).then(() => {
 			wx.showToast({
 				title: '保存成功',

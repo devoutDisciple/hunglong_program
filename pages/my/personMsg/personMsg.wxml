@@ -1,7 +1,7 @@
 <scroll-view scroll-y class="container">
     <message-item label="头像" key="photo" bindclick="itemClick" type="photo" photoTmpUrl="{{photoTmpUrl}}"/>
     <message-item label="昵称" value="{{username}}" key="name" bindclick="itemClick" type="txt"/>
-    <message-item label="性别" value="{{sex === 0 ? '男': '女'}}" key="sex" bindclick="itemClick" type="txt"/>
+    <message-item label="性别" value="{{sexTxt}}" key="sex" bindclick="itemClick" type="txt"/>
     <message-item label="出生年月" key="age" type="txt">
          <picker mode="date" value="{{date}}" start="{{dateStart}}" end="{{dateEnd}}" bindchange="bindDateChange">
             {{activeDate}}
@@ -42,14 +42,14 @@
         maxlength="{{20}}"
         title="请填入昵称" 
         wx:if="{{usernameIptDialogVisible}}" 
-        defaultValue="{{username}}"
+        defaultValue="{{username === '请输入' ? '' : username}}"
         bindOnCancle="onCancleUsernameDialog" 
         bindOnOk="onOkUsernameDialog" />
     <ipt-dialog 
         maxlength="{{50}}"
         title="请填写个性签名" 
         wx:if="{{signIptDialogVisible}}" 
-        defaultValue="{{sign}}"
+        defaultValue="{{sign === '请输入' ? '' : sign }}"
         bindOnCancle="onCancleSignDialog" 
         bindOnOk="onOkSignDialog" />
 </scroll-view>

@@ -7,10 +7,20 @@
         <slot></slot>
     </view>
      <view wx:if="{{type==='photo'}}" class="msg_value">
-        <image src="{{photoTmpUrl}}" />
+        <block wx:if="{{photoTmpUrl && photoTmpUrl !== '请选择'}}">
+            <image src="{{photoTmpUrl}}" />
+        </block>
+        <block wx:else>
+            <text>请选择</text>
+        </block>
     </view>
     <view wx:if="{{type==='background'}}" class="msg_value msg_bg">
-        <image src="{{backgroundTmpUrl}}" />
+        <block wx:if="{{backgroundTmpUrl && backgroundTmpUrl !== '请选择'}}">
+            <image src="{{backgroundTmpUrl}}" />
+        </block>
+        <block wx:else>
+            <text>请选择</text>
+        </block>
     </view>
     <view class="msg_icon">
         <image src="/asserts/public/arrow_right.png" />

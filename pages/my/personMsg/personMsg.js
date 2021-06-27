@@ -1,5 +1,5 @@
 import moment from '../../../utils/moment';
-import { baseUrl, defaultUserPhotoUrl, defaultBgUrl } from '../../../config/config';
+import { baseUrl, defaultBgUrl } from '../../../config/config';
 import loading from '../../../utils/loading';
 import { get, post } from '../../../utils/request';
 
@@ -9,11 +9,11 @@ Page({
 	 */
 	data: {
 		baseUrl,
-		photoTmpUrl: defaultUserPhotoUrl,
+		photoTmpUrl: '',
 		backgroundTmpUrl: defaultBgUrl,
 		dateStart: '1990-01-01',
 		username: '',
-		sex: 0,
+		sex: '',
 		dateEnd: moment().format('YYYY-MM-DD HH:mm:ss'),
 		activeDate: '2000-01-01',
 		originArea: [], // 原始的地区数据
@@ -46,17 +46,21 @@ Page({
 		loading.showLoading();
 		get({ url: '/user/userDetailByUserId', data: { user_id } }).then((res) => {
 			const { photo, username, sex, birthday, address, school, level, bg_url, sign } = res;
+			let sexTxt = '请选择';
+			if (sex === 1) sexTxt = '男';
+			if (sex === 2) sexTxt = '女';
 			this.setData(
 				{
-					photoTmpUrl: photo,
-					backgroundTmpUrl: bg_url,
-					username,
-					sex: sex - 1,
-					activeDate: birthday || '2000-01-01',
-					address,
-					schoolName: school || '',
-					levelName: level,
-					sign: sign || '',
+					photoTmpUrl: photo || '请选择',
+					backgroundTmpUrl: bg_url || '请选择',
+					username: username || '请输入',
+					sex: sex || '请选择',
+					sexTxt: sexTxt,
+					activeDate: birthday || '请选择',
+					address: address || '请选择',
+					schoolName: school || '请选择',
+					levelName: level || '请选择',
+					sign: sign || '请输入',
 				},
 				() => {
 					this.onSearchAddress();
@@ -246,7 +250,10 @@ Page({
 				itemList: ['男', '女'],
 				success(res) {
 					const { tapIndex } = res;
-					self.setData({ sex: tapIndex });
+					let sexTxt = '男';
+					if (tapIndex === 0) sexTxt = '男';
+					if (tapIndex === 1) sexTxt = '女';
+					self.setData({ sex: tapIndex, sexTxt: sexTxt });
 				},
 			});
 		}
@@ -262,9 +269,27 @@ Page({
 		}
 	},
 
+	showError: function (txt) {
+		wx.showToast({
+			title: txt,
+			icon: 'error',
+		});
+	},
+
 	// 点击下一步
 	onClickNext: async function () {
-		const { username, sex, activeDate, address, schoolName, sign, levelName, from } = this.data;
+		const { photoTmpUrl, backgroundTmpUrl, username, sex, activeDate, address, schoolName, sign, levelName, from } =
+			this.data;
+		let sexNum = '请选择';
+		if (sex !== '请选择') sexNum = sex + 1;
+		if (!photoTmpUrl || photoTmpUrl === '请输入') return this.showError('请填写信息');
+		if (!sexNum || sexNum === '请选择') return this.showError('请填写信息');
+		if (!activeDate || activeDate === '请选择') return this.showError('请填写信息');
+		if (!address || address === '请选择') return this.showError('请填写信息');
+		if (!schoolName || schoolName === '请选择') return this.showError('请填写信息');
+		if (!levelName || levelName === '请选择') return this.showError('请填写信息');
+		if (!sign || sign === '请选择') return this.showError('请填写信息');
+		if (!backgroundTmpUrl || backgroundTmpUrl === '请选择') return this.showError('请填写信息');
 		const user_id = wx.getStorageSync('user_id');
 		// 保存个人信息
 		loading.showLoading();
@@ -274,7 +299,7 @@ Page({
 				user_id,
 				data: {
 					username,
-					sex: sex + 1,
+					sex: sexNum,
 					birthday: activeDate,
 					address,
 					school: schoolName,

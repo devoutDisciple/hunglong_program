@@ -21,7 +21,7 @@
         {
           "name": "个人信息",
           "pathName": "pages/my/personMsg/personMsg",
-          "query": "user_id=13",
+          "query": "user_id=23",
           "scene": null
         },
         {
@@ -255,6 +255,12 @@
         {
           "name": "实名认证",
           "pathName": "pages/approve/approve",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "认证页面",
+          "pathName": "pages/identity/identity",
           "query": "",
           "scene": null
         }

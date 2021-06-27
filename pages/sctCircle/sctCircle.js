@@ -89,13 +89,20 @@ Page({
 		loading.showLoading();
 		const user_id = wx.getStorageSync('user_id');
 		const { myCirCles } = this.data;
-		if (!myCirCles || myCirCles.length === 0) {
+		if (!myCirCles || myCirCles.length < 3) {
 			loading.hideLoading();
 			return wx.showToast({
-				title: '强选择圈子',
+				title: '至少选择3个',
 				icon: 'error',
 			});
 		}
+		myCirCles.forEach((item, index) => {
+			item.type = 1;
+			if (index < 3) {
+				item.type = 2;
+			}
+			item.sort = index;
+		});
 		post({ url: '/circle/attentionCircles', data: { circles: myCirCles, user_id } }).then(() => {
 			wx.showToast({
 				title: '保存成功',
