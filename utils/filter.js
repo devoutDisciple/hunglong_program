@@ -52,6 +52,25 @@ const filterContentTypeByField = (type) => {
 	return txt;
 };
 
+const filterUserIdentity = (type) => {
+	let txt = '认证科目教师(已实名)';
+	switch (Number(type)) {
+		case 1:
+			txt = '';
+			break;
+		case 2:
+			txt = '认证学校教师(已实名)';
+			break;
+		case 3:
+			txt = '认证机构教师(已实名)';
+			break;
+		default:
+			txt = '认证科目教师(已实名)';
+			break;
+	}
+	return txt;
+};
+
 const filterContentTypeByNum = (type) => {
 	let txt = 'posts';
 	switch (type) {
@@ -83,4 +102,5 @@ module.exports = {
 	filterContentTypeByTxt,
 	filterContentTypeByField,
 	filterContentTypeByNum,
+	filterUserIdentity,
 };

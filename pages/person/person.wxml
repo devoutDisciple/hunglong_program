@@ -22,16 +22,19 @@
                     <image class="school_bg" src="/asserts/public/person_school_bg.png" />
                     <image class="school_home" src="/asserts/public/person_school_home.png" />
                     <view class="school_name">
-                        杭州高级中学
+                        {{userDetail.school}}
                     </view>
                 </view>
-                <view class="approve">
-                    <image class="approve_bg" src="/asserts/public/person_teacher_bg.png" />
-                    <image class="approve_photo" src="/asserts/public/person_teacher_icon.png" />
-                    <view class="approve_name">
-                        认证科目教师(已实名)
+                <block wx:if="{{userDetail.identity !== 1}}">
+                    <view class="approve">
+                        <image class="approve_bg" src="/asserts/public/person_teacher_bg.png" />
+                        <image class="approve_photo" src="/asserts/public/person_teacher_icon.png" />
+                        <view class="approve_name">
+                            {{userDetail.identityTxt}}
+                        </view>
                     </view>
-                </view>
+                </block>
+                
                 <block wx:if="{{current_user_id != user_id}}">
                     <view bindtap = "onAttentionUser" wx:if="{{userDetail.hadAttention}}" class="concern_btn concern_active_btn">已关注</view>
                     <view bindtap = "onAttentionUser" wx:else class="concern_btn">关注</view>

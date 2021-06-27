@@ -7,12 +7,12 @@
         </picker>
     </message-item>
     <message-item label="所授科目" key="subject" type="txt">
-        <picker range="{{subjectList}}" bindchange="schoolChange">
+        <picker range="{{subjectList}}" bindchange="subjectChange">
             {{subjectName}}
         </picker>
     </message-item>
     <message-item label="教师资格证" value="{{credential}}" key="credential" bindclick="itemClick" type="txt"/>
-    <image class="img_credent" wx:if="{{credentialImg}}" src="{{credentialImg}}" mode="widthFix"/>
+    <image class="img_credent" wx:if="{{credentialImg && credentialImg !== '请选择'}}" src="{{credentialImg}}" mode="widthFix"/>
     <van-button custom-class="next_btn" type="primary" bind:click="onClickNext" block color="#fff">
         提交审核
     </van-button>
@@ -20,14 +20,14 @@
         maxlength="{{20}}"
         title="请填写真实姓名" 
         wx:if="{{usernameIptDialogVisible}}" 
-        defaultValue="{{username}}"
+        defaultValue="{{username === '请输入' ? '' : username}}"
         bindOnCancle="onCancleUsernameDialog" 
         bindOnOk="onOkUsernameDialog" />
     <ipt-dialog 
         maxlength="{{18}}"
         title="请填写身份证号码" 
         wx:if="{{idcardIptDialogVisible}}" 
-        defaultValue="{{idcard}}"
+        defaultValue="{{ idcard === '请输入' ? '' : username}}"
         bindOnCancle="onCancleIdcardDialog" 
         bindOnOk="onOkIdcardDialog" />
 </scroll-view>

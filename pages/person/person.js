@@ -1,7 +1,7 @@
 import { get, post, uploadFile } from '../../utils/request';
 import util from '../../utils/util';
 import loading from '../../utils/loading';
-import { filterContentTypeByNum } from '../../utils/filter';
+import { filterContentTypeByNum, filterUserIdentity } from '../../utils/filter';
 
 Page({
 	/**
@@ -141,6 +141,7 @@ Page({
 	getUserDetail: function () {
 		const { user_id } = this.data;
 		get({ url: '/user/userDetailByUserId', data: { user_id } }).then((res) => {
+			res.identityTxt = filterUserIdentity(res.identity);
 			this.setData({ userDetail: res }, () => {
 				// 获取是否已经关注该用户
 				this.getHadAttentionUser();

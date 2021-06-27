@@ -1,3 +1,5 @@
+const { get, post } = require('../../utils/request');
+
 // pages/approve/approve.js
 Page({
 	/**
@@ -6,19 +8,33 @@ Page({
 	data: {
 		usernameIptDialogVisible: false, // 真实姓名弹框
 		idcardIptDialogVisible: false, // 身份证号码弹框
-		idcard: '',
-		username: '',
+		idcard: '请输入',
+		username: '请输入',
 		schoolList: ['北京大学', '清华大学'],
-		schoolName: '北京大学',
-		subjectList: ['语文', '数学'],
-		subjectName: '英语',
-		credentialImg: '',
+		schoolName: '请选择',
+		subjectList: ['语文', '数学', '英语', '物理', '化学', '生物', '政治', '历史', '体育'],
+		subjectName: '请选择',
+		credential: '请选择',
+		credentialImg: '请选择',
 	},
 
 	/**
 	 * 生命周期函数--监听页面加载
 	 */
-	onLoad: function () {},
+	onLoad: function () {
+		this.getSchoolCircle();
+	},
+
+	// 获取学校圈子
+	getSchoolCircle: function () {
+		get({ url: '/circle/schoolCircles' }).then((res) => {
+			let circles = [];
+			if (Array.isArray(res)) {
+				circles = res.map((item) => item.name);
+			}
+			this.setData({ schoolList: circles });
+		});
+	},
 
 	/**
 	 * 生命周期函数--监听页面显示
@@ -81,6 +97,15 @@ Page({
 		this.setData({ schoolName: curSelectSchool });
 	},
 
+	// 选择科目
+	subjectChange: function (e) {
+		console.log(e, 78);
+		const { value } = e.detail;
+		const { subjectList } = this.data;
+		const curSelSubject = subjectList[value];
+		this.setData({ subjectName: curSelSubject });
+	},
+
 	showError: function (txt) {
 		wx.showToast({
 			title: txt,
@@ -137,26 +162,21 @@ Page({
 	},
 
 	onClickNext: function () {
-		// idcard: '',
-		// username: '',
-		// schoolList: ['北京大学', '清华大学'],
-		// schoolName: '北京大学',
-		// subjectList: ['语文', '数学'],
-		// subjectName: '英语',
-		// credentialImg: '',
 		const { username, idcard, schoolName, subjectName, credentialImg } = this.data;
-		if (!username) return this.showError('请填写姓名');
-		if (!idcard) return this.showError('请填写身份证');
-		if (!schoolName) return this.showError('请选择学校');
-		if (!subjectName) return this.showError('请选择科目');
-		if (!credentialImg) return this.showError('请上传凭证');
+		if (!username || username === '请输入') return this.showError('请填写姓名');
+		if (!idcard || idcard === '请输入') return this.showError('请填写身份证');
+		if (!schoolName || schoolName === '请选择') return this.showError('请选择学校');
+		if (!subjectName || subjectName === '请选择') return this.showError('请选择科目');
+		if (!credentialImg || credentialImg === '请选择') return this.showError('请上传凭证');
 		const flag = this.checkoutIdcard(idcard);
 		if (!flag) return this.showError('身份信息错误');
-		wx.showToast({
-			title: '提交成功',
-		});
-		wx.navigateBack({
-			complete: (res) => {},
+
+		const user_id = wx.getStorageSync('user_id');
+		post({ url: '/user/updateIdentity', data: { user_id, identity: 2 } }).then(() => {
+			wx.showToast({
+				title: '提交成功',
+			});
+			wx.navigateTo({ url: '/pages/sctCircle/sctCircle' });
 		});
 	},
 
