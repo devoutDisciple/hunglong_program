@@ -109,6 +109,8 @@ Page({
 		const self = this;
 		wx.chooseMedia({
 			count: 1,
+			compressed: false,
+			sizeType: ['original', 'original'],
 			mediaType: ['video'], // 文件类型
 			sourceType: ['album', 'camera'], // 视频来源
 			success(res) {
