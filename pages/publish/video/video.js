@@ -12,6 +12,7 @@ Page({
 		selectCircles: [], // 选择的圈子
 		topicList: [], // 选择的圈子下的话题
 		videoDetail: {}, // video的详情
+		screenWidth: 414, // 屏幕宽度
 	},
 
 	/**
@@ -38,6 +39,10 @@ Page({
 	 */
 	onShow: function () {
 		this.onSearchTopic();
+		// 获取设备信息
+		util.getDeviceInfo().then((res) => {
+			this.setData({ screenWidth: res.screenWidth });
+		});
 	},
 
 	// 获取个人的学校圈子
@@ -112,6 +117,9 @@ Page({
 				loading.hideLoading();
 				if (res && res.errMsg === 'chooseMedia:ok' && Array.isArray(res.tempFiles)) {
 					const tempFile = res.tempFiles[0];
+					// const { height, width } = tempFile;
+					// const { screenWidth } = self.data;
+					// const videoHeight = Number((height * screenWidth) / width).toFixed(0);
 					self.setData({
 						videoDetail: {
 							url: tempFile.tempFilePath,
@@ -120,6 +128,7 @@ Page({
 							duration: tempFile.duration,
 							size: tempFile.size,
 							photo: tempFile.thumbTempFilePath,
+							// videoHeight,
 						},
 					});
 				}

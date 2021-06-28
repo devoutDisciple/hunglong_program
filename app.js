@@ -51,16 +51,12 @@ App({
 			wx.setTabBarBadge({
 				index: 2,
 				text: String(totalNum),
-				fail: (err) => {
-					console.log(err);
-				},
+				fail: () => {},
 			});
 		} else {
 			wx.removeTabBarBadge({
 				index: 2,
-				fail: (err) => {
-					console.log(err);
-				},
+				fail: () => {},
 			});
 		}
 	},

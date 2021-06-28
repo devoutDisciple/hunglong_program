@@ -1,12 +1,13 @@
 import { get } from '../../../utils/request';
 import loading from '../../../utils/loading';
-import { filterContentTypeByNum } from '../../../utils/filter';
+import util from '../../../utils/util';
 
 Page({
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
+		screenWidth: 414,
 		dataList: [],
 		isLoading: false, // 上拉加载的时候
 		current: 1, // 当前页码
@@ -18,15 +19,13 @@ Page({
 	 */
 	onLoad: function (options) {
 		const { user_id } = options;
-		this.setData({ user_id }, () => {
-			this.getContentsByUserId();
+		// 获取设备信息
+		util.getDeviceInfo().then((res) => {
+			this.setData({ user_id, screenWidth: res.screenWidth }, () => {
+				this.getContentsByUserId();
+			});
 		});
 	},
-
-	/**
-	 * 生命周期函数--监听页面初次渲染完成
-	 */
-	onReady: function () {},
 
 	/**
 	 * 生命周期函数--监听页面显示
@@ -35,7 +34,7 @@ Page({
 
 	// 获取用户发过的内容
 	getContentsByUserId: function () {
-		const { user_id } = this.data;
+		const { user_id, screenWidth } = this.data;
 		loading.showLoading();
 		if (!user_id) {
 			wx.switchTab({
@@ -45,9 +44,7 @@ Page({
 		const { current, dataList } = this.data;
 		get({ url: '/content/contentsByUserId', data: { user_id, current } })
 			.then((res) => {
-				res.forEach((item) => {
-					item.type = filterContentTypeByNum(item.type);
-				});
+				util.handleContentList(res, screenWidth);
 				const newList = [...dataList, ...res];
 				this.setData({ dataList: newList, current: current + 1, isLoading: false });
 			})

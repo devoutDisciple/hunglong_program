@@ -8,6 +8,7 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
+		screenWidth: 414, // 屏幕宽度
 		navHeight: '40px',
 		lineHeight: '47px',
 		statusBarHeight: '26px',
@@ -133,6 +134,7 @@ Page({
 				statusBarHeight: `${res.statusBarHeight}px`,
 				backIconHeight: `${res.navHeight / 2}px`,
 				backIconMarginTop: `${res.navHeight / 4}px`,
+				screenWidth: res.screenWidth,
 			});
 		});
 	},
@@ -260,7 +262,7 @@ Page({
 	// 获取帖子博客等相应内容
 	getPostsByUserId: function (activeIdx) {
 		loading.showLoading();
-		const { user_id, txtObj, videoObj, current } = this.data;
+		const { user_id, txtObj, videoObj, current, screenWidth } = this.data;
 		get({ url: '/content/contentsByTypeAndUserId', data: { user_id, activeIdx, current } })
 			.then((res) => {
 				if (Array.isArray) {
@@ -269,15 +271,9 @@ Page({
 						monthDays = [], // 一个月内的数据
 						longago = [], // 一月以前的数据
 					} = res;
-					threeDays.forEach((item) => {
-						item.type = filterContentTypeByNum(item.type);
-					});
-					monthDays.forEach((item) => {
-						item.type = filterContentTypeByNum(item.type);
-					});
-					longago.forEach((item) => {
-						item.type = filterContentTypeByNum(item.type);
-					});
+					util.handleContentList(threeDays, screenWidth);
+					util.handleContentList(monthDays, screenWidth);
+					util.handleContentList(longago, screenWidth);
 					let result = [];
 					const initObj = {
 						threeDays: [], // 三天内的数据

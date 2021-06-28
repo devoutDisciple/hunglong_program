@@ -1,7 +1,6 @@
 import login from '../../utils/login';
 import loading from '../../utils/loading';
 import { get } from '../../utils/request';
-import { filterContentTypeByNum } from '../../utils/filter';
 import util from '../../utils/util';
 
 Page({
@@ -9,6 +8,8 @@ Page({
 	 * 页面的初始数据
 	 */
 	data: {
+		screenWidth: 414, // 屏幕宽度
+		headerHight: 60, // 导航栏高度
 		plateList: [], // 板块列表
 		circleList: [], // 圈子列表
 		topicList: [], // 话题列表
@@ -18,7 +19,6 @@ Page({
 		userDetail: {}, // 用户基本信息
 		dataList: [], // 数据列表
 		topicClass: 'topic_origin',
-		headerHight: 60,
 		videoContext: {}, // 当前播放视频的上下文
 		isLoading: false, // 上拉加载的时候
 		current: 1, // 当前页码
@@ -35,9 +35,9 @@ Page({
 		});
 		// 获取设备信息
 		util.getDeviceInfo().then((res) => {
-			this.setData({ headerHight: res.headerHight });
+			this.setData({ headerHight: res.headerHight, screenWidth: res.screenWidth });
+			this.initData();
 		});
-		this.initData();
 	},
 
 	// 重新加载
@@ -46,6 +46,7 @@ Page({
 		this.reGetCircleList(user_id); // 获取圈子列表
 	},
 
+	// 分享
 	onShareAppMessage: function (res) {
 		const user_id = wx.getStorageSync('user_id');
 		if (!login.isLogin() || !user_id) return;
@@ -64,6 +65,7 @@ Page({
 		}
 	},
 
+	// 初始化查询
 	initData: function () {
 		const user_id = wx.getStorageSync('user_id');
 		if (!user_id) {
@@ -166,31 +168,11 @@ Page({
 	getContentsByCircleId: async function (flag) {
 		// 1-需要loading 2-不需要
 		if (flag === 1) loading.showLoading();
-		const { current, dataList, activeCircleId } = this.data;
+		const { current, dataList, activeCircleId, screenWidth } = this.data;
 		if (current === -1) return;
 		const user_id = wx.getStorageSync('user_id');
 		const res = await get({ url: '/content/recomment', data: { user_id, current, activeCircleId } });
-		res.forEach((item) => {
-			item.type = filterContentTypeByNum(item.type);
-			if (item.type === 'posts' || item.type === 'blogs' || item.type === 'img') {
-				if (item.postsDetail) {
-					const { img_urls } = item.postsDetail;
-					if (Array.isArray(img_urls) && img_urls.length > 2) {
-						const imgList = item.postsDetail.img_urls;
-						const len = imgList.length;
-						const remain = len % 3;
-						let newImgList = imgList;
-						if (remain === 1) {
-							newImgList = imgList.concat([{ empty: true }, { empty: true }]);
-						}
-						if (remain === 2) {
-							newImgList = imgList.concat([{ empty: true }]);
-						}
-						item.postsDetail.img_urls = newImgList;
-					}
-				}
-			}
-		});
+		util.handleContentList(res, screenWidth);
 		const newList = [...dataList, ...res];
 		this.setData({ dataList: newList, current: current + 1, loading: false }, () => {
 			if (flag === 1) loading.hideLoading();
@@ -225,29 +207,9 @@ Page({
 		if (flag === 1) loading.showLoading();
 		const user_id = wx.getStorageSync('user_id');
 		if (!login.isLogin() || !user_id) return;
-		const { current, dataList } = this.data;
+		const { current, dataList, screenWidth } = this.data;
 		const res = await get({ url: '/content/userAttentionContents', data: { user_id, current } });
-		res.forEach((item) => {
-			item.type = filterContentTypeByNum(item.type);
-			if (item.type === 'posts' || item.type === 'blogs' || item.type === 'img') {
-				if (item.postsDetail) {
-					const { img_urls } = item.postsDetail;
-					if (Array.isArray(img_urls) && img_urls.length > 2) {
-						const imgList = item.postsDetail.img_urls;
-						const len = imgList.length;
-						const remain = len % 3;
-						let newImgList = imgList;
-						if (remain === 1) {
-							newImgList = imgList.concat([{ empty: true }, { empty: true }]);
-						}
-						if (remain === 2) {
-							newImgList = imgList.concat([{ empty: true }]);
-						}
-						item.postsDetail.img_urls = newImgList;
-					}
-				}
-			}
-		});
+		util.handleContentList(res, screenWidth);
 		const newList = [...dataList, ...res];
 		this.setData({ dataList: newList, current: current + 1, isLoading: false }, () => {
 			if (flag === 1) loading.hideLoading();
