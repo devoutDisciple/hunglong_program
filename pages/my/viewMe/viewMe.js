@@ -22,7 +22,6 @@ Page({
 		const user_id = wx.getStorageSync('user_id');
 		get({ url: '/viewRecord/recordsDetailByUserId', data: { user_id } })
 			.then((res) => {
-				console.log(res, 111);
 				this.setData({ viewRecords: res });
 			})
 			.finally(() => loading.hideLoading());

@@ -115,7 +115,6 @@ Page({
 				res.forEach((item) => {
 					item.type = filterContentTypeByNum(item.type);
 				});
-				console.log(res, 999);
 				this.setData({ battles: res || [] });
 			})
 			.finally(() => loading.hideLoading());
@@ -165,7 +164,6 @@ Page({
 		if (!keywords) return;
 		// 帖子博客
 		if (index === 0) {
-			console.log(2222);
 			this.getTxtContents(index);
 		}
 		// 投票

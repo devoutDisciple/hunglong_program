@@ -30,9 +30,7 @@ Component({
 	data: {},
 
 	lifetimes: {
-		attached: function () {
-			console.log(this.data, 666);
-		},
+		attached: function () {},
 	},
 
 	/**

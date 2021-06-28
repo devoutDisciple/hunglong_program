@@ -28,7 +28,6 @@ Component({
 		// 点击转发
 		onTapShare: function () {
 			if (!login.isLogin()) return;
-			console.log(888);
 			this.triggerEvent('OnTapShare');
 		},
 		// 点击消息

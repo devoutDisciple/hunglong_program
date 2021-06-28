@@ -60,9 +60,8 @@ const handleContentList = (res, screenWidth) => {
 		if (item.type === 'video') {
 			const { height, width } = item.videoDetail;
 			if (Number(height) > Number(width)) {
-				// item.videoDetail.videoHeight = Number((height * screenWidth) / width).toFixed(0);
 				let newWidth = screenWidth;
-				newWidth = Number(screenWidth / 2).toFixed(0);
+				newWidth = Number((screenWidth * 2) / 3).toFixed(0);
 				item.videoDetail.videoWidth = newWidth;
 				item.videoDetail.videoHeight = newWidth * 1.3 < height ? newWidth * 1.3 : height;
 			}
@@ -96,7 +95,7 @@ const handleContentObj = (item, screenWidth) => {
 		if (Number(height) > Number(width)) {
 			// item.videoDetail.videoHeight = Number((height * screenWidth) / width).toFixed(0);
 			let newWidth = screenWidth;
-			newWidth = Number(screenWidth / 2).toFixed(0);
+			newWidth = Number((screenWidth * 2) / 3).toFixed(0);
 			item.videoDetail.videoWidth = newWidth;
 			item.videoDetail.videoHeight = newWidth * 1.3 < height ? newWidth * 1.3 : height;
 		}

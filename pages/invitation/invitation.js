@@ -22,7 +22,6 @@ Page({
 		// 获取设备信息
 		this.getDeviceData();
 		get({ url: '/user/mostIntegral' }).then((res) => {
-			console.log(res, 1111);
 			this.setData({ users: res || [] });
 		});
 	},

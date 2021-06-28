@@ -99,7 +99,6 @@ Page({
 
 	// 选择科目
 	subjectChange: function (e) {
-		console.log(e, 78);
 		const { value } = e.detail;
 		const { subjectList } = this.data;
 		const curSelSubject = subjectList[value];
