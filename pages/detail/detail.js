@@ -1,13 +1,14 @@
+import util from '../../utils/util';
 import { get } from '../../utils/request';
 import loading from '../../utils/loading';
 import login from '../../utils/login';
-import { filterContentTypeByNum } from '../../utils/filter';
 
 Page({
 	/**
 	 * 页面的初始数据
 	 */
 	data: {
+		screenWidth: 414,
 		content_id: '',
 		type: 'posts',
 		detail: {
@@ -56,19 +57,22 @@ Page({
 				url: '/pages/home/home',
 			});
 		}
-		this.setData({ content_id, type }, () => {
-			this.getDetail();
+		// 获取设备信息
+		util.getDeviceInfo().then((res) => {
+			this.setData({ screenWidth: res.screenWidth, content_id, type }, () => {
+				this.getDetail();
+			});
 		});
 	},
 
 	// 获取详情
 	getDetail: function () {
 		loading.showLoading();
-		const { content_id, type } = this.data;
+		const { content_id, type, screenWidth } = this.data;
 		const user_id = wx.getStorageSync('user_id');
 		get({ url: '/content/contentDetail', data: { content_id, type, user_id } })
 			.then((res) => {
-				res.type = filterContentTypeByNum(res.type);
+				util.handleContentObj(res, screenWidth);
 				this.setData({ detail: res });
 			})
 			.finally(() => loading.hideLoading());

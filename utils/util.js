@@ -34,6 +34,7 @@ const reloadHomePage = () => {
 	prePages.onReloadData();
 };
 
+// 将内容处理一下（array）
 const handleContentList = (res, screenWidth) => {
 	if (!Array.isArray(res)) return [];
 	res.forEach((item) => {
@@ -58,9 +59,48 @@ const handleContentList = (res, screenWidth) => {
 		}
 		if (item.type === 'video') {
 			const { height, width } = item.videoDetail;
-			item.videoDetail.videoHeight = Number((height * screenWidth) / width).toFixed(0);
+			if (Number(height) > Number(width)) {
+				// item.videoDetail.videoHeight = Number((height * screenWidth) / width).toFixed(0);
+				let newWidth = screenWidth;
+				newWidth = Number(screenWidth / 2).toFixed(0);
+				item.videoDetail.videoWidth = newWidth;
+				item.videoDetail.videoHeight = newWidth * 1.3 < height ? newWidth * 1.3 : height;
+			}
 		}
 	});
+};
+
+// 将内容处理一下（obj）
+const handleContentObj = (item, screenWidth) => {
+	item.type = filterContentTypeByNum(item.type);
+	if (item.type === 'posts' || item.type === 'blogs' || item.type === 'img') {
+		if (item.postsDetail) {
+			const { img_urls } = item.postsDetail;
+			if (Array.isArray(img_urls) && img_urls.length > 2) {
+				const imgList = item.postsDetail.img_urls;
+				const len = imgList.length;
+				const remain = len % 3;
+				let newImgList = imgList;
+				if (remain === 1) {
+					newImgList = imgList.concat([{ empty: true }, { empty: true }]);
+				}
+				if (remain === 2) {
+					newImgList = imgList.concat([{ empty: true }]);
+				}
+				item.postsDetail.img_urls = newImgList;
+			}
+		}
+	}
+	if (item.type === 'video') {
+		const { height, width } = item.videoDetail;
+		if (Number(height) > Number(width)) {
+			// item.videoDetail.videoHeight = Number((height * screenWidth) / width).toFixed(0);
+			let newWidth = screenWidth;
+			newWidth = Number(screenWidth / 2).toFixed(0);
+			item.videoDetail.videoWidth = newWidth;
+			item.videoDetail.videoHeight = newWidth * 1.3 < height ? newWidth * 1.3 : height;
+		}
+	}
 };
 
 const getDeviceInfo = () => {
@@ -105,4 +145,5 @@ module.exports = {
 	getDeviceInfo,
 	reloadHomePage,
 	handleContentList,
+	handleContentObj,
 };
